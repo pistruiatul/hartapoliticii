@@ -1,0 +1,13 @@
+# Dot files that we don't care about.
+*.DS_Store
+.idea/workspace.xml
+.classpath
+Pistruiatul.iml
+.idea/*
+
+# The cached pages from the senat website.
+data.cached
+
+# Don't care about binary files.
+bin
+out

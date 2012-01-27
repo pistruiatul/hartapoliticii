@@ -1,0 +1,56 @@
+body {
+  font-size: 0.9em;
+}
+.blacktext {
+  color: black;
+}
+.red {
+  color: #880000;
+}
+.brightred {
+  color: #DD0000;
+}
+.gray,
+.gray a {
+  color: #999999;
+}
+.small {
+  font-size: 0.8em;
+}
+.noprint {
+  display:none;
+}
+.graphimage {
+  width: 450px;
+}
+.warning {
+  width: 800px;
+  padding: 10px;
+  background: #ffcc66;
+  border: 1px #996699;
+}
+.header {
+  font-weight: bold;
+  background: #EEEEEE;
+  font-size: 1.1em;
+}
+.bigtable td {
+  padding: 3px;
+}
+.title {
+  font-weight: bold;
+  font-size: 23px;
+  padding: 10px;
+}
+.info {
+  font-size: 1.1em;
+}
+.moreinfolist li {
+  padding:5px;
+}
+.numedeputattitlu {
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}

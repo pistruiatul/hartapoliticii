@@ -1,0 +1,127 @@
+
+.commentlist li, #commentform input, #commentform textarea {
+  font: 0.8em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  }
+.commentlist li ul li {
+  font-size: .8em;
+}
+
+.commentlist li {
+  font-weight: bold;
+}
+
+.commentlist li .avatar { 
+  float: right;
+  border: 1px solid #eee;
+  padding: 2px;
+  background: #fff;
+  }
+
+.commentlist cite, .commentlist cite a {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.1em;
+  }
+
+.commentlist p {
+  font-weight: normal;
+  line-height: 1.3em;
+  text-transform: none;
+  }
+
+#commentform p {
+  font-family: Georgia;
+  }
+
+.commentmetadata {
+  font-weight: normal;
+  }
+
+
+.nocomments, {
+  color: #777;
+  }
+
+h3.comments {
+  padding: 0;
+  margin: 10px auto 20px ;
+  font-weight: normal;
+ }
+/* End Headers */
+
+#commentform input {
+  width: 170px;
+  padding: 2px;
+  margin: 5px 5px 1px 0;
+  }
+
+#commentform {
+  margin: 5px 10px 0 0;
+  }
+#commentform textarea {
+  width: 100%;
+  padding: 2px;
+  }
+#respond:after {
+    content: "."; 
+      display: block; 
+      height: 0; 
+      clear: both; 
+      visibility: hidden;
+  }
+#commentform #submit {
+  margin: 0 0 5px auto;
+  float: right;
+  }
+/* End Form Elements */
+
+
+
+/* Begin Comments*/
+.alt {
+  margin: 0;
+  padding: 10px;
+  }
+
+.commentlist {
+  padding: 0;
+  text-align: justify;
+  }
+
+.commentlist li {
+  margin: 15px 0 10px;
+  padding: 1px 5px 0px 10px;
+  list-style: none;
+
+  }
+.commentlist li ul li { 
+  margin-right: -5px;
+  margin-left: 10px;
+}
+
+.commentlist p {
+  margin: 3px 5px 10px 0;
+}
+.children { padding: 0; }
+
+#commentform p {
+  margin: 5px 0;
+  }
+
+.nocomments {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  }
+
+.commentmetadata {
+  margin: 0;
+  display: block;
+  }
+/* End Comments */
+
+
+/* "Daisy, Daisy, give me your answer do. I'm half crazy all for the love of you.
+  It won't be a stylish marriage, I can't afford a carriage.
+  But you'll look sweet upon the seat of a bicycle built for two." */
+@CHARSET "UTF-8";

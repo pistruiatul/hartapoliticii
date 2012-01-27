@@ -1,0 +1,28 @@
+# Dot files that we don't care about.
+*.DS_Store
+.project
+.settings
+.buildpath
+
+# Compiled templates we do not want.
+templates_c
+
+# php my admin.
+a/
+
+# Some data files that are too large.
+f/
+
+# the idea project
+.idea
+
+# The heads of people.
+images/people/
+images/people_tiny/
+
+# Ignore .htaccess and .htpassword files
+*.htaccess
+*.htpasswd
+
+# Where we keep api keys and stuff like that.
+secret/*
