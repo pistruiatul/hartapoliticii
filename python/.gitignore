@@ -1,0 +1,40 @@
+# Dot files that we don't care about.
+*.DS_Store
+.project
+.settings
+.buildpath
+.com.apple.*
+.pydevproject
+
+# All vim files.
+*.swp
+
+# All the deps are not really necessary.
+deps
+
+# I don't want to track the news pages.
+src/ro/vivi/news_parser/catavencu/
+src/ro/vivi/news_parser/gandul/
+src/ro/vivi/news_parser/hotnews/
+src/ro/vivi/news_parser/mediafax/
+src/ro/vivi/news_parser/people/
+src/ro/vivi/news_parser/people_small/
+src/ro/vivi/news_parser/people_tiny/
+src/ro/vivi/news_parser/cotidianul/
+
+# The people images
+src/ro/vivi/thumb_generator/people/
+src/ro/vivi/thumb_generator/people_small/
+src/ro/vivi/thumb_generator/people_tiny/
+
+
+# The cached pages from the senat website.
+src/ro/vivi/senat_crawler/pages/
+src/ro/vivi/senat_crawler/pages/
+src/ro/vivi/senat_crawler/cache/
+
+# The temporary dump of the database
+hartapoliticii_pistruiatul.sql
+
+# Secret files
+secret/*

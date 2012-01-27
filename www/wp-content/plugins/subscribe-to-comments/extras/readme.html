@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Subscribe to Comments 2 for WordPress README</title>
+</head>
+<body>
+<h1>Subscribe to Comments 2</h1>
+
+<h2>Description</h2>
+<p>Subscribe to Comments 2 is a WordPress plugin that allows commenters on an entry to subscribe to e-mail notifications for subsequent comments.  It does <em>NOT</em> e-mail you new blog posts.  For that functionality, use Skippy's <a href="http://www.skippy.net/blog/2005/02/17/subscribe2/">Subscribe2 plugin</a>.</p>
+
+<h2>Links</h2>
+<p>Here are some of the crucial Subscribe to Comments 2 links</p>
+<ul>
+<li><a href="http://txfx.net/code/wordpress/subscribe-to-comments/">Plugin's home</a></li>
+<li><a href="http://dev.wp-plugins.org/newticket">Report Bugs or Suggest Features</a></li>
+<li><a href="http://downloads.wordpress.org/plugin/subscribe-to-comments.zip">Latest Stable Version</a></li>
+</ul>
+
+<h2>Installation</h2>
+<ol>
+<li>Put <code>subscribe-to-comments.php</code> into <code>[wordpress_dir]/wp-content/plugins/</code></li>
+<li><strong>If you are upgrading from a 2.0.x version of this plugin only,</strong> put <code>wp-subscription-manager.php</code> into your blog's root WordPress directory (the directory where <code>wp-config.php</code> resides)</li>
+<li>Go into the WordPress admin interface and activate the plugin</li>
+<li>Optional: if your WordPress theme doesn't have the <code>comment_form</code> hook, or if you would like to manually determine where in your comments form the subscribe checkbox appears, enter this where you would like it: <code>&lt;?php show_subscription_checkbox(); ?&gt;</code></li>
+<li>Optional: If you would like to enable users to subscribe to comments without having to leave a comment, place this somewhere in your template, but make sure it is <strong>outside the comments form</strong>.  A good place would be right after the ending <code>&lt;/form&gt;</code> tag for the comments form: <code>&lt;?php show_manual_subscription_form(); ?></code></li>
+</ol>
+
+<h2>Notes</h2>
+<ul>
+<li>The <code>subscribe-to-comments.pot</code> file is for translators... normal users should disregard it</li>
+<li>The only file that <em>must</em> be uploaded is the <code>subscribe-to-comments.php</code> file.  The <code>wp-subscription-manager.php</code> file is for backwards compatability only.  If you are installing the plugin for the first time, you don't need it.  None of the other files in the <code>/readme-etc/</code> directory need to be uploaded</li>
+<li>The function &gt;?php comment_subscription_status(); ?&gt; can be used within the comments loop to determine if a comment's author is subscribed or not.  e.g.
+<pre><code>&lt;?php if (comment_subscription_status()) { ?&gt;
+Subscribed
+&lt;?php } ?&gt;</code></pre></li>
+<li>You need to be a logged-in WordPress user with the "manage_options" capability in order to search for subscriptions on random e-mail addresses or to remove a "do not mail" block.</li>
+<li>The author of the post is always determined to be subscribed, and thus will never see the "subscribe" checkbox for his entries, but instead will see the "entry author" message.</li>
+<li>Users are never e-mailed notifications for their own comments. (important that you know that for testing out the plugin)</li>
+<li>The text shown next to the checkbox for unsubscribed users, the "you are subscribed" text, and the "you are the author of this entry" text can all be customized in the options (Options -&gt; Subscribe to Comments).</li>
+<li>By default, the "subscribe" checkbox is unchecked, but you can change that in the options (i.e. so that it is checked by default).</li>
+<li>The following CSS can be used with the WordPress default "Kubrick" theme if you want to use a custom style for the Subscription Manager and should be added to your <code>style.css</code> file:<br /><br />
+<pre>
+/* SUBSCRIPTION MANAGER STYLE */
+.subscription-manager {
+padding: 10px 0 20px 0;
+margin: 5px 0 0 55px;
+width: 650px;
+}
+
+div.wrap {
+background: #fafafa;
+padding: 5px 10px;
+margin: 20px 0;
+border: 1px solid #ccc;
+}
+
+div.wrap h2 {
+margin: .5em 0 1em 0;
+border-bottom: 2px solid #589bd2;
+}
+
+div.wrap fieldset {
+border: 1px solid #555;
+margin: 1em 0;
+padding: 5px 10px;
+}
+
+div.wrap fieldset legend {
+font-weight: bold;
+font-size: small;
+}
+
+div.wrap p.submit {
+text-align: right;
+}
+
+
+.updated {
+background: #B9D6EF;
+border: 1px solid #589bd2;
+margin: 1em 5% 10px;
+padding: 0 1em;
+}
+
+.updated-error {
+background-color: #FFA3A3;
+border: 1px solid #FF5D5D;
+}
+
+div.wrap form {
+margin: 0;
+padding: 0;
+}
+
+div.warp li {
+margin-bottom: 6px;
+line-height: 130%;
+}
+/* END SUBSCRIPTION MANAGER STYLE */
+
+</pre></li>
+
+
+
+
+</ul>
+
+</body>
+</html>

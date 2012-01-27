@@ -1,0 +1,330 @@
+body {
+  font-size: 0.9em;
+  line-height: 1.4em;
+  font-family: Georgia;
+}
+#ytcontrols {
+  font-size: 0.9em;
+  line-height: 1.4em;
+  font-family: Georgia;
+  text-align: right;
+}
+#playerwrapper {
+  border: 2px solid #444444;
+}
+.blacktext {
+  color: black;
+}
+.red {
+  color: #880000;
+}
+.green {
+  color: #008800;
+}
+.brightred {
+  color: #DD0000;
+}
+.brightgreen {
+  color: #00DD00;
+}
+.gray,
+.gray a {
+  color: #999999;
+}
+.black {
+  color: #000000;
+}
+#parties_table td {
+  padding: 8px;
+}
+.small {
+  font-size: 0.8em;
+}
+.medium {
+  font-size: 0.9em;
+}
+.menu {
+  padding: 8px;
+  background-color: #F6F6F6;
+  margin: 0;
+  font-size: 1.1em;
+}
+.menu td {
+  vertical-align: top;
+}
+.menu li {
+  display: inline;
+  background-color: #EEE;
+  padding: 5px;
+  margin-right: 2px;
+  font-weight: bold;
+}
+.menu .submenu {
+  font-size: 13px;
+}
+.menu a {
+  color: #213f9a;
+}
+.noprint {
+}
+.warning {
+  width: 800px;
+  padding: 10px;
+  background: #ffcc66;
+  border: 1px #996699;
+}
+.infotext, .plaintext {
+  width: 800px;
+  padding: 10px;
+  color: #666;
+}
+.plaintext {
+  color: #000;
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+.header {
+  font-weight: bold;
+  background: #EEEEEE;
+  font-size: 1.1em;
+}
+.bigtable .header td {
+  padding: 10px;
+}
+.bigtable td {
+  padding: 3px;
+}
+.title {
+  font-weight: bold;
+  font-size: 23px;
+  padding: 10px;
+}
+.info {
+  font-size: 1.1em;
+}
+.moreinfolist li {
+  padding:5px;
+}
+.numedeputattitlu {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline;
+}
+.separator {
+  background: #EEE;
+  height: 1px;
+}
+
+.identity {
+  padding: 2px;
+}
+
+.identity_li {
+  padding: 0px;
+  margin-left: -20px;
+  padding-top: 5px;
+}
+.identity_ul {
+}
+.identity_img {
+  text-align: center;
+}
+
+.top_bar {
+  padding: 8px;
+  padding-left: 12px;
+  margin-top: 10px;
+  background: #F4F4F4;
+  border-top-style: solid;
+  border-top-color: #DDD;
+  border-top-width: 1px;
+}
+
+.module {
+  font-size: 1.0em;
+  background: #FFF;
+  border: 1px;
+  padding: 1px;
+}
+.module .moduletitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 2px;
+  color: #369;
+  background: #FFF;
+  border-bottom-style: solid;
+  border-bottom-color: #9CF;
+  border-bottom-width: 1px;
+}
+.module .modulecontent {
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.sidemoduletitle {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 2px;
+  color: #369;
+  border-bottom-style: solid;
+  border-bottom-color: #9CF;
+  border-bottom-width: 1px;
+  padding-top: 12px;
+}
+
+.module_expand_link {
+  font-size: 0.8em;
+  text-align: right;
+}
+
+.personrow, .personrow a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #770000;
+}
+.winnerrow, .winnerrow a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #007700;
+}
+.othersrow a {
+  color: #693;
+  text-decoration: none;
+}
+.othersrow a:hover {
+	text-decoration: underline;
+}
+.minoritati {
+  display: none;
+}
+.show {
+}
+.euro_party_info {
+  padding-left: 15px;
+  padding-bottom: -5px;
+  color: #555;
+}
+
+.searchresult {
+  padding:10px;
+}
+.searchresult .name {
+  font-size:1.2em;
+}
+.searchresult .what {
+  display:inline;
+}
+.searchresult .snippet {
+  color:#333;
+}
+.searchresult .thumb {
+  float: left;
+  margin-right: 8px;
+  width: 22px;
+  height: 30px;
+}
+
+.submenu {
+  font-size: 0.9em;
+}
+.submenu a, .submenu a.visited {
+  color: #00C;
+}
+.submenu a.selected {
+  color: #000;
+  text-decoration: none;
+}
+.right {
+  text-align: right;
+}
+#suggest_photo_input {
+ width: 90%;
+}
+.recent_news {
+  line-height: 1em;
+  font-size: 16px;
+}
+.recent_news_title {
+  margin-bottom: 7px;
+}
+
+.news_list_mention {
+  background: #F3F3F3;
+  color: #999;
+  display: inline-block;
+  padding: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
+  margin-bottom: 2px;
+  line-height: 1.1em;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+.news_list_mention a {
+  text-decoration: none;
+  color: #999;
+}
+
+.invisible_link a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Icon classes. */
+.up_arrow {
+  background: #fff url('images/icons.png') no-repeat left center;
+  width: 11px;
+  height: 11px;
+  background-position: -1px -1px
+}
+
+.down_arrow {
+  background: #fff url('images/icons.png') no-repeat left center;
+  width: 11px;
+  height: 11px;
+  background-position: -1px -12px
+}
+.black_link, .black_link a {
+  color: #000 !important;
+  text-decoration: none;
+}
+
+.black_link a:hover {
+	text-decoration: underline;
+}
+
+/* The login bar. */
+.login_bar {
+  font-size: 80%;
+}
+
+/** The beliefs system. */
+.belief_table {
+	font-size: 77%;
+	font-weight: bold;
+	color: white;
+	height: 10px;
+}
+
+.home_blog_post {
+	line-height:normal;
+	padding-bottom: 5px;
+}
+
+.home_blog_post_comments {
+  white-space: nowrap;
+}
+
+.green_link a {
+	color: #669933;
+	text-decoration: none;
+}
+
+.green_link a:hover {
+	text-decoration: underline;
+}
+
+.smalltitle {
+	margin-bottom: 0px;
+}
