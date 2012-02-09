@@ -1,2 +1,5 @@
 # Ignore the IntelliJ project files.
 .idea
+
+
+.DS_Store
