@@ -19,7 +19,7 @@ function addPerson($name) {
   return -1;
 }
 
-$name = trim($_GET['name']);
+$name =  mysql_real_escape_string(trim($_GET['name']));
 if ($name) {
   $id = addPerson($name);
   echo $id;

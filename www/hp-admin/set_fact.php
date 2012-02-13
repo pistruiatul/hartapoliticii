@@ -2,9 +2,9 @@
 
 include ('../_top.php');
 
-$id = $_GET['id'];
-$attribute = $_GET['attribute'];
-$value = $_GET['value'];
+$id = (int)$_GET['id'];
+$attribute = mysql_real_escape_string($_GET['attribute']);
+$value = mysql_real_escape_string($_GET['value']);
 
 if ($attribute == "" || $value == "") {
   return;
