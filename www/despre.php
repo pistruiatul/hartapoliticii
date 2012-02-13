@@ -1,7 +1,7 @@
 <?
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) {
-  header('Location: http://www.vivi.ro/politica');
+  header('Location: /');
 }
 
 
@@ -48,12 +48,12 @@ include('header.php');
 <p>
   Astfel de liste există deja <a href="http://projects.washingtonpost.com/congress/110/house/vote-missers/">pentru House Of Representatives din America</a>, analogul Camerei Deputaților de la noi, și pentru <a href="http://projects.washingtonpost.com/congress/110/senate/vote-missers/">Senatul American</a>. Ca să punem lucrurile în perspectivă am adunat datele din amandouă și am făcut un grafic.
 </p><p>
-  <a href="http://www.vivi.ro/politica/deputati2_ro_us_big.png"><img border=0 class="small_photo" src="http://www.vivi.ro/politica/deputati2_ro_us_small.png" alt="" /></a>
-  <br><span style="font-size:0.7em">Un grafic ceva mai hardcore <a href="http://www.vivi.ro/politica/graph_big.png">îl găsiți aici</a>, pentru iubitorii de grafice.</span>
+  <a href="//deputati2_ro_us_big.png"><img border=0 class="small_photo" src="//deputati2_ro_us_small.png" alt="" /></a>
+  <br><span style="font-size:0.7em">Un grafic ceva mai hardcore <a href="//graph_big.png">îl găsiți aici</a>, pentru iubitorii de grafice.</span>
 </p><p>
   În House Of Representatives sunt 447 deputați, în Camera Deputaților la noi sunt 321.
 </p><p>
-  90% din deputații americani au absenteismul sub 10%, în timp ce doar 15% de la noi sunt atât de conștiincioși. Doar 2 (0.5%) deputați americani au lipsit la mai mult de jumătate din voturi și asta <a href="http://projects.washingtonpost.com/congress/110/house/vote-missers/">pentru că au decedat</a>. La noi, <a href="http://www.vivi.ro/politica/index.php?sort=percent">70 de deputați (20%) au lipsit</a> la mai mult de jumătate din voturi.
+  90% din deputații americani au absenteismul sub 10%, în timp ce doar 15% de la noi sunt atât de conștiincioși. Doar 2 (0.5%) deputați americani au lipsit la mai mult de jumătate din voturi și asta <a href="http://projects.washingtonpost.com/congress/110/house/vote-missers/">pentru că au decedat</a>. La noi, <a href="//index.php?sort=percent">70 de deputați (20%) au lipsit</a> la mai mult de jumătate din voturi.
 </p>
 </blockquote>
 

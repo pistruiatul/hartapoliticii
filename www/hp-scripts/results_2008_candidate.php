@@ -2,8 +2,8 @@
 include("../_top.php");
 
 if ($_GET['original']) {
-  $orig = $_GET['original'];
-  $new = $_GET['new'];
+  $orig = mysql_real_escape_string($_GET['original']);
+  $new = mysql_real_escape_string($_GET['new']);
 
   echo $orig . ' -> ' . $new;
   $soq = "select id from results_2008_candidates where nume LIKE '$orig'";
