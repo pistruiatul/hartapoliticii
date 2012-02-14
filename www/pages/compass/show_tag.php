@@ -48,7 +48,9 @@ $year = '2008';
 $title = 'Tag "' . getTagNameForId($tagid) . '"';
 $nowarning = true;
 
-include('header.php');
+if (!$_GET['iframe']) {
+  include('header.php');
+}
 
 if ($csum == md5($room . '_' . $year . '_votes_details' . $uid . $tagid .
                  'tagsekret')) {
