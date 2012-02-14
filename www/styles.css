@@ -332,3 +332,11 @@ body {
 .smalltitle {
 	margin-bottom: 0px;
 }
+
+.tag_description {
+  margin: 10px;
+  border: solid 1px #99DD99;
+  background: #EEFFEE;
+  margin-left: 20px;
+  padding: 10px;
+}

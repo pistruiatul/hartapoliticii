@@ -32,7 +32,7 @@ from xml.etree.ElementTree import parse
 
 NUM_DAYS_REWRITE = 20
 
-source = 'src/ro/vivi/pistruiatul/mediafax'
+source = 'src/ro/vivi/news_parser/mediafax'
 source_xml = 'http://www.mediafax.ro/rss/politic/'
 
 
