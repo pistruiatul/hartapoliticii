@@ -63,11 +63,11 @@
   <strong>Atunci următorii parlamentari au votat în felul următor:</strong>
   <br/>
   <div style="margin-left: 20px;">
-  {include file="parl_person_beliefs_header.tpl" width=300}
+  {include file="compass_table_header.tpl" width=300}
 
   {section name=p loop=$people}
     {strip}
-    {include file="parl_person_belief.tpl"
+    {include file="compass_person_row.tpl"
         w1=$people[p].w1
         w2=$people[p].w2
         w3=$people[p].w3
@@ -77,11 +77,11 @@
         c3=$people[p].c3
         c4=$people[p].c4
         c5=$people[p].c5
-        tiny_photo=$people[p].tiny_photo
-        display_name=$people[p].display_name
-        taglink=$people[p].link
-        party_name=$people[p].party_name
-        width=300}
+        person=$people[p]
+        room=$room
+        year=$year
+        tagid=$tagid
+        }
     {/strip}
   {/section}
   </div>
@@ -93,7 +93,7 @@
 
   {section name=a loop=$absentees}
     {strip}
-    {include file="parl_person_belief.tpl"
+    {include file="compass_person_row.tpl"
         w1=$absentees[a].w1
         w2=$absentees[a].w2
         w3=$absentees[a].w3
@@ -103,11 +103,7 @@
         c3=$absentees[a].c3
         c4=$absentees[a].c4
         c5=$absentees[a].c5
-        tiny_photo=$absentees[a].tiny_photo
-        display_name=$absentees[a].display_name
-        taglink=$absentees[a].link
-        party_name=$absentees[a].party_name
-        width=300}
+        person=$absentees[a]}
     {/strip}
   {/section}
   </div>
