@@ -2,7 +2,7 @@
 <?
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) {
-  header('Location: http://www.vivi.ro/politica');
+  header('Location: /');
 }
 $title = "Revista Presei";
 

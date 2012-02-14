@@ -461,8 +461,8 @@ function maybeAddDisambiguationResolver() {
 
     // Decode te disambiguation string from the url
     list($from, $to) = split(',', urldecode($_GET['ambig']));
-    $from = trim($from);
-    $to = trim($to);
+    $from = mysql_real_escape_string(trim($from));
+    $to = mysql_real_escape_string(trim($to));
 
     $s = mysql_query(
       "SELECT * FROM people_ambiguities " .
