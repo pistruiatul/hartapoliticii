@@ -24,18 +24,6 @@ Dacă misiunea de mai sus e prea vagă, am scris aici câteva idei mai concrete.
 
 ### Contact
 
-Pentru mai multe detalii, contactează-mă la octavian.costache [at] gmail.com.
+Dacă vrei să contribui și tu la proiect contactează-mă
+la octavian.costache [at] gmail.com.
 
-
-### Contribuitori actuali
-
-Până în acest moment au contribuit la proiect în diverse roluri, în ordine alfabetică:
-
-- Alex Morega
-- Alexandru Lăpușan
-- Bogdan Manolea
-- Irina Dumitrașcu
-- Nicoleta Fotiade
-- Octavian Costache
-- Tiberiu Turbureanu
-- Sîrbu Lucian
