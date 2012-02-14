@@ -13,8 +13,14 @@
   aici</a>.
   </span>
 
+  {if $description != ""}
+    <div class="tag_description">
+      {$description}
+    </div>
+  {else}
+    <br><br>
+  {/if}
 
-  <br><br>
   <div style="clear:right"></div>
   <strong>Dacă următoarele presupuneri sunt adevărate:</strong>
   <br/>
@@ -70,6 +76,7 @@
         c2=$people[p].c2
         c3=$people[p].c3
         c4=$people[p].c4
+        c5=$people[p].c5
         tiny_photo=$people[p].tiny_photo
         display_name=$people[p].display_name
         taglink=$people[p].link
@@ -95,6 +102,7 @@
         c2=$absentees[a].c2
         c3=$absentees[a].c3
         c4=$absentees[a].c4
+        c5=$absentees[a].c5
         tiny_photo=$absentees[a].tiny_photo
         display_name=$absentees[a].display_name
         taglink=$absentees[a].link

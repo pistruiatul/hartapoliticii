@@ -55,6 +55,8 @@ if ($csum == md5($room . '_' . $year . '_votes_details' . $uid . $tagid .
   $t = new Smarty();
 
   $t->assign('tag', getTagNameForId($tagid));
+  $t->assign('description', getTagDescriptionForId($tagid));
+
   $votes = getVotesForTag($room, $year, $tagid, $uid);
   $possible = sizeof($votes);
   $t->assign('votes', $votes);
@@ -73,9 +75,11 @@ if ($csum == md5($room . '_' . $year . '_votes_details' . $uid . $tagid .
     $people[$i]['w3'] = $c['w3'];
     $people[$i]['w4'] = $c['w4'];
     $people[$i]['w5'] = $c['w5'];
+
     $people[$i]['c2'] = $c['c2'];
     $people[$i]['c3'] = $c['c3'];
     $people[$i]['c4'] = $c['c4'];
+    $people[$i]['c5'] = $c['c5'];
 
     // Since I'm here, fix the name. A little hacky.
     $people[$i]['link'] = "?cid=9&id=" . $people[$i]['id'];
@@ -89,12 +93,14 @@ if ($csum == md5($room . '_' . $year . '_votes_details' . $uid . $tagid .
   }
 
   usort($non_zero_people, "beliefCmp");
-  $t->assign('people', $non_zero_people);
 
+  $t->assign('people', $non_zero_people);
   $t->assign('absentees', $zero_people);
 
   $t->assign('user_login', getUserLogin($uid));
+
   $t->display('compass_show_tag.tpl');
+
 } else {
   echo "Wrong checksum";
 }

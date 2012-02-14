@@ -9,18 +9,18 @@ else
 fi
 
 start=`date +%s`
-$PYBIN src/ro/vivi/pistruiatul/rss_parse_mediafax.py
-$PYBIN src/ro/vivi/pistruiatul/entity_extractor.py \
-    src/ro/vivi/pistruiatul/mediafax \
+$PYBIN src/ro/vivi/news_parser/rss_parse_mediafax.py
+$PYBIN src/ro/vivi/news_parser/entity_extractor.py \
+    src/ro/vivi/news_parser/mediafax \
     secret/api_key
 
 end=`date +%s`
 t1=`expr $end - $start`
 
 start=`date +%s`
-$PYBIN src/ro/vivi/pistruiatul/rss_parse_hotnews.py
-$PYBIN src/ro/vivi/pistruiatul/entity_extractor.py \
-    src/ro/vivi/pistruiatul/hotnews \
+$PYBIN src/ro/vivi/news_parser/rss_parse_hotnews.py
+$PYBIN src/ro/vivi/news_parser/entity_extractor.py \
+    src/ro/vivi/news_parser/hotnews \
     secret/api_key
 
 end=`date +%s`

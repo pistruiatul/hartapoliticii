@@ -35,10 +35,18 @@
       </td>
     </table>
   </td>
-  <td align="right" width="80">
-    <span class="light_gray">
+  <td align="right" width="150">
+
       {if $c3 > 0}
-        și {$c3} absențe
+        <span class="light_gray">
+        {$c3} absențe
+        </span>
+      {/if}
+
+      {if $c5 > 0}
+        <span class="gray">
+        , {$c5} abțineri
+        </span>
       {/if}
     </span>
   </td>

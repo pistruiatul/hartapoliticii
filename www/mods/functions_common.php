@@ -25,9 +25,16 @@ function getTagNameForId($id) {
   $s = mysql_query("
     SELECT tag FROM parl_tags WHERE id = $id");
 
-  if ($r = mysql_fetch_array($s)) {
-    return $r['tag'];
-  }
+  if ($r = mysql_fetch_array($s)) return $r['tag'];
+  return '';
+}
+
+
+function getTagDescriptionForId($id) {
+  $s = mysql_query("
+    SELECT description FROM parl_tags WHERE id = {$id}");
+
+  if ($r = mysql_fetch_array($s)) return $r['description'];
   return '';
 }
 
@@ -88,6 +95,7 @@ function getBeliefContext($room, $year, $uid, $idperson, $idtag, $possible) {
   $nunum = getTaggedVoteCount($idperson, $room, $year, 'NU', $idtag, $uid);
   $abnum = getTaggedVoteCount($idperson, $room, $year, 'Ab', $idtag, $uid);
   $minum = getTaggedVoteCount($idperson, $room, $year, '-', $idtag, $uid);
+
   $total = $possible;
 
   $sum = $danum + $nunum + $abnum + $minum;
@@ -115,8 +123,9 @@ function getBeliefContext($room, $year, $uid, $idperson, $idtag, $possible) {
   $c['w5'] = $w5;
 
   $c['c2'] = $nunum;
-  $c['c3'] = $abnum + $minum + ($total - $sum);
+  $c['c3'] = $total - $sum;
   $c['c4'] = $danum;
+  $c['c5'] = $minum + $abnum;
 
   return $c;
 }
@@ -149,6 +158,7 @@ function showBeliefs($room, $year, $uid, $idperson) {
     $t->assign('c2', $c['c2']);
     $t->assign('c3', $c['c3']);
     $t->assign('c4', $c['c4']);
+    $t->assign('c5', $c['c5']);
 
     $link =
         "?cid=15&tagid={$tag['id']}&room={$room}&u={$uid}&csum={$tag['csum']}";

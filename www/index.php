@@ -22,6 +22,7 @@ if ($_GET['cid'] && $_GET['cid'] == 'suggest') {
            (!$_GET['cid'] && $_GET['p']) ||
            (!$_GET['cid'] && $_GET['feed'])) {
   /** Loads the WordPress Environment and Template */
+  require_once('./secret/db_user.php');
   require('./wp-blog-header.php');
 
 } else {
