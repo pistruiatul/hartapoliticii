@@ -1,18 +1,46 @@
 <?php
 
-function getVotesForTag($room, $year, $idtag, $uid) {
-  $s = mysql_query("
-    SELECT votes.link, votes.description, tagged.inverse, votes.type,
-        votes.time
-    FROM parl_tagged_votes AS tagged
-    LEFT JOIN {$room}_{$year}_votes_details AS votes
-      ON votes.link = tagged.link
-    WHERE
-      tagged.idtag = {$idtag} AND
-      tagged.votes_table = '{$room}_{$year}_votes_details'
-  ");
+
+/**
+ * Returns the votes that are tagged with this specific tag id. If a person ID
+ * is specified, the method also returns the person's individual position on
+ * each of the votes.
+ * @param $room
+ * @param $year
+ * @param $idtag
+ * @param $personId
+ * @return array
+ */
+function getVotesForTag($room, $year, $idtag, $personId=null) {
+  if ($personId != null) {
+    $sql = "
+      SELECT votes.link, votes.description, tagged.inverse, votes.type,
+          votes.time, position.vote
+      FROM parl_tagged_votes AS tagged
+      LEFT JOIN {$room}_{$year}_votes_details AS votes
+        ON votes.link = tagged.link
+      LEFT JOIN {$room}_{$year}_votes AS position
+        ON position.link = tagged.link AND position.idperson = {$personId}
+      WHERE
+        tagged.idtag = {$idtag} AND
+        tagged.votes_table = '{$room}_{$year}_votes_details'
+    ";
+  } else {
+    $sql = "
+      SELECT votes.link, votes.description, tagged.inverse, votes.type,
+          votes.time
+      FROM parl_tagged_votes AS tagged
+      LEFT JOIN {$room}_{$year}_votes_details AS votes
+        ON votes.link = tagged.link
+      WHERE
+        tagged.idtag = {$idtag} AND
+        tagged.votes_table = '{$room}_{$year}_votes_details'
+    ";
+  }
 
   $votes = array();
+
+  $s = mysql_query($sql);
   while ($r = mysql_fetch_array($s)) {
     $r['time'] = $r['time'] / 1000;
     $votes[] = $r;

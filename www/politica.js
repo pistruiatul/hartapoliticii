@@ -1,3 +1,14 @@
+//
+// NOTE(vivi): This is obviously a big unsorted pile of all the javascript
+// we need. It should be split as some point, as needed.
+//
+
+// ---------------- Utils
+
+
+function elem(id) {
+  return document.getElementById(id);
+}
 
 
 function toggleDiv(id) {
@@ -10,24 +21,31 @@ function toggleDiv(id) {
 }
 
 
+function clearValue(targetId, origText) {
+  var el = elem(targetId);
+  if (el && el.value == origText) {
+    el.value = '';
+  }
+}
+
+
 function sendPayload_(url, opt_callback, opt_method, opt_payload) {
   var method = opt_method || "GET";
-  
+
   var xmlhttp = null;
-  if (window.XMLHttpRequest) {// code for all new browsers
+  if (window.XMLHttpRequest) {  // code for all new browsers
     xmlhttp = new XMLHttpRequest();
-  } else if (window.ActiveXObject) {// code for IE5 and IE6
+  } else if (window.ActiveXObject) {  // code for IE5 and IE6
     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
-  
+
   if (xmlhttp != null) {
     xmlhttp.onreadystatechange = onPayloadResponse_(xmlhttp, opt_callback);
     xmlhttp.open(method, url, true);
-  if (opt_method == "POST") {
-    xmlhttp.setRequestHeader("Content-type", 
-                             "application/x-www-form-urlencoded");
-  }
-    
+    if (opt_method == "POST") {
+      xmlhttp.setRequestHeader("Content-type",
+                               "application/x-www-form-urlencoded");
+    }
     xmlhttp.send(opt_payload);
   }
 }
@@ -53,6 +71,10 @@ function onPayloadResponse_(xmlhttp, opt_callback, opt_err) {
 function loadHandler() {
 }
 
+// --------------- end utils
+
+
+// --------------- Europarlamentare
 
 var parts = document.location.href.split("?");
 var globalSimParams = parts.length == 2 ? parts[1] : '';
@@ -68,9 +90,9 @@ function getSimResults(values) {
     '&p6=' + arr[5] +
     '&p40=' + arr[6] +
     '&pb=' + arr[7] +
-    '&pa=' + arr[8] + 
+    '&pa=' + arr[8] +
     '&cid=10&sid=2';
-  
+
   if (globalSimParams != newGlobalSimParams) {
     globalSimParams = newGlobalSimParams;
     var div = elem('sim_results');
@@ -90,13 +112,7 @@ function updateEuroResults_(url) {
 }
 
 
-function clearValue(targetId, origText) {
-  var el = elem(targetId);
-  if (el && el.value == origText) {
-    el.value = '';
-  }
-}
-
+// --------------- Person page javascript
 
 function togglePhotoSuggestForm() {
   toggleDiv('suggest_photo');
@@ -107,14 +123,14 @@ function sendPhoto() {
   var url = getInputValue('suggest_photo_input');
   var pid = getInputValue('ps_pid');
   var type = getInputValue('ps_type');
-  
+
   var sendUrl = "?cid=suggest&value=" + escape(url) + "&pid=" + pid +
                 "&type=" + type;
 
   sendPayload_(sendUrl, function() {
     var div = elem('suggest_photo');
     if (div) {
-      div.innerHTML = "Mulțumesc pentru sugestie. Ea va fi adăugată imediat "+ 
+      div.innerHTML = "Mulțumesc pentru sugestie. Ea va fi adăugată imediat "+
                       "ce un moderator o va verifica.";
     }
   });
@@ -127,6 +143,9 @@ function getInputValue(id) {
 }
 
 
+// ------------ Youtube player stuff - for presidential candidate pages.
+
+
 function onYouTubePlayerReady(playerId) {
   var ytplayer = elem("myytplayer");
   if (ytplayer) {
@@ -134,19 +153,20 @@ function onYouTubePlayerReady(playerId) {
   }
 }
 
+
 function getSize() {
   var myWidth = 0, myHeight = 0;
   if( typeof( window.innerWidth ) == 'number' ) {
     //Non-IE
     myWidth = window.innerWidth;
     myHeight = window.innerHeight;
-  } else if (document.documentElement && 
-      (document.documentElement.clientWidth || 
+  } else if (document.documentElement &&
+      (document.documentElement.clientWidth ||
        document.documentElement.clientHeight)) {
     //IE 6+ in 'standards compliant mode'
     myWidth = document.documentElement.clientWidth;
     myHeight = document.documentElement.clientHeight;
-  } else if (document.body && 
+  } else if (document.body &&
       (document.body.clientWidth || document.body.clientHeight)) {
     //IE 4 compatible
     myWidth = document.body.clientWidth;
@@ -158,19 +178,15 @@ function getSize() {
   }
 }
 
-function elem(id) {
-  return document.getElementById(id);
-}
-
 
 function inlinePlay(url) {
   removeInlinePlayer();
 
   var wrapper = elem("playerwrapper");
   wrapper.style.display = 'block';
-  
-  wrapper.innerHTML = 
-      '<div id="ytcontrols" style="background:#EEEEEE;padding:4px;">' + 
+
+  wrapper.innerHTML =
+      '<div id="ytcontrols" style="background:#EEEEEE;padding:4px;">' +
       '<a href="javascript:removeInlinePlayer();">Închide</a></div>' +
       '<div id="ytapiplayer"></div>';
 
@@ -191,6 +207,9 @@ function removeInlinePlayer() {
   wrapper.innerHTML = '<div id="ytapiplayer"></div>';
 }
 
+// ----------------------------------------------
+// Functions related to tagging of laws.
+
 
 // Adding and removing vote tags.
 function addVoteTag(room, year, idvote) {
@@ -200,30 +219,65 @@ function addVoteTag(room, year, idvote) {
   if (tag) {
     // Here's where we make a request to the API.
     var url = '/api/add_vote_tag.php' +
-        '?room=' + room + 
+        '?room=' + room +
         '&year=' + year +
         '&idvote=' + idvote +
-        '&tag=' + tag + 
+        '&tag=' + tag +
         '&inverse=' + inverse;
-	sendPayload_(url, function(response) {
+
+    sendPayload_(url, function(response) {
       toggleDiv('holder_' + idvote);
       elem('input_' + idvote).value = '';
     });
   }
 }
 
+
 function removeVoteTag(room, year, idvote, tag, idtag) {
   // Here's where we make a request to the API.
   var url = '/api/add_vote_tag.php' +
-      '?room=' + room + 
+      '?room=' + room +
       '&year=' + year +
       '&idvote=' + idvote +
-      '&tag=' + tag + 
+      '&tag=' + tag +
       '&delete=' + 1;
+
   sendPayload_(url, function(response) {
-	if (response == 'done') {
-	  elem('tag_' + idtag).innerHTML = '';
-	}
+	  if (response == 'done') {
+	    elem('tag_' + idtag).innerHTML = '';
+	  }
     window.console.log('done!? ' + response);
+  });
+}
+
+
+/**
+ * Handles the click on a '+' on a score-card page. The method will then load
+ * the individual votes for this person on this tag id and display them
+ * in the according div.
+ * @param personId
+ * @param room
+ * @param year
+ * @param tagId
+ */
+function compassShowDetailsFor(personId, room, year, tagId) {
+  var url = '/api/compass_vote_details.php' +
+      '?room=' + room +
+      '&year=' + year +
+      '&tagId=' + tagId +
+      '&personId=' + personId;
+
+  sendPayload_(url, function(response) {
+    var el = elem('compass_vote_details_' + personId);
+	  el.innerHTML = response;
+
+    toggleDiv('compass_vote_details_' + personId);
+
+    var img = elem('compass_details_link_' + personId);
+    if (img.src.indexOf('/images/plus.png') > 0) {
+      img.src = '/images/minus.png';
+    } else {
+      img.src = '/images/plus.png';
+    }
   });
 }

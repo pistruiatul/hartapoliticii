@@ -97,6 +97,10 @@ if ($csum == md5($room . '_' . $year . '_votes_details' . $uid . $tagid .
   $t->assign('people', $non_zero_people);
   $t->assign('absentees', $zero_people);
 
+  $t->assign('room', $room);
+  $t->assign('year', $year);
+  $t->assign('tagid', $tagid);
+
   $t->assign('user_login', getUserLogin($uid));
 
   $t->display('compass_show_tag.tpl');
