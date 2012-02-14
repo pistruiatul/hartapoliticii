@@ -11,6 +11,8 @@ include('../_top.php');
 <?
 echo '<b>Photos</b><br>';
 
+$_POST['id'] = (int)$_POST['id'];
+
 if ($_POST['action'] == 'addphoto') {
   // get the third slash from the url.
   $url = $_POST['photo'] ? $_POST['photo'] : $_POST['orig_url'];
