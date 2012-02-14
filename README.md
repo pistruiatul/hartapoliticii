@@ -21,3 +21,21 @@ Citește aceste documente
 Dacă misiunea de mai sus e prea vagă, am scris aici câteva idei mai concrete.
 
 + **[Principii organizatorice pentru colaboratori](https://github.com/okvivi/hartapoliticii/wiki/Principii-de-organizare-pentru-colaboratori)** <br>De citit dacă plănuiți să vă implicați.
+
+### Contact
+
+Pentru mai multe detalii, contactează-mă la octavian.costache [at] gmail.com.
+
+
+### Contribuitori actuali
+
+Până în acest moment au contribuit la proiect în diverse roluri, în ordine alfabetică:
+
+- Alex Morega
+- Alexandru Lăpușan
+- Bogdan Manolea
+- Irina Dumitrașcu
+- Nicoleta Fotiade
+- Octavian Costache
+- Tiberiu Turbureanu
+- Sîrbu Lucian
