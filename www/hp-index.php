@@ -32,7 +32,8 @@ if ($_SERVER['SERVER_NAME'] == 'localhost' ||
     $_SERVER['SERVER_NAME'] == 'mini.local') { ?>
   <script src="politica_localhost.js" type="text/javascript"></script>
 <? } ?>
-<script src="politica.js?v=2" type="text/javascript"></script>
+<script src="politica.js?v=<? echo md5_file('politica.js');?>"
+        type="text/javascript"></script>
 
 <?php if ($_SERVER['SERVER_NAME'] != 'localhost' &&
           $_SERVER['SERVER_NAME'] != 'swiss.local') { ?>
