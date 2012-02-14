@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2012 at 07:05 PM
+-- Generation Time: Feb 13, 2012 at 10:07 PM
 -- Server version: 5.5.12
 -- PHP Version: 5.3.6
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `alegeritv`
 --
 
+DROP TABLE IF EXISTS `alegeritv`;
 CREATE TABLE IF NOT EXISTS `alegeritv` (
   `iddep` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -41,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `alegeritv` (
 -- Table structure for table `alegeri_2008_candidates`
 --
 
+DROP TABLE IF EXISTS `alegeri_2008_candidates`;
 CREATE TABLE IF NOT EXISTS `alegeri_2008_candidates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `college_id` int(11) DEFAULT NULL,
@@ -62,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `alegeri_2008_candidates` (
 -- Table structure for table `alegeri_2008_colleges`
 --
 
+DROP TABLE IF EXISTS `alegeri_2008_colleges`;
 CREATE TABLE IF NOT EXISTS `alegeri_2008_colleges` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -76,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `alegeri_2008_colleges` (
 -- Table structure for table `away_times`
 --
 
+DROP TABLE IF EXISTS `away_times`;
 CREATE TABLE IF NOT EXISTS `away_times` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddepsen` int(11) NOT NULL,
@@ -96,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `away_times` (
 -- Table structure for table `catavencu_2008`
 --
 
+DROP TABLE IF EXISTS `catavencu_2008`;
 CREATE TABLE IF NOT EXISTS `catavencu_2008` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -119,6 +124,7 @@ INSERT INTO `catavencu_2008` (`id`, `name`, `idperson`, `t`, `url`, `party`) VAL
 -- Table structure for table `cdep_2004_belong`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_belong`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_belong` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddep` int(11) NOT NULL,
@@ -136,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_belong` (
 -- Table structure for table `cdep_2004_belong_agg`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_belong_agg`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_belong_agg` (
   `iddep` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -150,6 +157,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_belong_agg` (
 -- Table structure for table `cdep_2004_deputies`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_deputies`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_deputies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idm` int(11) NOT NULL,
@@ -172,6 +180,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_deputies` (
 -- Table structure for table `cdep_2004_laws`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_laws`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_laws` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idp` int(11) NOT NULL,
@@ -187,6 +196,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_laws` (
 -- Table structure for table `cdep_2004_laws_proponents`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_laws_proponents`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_laws_proponents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddep` int(11) NOT NULL,
@@ -207,6 +217,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_laws_proponents` (
 -- Table structure for table `cdep_2004_laws_status`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_laws_status`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_laws_status` (
   `idlaw` int(11) NOT NULL,
   `status` int(11) NOT NULL,
@@ -219,6 +230,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_laws_status` (
 -- Table structure for table `cdep_2004_video`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_video`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_video` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddep` int(11) NOT NULL,
@@ -237,6 +249,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_video` (
 -- Table structure for table `cdep_2004_votes`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_votes`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idv` int(11) NOT NULL,
@@ -259,6 +272,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_votes` (
 -- Table structure for table `cdep_2004_votes_agg`
 --
 
+DROP TABLE IF EXISTS `cdep_2004_votes_agg`;
 CREATE TABLE IF NOT EXISTS `cdep_2004_votes_agg` (
   `iddep` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -278,6 +292,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2004_votes_agg` (
 -- Table structure for table `cdep_2008_belong`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_belong`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_belong` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddep` int(11) NOT NULL,
@@ -295,6 +310,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_belong` (
 -- Table structure for table `cdep_2008_belong_agg`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_belong_agg`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_belong_agg` (
   `iddep` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -309,6 +325,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_belong_agg` (
 -- Table structure for table `cdep_2008_deputies`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_deputies`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_deputies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idm` int(11) NOT NULL,
@@ -331,6 +348,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_deputies` (
 -- Table structure for table `cdep_2008_laws`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_laws`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_laws` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(200) NOT NULL,
@@ -346,6 +364,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_laws` (
 -- Table structure for table `cdep_2008_laws_proponents`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_laws_proponents`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_laws_proponents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddep` int(11) NOT NULL,
@@ -367,6 +386,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_laws_proponents` (
 -- Table structure for table `cdep_2008_laws_status`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_laws_status`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_laws_status` (
   `idlaw` int(11) NOT NULL,
   `status` int(11) NOT NULL,
@@ -379,6 +399,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_laws_status` (
 -- Table structure for table `cdep_2008_votes`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_votes`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(200) NOT NULL,
@@ -404,6 +425,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_votes` (
 -- Table structure for table `cdep_2008_votes_agg`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_votes_agg`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_votes_agg` (
   `iddep` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -426,6 +448,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_votes_agg` (
 -- Table structure for table `cdep_2008_votes_details`
 --
 
+DROP TABLE IF EXISTS `cdep_2008_votes_details`;
 CREATE TABLE IF NOT EXISTS `cdep_2008_votes_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(200) NOT NULL,
@@ -448,6 +471,7 @@ CREATE TABLE IF NOT EXISTS `cdep_2008_votes_details` (
 -- Table structure for table `counties`
 --
 
+DROP TABLE IF EXISTS `counties`;
 CREATE TABLE IF NOT EXISTS `counties` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -460,6 +484,7 @@ CREATE TABLE IF NOT EXISTS `counties` (
 -- Table structure for table `euro_2009_candidates`
 --
 
+DROP TABLE IF EXISTS `euro_2009_candidates`;
 CREATE TABLE IF NOT EXISTS `euro_2009_candidates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idperson` int(11) NOT NULL,
@@ -482,6 +507,7 @@ CREATE TABLE IF NOT EXISTS `euro_2009_candidates` (
 -- Table structure for table `euro_parliament_2007`
 --
 
+DROP TABLE IF EXISTS `euro_parliament_2007`;
 CREATE TABLE IF NOT EXISTS `euro_parliament_2007` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
@@ -497,6 +523,7 @@ CREATE TABLE IF NOT EXISTS `euro_parliament_2007` (
 -- Table structure for table `euro_parliament_2007_agg`
 --
 
+DROP TABLE IF EXISTS `euro_parliament_2007_agg`;
 CREATE TABLE IF NOT EXISTS `euro_parliament_2007_agg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idperson` int(11) NOT NULL,
@@ -514,6 +541,7 @@ CREATE TABLE IF NOT EXISTS `euro_parliament_2007_agg` (
 -- Table structure for table `euro_parliament_2007_qvorum`
 --
 
+DROP TABLE IF EXISTS `euro_parliament_2007_qvorum`;
 CREATE TABLE IF NOT EXISTS `euro_parliament_2007_qvorum` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -531,6 +559,7 @@ CREATE TABLE IF NOT EXISTS `euro_parliament_2007_qvorum` (
 -- Table structure for table `euro_parliament_2007_times`
 --
 
+DROP TABLE IF EXISTS `euro_parliament_2007_times`;
 CREATE TABLE IF NOT EXISTS `euro_parliament_2007_times` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
@@ -546,6 +575,7 @@ CREATE TABLE IF NOT EXISTS `euro_parliament_2007_times` (
 -- Table structure for table `govro_people`
 --
 
+DROP TABLE IF EXISTS `govro_people`;
 CREATE TABLE IF NOT EXISTS `govro_people` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
@@ -565,6 +595,7 @@ CREATE TABLE IF NOT EXISTS `govro_people` (
 -- Table structure for table `log_searches`
 --
 
+DROP TABLE IF EXISTS `log_searches`;
 CREATE TABLE IF NOT EXISTS `log_searches` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `query` text NOT NULL,
@@ -590,6 +621,7 @@ INSERT INTO `log_searches` (`id`, `query`, `time`, `ip`, `num_results`, `found`)
 -- Table structure for table `moderation_queue`
 --
 
+DROP TABLE IF EXISTS `moderation_queue`;
 CREATE TABLE IF NOT EXISTS `moderation_queue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(15) NOT NULL,
@@ -610,6 +642,7 @@ CREATE TABLE IF NOT EXISTS `moderation_queue` (
 -- Table structure for table `news_articles`
 --
 
+DROP TABLE IF EXISTS `news_articles`;
 CREATE TABLE IF NOT EXISTS `news_articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` bigint(20) NOT NULL,
@@ -640,6 +673,7 @@ INSERT INTO `news_articles` (`id`, `time`, `place`, `link`, `title`, `source`) V
 -- Table structure for table `news_people`
 --
 
+DROP TABLE IF EXISTS `news_people`;
 CREATE TABLE IF NOT EXISTS `news_people` (
   `idperson` int(11) NOT NULL,
   `idarticle` int(11) NOT NULL,
@@ -665,6 +699,7 @@ INSERT INTO `news_people` (`idperson`, `idarticle`) VALUES
 -- Table structure for table `news_qualifiers`
 --
 
+DROP TABLE IF EXISTS `news_qualifiers`;
 CREATE TABLE IF NOT EXISTS `news_qualifiers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idarticle` int(11) NOT NULL,
@@ -698,6 +733,7 @@ INSERT INTO `news_qualifiers` (`id`, `idarticle`, `idperson`, `name`, `qualifier
 -- Table structure for table `parl_tagged_votes`
 --
 
+DROP TABLE IF EXISTS `parl_tagged_votes`;
 CREATE TABLE IF NOT EXISTS `parl_tagged_votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `votes_table` varchar(30) NOT NULL,
@@ -720,9 +756,11 @@ CREATE TABLE IF NOT EXISTS `parl_tagged_votes` (
 -- Table structure for table `parl_tags`
 --
 
+DROP TABLE IF EXISTS `parl_tags`;
 CREATE TABLE IF NOT EXISTS `parl_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tag` varchar(150) NOT NULL,
+  `description` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
@@ -732,6 +770,7 @@ CREATE TABLE IF NOT EXISTS `parl_tags` (
 -- Table structure for table `parties`
 --
 
+DROP TABLE IF EXISTS `parties`;
 CREATE TABLE IF NOT EXISTS `parties` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -794,6 +833,7 @@ INSERT INTO `parties` (`id`, `name`, `long_name`, `minoritati`) VALUES
 -- Table structure for table `parties_facts`
 --
 
+DROP TABLE IF EXISTS `parties_facts`;
 CREATE TABLE IF NOT EXISTS `parties_facts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idparty` int(11) NOT NULL,
@@ -812,6 +852,7 @@ CREATE TABLE IF NOT EXISTS `parties_facts` (
 -- Table structure for table `parties_modules`
 --
 
+DROP TABLE IF EXISTS `parties_modules`;
 CREATE TABLE IF NOT EXISTS `parties_modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idparty` int(11) NOT NULL,
@@ -831,6 +872,7 @@ CREATE TABLE IF NOT EXISTS `parties_modules` (
 -- Table structure for table `people`
 --
 
+DROP TABLE IF EXISTS `people`;
 CREATE TABLE IF NOT EXISTS `people` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL COMMENT 'The exhaustive list of all the names that this person has.',
@@ -853,6 +895,7 @@ INSERT INTO `people` (`id`, `name`, `display_name`, `ext`) VALUES
 -- Table structure for table `people_ambiguities`
 --
 
+DROP TABLE IF EXISTS `people_ambiguities`;
 CREATE TABLE IF NOT EXISTS `people_ambiguities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(100) NOT NULL,
@@ -867,6 +910,7 @@ CREATE TABLE IF NOT EXISTS `people_ambiguities` (
 -- Table structure for table `people_facts`
 --
 
+DROP TABLE IF EXISTS `people_facts`;
 CREATE TABLE IF NOT EXISTS `people_facts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idperson` int(11) NOT NULL,
@@ -892,6 +936,7 @@ INSERT INTO `people_facts` (`id`, `idperson`, `attribute`, `value`, `time_ms`) V
 -- Table structure for table `people_history`
 --
 
+DROP TABLE IF EXISTS `people_history`;
 CREATE TABLE IF NOT EXISTS `people_history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idperson` int(11) NOT NULL,
@@ -923,6 +968,7 @@ INSERT INTO `people_history` (`id`, `idperson`, `what`, `url`, `time`) VALUES
 -- Table structure for table `pres_2009_people`
 --
 
+DROP TABLE IF EXISTS `pres_2009_people`;
 CREATE TABLE IF NOT EXISTS `pres_2009_people` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -940,6 +986,7 @@ CREATE TABLE IF NOT EXISTS `pres_2009_people` (
 -- Table structure for table `results_2008`
 --
 
+DROP TABLE IF EXISTS `results_2008`;
 CREATE TABLE IF NOT EXISTS `results_2008` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nume` varchar(100) NOT NULL,
@@ -962,6 +1009,7 @@ CREATE TABLE IF NOT EXISTS `results_2008` (
 -- Table structure for table `results_2008_agg`
 --
 
+DROP TABLE IF EXISTS `results_2008_agg`;
 CREATE TABLE IF NOT EXISTS `results_2008_agg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `college` varchar(40) NOT NULL,
@@ -990,6 +1038,7 @@ CREATE TABLE IF NOT EXISTS `results_2008_agg` (
 -- Table structure for table `results_2008_allocated`
 --
 
+DROP TABLE IF EXISTS `results_2008_allocated`;
 CREATE TABLE IF NOT EXISTS `results_2008_allocated` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `partid` varchar(100) NOT NULL,
@@ -1007,6 +1056,7 @@ CREATE TABLE IF NOT EXISTS `results_2008_allocated` (
 -- Table structure for table `results_2008_candidates`
 --
 
+DROP TABLE IF EXISTS `results_2008_candidates`;
 CREATE TABLE IF NOT EXISTS `results_2008_candidates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nume` varchar(100) NOT NULL,
@@ -1028,6 +1078,7 @@ CREATE TABLE IF NOT EXISTS `results_2008_candidates` (
 -- Table structure for table `results_2008_voters`
 --
 
+DROP TABLE IF EXISTS `results_2008_voters`;
 CREATE TABLE IF NOT EXISTS `results_2008_voters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `college` varchar(50) NOT NULL,
@@ -1043,6 +1094,7 @@ CREATE TABLE IF NOT EXISTS `results_2008_voters` (
 -- Table structure for table `senat_2004_belong`
 --
 
+DROP TABLE IF EXISTS `senat_2004_belong`;
 CREATE TABLE IF NOT EXISTS `senat_2004_belong` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idsen` int(11) NOT NULL,
@@ -1060,6 +1112,7 @@ CREATE TABLE IF NOT EXISTS `senat_2004_belong` (
 -- Table structure for table `senat_2004_belong_agg`
 --
 
+DROP TABLE IF EXISTS `senat_2004_belong_agg`;
 CREATE TABLE IF NOT EXISTS `senat_2004_belong_agg` (
   `idsen` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -1074,6 +1127,7 @@ CREATE TABLE IF NOT EXISTS `senat_2004_belong_agg` (
 -- Table structure for table `senat_2004_laws`
 --
 
+DROP TABLE IF EXISTS `senat_2004_laws`;
 CREATE TABLE IF NOT EXISTS `senat_2004_laws` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `appid` varchar(100) NOT NULL,
@@ -1087,6 +1141,7 @@ CREATE TABLE IF NOT EXISTS `senat_2004_laws` (
 -- Table structure for table `senat_2004_senators`
 --
 
+DROP TABLE IF EXISTS `senat_2004_senators`;
 CREATE TABLE IF NOT EXISTS `senat_2004_senators` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idm` int(11) NOT NULL,
@@ -1110,6 +1165,7 @@ CREATE TABLE IF NOT EXISTS `senat_2004_senators` (
 -- Table structure for table `senat_2004_votes`
 --
 
+DROP TABLE IF EXISTS `senat_2004_votes`;
 CREATE TABLE IF NOT EXISTS `senat_2004_votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idv` varchar(100) NOT NULL,
@@ -1132,6 +1188,7 @@ CREATE TABLE IF NOT EXISTS `senat_2004_votes` (
 -- Table structure for table `senat_2004_votes_agg`
 --
 
+DROP TABLE IF EXISTS `senat_2004_votes_agg`;
 CREATE TABLE IF NOT EXISTS `senat_2004_votes_agg` (
   `idsen` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -1151,6 +1208,7 @@ CREATE TABLE IF NOT EXISTS `senat_2004_votes_agg` (
 -- Table structure for table `senat_2008_belong`
 --
 
+DROP TABLE IF EXISTS `senat_2008_belong`;
 CREATE TABLE IF NOT EXISTS `senat_2008_belong` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iddep` int(11) NOT NULL,
@@ -1168,6 +1226,7 @@ CREATE TABLE IF NOT EXISTS `senat_2008_belong` (
 -- Table structure for table `senat_2008_belong_agg`
 --
 
+DROP TABLE IF EXISTS `senat_2008_belong_agg`;
 CREATE TABLE IF NOT EXISTS `senat_2008_belong_agg` (
   `iddep` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -1189,6 +1248,7 @@ INSERT INTO `senat_2008_belong_agg` (`iddep`, `idperson`, `idparty`) VALUES
 -- Table structure for table `senat_2008_laws`
 --
 
+DROP TABLE IF EXISTS `senat_2008_laws`;
 CREATE TABLE IF NOT EXISTS `senat_2008_laws` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(200) NOT NULL,
@@ -1204,6 +1264,7 @@ CREATE TABLE IF NOT EXISTS `senat_2008_laws` (
 -- Table structure for table `senat_2008_senators`
 --
 
+DROP TABLE IF EXISTS `senat_2008_senators`;
 CREATE TABLE IF NOT EXISTS `senat_2008_senators` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idm` int(11) NOT NULL,
@@ -1233,6 +1294,7 @@ INSERT INTO `senat_2008_senators` (`id`, `idm`, `name`, `idperson`, `timein`, `t
 -- Table structure for table `senat_2008_votes`
 --
 
+DROP TABLE IF EXISTS `senat_2008_votes`;
 CREATE TABLE IF NOT EXISTS `senat_2008_votes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(200) NOT NULL,
@@ -1257,6 +1319,7 @@ CREATE TABLE IF NOT EXISTS `senat_2008_votes` (
 -- Table structure for table `senat_2008_votes_agg`
 --
 
+DROP TABLE IF EXISTS `senat_2008_votes_agg`;
 CREATE TABLE IF NOT EXISTS `senat_2008_votes_agg` (
   `iddep` int(11) NOT NULL,
   `idperson` int(11) NOT NULL,
@@ -1286,6 +1349,7 @@ INSERT INTO `senat_2008_votes_agg` (`iddep`, `idperson`, `vda`, `vnu`, `vab`, `v
 -- Table structure for table `senat_2008_votes_details`
 --
 
+DROP TABLE IF EXISTS `senat_2008_votes_details`;
 CREATE TABLE IF NOT EXISTS `senat_2008_votes_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(200) NOT NULL,
@@ -1308,6 +1372,7 @@ CREATE TABLE IF NOT EXISTS `senat_2008_votes_details` (
 -- Table structure for table `wiki_edits`
 --
 
+DROP TABLE IF EXISTS `wiki_edits`;
 CREATE TABLE IF NOT EXISTS `wiki_edits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `query` varchar(400) NOT NULL,
@@ -1327,6 +1392,7 @@ INSERT INTO `wiki_edits` (`id`, `query`) VALUES
 -- Table structure for table `wp_commentmeta`
 --
 
+DROP TABLE IF EXISTS `wp_commentmeta`;
 CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1343,6 +1409,7 @@ CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
 -- Table structure for table `wp_comments`
 --
 
+DROP TABLE IF EXISTS `wp_comments`;
 CREATE TABLE IF NOT EXISTS `wp_comments` (
   `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1374,6 +1441,7 @@ CREATE TABLE IF NOT EXISTS `wp_comments` (
 -- Table structure for table `wp_links`
 --
 
+DROP TABLE IF EXISTS `wp_links`;
 CREATE TABLE IF NOT EXISTS `wp_links` (
   `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `link_url` varchar(255) NOT NULL DEFAULT '',
@@ -1400,6 +1468,7 @@ CREATE TABLE IF NOT EXISTS `wp_links` (
 -- Table structure for table `wp_options`
 --
 
+DROP TABLE IF EXISTS `wp_options`;
 CREATE TABLE IF NOT EXISTS `wp_options` (
   `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `blog_id` int(11) NOT NULL DEFAULT '0',
@@ -1416,6 +1485,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
 -- Table structure for table `wp_postmeta`
 --
 
+DROP TABLE IF EXISTS `wp_postmeta`;
 CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1432,6 +1502,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
 -- Table structure for table `wp_posts`
 --
 
+DROP TABLE IF EXISTS `wp_posts`;
 CREATE TABLE IF NOT EXISTS `wp_posts` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1491,6 +1562,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 -- Table structure for table `wp_terms`
 --
 
+DROP TABLE IF EXISTS `wp_terms`;
 CREATE TABLE IF NOT EXISTS `wp_terms` (
   `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL DEFAULT '',
@@ -1507,6 +1579,7 @@ CREATE TABLE IF NOT EXISTS `wp_terms` (
 -- Table structure for table `wp_term_relationships`
 --
 
+DROP TABLE IF EXISTS `wp_term_relationships`;
 CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1521,6 +1594,7 @@ CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
 -- Table structure for table `wp_term_taxonomy`
 --
 
+DROP TABLE IF EXISTS `wp_term_taxonomy`;
 CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1539,6 +1613,7 @@ CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
 -- Table structure for table `wp_usermeta`
 --
 
+DROP TABLE IF EXISTS `wp_usermeta`;
 CREATE TABLE IF NOT EXISTS `wp_usermeta` (
   `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1555,6 +1630,7 @@ CREATE TABLE IF NOT EXISTS `wp_usermeta` (
 -- Table structure for table `wp_users`
 --
 
+DROP TABLE IF EXISTS `wp_users`;
 CREATE TABLE IF NOT EXISTS `wp_users` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_login` varchar(60) NOT NULL DEFAULT '',
@@ -1577,6 +1653,7 @@ CREATE TABLE IF NOT EXISTS `wp_users` (
 -- Table structure for table `yt_videos`
 --
 
+DROP TABLE IF EXISTS `yt_videos`;
 CREATE TABLE IF NOT EXISTS `yt_videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idperson` int(11) NOT NULL,
