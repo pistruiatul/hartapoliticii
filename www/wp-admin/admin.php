@@ -27,6 +27,8 @@ if ( ! WP_NETWORK_ADMIN && ! WP_USER_ADMIN ) {
 if ( isset($_GET['import']) && !defined('WP_LOAD_IMPORTERS') )
 	define('WP_LOAD_IMPORTERS', true);
 
+require_once(dirname(dirname(__FILE__)) . '/secret/db_user.php');
+
 require_once(dirname(dirname(__FILE__)) . '/wp-load.php');
 
 if ( get_option('db_upgraded') ) {
