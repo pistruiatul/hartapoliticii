@@ -38,7 +38,7 @@
   <td width="20">
     <a href="javascript:compassShowDetailsFor({$person.id}, '{$room}', {$year},
              {$tagid});">
-      <img src="/images/plus.png" border=0 id="compass_details_link_{$person.id}">
+      <img src="/images/plus.png" border=0 id="compass_details_link_{$tagid}_{$person.id}">
     </a>
   </td>
   <td align="right" width="120">
@@ -56,5 +56,5 @@
   </td>
 </table>
 
-<div id="compass_vote_details_{$person.id}" style="display:none">
+<div id="compass_vote_details_{$tagid}_{$person.id}" style="display:none">
 </div>

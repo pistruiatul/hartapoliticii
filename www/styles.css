@@ -340,3 +340,8 @@ body {
   margin-left: 20px;
   padding: 10px;
 }
+.score_card_description {
+  font-size: 12px;
+  color: #999;
+  background-color: #f4f4f4;
+}

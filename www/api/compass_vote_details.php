@@ -9,8 +9,6 @@ include_once('../pages/functions_common.php');
 
 include_once('../smarty/Smarty.class.php');
 
-
-
 // Get the variables out of the URL.
 $tagId = (int)$_GET['tagId'];
 $room = $_GET['room'] == 'cdep' ? 'cdep' : 'senat';

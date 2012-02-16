@@ -1,13 +1,20 @@
 {* Smarty *}
 
 <table>
-  <td width="{if $width}{$width}{else}140{/if}" height=25>
-    <img src="{$tiny_photo}" valign="middle" vspace=0 height=20>
-    <a href="{$taglink}">{$display_name|escape:html}</a>
-    <span class="small light_gray">{$party_name}</span>
+  <tr>
+    <td colspan="3">
+      <div class="score_card_description">
+      {$description}
+      </div>
+    </td>
+  </tr>
+  <tr>
+  <td width="310" height=25>
+    <a href="{$taglink}">{$tag|escape:html}</a>
+
   </td>
   <td align="right">
-    <table width="440" cellspacing="0" cellpadding="0" class="belief_table">
+    <table width="240" cellspacing="0" cellpadding="0" class="belief_table">
       {* Gray section in the beginning *}
       <td width="{$w1}" bgcolor="#ececec">
         &nbsp;
@@ -35,19 +42,14 @@
       </td>
     </table>
   </td>
-  <td align="right" width="150">
-
-      {if $c3 > 0}
-        <span class="light_gray">
-        {$c3} absențe
-        </span>
-      {/if}
-
-      {if $c5 > 0}
-        <span class="gray">
-        , {$c5} abțineri
-        </span>
-      {/if}
-    </span>
+  <td width="20">
+    <a href="javascript:compassShowDetailsFor({$person_id}, '{$room}', {$year},
+             {$tagid});">
+      <img src="/images/plus.png" border=0
+           id="compass_details_link_{$tagid}_{$person_id}">
+    </a>
   </td>
+  </tr>
 </table>
+<div id="compass_vote_details_{$tagid}_{$person_id}" style="display:none">
+</div>

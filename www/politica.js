@@ -268,12 +268,12 @@ function compassShowDetailsFor(personId, room, year, tagId) {
       '&personId=' + personId;
 
   sendPayload_(url, function(response) {
-    var el = elem('compass_vote_details_' + personId);
+    var el = elem('compass_vote_details_' + tagId + '_' + personId);
 	  el.innerHTML = response;
 
-    toggleDiv('compass_vote_details_' + personId);
+    toggleDiv('compass_vote_details_' + tagId + '_' + personId);
 
-    var img = elem('compass_details_link_' + personId);
+    var img = elem('compass_details_link_' + tagId + '_' + personId);
     if (img.src.indexOf('/images/plus.png') > 0) {
       img.src = '/images/minus.png';
     } else {

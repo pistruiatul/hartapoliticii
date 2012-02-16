@@ -68,20 +68,32 @@ function getTagDescriptionForId($id) {
 
 
 function getTagsList($table, $uid) {
-  $s = mysql_query("
-    SELECT tags.tag, count(*) AS num, tags.id, tagged.uid
-    FROM parl_tagged_votes AS tagged
-    LEFT JOIN parl_tags AS tags ON tags.id = tagged.idtag
-    WHERE
-      tagged.votes_table = '{$table}' AND
-      tagged.uid = {$uid}
-    GROUP BY idtag
-  ");
+  if (!$uid) {
+    // Get the public tags.
+    $s = mysql_query("
+      SELECT tags.tag, count(*) AS num, tags.id, tagged.uid, tags.description
+      FROM parl_tagged_votes AS tagged
+      LEFT JOIN parl_tags AS tags ON tags.id = tagged.idtag
+      WHERE
+        tagged.votes_table = '{$table}' AND
+        tags.public = 1
+      GROUP BY idtag
+    ");
+
+  } else {
+    $s = mysql_query("
+      SELECT tags.tag, count(*) AS num, tags.id, tagged.uid
+      FROM parl_tagged_votes AS tagged
+      LEFT JOIN parl_tags AS tags ON tags.id = tagged.idtag
+      WHERE
+        tagged.votes_table = '{$table}' AND
+        tagged.uid = {$uid}
+      GROUP BY idtag
+    ");
+  }
+
   $tags = array();
   while ($r = mysql_fetch_array($s)) {
-    $csum = md5($table . $uid . $r['id'] . 'tagsekret');
-    $r['csum'] = $csum;
-
     $tags[] = $r;
   }
   return $tags;
@@ -160,40 +172,63 @@ function getBeliefContext($room, $year, $uid, $idperson, $idtag, $possible) {
 
 
 function showBeliefs($room, $year, $uid, $idperson) {
-  if ($uid == 0) {
-    return;
-  }
   // Get the tags that are for my table (this gets both the count and
   // the tags themselves).
-  $tags = getTagsList("{$room}_{$year}_votes_details", $uid);
+  $tags = getTagsList("{$room}_{$year}_votes_details", false);
 
-  $t = new Smarty();
-  $t->display("parl_person_beliefs_header.tpl");
+  if (sizeof($tags) > 0) {
+    $t = new Smarty();
+    $t->assign('title', 'Poziția pe următoarele issue-uri');
+    $t->display("parl_person_beliefs_header.tpl");
+    foreach ($tags as $tag) {
+      displayOneIndividualTag($room, $year, $uid, $idperson, $tag);
+    }
+  }
 
-  foreach ($tags as $tag) {
-    $c = getBeliefContext($room, $year, $uid, $idperson, $tag['id'],
+  if ($uid != 0) {
+    $your_tags = getTagsList("{$room}_{$year}_votes_details", $uid);
+
+    if (sizeof($your_tags) > 0) {
+      $t = new Smarty();
+      $t->assign('title', 'Poziția pe tag-urile tale private');
+      $t->display("parl_person_beliefs_header.tpl");
+      foreach ($your_tags as $tag) {
+        displayOneIndividualTag($room, $year, $uid, $idperson, $tag);
+      }
+    }
+  }
+}
+
+
+function displayOneIndividualTag($room, $year, $uid, $idperson, $tag) {
+  $c = getBeliefContext($room, $year, $uid, $idperson, $tag['id'],
                           $tag['num']);
 
-    $t = new Smarty();
-    $t->assign('tag', $tag['tag']);
+  $t = new Smarty();
+  $t->assign('tag', $tag['tag']);
 
-    $t->assign('w1', $c['w1']);
-    $t->assign('w2', $c['w2']);
-    $t->assign('w3', $c['w3']);
-    $t->assign('w4', $c['w4']);
-    $t->assign('w5', $c['w5']);
+  $t->assign('w1', $c['w1']);
+  $t->assign('w2', $c['w2']);
+  $t->assign('w3', $c['w3']);
+  $t->assign('w4', $c['w4']);
+  $t->assign('w5', $c['w5']);
 
-    $t->assign('c2', $c['c2']);
-    $t->assign('c3', $c['c3']);
-    $t->assign('c4', $c['c4']);
-    $t->assign('c5', $c['c5']);
+  // TODO(vivi): comment this more, right now this is ridiculous.
+  $t->assign('c2', $c['c2']);
+  $t->assign('c3', $c['c3']);
+  $t->assign('c4', $c['c4']);
+  $t->assign('c5', $c['c5']);
 
-    $link =
-        "?cid=15&tagid={$tag['id']}&room={$room}&u={$uid}&csum={$tag['csum']}";
-    $t->assign('taglink', $link);
+  $link = "?cid=15&tagid={$tag['id']}&room={$room}";
+  $t->assign('taglink', $link);
+  $t->assign('description', $tag['description']);
 
-    $t->display('parl_person_belief.tpl');
-  }
+  $t->assign('room', $room);
+  $t->assign('year', $year);
+  $t->assign('person_id', $idperson);
+  $t->assign('tagid', $tag['id']);
+
+  $t->display('parl_person_belief.tpl');
 }
 
 ?>
