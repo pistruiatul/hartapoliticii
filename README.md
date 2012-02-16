@@ -17,7 +17,7 @@ Citește aceste documente
 
 + **[Misiunea hărții politicii](https://github.com/okvivi/hartapoliticii/wiki/Misiunea-h%C4%83r%C8%9Bii-politicii)**<br>Un document pe care vi-l recomand tuturor să îl citiți. Este o misiune care am descoperit că rezonează și mă aștept să ajute la a convinge voluntari să participe la o cauză care merită.
 
-+ **[Idei concrete ce trebuiesc implementate](https://github.com/okvivi/hartapoliticii/wiki/Idei-concrete-care-trebuiesc-implementate)**<br>
++ **[Idei concrete ce trebuie implementate](https://github.com/okvivi/hartapoliticii/wiki/Idei-concrete-care-trebuie-implementate)**<br>
 Dacă misiunea de mai sus e prea vagă, am scris aici câteva idei mai concrete.
 
 + **[Principii organizatorice pentru colaboratori](https://github.com/okvivi/hartapoliticii/wiki/Principii-de-organizare-pentru-colaboratori)** <br>De citit dacă plănuiți să vă implicați.
