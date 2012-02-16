@@ -1,6 +1,6 @@
 {* Smarty *}
 
-<table class="small" style="padding-left:20px;width:850px;" cellpadding="7">
+<table class="small" style="padding-left:20px;width:100%;" cellpadding="7">
   <tr>
     <td>Lege</td>
     <td></td>
