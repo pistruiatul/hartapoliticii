@@ -58,6 +58,15 @@ function getTagNameForId($id) {
 }
 
 
+function getTagAuthorUid($id) {
+  $s = mysql_query("
+    SELECT uid FROM parl_tags WHERE id = $id");
+
+  if ($r = mysql_fetch_array($s)) return $r['uid'];
+  return '';
+}
+
+
 function getTagDescriptionForId($id) {
   $s = mysql_query("
     SELECT description FROM parl_tags WHERE id = {$id}");

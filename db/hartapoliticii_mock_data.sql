@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2012 at 05:56 PM
+-- Generation Time: Feb 17, 2012 at 03:24 PM
 -- Server version: 5.5.12
 -- PHP Version: 5.3.6
 
@@ -762,6 +762,7 @@ CREATE TABLE IF NOT EXISTS `parl_tags` (
   `tag` varchar(150) NOT NULL,
   `description` text NOT NULL,
   `public` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
