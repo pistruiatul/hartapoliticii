@@ -11,16 +11,16 @@ $uid = is_user_logged_in() ? $current_user->ID : 0;
  * @param $tag
  * @return unknown_type
  */
-function getTagId($tag) {
+function getTagId($tag, $uid) {
   $tag = mysql_real_escape_string($tag);
 
-  $s = mysql_query("SELECT id FROM parl_tags WHERE tag='{$tag}'");
+  $s = mysql_query("SELECT id FROM parl_tags WHERE tag='{$tag}' AND uid={$uid}");
   if ($r = mysql_fetch_array($s)) {
     // Update the max time this person has been here.
     return $r['id'];
   } else {
     // Okay, insert the tag now.
-    $si = mysql_query("INSERT INTO parl_tags(tag) VALUES('{$tag}')");
+    $si = mysql_query("INSERT INTO parl_tags(tag, uid) VALUES('{$tag}', {$uid})");
     return mysql_insert_id();
   }
 }
@@ -66,7 +66,7 @@ function addVoteTag($room, $year, $idvote, $tag, $inverse) {
   }
 
   // get the tag id;
-  $idtag = getTagId($tag);
+  $idtag = getTagId($tag, $uid);
   $link = getVoteLink($room, $year, $idvote);
 
   $s = mysql_query("
@@ -105,7 +105,7 @@ function removeVoteTag($room, $year, $idvote, $tag) {
   }
 
   // get the tag id;
-  $idtag = getTagId($tag);
+  $idtag = getTagId($tag, $uid);
 
   $s = mysql_query("
     SELECT id

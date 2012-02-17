@@ -39,8 +39,9 @@ function beliefCmp($a, $b) {
 
 $tagid = (int)$_GET['tagid'];
 $room = $_GET['room'] == 'cdep' ? 'cdep' : 'senat';
-$uid = (int)$_GET['u'];
 $csum = $_GET['csum'];
+
+$uid = getTagAuthorUid($tagid);
 
 // HACK?
 $year = '2008';
