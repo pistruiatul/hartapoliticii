@@ -494,6 +494,9 @@ select {
 	    clear: both;
 	    visibility: hidden;
 	}
+#respond {
+  text-align: left;
+}
 #commentform #submit {
 	margin: 0 0 5px auto;
 	float: right;
