@@ -22,8 +22,12 @@ Dacă misiunea de mai sus e prea vagă, am scris aici câteva idei mai concrete.
 
 + **[Principii organizatorice pentru colaboratori](https://github.com/okvivi/hartapoliticii/wiki/Principii-de-organizare-pentru-colaboratori)** <br>De citit dacă plănuiți să vă implicați.
 
-### Contact
 
-Dacă vrei să contribui și tu la proiect contactează-mă
-la octavian.costache [at] gmail.com.
+Am creat două grupuri de discuții pentru harta politicii:
 
+- [hartapoliticii-discuss](http://groups.google.com/group/hartapoliticii-discuss) – unde pot fi discutate teme generale despre harta politicii, ce direcție ar trebui să ia, feedback, păreri, opinii
+- [hartapoliticii-dev](http://groups.google.com/group/hartapoliticii-dev) – pentru dezvoltatori și discuții tehnice, referințe la cod, alerte
+
+Să te înscrii pe grupul [hartapoliticii-discuss](http://groups.google.com/group/hartapoliticii-discuss) este un pas foarte bun în a începe să participi la proiect.
+
+Dacă vrei să discutăm mai mult și nu îți plac grupurile de discuții, sau dă-mi un email la octavian.costache [at] gmail.com (promit să răspund la toate).
