@@ -1,13 +1,13 @@
 {* Smarty *}
 
-<table>
-  <td width="300" height=25>
+<table width="100%">
+  <td width="50%" height=25>
     <img src="{$person.tiny_photo}" valign="middle" vspace=0 height=20>
     <a href="{$person.link}">{$person.display_name|escape:html}</a>
      <span class="small light_gray">{$person.party_name}</span>
   </td>
-  <td align="right">
-    <table width="440" cellspacing="0" cellpadding="0" class="belief_table">
+  <td align="right" width="400">
+    <table width="400" cellspacing="0" cellpadding="0" class="belief_table">
       {* Gray section in the beginning *}
       <td width="{$w1}" bgcolor="#ececec">
         &nbsp;
@@ -42,6 +42,7 @@
     </a>
   </td>
   <td align="right" width="120">
+    <div style="width:120px">
     {if $c3 > 0}
       <span class="light_gray">
       {$c3} abs
@@ -53,6 +54,7 @@
       , {$c5} abțineri
       </span>
     {/if}
+    </div>
   </td>
 </table>
 

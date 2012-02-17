@@ -1,6 +1,6 @@
 {* Smarty *}
 
-<table width=970 cellspacing="15">
+<table width=100% cellspacing="15">
   <td valign=top>
 
   Aceste anotări au fost create de către utilizatorul "<b>{$user_login}</b>".
@@ -26,7 +26,7 @@
   <br/>
 
   <div style="margin-left: 20px;">
-  <table width="930" cellpadding="0">
+  <table width="100%" cellpadding="0">
   <tr>
   <td><b>Descrierea votului</b></td>
   <td width="180" align="right"><b>Semnificața votului</b></td>
@@ -63,7 +63,7 @@
   <strong>Atunci următorii parlamentari au votat în felul următor:</strong>
   <br/>
   <div style="margin-left: 20px;">
-  {include file="compass_table_header.tpl" width=300}
+  {include file="compass_table_header.tpl"}
 
   {section name=p loop=$people}
     {strip}
@@ -89,7 +89,7 @@
   <strong>Parlamentari care nu au votat pe nici una din aceste legi:</strong>
 
   <div style="margin-left: 20px;">
-  {include file="parl_person_beliefs_header.tpl" width=300}
+  {include file="parl_person_beliefs_header.tpl"}
 
   {section name=a loop=$absentees}
     {strip}
