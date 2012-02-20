@@ -136,21 +136,6 @@
           dintre aceste problematici generale.
         </div>
         <table cellspacing=10 cellpadding=0 class="recent_news">
-          <tr>
-          <td valign="top" width="200" class="small">
-            <a href="/?cid=15&tagid=5&room=cdep">
-              Despre Adrian Năstase
-            </a>
-          </td>
-
-          <td valign="top">
-            <span class="small">
-              votarea trimiterii lui în instanță.
-              <div class="gray">Tag alcătuit de Vivi.</div>
-            </span>
-          </td>
-          </tr>
-
 
           <tr>
           <td valign="top" width="200" class="small">
@@ -191,6 +176,22 @@
             </span>
           </td>
           </tr>
+
+          <tr>
+          <td valign="top" width="200" class="small">
+            <a href="/?cid=15&tagid=5&room=cdep">
+              Despre Adrian Năstase - Cdep
+            </a>
+          </td>
+
+          <td valign="top">
+            <span class="small">
+              votarea trimiterii lui în instanță.
+              <div class="gray">Tag alcătuit de Vivi.</div>
+            </span>
+          </td>
+          </tr>
+
         </table>
         <div class="gray" style="margin-left: 10px;">
          Mai multe detalii despre cum au fost alcătuite aceste clasamente
