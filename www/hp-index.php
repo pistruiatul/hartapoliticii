@@ -22,7 +22,7 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
 <head>
   <meta property="fb:admins" content="521485175" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=<? echo md5_file('styles.css');?>" />
   <script src="js/swfobject/swfobject.js" type="text/javascript"></script>
 
 <?php

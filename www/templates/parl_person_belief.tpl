@@ -1,13 +1,7 @@
 {* Smarty *}
 
 <table>
-  <tr>
-    <td colspan="3">
-      <div class="score_card_description">
-      {$description}
-      </div>
-    </td>
-  </tr>
+
   <tr>
   <td width="310" height=25>
     <a href="{$taglink}">{$tag|escape:html}</a>
@@ -50,6 +44,16 @@
     </a>
   </td>
   </tr>
+
+  <tr>
+    <td colspan="3">
+      <div id="compass_vote_details_{$tagid}_{$person_id}" style="display:none">
+      </div>
+
+      <div class="score_card_description">
+      {$description}
+      </div>
+    </td>
+  </tr>
 </table>
-<div id="compass_vote_details_{$tagid}_{$person_id}" style="display:none">
-</div>
+

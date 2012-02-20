@@ -118,6 +118,85 @@
         {/section}
       </table>
       </div>
+
+      {*
+      For now the score cards are going to be hard coded because:
+        + there aren't that many
+        + there need to be some changes to split them on cdep vs. senat tags
+      TODO: make the list of public score cards dynamic, not hard coded.
+      *}
+      <p class="smalltitle">
+        <strong>
+          Busola politică pentru parlamentari
+        </strong>
+      </p>
+      <div class="medium">
+        <div class="gray" style="margin-left: 10px;">
+          O listă de probleme și cum au votat parlamentarii români pe fiecare
+          dintre aceste problematici generale.
+        </div>
+        <table cellspacing=10 cellpadding=0 class="recent_news">
+          <tr>
+          <td valign="top" width="200" class="small">
+            <a href="/?cid=15&tagid=5&room=cdep">
+              Despre Adrian Năstase
+            </a>
+          </td>
+
+          <td valign="top">
+            <span class="small">
+              votarea trimiterii lui în instanță.
+              <div class="gray">Tag alcătuit de Vivi.</div>
+            </span>
+          </td>
+          </tr>
+
+
+          <tr>
+          <td valign="top" width="200" class="small">
+            <a href="/?cid=15&tagid=17&room=senat">
+              Drepturi Civile Digitale - Senat
+            </a>
+          </td>
+
+          <td valign="top">
+            <span class="small">
+              libertate de exprimare, dreptul la viață privată, open copyright.
+              <div class="gray">Tag alcătuit de
+                <a href="http://apti.ro">
+                  <img src="http://apti.ro/sites/default/files/apti.png"
+                     align="absmiddle" vspace=5 hspace=5
+                     height="15" border=0></a>
+              </div>
+            </span>
+          </td>
+          </tr>
+
+          <tr>
+          <td valign="top" width="200" class="small">
+            <a href="/?cid=15&tagid=17&room=cdep">
+              Drepturi Civile Digitale - Cdep
+            </a>
+          </td>
+
+          <td valign="top">
+            <span class="small">
+              libertate de exprimare, dreptul la viață privată, open copyright.
+              <div class="gray">Tag alcătuit de
+                <a href="http://apti.ro">
+                  <img src="http://apti.ro/sites/default/files/apti.png"
+                     align="absmiddle" vspace=5 hspace=5
+                     height="15" border=0></a>
+              </div>
+            </span>
+          </td>
+          </tr>
+        </table>
+        <div class="gray" style="margin-left: 10px;">
+         Mai multe detalii despre cum au fost alcătuite aceste clasamente
+          <a href="http://www.hartapoliticii.ro/?p=4042">aici</a>.
+        </div>
+      </div>
     </td>
 
     <td valign="top" width="250">
