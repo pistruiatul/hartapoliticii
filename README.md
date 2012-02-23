@@ -1,4 +1,4 @@
-<img src="http://www.hartapoliticii.ro/top_title.png" align="right">
+<img src="http://www.hartapoliticii.ro/images/top_title.png" align="right">
 ### Un pic despre harta politicii
 
 Harta Politicii își propune să fie un repository complet de date despre

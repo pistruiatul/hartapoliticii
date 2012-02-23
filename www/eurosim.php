@@ -1,6 +1,7 @@
 <?
 include ('_top.php');
-include('hp-includes/europarlament_functions.php');
+include('pages/euro_2009/europarlament_functions.php');
+
 include('hp-includes/people_lib.php');
 include('functions.php');
 

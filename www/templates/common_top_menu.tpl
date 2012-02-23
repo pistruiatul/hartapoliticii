@@ -3,11 +3,11 @@
 <table width="970">
   <td width="250">
     <a href="/">
-      <img src="top_title.png" border=0>
+      <img src="images/top_title.png" border=0>
     </a>
   </td>
-  
-  <td width="300"> 
+
+  <td width="300">
   {* The search form *}
   <form action="" method=GET>
     <input type=hidden name=cid value=search>
@@ -18,7 +18,7 @@
     Exemplu: "Traian Basescu", "Becali", etc
   </div>
   </td>
-  
+
   <td align="right" valign="top">
     {include file="login_bar.tpl"}
     <div class="title">{$title}</div>

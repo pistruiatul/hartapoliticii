@@ -14,8 +14,5 @@ calculat din numărul total de voturi din această perioadă.
 
 <?
 
-//include('functions_deprecated.php');
-//computeDeputiesPresenceAggregates();
-
 showPresencePercentage($_GET['sort'], $_GET['order']);
 ?>
