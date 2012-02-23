@@ -25,4 +25,5 @@ images/people_tiny/
 *.htpasswd
 
 # Where we keep api keys and stuff like that.
-secret/*
+secret/api_key.php
+secret/db_user.php
