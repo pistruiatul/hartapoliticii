@@ -22,21 +22,20 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
 <head>
   <meta property="fb:admins" content="521485175" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
   <link rel="stylesheet" href="styles.css?v=<? echo md5_file('styles.css');?>" />
   <script src="js/swfobject/swfobject.js" type="text/javascript"></script>
 
-<?php
-// Include or not include some scripts, depending on whether this is localhost
-// or not.
-if ($_SERVER['SERVER_NAME'] == 'localhost' ||
-    $_SERVER['SERVER_NAME'] == 'mini.local') { ?>
-  <script src="politica_localhost.js" type="text/javascript"></script>
-<? } ?>
-<script src="politica.js?v=<? echo md5_file('politica.js');?>"
-        type="text/javascript"></script>
+  <?php
+  // Include or not include some scripts, depending on whether this is localhost
+  // or not.
+  if ($_SERVER['SERVER_NAME'] == 'localhost') { ?>
+    <script src="js/politica_localhost.js" type="text/javascript"></script>
+  <? } ?>
 
-<?php if ($_SERVER['SERVER_NAME'] != 'localhost' &&
-          $_SERVER['SERVER_NAME'] != 'swiss.local') { ?>
+  <script src="js/politica.js?v=<? echo md5_file('js/politica.js');?>"
+          type="text/javascript"></script>
+
   <script type="text/javascript">
   var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
   document.write(unescape("%3Cscript src='" + gaJsHost +
@@ -47,7 +46,6 @@ if ($_SERVER['SERVER_NAME'] == 'localhost' ||
   var pageTracker = _gat._getTracker("UA-71349-2");
   pageTracker._trackPageview();
   } catch(err) {}</script>
-<?php }?>
 
 <?php
 // See if this was a search result and update the search logs.
@@ -67,13 +65,23 @@ switch ($cid) {
   // The home page.
   case 1000: include('pages/home_page/home_page.php'); break;
 
-  case 1: include('cam_dep.php'); break;
-  case 3: include('senat.php'); break;
-  case 2: case 4: include('fiecarevot.php'); break;
-  case 5: include('utile.php'); break;
-  case 6: include('despre.php'); break;
+  // Legacy code, showing a list with the presence in the 2004-2008 parliament
+  // session.
+  // TODO(vivi): cdep_2008 should be generalized to include this too.
+  case 1: include('pages/cdep_2004/cam_dep.php'); break;
+  case 3: include('pages/senat_2004/senat.php'); break;
 
+  // The page about the results of the 2008 elections, showing who won and
+  // how many votes the guy in second place would have needed.
+  case 2: case 4: include('fiecarevot.php'); break;
+
+  // Just some misc pages.
+  case 5: include('pages/misc/utile.php'); break;
+  case 6: include('pages/misc/despre.php'); break;
+
+  // A person's page.
   case 9: include('person.php'); break;
+
   case 'search': include('hp-includes/search.php'); break;
 
   // Alegeri europarlamentare 2009.
