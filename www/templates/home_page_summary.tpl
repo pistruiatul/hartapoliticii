@@ -17,7 +17,7 @@
           </td>
           <td width=205 style="white-space:nowrap" class="medium">
             <a href="?name={$topPeople[c].name}">
-              {$topPeople[c].display_name}
+              {$topPeople[c].reversed_name}
             </a>
             &nbsp;
             <img valign="absmiddle" src="images/transparent.png"
@@ -105,8 +105,8 @@
              {section name=x loop=$news[n].people}
              {strip}
                <div class="news_list_mention green_link">
-                 <a href="?name={$news[n].people[x].name}&exp=news">
-                   {$news[n].people[x].display_name}
+                 <a href="?name={$news[n].people[x].name}">
+                   {$news[n].people[x].reversed_name}
                  </a>
                </div>
              {/strip}
