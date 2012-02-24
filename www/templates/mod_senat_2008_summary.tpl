@@ -16,7 +16,7 @@ Prezent la <b>{$dep_percent|string_format:"%.2f"}%</b> din voturile
 electronice dintre {$dep_time_in} si {$dep_time_out} ({$dep_possible_votes}).
 
 <p>
-A votat 
-<a href="/?cid={$cid}&id={$idperson}&exp=senat/2008&maverick=1">
+A votat
+<a href="/?name={$name}&exp=senat/2008&maverick=1">
   diferit de partid în <b>{$maverick|string_format:"%.2f"}%</b></a>
 din voturile finale la care a participat.

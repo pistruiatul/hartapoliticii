@@ -27,7 +27,7 @@
 	       </span>
 	       </div>
 	     </td>
-	     
+
 	     <td valign="top" class="small gray">{$votes[v].vda}</td>
 	     <td valign="top" class="small gray">{$votes[v].vnu}</td>
 	     <td valign="top" class="small gray">{$votes[v].vab}</td>
@@ -39,5 +39,5 @@
 </table>
 
 <div style="text-align:right;font-size:12px">
-  <a href="/?cid={$cid}&id={$idperson}&exp=senat/2008">Vezi toate voturile</a>
+  <a href="/?name={$name}&exp=senat/2008">Vezi toate voturile</a>
 </div>

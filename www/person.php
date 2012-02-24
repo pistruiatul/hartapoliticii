@@ -148,21 +148,23 @@ if ($exp = isExpand($_GET['exp'])) {
   echo "<div class=moduletitle>$moduleTitle</div>";
   echo "<div class=modulecontent>";
 
-  // Inclue the expanded mod so it can do whatever
-  include('mods/' . $exp . '/mod_expanded.php');
+  $filename = str_replace("/", "_", $exp);
+
+  // Include the expanded mod so it can do whatever
+  include('mods/' . $filename . '_expanded.php');
+
   echo "</div></div>";
 } else {
 	// ------------ This person's right hand side identity, the history modules
 	foreach ($history as $item) {
 	  echo "<div class=module>";
-
 	  $moduleTitle = $person->getLongTitleForWhat($item);
 	  echo "<div class=moduletitle>$moduleTitle</div><div class=modulecontent>";
 
-	  if (file_exists("mods/$item/mod.php")) {
-	    include("mods/$item/mod.php");
-	  } else if (file_exists("mods/$item/mod_compact.php")) {
-      include("mods/$item/mod_compact.php");
+    $filename = str_replace("/", "_", $item);
+
+	  if (file_exists("mods/{$filename}_compact.php")) {
+	    include("mods/{$filename}_compact.php");
 	  }
 	  echo "</div></div>";
 	}
