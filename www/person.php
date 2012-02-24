@@ -11,7 +11,7 @@ include_once('hp-includes/people_util.php');
 // files since we load the file based on the module name.
 function isExpandedModule($str) {
   if ($str == 'news' || $str == 'cdep/2008' || $str == 'senat/2008') {
-  	return $str;
+    return $str;
   }
   return NULL;
 }
@@ -57,8 +57,8 @@ $t->assign('name', $title);
 
 $crumbs = array();
 $crumbs[] = array(
-	'name' => "Sumar",
-	'href' => "?cid={$cid}&id={$person->id}"
+  'name' => "Sumar",
+  'href' => "?cid={$cid}&id={$person->id}"
 );
 
 if ($exp = isExpandedModule($_GET['exp'])) {
@@ -167,21 +167,21 @@ if ($expandedModule = isExpandedModule($_GET['exp'])) {
 } else {
   $history = $person->getHistory();
 
-	// If we are simply displaying a person's page, go through all the modules
+  // If we are simply displaying a person's page, go through all the modules
   // that we loaded from people_history and load them one by one.
-	foreach ($history as $moduleName) {
+  foreach ($history as $moduleName) {
     // Display the wrapper for the module, with a title.
     // TODO(vivi): Move this stuff into a template.
-	  echo "<div class=module>";
-	  $moduleTitle = $person->getLongTitleForWhat($moduleName);
-	  echo "<div class=moduletitle>$moduleTitle</div><div class=modulecontent>";
+    echo "<div class=module>";
+    $moduleTitle = $person->getLongTitleForWhat($moduleName);
+    echo "<div class=moduletitle>$moduleTitle</div><div class=modulecontent>";
 
     // Based on the module name, load the 'module_compact.php' file.
     $filename = str_replace("/", "_", $moduleName);
-	  include("mods/{$filename}_compact.php");
+    include("mods/{$filename}_compact.php");
 
-	  echo "</div></div>";
-	}
+    echo "</div></div>";
+  }
 }
 ?>
 
