@@ -6,15 +6,19 @@ include_once('hp-includes/wiki_edits.php');
 include_once('hp-includes/people_lib.php');
 include_once('hp-includes/people_util.php');
 
-function isExpand($exp) {
-  if ($exp == 'news' || $exp == 'cdep/2008' || $exp == 'senat/2008') {
-  	return $exp;
+// Checks that the string passed as a parameter represets and expanded module
+// indeed. This method is for security reasons so that we don't load random
+// files since we load the file based on the module name.
+function isExpandedModule($str) {
+  if ($str == 'news' || $str == 'cdep/2008' || $str == 'senat/2008') {
+  	return $str;
   }
   return NULL;
 }
 
 $id = $_GET['id'];
 
+// If the person is specified through a name, just search for it.
 if ($_GET['name']) {
   $query = $_GET['name'];
   $persons = search($query);
@@ -27,28 +31,27 @@ $person = new Person();
 $person->setId($id);
 $person->loadFromDb();
 
+// The title of the page is the person's name, reversed (because in the db
+// we keep the names as "LastName FirstName".
 $title = moveFirstNameLast($person->displayName);
 $nowarning = true;
 
 ?>
-
+<!-- For facebook sharing -->
 <meta property='og:site_name' content='Harta Politicii' />
 <meta property='og:website' content='http://hartapoliticii.ro' />
 <meta property='og:title' content='<? echo $person->displayName ?> - Harta politicii din România' />
 <meta property='fb:app_id' content='205183855930' />
-
 <!-- Update your html tag to include the itemscope and itemtype attributes -->
 <html itemscope itemtype="http://schema.org/Person">
 <!-- Add the following three tags inside head -->
 <meta itemprop="name" content="<? echo $person->displayName ?> - Harta Politicii din România">
 
 <?
-
 include('header.php');
 
-$history = $person->getHistory();
-
-// ------------ Render the top bar, with the person name and bread crumbs.
+// ----------------------------------------------------------------
+// -- Render the top bar, with the person name and bread crumbs. --
 $t = new Smarty();
 $t->assign('name', $title);
 
@@ -58,7 +61,7 @@ $crumbs[] = array(
 	'href' => "?cid={$cid}&id={$person->id}"
 );
 
-if ($exp = isExpand($_GET['exp'])) {
+if ($exp = isExpandedModule($_GET['exp'])) {
   $crumbs[] = array(
     'name' => $person->getLongTitleForWhat($exp),
     'href' => ''
@@ -69,11 +72,12 @@ $t->assign('crumbs', $crumbs);
 $t->display('person_top_bar.tpl');
 
 
-// ------------ This person's left hand side identity, photo and links
+// ----------------------------------------------------------------
+// -- This person's left hand side identity, photo and links ------
 echo "<table width=970>".
      "<td valign=top width=340>";
-
 echo "<div class=identity>";
+
 $img = $person->getFact('image');
 if (is_file("images/people/{$person->id}.jpg")) {
   $fname = "images/people/{$person->id}.jpg";
@@ -94,27 +98,30 @@ $t = $width == 250 ? "width=$width" : "";
 
 echo "<div class=identity_img><img src=\"$img\" $t></div>";
 
+// Display the LIKE and the +1 buttons.
+// TODO: Move these in a template?
 ?>
-
 <div class="fb-like" style="margin-top: 15px;margin-bottom:15px;"
      data-href="http://hartapoliticii.ro/?name=<? echo $person->getUrlName() ?>"
      data-send="false" data-width="330" data-show-faces="true"
      data-action="like" data-font="verdana"></div>
 
 <!-- Place this tag where you want the +1 button to render -->
-<g:plusone annotation="inline" width="330" href="http://hartapoliticii.ro/?name=<? echo $person->getUrlName() ?>"></g:plusone>
+<g:plusone annotation="inline" width="330"
+           href="http://hartapoliticii.ro/?name=<? echo $person->getUrlName() ?>">
+</g:plusone>
 
 <!-- Place this render call where appropriate -->
 <script type="text/javascript">
   window.___gcfg = {lang: 'en'};
-
   (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
     po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
   })();
 </script>
-
 <?
 
 // ----------------------------------------------------------
@@ -126,7 +133,7 @@ $t->assign('qualifiers', $person->getNewsQualifiers(10));
 $t->display('person_qualifiers.tpl');
 
 // TODO: make the compact mods also something automatic.
-include('mods/news/mod_compact.php');
+include('mods/news_compact.php');
 
 $t = new Smarty();
 $t->assign('title', $title);
@@ -139,40 +146,50 @@ echo "</div></td>";
 // --------------- The main mods section --------------------
 echo "<td valign=top>";
 
-if ($exp = isExpand($_GET['exp'])) {
-  $moduleTitle = $person->getLongTitleForWhat($exp);
+// If I am displaying an expanded module, this will take the entire content
+// part and we are no longer displaying all the modules of one person.
+//
+if ($expandedModule = isExpandedModule($_GET['exp'])) {
+  // Get the long title of the module to display.
+  $moduleTitle = $person->getLongTitleForWhat($expandedModule);
 
+  // TODO(vivi): Move this stuff into templates too.
   echo "<div class=module>";
-  // Print the title of the mod.
-
   echo "<div class=moduletitle>$moduleTitle</div>";
   echo "<div class=modulecontent>";
 
-  $filename = str_replace("/", "_", $exp);
-
-  // Include the expanded mod so it can do whatever
+  // Based on the module name, load the 'module_expanded.php' file.
+  $filename = str_replace("/", "_", $expandedModule);
   include('mods/' . $filename . '_expanded.php');
 
   echo "</div></div>";
+
 } else {
-	// ------------ This person's right hand side identity, the history modules
-	foreach ($history as $item) {
+  $history = $person->getHistory();
+
+	// If we are simply displaying a person's page, go through all the modules
+  // that we loaded from people_history and load them one by one.
+	foreach ($history as $moduleName) {
+    // Display the wrapper for the module, with a title.
+    // TODO(vivi): Move this stuff into a template.
 	  echo "<div class=module>";
-	  $moduleTitle = $person->getLongTitleForWhat($item);
+	  $moduleTitle = $person->getLongTitleForWhat($moduleName);
 	  echo "<div class=moduletitle>$moduleTitle</div><div class=modulecontent>";
 
-    $filename = str_replace("/", "_", $item);
+    // Based on the module name, load the 'module_compact.php' file.
+    $filename = str_replace("/", "_", $moduleName);
+	  include("mods/{$filename}_compact.php");
 
-	  if (file_exists("mods/{$filename}_compact.php")) {
-	    include("mods/{$filename}_compact.php");
-	  }
 	  echo "</div></div>";
 	}
 }
 ?>
+
 <?php
+// The hook into WordPress comments, displayed for each person at the bottom.
 include('person_comments.php')
 ?>
+
 <?php
 echo "</td></table>";
 ?>
