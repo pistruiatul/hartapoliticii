@@ -55,12 +55,31 @@ class Person {
     $this->id = $id;
   }
 
+
   /**
    * Returns the name of the person to be used in an URL.
    * @return {string}
    */
   public function getUrlName() {
     return str_replace(' ', '+', $this->name);
+  }
+
+
+  /**
+   * Returns the reversed display name, with the first name showing up last.
+   * We need this method because the names are stored in the db as
+   * "LastName FirstName" and we want to display them on the site as
+   * "FirstName LastName".
+   *
+   * If the person's stored display name is "One Two Three" this method will
+   * return "Two Three One".
+   *
+   * @return {string} The reversed name.
+   */
+  public function reversedName() {
+    $parts = explode(" ", $this->displayName);
+    $first = array_shift($parts);
+    return implode(' ', $parts) . " $first";
   }
 
 

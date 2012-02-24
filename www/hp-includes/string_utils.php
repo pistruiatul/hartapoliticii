@@ -128,6 +128,10 @@ function getLettersIndex($str) {
  * that flipped string. For example, if "Costache Octavian Mihai" is passed
  * in as a parameter, the method will return "Octavian Mihai Costache".
  *
+ * TODO(vivi): This function should only be used when names are extracted
+ * straight from the database as strings. If we're dealing with a Person
+ * object, please use the reversedName() method.
+ *
  * @param {string} The original name.
  * @return {string} The name with the first name being last.
  */
