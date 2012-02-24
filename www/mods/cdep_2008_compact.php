@@ -1,6 +1,6 @@
 <?
 include_once('mods/functions_common.php');
-include_once('mods/cdep/2008/functions.php');
+include_once('mods/cdep_2008_functions.php');
 
 $uid = is_user_logged_in() ? $current_user->ID : 0;
 
