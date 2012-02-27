@@ -5,7 +5,7 @@
   <tr>
     <td valign="top" class="medium">
       <a href="?name={$people[i].name}">
-        {$people[i].reversed_name}
+        {$people[i].display_name}
       </a>&nbsp;
       <span class="small gray">
         {$people[i].party_name}&nbsp;

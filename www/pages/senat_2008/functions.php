@@ -43,7 +43,6 @@ function getSenatSorted($sortBy, $order, $count, $party=-1) {
     $guy['anti_maverick'] = 100 - 100 * $r['maverick'];
     $guy['left_percent'] = 99 - 100 * $r['percent'];
     $guy['tiny_photo'] = getTinyImgUrl($r['idperson']);
-    $guy['reversed_name'] = moveFirstNameLast($r['display_name']);
 
     // TODO(vivi) In a different sql, get this guys history and stick it in an
     // array. Based on that, I should display stuff on the summary page.

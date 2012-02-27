@@ -17,7 +17,7 @@
           </td>
           <td width=205 style="white-space:nowrap" class="medium">
             <a href="?name={$topPeople[c].name}">
-              {$topPeople[c].reversed_name}
+              {$topPeople[c].display_name}
             </a>
             &nbsp;
             <img valign="absmiddle" src="images/transparent.png"
@@ -106,7 +106,7 @@
              {strip}
                <div class="news_list_mention green_link">
                  <a href="?name={$news[n].people[x].name}">
-                   {$news[n].people[x].reversed_name}
+                   {$news[n].people[x].display_name}
                  </a>
                </div>
              {/strip}

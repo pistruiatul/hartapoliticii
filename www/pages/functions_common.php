@@ -50,7 +50,6 @@ function getMostPresentInNews($count, $what = NULL, $tstart = NULL,
 
     $guy['name'] = str_replace(' ', '+', $r['name']);
     $guy['tiny_photo'] = getTinyImgUrl($r['idperson']);
-    $guy['reversed_name'] = moveFirstNameLast($r['display_name']);
 
     // TODO(vivi) In a different sql, get this guys history and stick it in an
     // array. Based on that, I should display stuff on the summary page.
@@ -250,7 +249,6 @@ function getPeopleForNewsId($id) {
   $res = array();
   while($r = mysql_fetch_array($s)) {
     $r['name'] = str_replace(' ', '+', $r['name']);
-    $r['reversed_name'] = moveFirstNameLast($r['display_name']);
     $res[] = $r;
   }
   return $res;
