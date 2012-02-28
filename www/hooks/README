@@ -1,0 +1,7 @@
+This directory is home to scripts that are accessed directly usually from the
+JS in order to add data, change data, search, whatever.
+
+This is not an API because it's intention is to only be used by the site
+itself, so it can be removed, changed, broken without any kind of notice.
+
+TODO: Move the scripts from under /api/* that actually belong here.

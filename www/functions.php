@@ -4,38 +4,7 @@
 // templates.
 
 include('hp-includes/stats_utils.php');
-
-
-/**
- * Returns the URL used to log out a logged in user.
- * @param {string} $redirect Optional, the url to redirect the user to after
- *     logging out.
- * @return {string} The url.
- */
-function get_logout_url($redirect = '') {
-	if (strlen($redirect)) {
-    $redirect = "&redirect_to=$redirect";
-	}
-
-  return wp_nonce_url(
-      "http://www.hartapoliticii.ro/wp-login.php?action=logout$redirect",
-      'log-out');
-}
-
-
-/**
- * Returns the username of the user with the ID passed in as a parameter.
- * @param {Number} $uid The id of the user we are interested in.
- * @return {String} The user's login handle as a string.
- */
-function getUserLogin($uid) {
-  $s = mysql_query("SELECT user_login FROM wp_users WHERE ID={$uid}");
-  if ($r = mysql_fetch_array($s)) {
-    return $r['user_login'];
-  }
-  return '';
-}
-
+include_once('hp-includes/user_utils.php');
 
 /**
  * A warning that shows up on the 2004-2008 session pages where all we show is

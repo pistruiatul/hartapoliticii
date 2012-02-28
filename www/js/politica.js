@@ -281,3 +281,40 @@ function compassShowDetailsFor(personId, room, year, tagId) {
     }
   });
 }
+
+
+// -----------------------------------------------
+// ----- Functions for code that's in the user's my account page.
+
+function myAccountAddPerson() {
+  // First of all, find the data on the page.
+  var nameAll = elem('person_name_all').value;
+  var displayName = elem('person_display_name').value;
+  var photoUrl = elem('person_photo_url').value;
+
+  if (nameAll == '' || displayName == '') {
+    // The user didn't enter a full name and a compact name, warn.
+    alert('N-ai completat numele compact sau numele complet.');
+    return;
+  }
+
+  // Set the fields to empty values so that if we click again we don't
+  // add the person twice.
+  elem('person_name_all').value = '';
+  elem('person_display_name').value = '';
+  elem('person_photo_url').value = '';
+
+  // Now call the server hook to add the person to the db.
+  var url = '/hooks/add_new_person.php' +
+      '?name_all=' + nameAll +
+      '&display_name=' + displayName +
+      '&photo_url=' + photoUrl;
+
+  elem('person_add_message').innerHTML = 
+      'Așteatpă... <img src=/images/activity_indicator.gif>';
+  sendPayload_(url, function(response) {
+    elem('person_add_message').innerHTML = response;
+  });
+}
+
+
