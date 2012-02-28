@@ -1,5 +1,10 @@
 <?
+// NOTE: This giant file is full of legacy code and old functions. It should be
+// organized and cleaned up, a bunch of these functions should be moved to
+// templates.
+
 include('hp-includes/stats_utils.php');
+
 
 /**
  * Returns the URL used to log out a logged in user.
@@ -18,6 +23,11 @@ function get_logout_url($redirect = '') {
 }
 
 
+/**
+ * Returns the username of the user with the ID passed in as a parameter.
+ * @param {Number} $uid The id of the user we are interested in.
+ * @return {String} The user's login handle as a string.
+ */
 function getUserLogin($uid) {
   $s = mysql_query("SELECT user_login FROM wp_users WHERE ID={$uid}");
   if ($r = mysql_fetch_array($s)) {
@@ -26,6 +36,13 @@ function getUserLogin($uid) {
   return '';
 }
 
+
+/**
+ * A warning that shows up on the 2004-2008 session pages where all we show is
+ * that giant table with lots of data.
+ * TODO: This should be moved into a template, and those pages should be
+ * rewritten anyways.
+ */
 function printWarning() {
   ?>
   <div class=infotext>

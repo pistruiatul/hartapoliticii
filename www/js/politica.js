@@ -124,7 +124,7 @@ function sendPhoto() {
   var pid = getInputValue('ps_pid');
   var type = getInputValue('ps_type');
 
-  var sendUrl = "?cid=suggest&value=" + escape(url) + "&pid=" + pid +
+  var sendUrl = "/api/suggest_edit.php?value=" + escape(url) + "&pid=" + pid +
                 "&type=" + type;
 
   sendPayload_(sendUrl, function() {
