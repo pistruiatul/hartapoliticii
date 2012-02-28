@@ -1,0 +1,8 @@
+This directory contains on-off scripts that most of the time deal with
+joining names across tables.
+
+You can put here other one-off scripts that are written in PHP that edit the
+database or do whatever.
+
+This directory is never included from the site and all the scripts here are
+independent and self contained.
