@@ -34,7 +34,6 @@ $person->loadFromDb();
 // The title of the page is the person's name, reversed (because in the db
 // we keep the names as "LastName FirstName".
 $title = $person->displayName;
-$nowarning = true;
 
 ?>
 <!-- For facebook sharing -->

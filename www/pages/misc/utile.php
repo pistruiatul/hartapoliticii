@@ -6,7 +6,7 @@ if (!$DB_USER) {
 }
 
 $title = "Link-uri utile";
-$nowarning = true;
+
 include('header.php');
 ?>
 

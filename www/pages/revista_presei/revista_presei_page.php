@@ -6,7 +6,6 @@ if (!$DB_USER) {
 }
 $title = "Revista Presei";
 
-$nowarning = true;
 include('header.php');
 include('hp-includes/people_lib.php');
 

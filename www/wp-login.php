@@ -63,7 +63,6 @@ function login_header($title = 'Log In', $message = '', $wp_error = '') {
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 <head>
 <?php
-  $nowarning = true;
   $title = "Autentificare / Înregistrare";
   $url_path = "/";
   include('header.php');

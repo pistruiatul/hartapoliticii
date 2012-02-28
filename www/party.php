@@ -12,7 +12,6 @@ $party = new Party($id);
 
 // --------------------------- Display Header ---------------------
 $title = $party->longName;
-$nowarning = true;
 include('header.php');
 
 // ---------------------------- Display Breadcrumbs ---------------

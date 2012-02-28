@@ -47,7 +47,6 @@ $uid = getTagAuthorUid($tagid);
 $year = '2008';
 
 $title = 'Tag "' . getTagNameForId($tagid) . '"';
-$nowarning = true;
 
 if (!$_GET['iframe']) {
   include('header.php');

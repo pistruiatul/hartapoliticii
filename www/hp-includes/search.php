@@ -8,7 +8,6 @@ $query = trim($_GET['q']);
 $query_orig = $query;
 
 $title = "Rezultate căutare \"". htmlspecialchars($query) ."\"";
-$nowarning = true;
 
 include_once('header.php');
 include_once('hp-includes/people_lib.php');
