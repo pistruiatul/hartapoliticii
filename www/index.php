@@ -1,35 +1,42 @@
 <?php
-/**
- * Front to the WordPress application. This file doesn't do anything, but loads
- * wp-blog-header.php which does and tells WordPress to load the theme.
- *
- * @package WordPress
- */
+// The database user and password are specified in this file. For development
+// we've included a secret/db_user.php.sample that should be renamed and then
+// edited to match your local development environment.
+require_once('secret/db_user.php');
 
-/**
- * Tells WordPress to load the WordPress theme and output it.
- *
- * @var bool
- */
-define('WP_USE_THEMES', true);
-
+// Include the templating engine class.
 include ('smarty/Smarty.class.php');
 
-if ($_GET['cid'] && $_GET['cid'] == 'suggest') {
-  require('./hp-includes/suggest.php');
 
-} else if (($_GET['cid'] && $_GET['cid'] == 16) ||
-           (!$_GET['cid'] && $_GET['p']) ||
-           (!$_GET['cid'] && $_GET['feed'])) {
-  /** Loads the WordPress Environment and Template */
-  require_once('./secret/db_user.php');
+/**
+ * Checks whether we should load the blog instead of loading the main page of
+ * the politics map.
+ * @return {Boolean} True when we should load the blog.
+ */
+function shouldLoadBlog() {
+  return ($_GET['cid'] && $_GET['cid'] == 16) ||  // the blog section
+         (!$_GET['cid'] && $_GET['p']) ||         // a specific post
+         (!$_GET['cid'] && $_GET['feed']);        // the rss feed
+}
+
+
+if (shouldLoadBlog()) {
+  /**
+   * Tells WordPress to load the WordPress theme and output it.
+   * TODO(vivi): I don't remember why this needs to be defined here.
+   * @var bool
+   */
+  define('WP_USE_THEMES', true);
+
+  // Loads the WordPress Environment and Template.
   require('./wp-blog-header.php');
 
 } else {
-  require_once('./secret/db_user.php');
+  // If we're not loading the blog, just load our main page. Do load the
+  // wp-config so that we can use the fact that the user is logged in.
   require_once('./wp-config.php');
 
-  /** Loads the Politics Map front page that displays numbers and stuff */
+  // Loads the Politics Map front page that displays numbers and stuff.
   require('./hp-index.php');
 }
 ?>
