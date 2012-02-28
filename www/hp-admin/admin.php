@@ -1,5 +1,6 @@
 <?
 include('../_top.php');
+include('../hp-includes/people_lib.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -16,34 +17,12 @@ $_POST['id'] = (int)$_POST['id'];
 if ($_POST['action'] == 'addphoto') {
   // get the third slash from the url.
   $url = $_POST['photo'] ? $_POST['photo'] : $_POST['orig_url'];
+  $person_id = (int)$_POST['pid'];
 
-  $parts = explode(".", $url);
-  $ext = strtolower(array_pop($parts));
-
-  if (strlen($ext) > 4) {
-    $ext = 'jpg';
-  }
-  // Now actually get the photo
-  $ch = curl_init($url);
-
-  $fname = "../images/people/{$_POST['pid']}.$ext";
-  $count = 1;
-  while (is_file($fname)) {
-    $fname = "../images/people/{$_POST['pid']}_$count.$ext";
-    $count++;
-  }
-
-  $fp = fopen($fname, "w");
-
-  curl_setopt($ch, CURLOPT_FILE, $fp);
-  curl_setopt($ch, CURLOPT_HEADER, 0);
-
-  curl_exec($ch);
-  curl_close($ch);
-  fclose($fp);
+  downloadPersonPhoto($person_id, $url);
 
   echo "Saved as <a href=\"$fname\">$fname</a>. ";
-  echo "Go to <a href=/?cid=9&id={$_POST['pid']}>his page</a>.";
+  echo "Go to <a href=/?cid=9&id={$person_id}>his page</a>.";
 
   mysql_query(
     "update moderation_queue set state=2 where id={$_POST['id']}");

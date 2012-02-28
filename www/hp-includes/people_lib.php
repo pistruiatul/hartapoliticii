@@ -532,4 +532,46 @@ function maybeTestForCommitCookie() {
 }
 
 
+
+/**
+ * Downloads the photo passed in as an URL and saves it locally for the person
+ * id specified as a parameter
+ *
+ * @param {Number} $person_id The id of the person for which we are downloading
+ *     this photo.
+ * @param {String} $url The url where the photo should be found.
+ * @return void
+ */
+function downloadPersonPhoto($person_id, $url) {
+  $parts = explode(".", $url);
+  $ext = strtolower(array_pop($parts));
+
+  // This is pretty dumb here. :-)
+  if (strlen($ext) > 4) {
+    $ext = 'jpg';
+  }
+
+  // Try to figure out the first file name that's not taken for this person.
+  // Multiple photos could be uploaded for each politician.
+  $fname = "../images/people/{$person_id}.{$ext}";
+  $count = 1;
+  while (is_file($fname)) {
+    $fname = "../images/people/{$person_id}_{$count}.{$ext}";
+    $count++;
+  }
+
+  $fp = fopen($fname, "w");
+
+  // Now actually get the photo
+  $ch = curl_init($url);
+
+  curl_setopt($ch, CURLOPT_FILE, $fp);
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+
+  curl_exec($ch);
+  curl_close($ch);
+
+  fclose($fp);
+}
+
 ?>

@@ -348,3 +348,43 @@ body {
   padding: 8px;
 
 }
+
+/* -------------------------------------------------------------- */
+/* Styles for displaying things under the user's profile -------- */
+
+.my_account .section {
+  margin-bottom: 30px;
+}
+
+.my_account .title {
+  font-weight: bold;
+  border-bottom: solid 1px #EEE;
+  font-size: 16px;
+  padding-bottom: 4px;
+}
+
+.my_account .content {
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.my_account .example {
+  font-size: 14px;
+  color: #CCC;
+}
+
+.my_account .form_field {
+  font-size: 16px;
+  margin-bottom: -5px;
+}
+
+.my_account td {
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.my_account input {
+  font-size: 13px;
+  padding: 3px;
+}
+
