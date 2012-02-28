@@ -6,7 +6,6 @@ if (!$DB_USER) {
 
 
 $title = "Despre acest site / Contact";
-$nowarning = true;
 
 include('header.php');
 

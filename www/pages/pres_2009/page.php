@@ -5,7 +5,6 @@ if (!$DB_USER) {
 }
 $title = "Alegeri Prezidențiale 2009";
 
-$nowarning = true;
 include('header.php');
 include('hp-includes/people_lib.php');
 

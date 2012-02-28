@@ -5,7 +5,6 @@ if (!$DB_USER) {
 }
 $title = "Camera deputatilor 2008 - 2012";
 
-$nowarning = true;
 include('header.php');
 include('hp-includes/people_lib.php');
 

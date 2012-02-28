@@ -5,7 +5,7 @@ if (!$DB_USER) {
 }
 
 $title = "Alegeri EuroParlamentare 2009";
-$nowarning = true;
+
 include('header.php');
 include('pages/euro_2009/europarlament_functions.php');
 include('hp-includes/people_lib.php');

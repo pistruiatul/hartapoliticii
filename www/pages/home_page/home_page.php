@@ -21,7 +21,6 @@ $title = "Harta Politicii din România";
 <meta itemprop="image" content="http://hartapoliticii.ro/top_title.png">
 <?
 
-$nowarning = true;
 include('header.php');
 include('hp-includes/people_lib.php');
 
