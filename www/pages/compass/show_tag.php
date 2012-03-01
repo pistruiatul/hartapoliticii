@@ -78,7 +78,7 @@ $zero_people = array();
 
 for ($i = 0; $i < sizeof($people); $i++) {
   $context = getBeliefContext($room, $year, $uid, $people[$i]['id'], $tagid,
-                              $possible);
+                              $possible, 200);
 
   foreach ($context as $key => $value) {
     $people[$i][$key] = $value;

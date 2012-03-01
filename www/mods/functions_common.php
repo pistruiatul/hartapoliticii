@@ -137,7 +137,26 @@ function getTaggedVoteCount($idperson, $room, $year, $vote, $idtag, $uid) {
 }
 
 
-function getBeliefContext($room, $year, $uid, $idperson, $idtag, $possible) {
+/**
+ * Returns a context object with all the data needed to display one scorecard
+ * conclusion for one particular politician.
+ *
+ * @param {String} $room Senat or cdep.
+ * @param {Number} $year The year for which we're doing this, 2004 or 2008.
+ * @param {Number} $uid The user id of the author of this tag.
+ * @param {Number} $idperson The id of the person who's position we want.
+ * @param {Number} $idtag The tag we're looking for.
+ * @param {Number} $possible The total number of possible votes for this tag,
+ *     how many laws were tagged like this. A person could have voted on at
+ *     most $possible votes.
+ * @param {Number} $width The width of the left or the right side of the row
+ *     showing the bars for Pro or Con votes.
+ * @return {Array} An associative array with the data necessary to display the
+ *     score card row for one politician. This includes number of votes pro and
+ *     con and the width in pixels of each of the columns.
+ */
+function getBeliefContext($room, $year, $uid, $idperson, $idtag, $possible,
+                          $width) {
   // Get the list of votes tagged like that.
   // Crossed with my senator's votes (da, nu, ab, mi) + count for each.
   $yes_cnt = getTaggedVoteCount($idperson, $room, $year, 'DA', $idtag, $uid);
@@ -151,7 +170,6 @@ function getBeliefContext($room, $year, $uid, $idperson, $idtag, $possible) {
   // This is the width of HALF of the area for votes. This means that we have
   // an area that allows for $possible negative votes and also $possible
   // positive votes at the same time.
-  $width = 200;
 
   // How many pixels we have per each vote?
   $px_per_vote = $width / $possible;
@@ -212,25 +230,14 @@ function showBeliefs($room, $year, $uid, $idperson) {
 
 function displayOneIndividualTag($room, $year, $uid, $idperson, $tag) {
   $c = getBeliefContext($room, $year, $uid, $idperson, $tag['id'],
-                          $tag['num']);
+                        $tag['num'], 120);
 
   $t = new Smarty();
   $t->assign('tag', $tag['tag']);
 
-  $t->assign('w1', $c['w1']);
-  $t->assign('w2', $c['w2']);
-  $t->assign('w3', $c['w3']);
-  $t->assign('w4', $c['w4']);
-  $t->assign('w5', $c['w5']);
+  $t->assign('person', $c);
 
-  // TODO(vivi): comment this more, right now this is ridiculous.
-  $t->assign('c2', $c['c2']);
-  $t->assign('c3', $c['c3']);
-  $t->assign('c4', $c['c4']);
-  $t->assign('c5', $c['c5']);
-
-  $link = "?cid=15&tagid={$tag['id']}&room={$room}";
-  $t->assign('taglink', $link);
+  $t->assign('taglink', "?cid=15&tagid={$tag['id']}&room={$room}");
   $t->assign('description', $tag['description']);
 
   $t->assign('room', $room);

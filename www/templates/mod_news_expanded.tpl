@@ -10,7 +10,7 @@
         <tr>
         <td valign="top">
           <span class="small green_link">
-            <a href="?name={$assoc[a].name}&exp=news">
+            <a href="?name={$assoc[a].name}">
               {$assoc[a].display_name}
             </a>
           </span>
@@ -56,33 +56,58 @@
       {strip}
         <tr>
         <td valign="top">
-         <span class="small"><em>{$news[n].time|date_format:"%d&nbsp;%b"}</em></span>
-        </td><td>
+          <span class="small">
+            <em>{$news[n].time|date_format:"%e&nbsp;%b"}</em><br>
+            <em><span class="light_gray">{$news[n].time|date_format:"%Y"}</span></em><br>
+            <em><span class="light_gray">{$news[n].time|date_format:"%l%p"|replace:"PM":"pm"|replace:"AM":"am"}</span></em>
+
+          </span>
+        </td>
+
+        {if $news[n].photo != ""}
+          <td valign="top">
+        {else}
+          <td colspan="2" valign="top">
+        {/if}
 
          <div class="medium recent_news_title">
-         <span class="black_link">
-           <a href="{$news[n].link}">
-             {$news[n].title}&nbsp;
-             <nobr>
-               <img src="images/popout_icon.gif" border="0" width="12" height="12"
-                    hspace="5">
-               <span class="gray medium">{$news[n].source}</span>
-             </nobr>
-           </a>
-         </span><br>
-         <div class="small">
-           {section name=x loop=$news[n].people}
-           {strip}
-             <div class="news_list_mention green_link">
-               <a href="?name={$news[n].people[x].name}&exp=news">
-                 {$news[n].people[x].display_name}
-               </a>
-             </div>
-           {/strip}
-           {/section}
-         </div>
+           <span class="black_link">
+             <a href="{$news[n].link}">
+               {$news[n].title}&nbsp;
+               <nobr>
+                 <img src="images/popout_icon.gif" border="0" width="12" height="12"
+                      hspace="5">
+                 <span class="gray medium">{$news[n].source}</span>
+               </nobr>
+             </a>
+           </span>
+           <br>
+
+           <div class="small">
+             {section name=x loop=$news[n].people}
+             {strip}
+               <div class="news_list_mention green_link">
+                 <a href="?name={$news[n].people[x].name}">
+                   {$news[n].people[x].display_name}
+                 </a>
+               </div>
+             {/strip}
+             {/section}
+           </div>
          </div>
         </td>
+
+        {if $news[n].photo != ""}
+          {* If this article has a photo, put a div here with that photo *}
+          <td width="100" valign="top">
+            <div class="container">
+              <div class="photo">
+                <img src="{$news[n].photo}?width=100">
+              </div>
+            </div>
+          </td>
+        {/if}
+
         </tr>
       {/strip}
       {/section}

@@ -348,7 +348,9 @@ class Person {
       case "pres/2009":    $moduleTitle = "Alegeri prezindențiale 2009"; break;
       case "gov/ro":       $moduleTitle = "Membru al guvernului"; break;
       case "video":        $moduleTitle = "Video"; break;
-      case "news":        $moduleTitle = "Știri pe larg"; break;
+      case "news":         $moduleTitle = "Știri pe larg"; break;
+      case "news/expanded":$moduleTitle = "Știri pe larg"; break;
+
     }
     return $moduleTitle;
   }
@@ -360,7 +362,7 @@ class Person {
    */
   public function getMostRecentNewsItems($count, $start=0) {
     $s = mysql_query("
-      SELECT a.id, a.title, a.link, a.time, a.place, a.source
+      SELECT a.id, a.title, a.link, a.time, a.place, a.source, a.photo
       FROM news_people AS p
       LEFT JOIN news_articles AS a ON p.idarticle = a.id
       WHERE p.idperson = {$this->id}

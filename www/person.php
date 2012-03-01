@@ -166,6 +166,12 @@ if ($expandedModule = isExpandedModule($_GET['exp'])) {
 } else {
   $history = $person->getHistory();
 
+  // If we only have one module for this person, append the expanded news module
+  // at the end so that the page doesn't look totally stupid.
+  if (sizeof($history) <= 1) {
+    array_push($history, 'news/expanded');
+  }
+
   // If we are simply displaying a person's page, go through all the modules
   // that we loaded from people_history and load them one by one.
   foreach ($history as $moduleName) {
@@ -177,10 +183,20 @@ if ($expandedModule = isExpandedModule($_GET['exp'])) {
 
     // Based on the module name, load the 'module_compact.php' file.
     $filename = str_replace("/", "_", $moduleName);
-    include("mods/{$filename}_compact.php");
+
+    // This test is a bit of a hack so that we can display the expaneded news
+    // module on the person's page when the person has only one other module.
+    if (strrpos($filename, 'expanded') === false) {
+      // If this is not an expanded module, include the compact one.
+      include("mods/{$filename}_compact.php");
+    } else {
+      // Otherwise just include the expanded module.
+      include("mods/{$filename}.php");
+    }
 
     echo "</div></div>";
   }
+
 }
 ?>
 

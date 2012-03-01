@@ -10,28 +10,28 @@
   <td align="right">
     <table width="240" cellspacing="0" cellpadding="0" class="belief_table">
       {* Gray section in the beginning *}
-      <td width="{$w1}" bgcolor="#ececec">
+      <td width="{$person.gray_px_left}" bgcolor="#ececec">
         &nbsp;
       </td>
 
       {* The red section of votes against *}
-      <td width="{$w2}" bgcolor="#c7470f" align="center">
-        {if $c2 > 0}
-          {$c2}
+      <td width="{$person.red_px}" bgcolor="#c7470f" align="center">
+        {if $person.no_cnt > 0}
+          -{$person.no_cnt}
         {/if}
       </td>
 
-      <td width=2 bgcolor="#333" align="center">
+      <td width=1 bgcolor="#333" align="center">
       </td>
 
       {* Pro votes *}
-      <td width="{$w4}" bgcolor="#82b83d" align="center">
-        {if $c4 > 0}
-          {$c4}
+      <td width="{$person.green_px}" bgcolor="#82b83d" align="center">
+        {if $person.yes_cnt > 0}
+          {$person.yes_cnt}
         {/if}
       </td>
 
-      <td width="{$w5}" bgcolor="#ececec">
+      <td width="{$person.gray_px_right}" bgcolor="#ececec">
         &nbsp;
       </td>
     </table>
