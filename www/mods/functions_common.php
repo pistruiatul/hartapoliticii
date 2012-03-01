@@ -140,41 +140,42 @@ function getTaggedVoteCount($idperson, $room, $year, $vote, $idtag, $uid) {
 function getBeliefContext($room, $year, $uid, $idperson, $idtag, $possible) {
   // Get the list of votes tagged like that.
   // Crossed with my senator's votes (da, nu, ab, mi) + count for each.
-  $danum = getTaggedVoteCount($idperson, $room, $year, 'DA', $idtag, $uid);
-  $nunum = getTaggedVoteCount($idperson, $room, $year, 'NU', $idtag, $uid);
-  $abnum = getTaggedVoteCount($idperson, $room, $year, 'Ab', $idtag, $uid);
-  $minum = getTaggedVoteCount($idperson, $room, $year, '-', $idtag, $uid);
+  $yes_cnt = getTaggedVoteCount($idperson, $room, $year, 'DA', $idtag, $uid);
+  $no_cnt = getTaggedVoteCount($idperson, $room, $year, 'NU', $idtag, $uid);
+  $abs_cnt = getTaggedVoteCount($idperson, $room, $year, 'Ab', $idtag, $uid);
+  $missing_cnt = getTaggedVoteCount($idperson, $room, $year, '-', $idtag, $uid);
 
-  $total = $possible;
+  $records = $yes_cnt + $no_cnt + $abs_cnt + $missing_cnt;
+  $missing_cnt += $possible - $records;
 
-  $sum = $danum + $nunum + $abnum + $minum;
+  // This is the width of HALF of the area for votes. This means that we have
+  // an area that allows for $possible negative votes and also $possible
+  // positive votes at the same time.
+  $width = 200;
 
-  $width = 220;
-
-  $vpx = $width / $total;
+  // How many pixels we have per each vote?
+  $px_per_vote = $width / $possible;
 
   // The red area.
-  $w2 = $vpx * $nunum;
-  // the gray area in the middle;
-  $w3 = $vpx * ($abnum + $minum + ($total - $sum));
+  $red_px = $px_per_vote * $no_cnt;
   // the grayed out area on the left
-  $w1 = $width - $w2 - $w3 / 2;
+  $gray_px_left = $width - $red_px;
+
   // the green area on the right.
-  $w4 = $vpx * $danum;
+  $green_px = $px_per_vote * $yes_cnt;
   // the grayed out area on the right;
-  $w5 = $width - $w4 - $w3 / 2;
+  $gray_px_right = $width - $green_px;
 
   $c = array();
-  $c['w1'] = $w1;
-  $c['w2'] = $w2;
-  $c['w3'] = $w3;
-  $c['w4'] = $w4;
-  $c['w5'] = $w5;
+  $c['gray_px_left'] = $gray_px_left;
+  $c['red_px'] = $red_px;
+  $c['green_px'] = $green_px;
+  $c['gray_px_right'] = $gray_px_right;
 
-  $c['c2'] = $nunum;
-  $c['c3'] = $total - $sum;
-  $c['c4'] = $danum;
-  $c['c5'] = $minum + $abnum;
+  $c['no_cnt'] = $no_cnt;
+  $c['yes_cnt'] = $yes_cnt;
+  $c['abs_cnt'] = $abs_cnt;
+  $c['missing_cnt'] = $missing_cnt;
 
   return $c;
 }
