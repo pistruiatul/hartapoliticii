@@ -5,7 +5,10 @@ include_once('hp-includes/people_util.php');
 include_once('mods/functions_common.php');
 include_once('pages/functions_common.php');
 
-// Just get me a list with the people that are in cdep/2008
+
+/**
+ *  Just get me a list with the people that are in cdep/2008
+ */
 function getPeopleList($room, $year) {
   $s = mysql_query("
     SELECT people.id, display_name, p.name as party_name
@@ -24,14 +27,23 @@ function getPeopleList($room, $year) {
   return $list;
 }
 
+
+/**
+ * A comparator for two people so that we sort them according to the score
+ * of whom overall voted more positive than negative on the issue.
+ * @param $a
+ * @param $b
+ * @return bool
+ */
 function beliefCmp($a, $b) {
-  $v1 = $a['c4'] - $a['c2'];
-  $v2 = $b['c4'] - $b['c2'];
+  $v1 = $a['yes_cnt'] - $a['no_cnt'];
+  $v2 = $b['yes_cnt'] - $b['no_cnt'];
+
   if ($v1 == $v2) {
-    if ($a['c4'] == $b['c4']) {
-      return $a['c2'] > $b['c2'];
+    if ($a['yes_cnt'] == $b['yes_cnt']) {
+      return $a['no_cnt'] > $b['no_cnt'];
     }
-    return $a['c4'] < $b['c4'];
+    return $a['yes_cnt'] < $b['yes_cnt'];
   }
   return $v1 < $v2;
 }
@@ -48,9 +60,7 @@ $year = '2008';
 
 $title = 'Tag "' . getTagNameForId($tagid) . '"';
 
-if (!$_GET['iframe']) {
-  include('header.php');
-}
+if (!$_GET['iframe']) include('header.php');
 
 $t = new Smarty();
 
@@ -67,25 +77,18 @@ $non_zero_people = array();
 $zero_people = array();
 
 for ($i = 0; $i < sizeof($people); $i++) {
-  $c = getBeliefContext($room, $year, $uid, $people[$i]['id'], $tagid,
-                        $possible);
+  $context = getBeliefContext($room, $year, $uid, $people[$i]['id'], $tagid,
+                              $possible);
 
-  $people[$i]['w1'] = $c['w1'];
-  $people[$i]['w2'] = $c['w2'];
-  $people[$i]['w3'] = $c['w3'];
-  $people[$i]['w4'] = $c['w4'];
-  $people[$i]['w5'] = $c['w5'];
+  foreach ($context as $key => $value) {
+    $people[$i][$key] = $value;
+  }
 
-  $people[$i]['c2'] = $c['c2'];
-  $people[$i]['c3'] = $c['c3'];
-  $people[$i]['c4'] = $c['c4'];
-  $people[$i]['c5'] = $c['c5'];
-
-  // Since I'm here, fix the name. A little hacky.
+  // Since I'm here, fix a few things. A little hacky.
   $people[$i]['link'] = "?cid=9&id=" . $people[$i]['id'];
   $people[$i]['tiny_photo'] = getTinyImgUrl($people[$i]['id']);
 
-  if ($c['c2'] + $c['c4']) {
+  if ($context['yes_cnt'] + $context['no_cnt'] > 0) {
     array_push($non_zero_people, $people[$i]);
   } else {
     array_push($zero_people, $people[$i]);

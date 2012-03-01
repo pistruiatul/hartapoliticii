@@ -67,21 +67,8 @@
 
   {section name=p loop=$people}
     {strip}
-    {include file="compass_person_row.tpl"
-        w1=$people[p].w1
-        w2=$people[p].w2
-        w3=$people[p].w3
-        w4=$people[p].w4
-        w5=$people[p].w5
-        c2=$people[p].c2
-        c3=$people[p].c3
-        c4=$people[p].c4
-        c5=$people[p].c5
-        person=$people[p]
-        room=$room
-        year=$year
-        tagid=$tagid
-        }
+    {include file="compass_person_row.tpl" person=$people[p] room=$room
+        year=$year tagid=$tagid}
     {/strip}
   {/section}
   </div>
@@ -89,21 +76,11 @@
   <strong>Parlamentari care nu au votat pe nici una din aceste legi:</strong>
 
   <div style="margin-left: 20px;">
-  {include file="parl_person_beliefs_header.tpl"}
+  {include file="compass_table_header.tpl"}
 
   {section name=a loop=$absentees}
     {strip}
-    {include file="compass_person_row.tpl"
-        w1=$absentees[a].w1
-        w2=$absentees[a].w2
-        w3=$absentees[a].w3
-        w4=$absentees[a].w4
-        w5=$absentees[a].w5
-        c2=$absentees[a].c2
-        c3=$absentees[a].c3
-        c4=$absentees[a].c4
-        c5=$absentees[a].c5
-        person=$absentees[a]}
+    {include file="compass_person_row.tpl" person=$absentees[a]}
     {/strip}
   {/section}
   </div>

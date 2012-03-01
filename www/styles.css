@@ -311,6 +311,15 @@ body {
 	height: 10px;
 }
 
+.belief_total {
+  color: black;
+  font-weight: bold;
+  background-color: #ddd;
+  font-size: 77%;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
 .home_blog_post {
 	line-height:normal;
 	padding-bottom: 5px;
