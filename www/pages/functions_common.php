@@ -216,7 +216,7 @@ function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax') {
   }
 
   $s = mysql_query("
-    SELECT a.id, a.title, a.link, a.time, a.place, p.idperson, a.source
+    SELECT a.id, a.title, a.link, a.time, a.place, a.photo, p.idperson, a.source
     FROM news_people AS p
     LEFT JOIN news_articles AS a ON p.idarticle = a.id
     LEFT JOIN people_history AS h

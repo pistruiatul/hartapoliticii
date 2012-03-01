@@ -13,6 +13,8 @@ Created on Oct 17, 2009
 import md5
 import os
 import urllib
+import urllib2
+from urllib2 import URLError
 
 NO_CACHE = False
 cache_hits = []
@@ -53,6 +55,25 @@ def get_news_html(source, link):
     data = f.read()
     f.close()
     cache_hits.append(fname)
+  return data
+
+
+def get_page(link):
+  """ Fetches the page at the provided link.
+  """
+  success = False
+  data = ""
+
+  while not success:
+    try:
+      f = urllib2.urlopen(link, None, 20)
+      data = f.read()
+      f.close()
+      success = True
+    except URLError:
+      print "Timed out, retrying ", link
+      success = False
+
   return data
 
 

@@ -128,7 +128,7 @@ def resolve_name(name):
   return globalPeopleCache[name]
 
 
-def add_article_to_db(id, time, place, link, title):
+def add_article_to_db(id, time, place, link, title, photo):
   """ Given all the information about an article plus the person associated with
   it, insert this association in the database. The script naively calls the api
   to add it entirely, assuming that the API will insert the article if it does
@@ -144,7 +144,8 @@ def add_article_to_db(id, time, place, link, title):
     'place': place,
     'link': link,
     'title': title,
-    'source': SOURCE_NAME
+    'source': SOURCE_NAME,
+    'photo': photo
   }
 
   if link in globalArticlesCache:
@@ -257,8 +258,9 @@ for fname in files[-NUMBER_OF_DAYS_TO_PARSE : ]:
     title = urllib.unquote(item.findtext('news_title').encode('UTF-8'))
 
     place = item.findtext('news_place').encode('UTF-8')
-
+    photo = item.findtext('news_photo')
     status = item.findtext('news_status')
+
     if status is None:
       status = 'stale'
 
@@ -268,6 +270,8 @@ for fname in files[-NUMBER_OF_DAYS_TO_PARSE : ]:
 
     if status == 'fresh':
       print "-- " + link
+      if photo:
+        print "   " + photo
 
     news_content = urllib.unquote(item.findtext('news_content'))
     names = get_names_from_text(news_content)
@@ -277,7 +281,8 @@ for fname in files[-NUMBER_OF_DAYS_TO_PARSE : ]:
       id = resolve_name(plain)
 
       if id > 0:
-        add_article_to_db(id, time.mktime(d.timetuple()), place, link, title)
+        add_article_to_db(id, time.mktime(d.timetuple()), place, link, title,
+                          photo)
 
       if link in globalArticlesCache:
         add_person_qualifier(link, id, plain,

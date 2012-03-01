@@ -11,7 +11,7 @@ $list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, '%');
 $list = newsAddPreviousWeekToList($list, NULL, '%');
 $t->assign('topPeople', $list);
 
-$t->assign('news', getMostRecentNewsArticles(NULL, NULL, 9, '%'));
+$t->assign('news', getMostRecentNewsArticles(NULL, NULL, 7, '%'));
 $t->assign('blogposts', getMostRecentBlogPosts(7));
 
 // Get the top three senators.
