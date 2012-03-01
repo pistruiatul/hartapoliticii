@@ -3,7 +3,6 @@ include_once('pages/functions_common.php');
 include_once('pages/cdep_2008/functions.php');
 include_once('pages/senat_2008/functions.php');
 
-
 $t = new Smarty();
 
 // Show the guys that show up most in the news.

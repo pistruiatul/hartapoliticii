@@ -10,7 +10,10 @@
 		  {strip}
 		    <tr>
 		    <td valign="top">
-		     <span class="small"><em>{$news[n].time|date_format:"%d&nbsp;%b"}</em></span>
+		     <span class="small">
+           <em>{$news[n].time|date_format:"%d&nbsp;%b"}</em><br>
+           <em><span class="light_gray">{$news[n].time|date_format:"%Y"}</span></em><br>
+         </span>
 		    </td><td>
 
          <div class="small recent_news_title">
