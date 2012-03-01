@@ -258,9 +258,13 @@ for fname in files[-NUMBER_OF_DAYS_TO_PARSE : ]:
     title = urllib.unquote(item.findtext('news_title').encode('UTF-8'))
 
     place = item.findtext('news_place').encode('UTF-8')
-    photo = item.findtext('news_photo')
-    status = item.findtext('news_status')
 
+    photo = item.findtext('news_photo')
+    # How on earth do I do photo = photo || '' in python?
+    if not photo:
+      photo = ''
+
+    status = item.findtext('news_status')
     if status is None:
       status = 'stale'
 
