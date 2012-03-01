@@ -92,6 +92,14 @@ body {
   background: #EEEEEE;
   font-size: 1.1em;
 }
+#q {
+  font-size: 15px;
+  padding: 2px;
+}
+#cauta {
+  font-size: 15px;
+}
+
 .bigtable .header td {
   padding: 10px;
 }
