@@ -20,8 +20,10 @@ from crawler import get_news_html
 from crawler import is_cache_hit, cache_hits
 from crawler import replace_circ_diacritics
 from crawler import get_file_name_for_link
+from crawler import get_page
 
 import urllib
+import re
 
 from datetime import datetime
 from dateutil import parser
@@ -64,6 +66,20 @@ def get_news_text_from_html(data):
   return content.encode('UTF-8') + ' ' + str(tag)
 
 
+def get_photo_link_for_article(url):
+  url += '/foto'
+  content = get_page(url)
+
+  # Now try to find the photo if it exists.
+  img = re.compile("<img src=\"(.*)\?width=605\" alt=\"\"/>")
+  m = img.findall(content)
+
+  if len(m) > 0:
+    return m[0]
+
+  return None
+
+
 # ===========================
 # The main method for now, do not rely on it.
 now = datetime.today()
@@ -82,6 +98,10 @@ for item in rss.findall('channel/item'):
   d = parser.parse(datestr)
 
   content = get_news_text_from_html(get_news_html(source, link))
+  photo_url = get_photo_link_for_article(link)
+
+  print " + " + link
+  print "   : " + photo_url
 
   if content is None:
     print ' ! ' + source + ' error for ' + link + ', main tags nowhere'
@@ -112,6 +132,7 @@ for item in rss.findall('channel/item'):
     f.write(" <news_place></news_place>\n")
     f.write(" <news_time>" + news_time + "</news_time>\n")
     f.write(" <news_content>" + urllib.quote(content) + "</news_content>\n")
+    f.write(" <news_photo>" + photo_url + "</news_photo>\n")
 
     if not is_cache_hit(source, link):
       f.write(" <news_status>fresh</news_status>")

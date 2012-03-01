@@ -244,12 +244,27 @@ body {
 #suggest_photo_input {
  width: 90%;
 }
+
+/* ----------------------------------------------------- */
+/* Classes for the news on the front page. */
 .recent_news {
   line-height: 1em;
   font-size: 16px;
 }
-.recent_news_title {
-  margin-bottom: 7px;
+
+.recent_news_block {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.recent_news_block .recent_news_title {
+  font-size: 14px;
+  line-height: 1.3em;
+  display: inline;
+}
+
+.recent_news_block .mentions_block {
+  margin-top: 2px;
 }
 
 .news_list_mention {
@@ -273,6 +288,11 @@ body {
 .invisible_link a {
   text-decoration: none;
   color: black;
+}
+
+.recent_news .container {
+  border: solid 1px #ddd;
+  padding: 4px;
 }
 
 /* Icon classes. */
@@ -396,4 +416,3 @@ body {
   font-size: 13px;
   padding: 3px;
 }
-

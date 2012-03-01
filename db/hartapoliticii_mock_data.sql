@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 17, 2012 at 03:24 PM
+-- Generation Time: Mar 01, 2012 at 01:39 AM
 -- Server version: 5.5.12
--- PHP Version: 5.3.6
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -649,6 +649,7 @@ CREATE TABLE IF NOT EXISTS `news_articles` (
   `place` varchar(50) NOT NULL,
   `link` varchar(300) NOT NULL,
   `title` text NOT NULL,
+  `photo` text NOT NULL,
   `source` varchar(40) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `time` (`time`),
@@ -660,12 +661,12 @@ CREATE TABLE IF NOT EXISTS `news_articles` (
 -- Dumping data for table `news_articles`
 --
 
-INSERT INTO `news_articles` (`id`, `time`, `place`, `link`, `title`, `source`) VALUES
-(17330, 1327017960, '', 'http://www.mediafax.ro/politic/opozitia-in-miting-multicolor-dar-disciplinat-sub-streasina-arcului-de-triumf-9160190', 'Opoziţia în miting multicolor, dar disciplinat sub streaşina Arcului de Triumf', 'mediafax'),
-(17340, 1326908520, '', 'http://www.hotnews.ro/stiri-politic-11260211-kelemen-hunor-dupa-intalnirea-premierul-liderii-opozitiei-solutia-alegerilor-anticipate-nu-este-una-buna-acest-moment.htm', 'Kelemen Hunor: Solutia alegerilor anticipate nu este una buna in acest moment *Nu sustinem demisia lui Emil Boc', 'hotnews'),
-(17342, 1327022880, '', 'http://www.hotnews.ro/stiri-politic-11274092-crin-antonescu-sunt-cat-poate-dispus-demisia-opozitiei-din-parlament-iau-calcul.htm', 'Crin Antonescu: Sunt cat se poate de dispus la demisia Opozitiei din Parlament si o iau in calcul', 'hotnews'),
-(17344, 1326996960, '', 'http://www.hotnews.ro/stiri-politic-11270587-sever-voinescu-pdl-inteles-trebuie-isi-amplifice-efortul-genera-dialogul-vom-face.htm', 'Sever Voinescu: PDL a inteles ca trebuie sa isi amplifice efortul de a genera dialogul si o vom face', 'hotnews'),
-(17360, 1327079640, '', 'http://www.hotnews.ro/stiri-esential-11280234-jandarmeria-romana-organizatorii-mitingului-arcul-triumf-vor-sanctionati-pentru-blocarea-pietei-victoria-carosabilului-catre-piata-romana.htm', 'VIDEO Jandarmeria Romana: Organizatorii mitingului de la Arcul de Triumf vor fi sanctionati pentru blocarea Pietei Victoria si a carosabilului catre Piata Romana / Vicepresedintele PNL: Mitingul s-a desfasurat in conditii legale. Vom contesta sanctiunea', 'hotnews');
+INSERT INTO `news_articles` (`id`, `time`, `place`, `link`, `title`, `photo`, `source`) VALUES
+(17330, 1327017960, '', 'http://www.mediafax.ro/politic/opozitia-in-miting-multicolor-dar-disciplinat-sub-streasina-arcului-de-triumf-9160190', 'Opoziţia în miting multicolor, dar disciplinat sub streaşina Arcului de Triumf', 'http://storage0.dms.mpinteractiv.ro/media/1/1/1687/9357097/1/cristian-diaconescu-razvan-chirita.jpg', 'mediafax'),
+(17340, 1326908520, '', 'http://www.hotnews.ro/stiri-politic-11260211-kelemen-hunor-dupa-intalnirea-premierul-liderii-opozitiei-solutia-alegerilor-anticipate-nu-este-una-buna-acest-moment.htm', 'Kelemen Hunor: Solutia alegerilor anticipate nu este una buna in acest moment *Nu sustinem demisia lui Emil Boc', '', 'hotnews'),
+(17342, 1327022880, '', 'http://www.hotnews.ro/stiri-politic-11274092-crin-antonescu-sunt-cat-poate-dispus-demisia-opozitiei-din-parlament-iau-calcul.htm', 'Crin Antonescu: Sunt cat se poate de dispus la demisia Opozitiei din Parlament si o iau in calcul', '', 'hotnews'),
+(17344, 1326996960, '', 'http://www.hotnews.ro/stiri-politic-11270587-sever-voinescu-pdl-inteles-trebuie-isi-amplifice-efortul-genera-dialogul-vom-face.htm', 'Sever Voinescu: PDL a inteles ca trebuie sa isi amplifice efortul de a genera dialogul si o vom face', '', 'hotnews'),
+(17360, 1327079640, '', 'http://www.hotnews.ro/stiri-esential-11280234-jandarmeria-romana-organizatorii-mitingului-arcul-triumf-vor-sanctionati-pentru-blocarea-pietei-victoria-carosabilului-catre-piata-romana.htm', 'VIDEO Jandarmeria Romana: Organizatorii mitingului de la Arcul de Triumf vor fi sanctionati pentru blocarea Pietei Victoria si a carosabilului catre Piata Romana / Vicepresedintele PNL: Mitingul s-a desfasurat in conditii legale. Vom contesta sanctiunea', '', 'hotnews');
 
 -- --------------------------------------------------------
 
