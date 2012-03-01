@@ -11,8 +11,8 @@
   {* The search form *}
   <form action="" method=GET>
     <input type=hidden name=cid value=search>
-    <input type=text size=30 name=q value="{$escaped_query}">
-    <input type=submit value="Caută">
+    <input type=text size=22 name=q value="{$escaped_query}" id="q">
+    <input type=submit value="Caută" id="cauta">
   </form>
   <div class="small gray">
     Exemplu: "Traian Basescu", "Becali", etc
