@@ -3,7 +3,7 @@
 
 <?
 $postid = checkWordpressPostExistance($person);
-$permaLink = "/politica?cid=9&id={$person->id}";
+$permaLink = "/?cid=9&id={$person->id}";
 
 require_once( dirname(__FILE__) . '/wp-load.php' );
 

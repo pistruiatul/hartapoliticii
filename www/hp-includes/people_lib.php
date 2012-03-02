@@ -255,7 +255,7 @@ function getHistoryString($person) {
 
     $arr[] = "<a href=$url>$what</a> $detailsString";
   }
-  return "<a href=/politica/?cid=9&id={$person->id}>page</a> / ".
+  return "<a href=/?cid=9&id={$person->id}>page</a> / ".
          implode(", ", $arr);
 }
 
