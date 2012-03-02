@@ -8,7 +8,7 @@
 function checkWordpressPostExistance($person) {
   $s = mysql_query(
     "SELECT * FROM wp_posts
-     WHERE guid LIKE '%/politica/?cid=9&id={$person->id}'");
+     WHERE guid LIKE '%?cid=9&id={$person->id}'");
   if (mysql_num_rows($s) == 0) {
     // '" . date("Y-m-d H:i:s") . "',
     // '" . gmdate("Y-m-d H:i:s") . "',
