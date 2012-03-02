@@ -102,13 +102,8 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 ?>
 <div class="fb-like" style="margin-top: 15px;margin-bottom:15px;"
      data-href="http://hartapoliticii.ro/?name=<? echo $person->getUrlName() ?>"
-     data-send="false" data-width="330" data-show-faces="true"
+     data-send="false" data-width="330" data-show-faces="false"
      data-action="like" data-font="verdana"></div>
-
-<!-- Place this tag where you want the +1 button to render -->
-<g:plusone annotation="inline" width="330"
-           href="http://hartapoliticii.ro/?name=<? echo $person->getUrlName() ?>">
-</g:plusone>
 
 <!-- Place this render call where appropriate -->
 <script type="text/javascript">
