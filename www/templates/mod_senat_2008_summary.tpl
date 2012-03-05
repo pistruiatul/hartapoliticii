@@ -1,14 +1,20 @@
 {* Smarty *}
 
-<img src="https://chart.googleapis.com/chart?cht=p&chs=250x90&
+<div class="parl_summary_panel">
+  Prezența:
+  <div class="parl_presence_number">
+    {$dep_percent|string_format:"%.2f"}%
+  </div>
+<br><br>
+<img src="https://chart.googleapis.com/chart?cht=p&chs=200x90&
 chd=t:{$chd1},{$chd2},{$chd3}&
 chco=22CC22|FF8822|EEEEEE&
 chp=-1.57&
 chma=0,0,0,0&
 chdl=Linie partid|
 Rebel|
-Absent {$chd3|string_format:"%.1f"}%" width=250 height=90 align="right">
-
+Absent {$chd3|string_format:"%.1f"}%" width=200 height=90 align="right">
+</div>
 Senator intre <b>{$dep_time_in}</b> si <b>{$dep_time_out}</b>{$dep_motif},
 din partea <b>{$dep_party}</b>.
 

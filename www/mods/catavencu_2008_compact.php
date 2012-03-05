@@ -10,6 +10,7 @@ $sql =
 $s = mysql_query($sql);
 $r = mysql_fetch_array($s);
 
-echo "<blockquote>\" {$r['t']} \"</blockquote>";
-echo "Textul este în totalitate din Lista Candidaților Pătați din Academia Cațavencu. Mai multe <a href=\"{$r['url']}\">detalii pe site-ul Academiei Cațavencu</a>."
+$t = new Smarty();
+$t->assign('text', $r['t']);
+$t->display('mod_catavencu_2008.tpl');
 ?>
