@@ -424,3 +424,22 @@ body {
   font-size: 13px;
   padding: 3px;
 }
+
+/* ------------------------------------------------------------------*/
+/* Some styles for the cdep/senat mods. */
+
+.parl_presence_number {
+  display: inline;
+  font-weight: bold;
+  background-color: #fff6c3;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 9px;
+  font-size: 19px;
+}
+
+.parl_summary_panel {
+  float:right;
+  text-align: right;
+  margin: 5px 0 10px 20px;
+}
