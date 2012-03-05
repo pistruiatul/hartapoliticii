@@ -11,7 +11,9 @@ function getPrimeMinister($time) {
     SELECT g.title, p.display_name, p.id
     FROM govro_people AS g
     LEFT JOIN people AS p ON p.id = g.idperson
-    WHERE title='Prim-ministru' AND mintime <= {$time} AND maxtime >= {$time}";
+    WHERE title='Prim-ministru' AND
+        mintime <= {$time} AND
+        (maxtime >= {$time} OR maxtime = 0)";
 
   $s = mysql_query($sql);
   $r = mysql_fetch_array($s);
@@ -21,7 +23,12 @@ function getPrimeMinister($time) {
 }
 
 
-$s = mysql_query("SELECT * FROM govro_people WHERE idperson = {$person->id}");
+$s = mysql_query("
+    SELECT *
+    FROM govro_people
+    WHERE idperson = {$person->id}
+    ORDER BY mintime DESC");
+
 
 $positions = array();
 while ($r = mysql_fetch_array($s)) {
