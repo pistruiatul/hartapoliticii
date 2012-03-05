@@ -443,3 +443,11 @@ body {
   text-align: right;
   margin: 5px 0 10px 20px;
 }
+
+/* ------------------------------------------------------------------*/
+/* Some styles for the government mod. */
+
+.position_dates {
+  color: #999;
+  display: inline;
+}
