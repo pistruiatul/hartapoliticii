@@ -2,6 +2,12 @@
 
 <div class="section">
   <div class="title">Adaugă o nouă persoană politică</div>
+
+  <div id="recent_people">
+    {include file="my_account_recently_added_people.tpl"
+        recent_people=$recent_people}
+  </div>
+
   <div class="content">
   Te rog, mai întâi verifică dacă nu cumva această persoană deja există.
   <br>
