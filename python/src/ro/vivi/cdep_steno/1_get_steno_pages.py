@@ -13,7 +13,9 @@ import os
 import datetime
 import sys
 import urllib2
+
 from urllib2 import URLError
+from dateutil.relativedelta import relativedelta
 
 def getPage(link):
   """ Fetches the page at the provided link. Checks whether this is indeed the
@@ -38,6 +40,17 @@ def getPage(link):
   return data
 
 
+def getListOfStenogramLinks(page):
+  """ Given the contents of the web page with the list of stenograms, return
+  the links to all the stenograms referenced on that page.
+  """
+  reg_steno = re.compile(
+    'href="(/pls/steno/steno\\.stenograma\\?ids=(?:\d*)&idm=(?:\d*)&idl=1)">')
+  links = reg_steno.findall(page)
+
+  return links
+
+
 def main():
   """ Main function. """
   if len(sys.argv) <= 1:
@@ -48,6 +61,25 @@ def main():
   # that are lists.
   d = datetime.date.today()
 
+  # Should go back until 2008 or something, now just go back 500 steps
+  steps = 20
+  while steps > 0:
+    link = ('http://www.cdep.ro/pls/steno/steno.data?cam=2&dat=%s&idl=1' %
+            d.strftime('%Y%m%d'))
+
+    print ' + fetching %s' % link
+    page = getPage(link)
+
+    stenograms = getListOfStenogramLinks(page)
+    print '   - %s stenograms' % len(stenograms)
+    for link in stenograms:
+      steno_page = getPage('http://www.cdep.ro' + link)
+      print '   : %s' % link
+
+
+
+    d = d - relativedelta(d, days = 1)
+    steps -= 1
 
 
 
