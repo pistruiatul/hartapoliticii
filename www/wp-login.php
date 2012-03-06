@@ -457,7 +457,7 @@ case 'register' :
 	}
 
 	$redirect_to = apply_filters( 'registration_redirect', !empty( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : '' );
-	login_header(__('Registration Form'), '<p class="message register">' . __('Creează-ți un cont pe harta politicii.') . '</p>', $errors);
+	login_header(__('Registration Form'), '<p class="message register">' . __('<span class="big"><b>Creează-ți un cont pe harta politicii</b></span>.') . '</p>', $errors);
 ?>
 
 <form name="registerform" id="registerform" action="<?php echo site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
@@ -470,7 +470,7 @@ case 'register' :
 		<input type="text" name="user_email" id="user_email" class="input" value="<?php echo esc_attr(stripslashes($user_email)); ?>" size="25" tabindex="20" /></label>
 	</p>
 <?php do_action('register_form'); ?>
-	<p id="reg_passmail"><?php _e('Parola îți va fi trimisă prin email.') ?></p>
+	<p id="reg_passmail"><?php _e('<span class="big">Parola îți va fi trimisă prin email</span>.') ?></p>
 	<br class="clear" />
 	<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
 	<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="<?php esc_attr_e('Register'); ?>" tabindex="100" /></p>
@@ -670,7 +670,10 @@ Pentru moment aceste facilități nu sunt implementate, dar puteți folosi
 autentificarea pentru a comenta pe blog. :-) <br/>
 
 </p>
-
+<br>
+<b>
+  <a href="wp-login.php?action=register">Înregistrează-te</a>!
+</b>
 </td>
 </table>
 

@@ -1,90 +1,131 @@
 
 <div class="plaintext">
 
+<p>
+  <strong>Ce face de fapt site-ul ăsta?</strong>
+</p>
+<blockquote>
+  <p>
+    Harta politicii vrea să devină un punct de referință unde
+    toată informația legată de o persoană politică să fie adunată în același
+    loc, structurat.
+  </p>
+
+  <p>
+    Ideal, atunci când cauți un politician ar trebui să poți vedea
+    <ul>
+      <li>cum a votat în parlament (pe issues, agregat, cu score-cards),
+      <li>ce funcții a deținut,
+      <li>dacă și unde a candidat,
+      <li>ce se zice prin ziare,
+      <li>dacă a apărut pe liste de candidați pătați,
+      <li>ce a declarat de-a lungul timpului.
+    </ul>
+    Nu mă refer doar
+    la date brute, dar și concluzii agregate bazate pe datele astea.
+  </p>
+
+  <p>
+    Uite un exemplu ca să îți faci o idee de stadiul actual, pagina lui
+    <a href="http://hartapoliticii.ro/?name=mustea+razvan+serban">
+      Mustea Răzvan Șerban</a>.
+  </p>
+
+  <p>
+    Proiectul este <a href="https://github.com/okvivi/hartapoliticii">open
+    source</a>, independent și încearcă să fie obiectiv.
+    Oricine are timp și voință ar putea face schimbări.
+  </p>
+  <p>
+    O listă de feature-uri curente mai importante:
+    <ul>
+     <li>știe de aproximativ 3400 de politicieni, dar e relativ ușor de
+       adăugat oameni noi</li>
+     <li>monitorizează voturile din parlament și calculează
+       procentul de prezență și alte chestii.</li>
+     <li>e super ușor ca un ONG (sau oricine) să facă un
+       <a href="http://hartapoliticii.ro/?cid=15&tagid=17&room=senat">score
+         card ca ăsta</a>.
+       </li>
+     <li>tag-uiește automat politicieni în știri (mediafax și hotnews)</li>
+     <li>extrage semi-automat
+       <a href="http://hartapoliticii.ro/?c=&cid=14&sid=2">fapte din știri</a>
+     </li>
+     <li>căutarea după nume este probabil cea mai bună din toate site-urile
+       politice existente</li>
+    </ul>
+  </p>
+  <p>
+    Dacă vrei poți să te înscrii pe
+    <a href="https://groups.google.com/d/forum/hartapoliticii-discuss">grupul
+     de discuții</a> despre proiect unde se comentează ce se mai întâmplă
+    și se postează anunțuri cu ce mai e nou.
+  </p>
+</blockquote>
+
 
 <p>
-  <strong>Un pic de context</strong>
+  <strong>Un pic despre trecut și despre viitor</strong>
 </p>
 
 <blockquote>
   <p>
-    Harta politicii a început ca un hack care măsura
-    <a href="http://www.hartapoliticii.ro/?p=13"prezența la servici</a> a
-    parlamentarilor români. Apoi am tot adăugat statistici legate de
-    <a href="http://www.hartapoliticii.ro/?p=18">câte voturi au contat</a> la
-    alegeri sau cine anume
+    De-alungul timpului am adăugat
+    <ul>
+    <li><a href="http://www.hartapoliticii.ro/?p=119">date despre alegerile
+      europarlamentare</a>,
+    <li><a href="http://www.hartapoliticii.ro/?p=3755">monitorizarea presei</a>
+    <li><a href="http://www.hartapoliticii.ro/?p=3774">extragere de fapte din
+      ziare</a>
+    <li><a href="http://www.hartapoliticii.ro/?p=4042">un sistem pentru alcătuirea
+      de score-cards</a>
+    <li>am calculat <a href="http://www.hartapoliticii.ro/?p=18">câte voturi au contat</a> la
+    alegeri
+    <li>și cine anume
     <a href="http://www.hartapoliticii.ro/?p=22">a fost reales din parlamentul
       anterior</a>.
-  </p>
-  <p>
-    Pe măsură ce făceam toate aceste statistici pe care eu le găsesc fascinante,
-    mi-am dat seama că de fapt există o problemă de fond legate de accesul la
-    informații despre politicienii români. Pe lângă faptul că astfel de
-    concluzii agregate lipseau în general, lipsea un loc centralizat unde să mă
-    pot informa despre ce au făcut politicienii în general în trecut.
-  </p>
-</blockquote>
-
-<p>
-  <strong>Trei ani mai târziu</strong>
-</p>
-
-<blockquote>
-  <p>
-    Entuziasmat de ideea că un astfel de site ar putea exista, am continuat să
-    lucrez la el în weekenduri și seara. Am adăugat
-    <a href="http://www.hartapoliticii.ro/?p=119">date despre alegerile
-      europarlamentare</a>,
-    <a href="http://www.hartapoliticii.ro/?p=3755">monitorizarea presei</a>,
-    <a href="http://www.hartapoliticii.ro/?p=3774">extragere de fapte din
-      ziare</a>,
-    <a href="http://www.hartapoliticii.ro/?p=4042">un sistem pentru alcătuirea
-      de score-cards</a> și tot felul de alte feature-uri și seturi de date
+    </ul>
+  și tot felul de alte feature-uri și seturi de date
     mai mici sau mai mari.
+  </p>
+
+  <p>
+    Dacă te interesează cam ce plănuiește harta politicii să implementeze în
+    viitorul mediu, <a href="https://github.com/okvivi/hartapoliticii/wiki/Idei-concrete-care-trebuie-implementate">uite aici o listă</a>.
+    Dacă ai alte idei care ți s-ar părea utile, te rog mult spune.
 
   </p>
 </blockquote>
 
 <p>
-  <strong>Transformarea în open-source</strong>
+  <strong>Despre istoria site-ului</strong>
 </p>
 
 <blockquote>
   <p>
-    Pentru că mi-am dat seama că am prea puțin timp pentru cât de mult potențial
-    are site-ul, și pentru că mai mulți oameni și-au exprimat de-alungul
-    timpului interesul de a participa, am transformat harta politicii în
-    proiect open-source la începutul lui 2012.
-  </p>
-  <p>
-    Asta înseamnă că oricine dorește să participe poate lua
-    <a href="https://github.com/okvivi/hartapoliticii">codul sursă de
-    aici</a>, face schimbări care apoi pot fi integrate înapoi în
-    hartapoliticii.ro.
-  </p>
-  <p>
-    Dacă vrei să participi, spune-mi ca să îți pot explica care este stadiul
-    actual, filozofia din spatele proiectului și mai multe despre ce se
-    întâmplă.
+    Mă numesc Octavian Costache și sunt programator. Mai multe despre mine pe
+    <a href="http://vivi.ro/">www.vivi.ro</a>.
+    Nu am afilieri politice și nici măcar nu urmăresc politica de zi cu zi.
+    <br><br>
+    Pasiunea mea este să ajut cetățenii să aibă toate informațiile necesare
+    pentru a se implica informat în democrația participativă. Îmi doresc să
+    fac o diferență în viața de zi cu zi a României.
   </p>
 </blockquote>
 
 <p>
-  <strong>Despre fondatorul acestui site</strong>
+  <strong>Contact</strong>
 </p>
 
-  <blockquote>
+<blockquote>
   <p>
-    Mă numesc Octavian Costache și sunt programator. Sunt o persoană destul
-    de publică online și puteți găsi mai multe despre mine pe
-    <a href="http://vivi.ro/">www.vivi.ro</a>.
-    <br><br>
-    Nu sunt implicat în politică și nici măcar nu urmăresc politica de zi
-    cu zi.
-    <br><br>
-    Nu știu dacă socialiștii sau liberalii au dreptate, principala
-    mea pasiune este să ajut cetățenii să aibă toate informațiile necesare
-    pentru a lua ei înșiși această decizie.
+    Pentru orice fel de întrebări despre cum se folosește harta, sugestii,
+    feedback:<br><br>
+    octavian.costache [at] gmail.com<br>
+    sau grupul de discuții <a href="https://groups.google.com/d/forum/hartapoliticii-discuss">hartapoliticii-discuss</a>.
+
   </p>
-</p></blockquote>
+</blockquote>
+
+
 </div>

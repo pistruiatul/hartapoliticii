@@ -47,6 +47,9 @@ body {
 .medium {
   font-size: 0.9em;
 }
+.big {
+  font-size: 1.2em;
+}
 .menu {
   padding: 8px;
   background-color: #F6F6F6;
