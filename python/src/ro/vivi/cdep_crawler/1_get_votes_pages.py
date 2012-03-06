@@ -1,4 +1,4 @@
-'''
+"""
 Created on Jan 18, 2011
 
 Downloads all the pages with the votes. For cdep, fortunately the votes are
@@ -8,7 +8,7 @@ The link to the law that is under voting is on the page of the vote, so we'll
 just crawl that in a second step of this pipeline.
 
 @author: vivi
-'''
+"""
 
 import codecs
 import datetime
