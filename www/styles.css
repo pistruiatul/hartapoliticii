@@ -389,6 +389,11 @@ body {
 /* -------------------------------------------------------------- */
 /* Styles for displaying things under the user's profile -------- */
 
+.my_account {
+  margin-top: 20px;
+  line-height: 1.6em;
+}
+
 .my_account .section {
   margin-bottom: 30px;
 }
@@ -423,6 +428,14 @@ body {
 .my_account input {
   font-size: 13px;
   padding: 3px;
+}
+
+.my_account #recent_people {
+  float: right;
+  height: 200px;
+  width: 300px;
+  font-size: 13px;
+  padding: 10px;
 }
 
 /* ------------------------------------------------------------------*/

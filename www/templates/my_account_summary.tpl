@@ -2,7 +2,7 @@
 
 <table width=970>
   <td valign=top>
-  <div class="my_account plaintext">
+  <div class="my_account">
 
     <div class="section">
       <div class="title">Profil personal ({$user_login})</div>
@@ -52,7 +52,8 @@
     </div>
 
     {if $show_add_person}
-      {include file="my_account_add_new_person.tpl"}
+      {include file="my_account_add_new_person.tpl"
+          recent_people=$recent_people}
     {/if}
 
   </div>
