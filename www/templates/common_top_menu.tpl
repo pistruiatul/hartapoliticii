@@ -77,7 +77,7 @@
     <div class=submenu>
       <a href="{$site_path}?cid=14" class="{if $cid==14}black_link{/if}">Presă</a> |
       <a href="{$site_path}?cid=16" class="{if !$cid}black_link{/if}">Actualizări</a> |
-      <a href="{$site_path}?cid=5" class="{if $cid==5}black_link{/if}">Link-uri</a> |
-      <a href="{$site_path}?cid=6" class="{if $cid==6}black_link{/if}">Despre</a></div>
+      <a href="{$site_path}?cid=5" class="{if $cid==5}black_link{/if}">Link-uri</a>
+
   </td>
 </table>

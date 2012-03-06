@@ -7,8 +7,8 @@
 	  <a href="{$logout_url}">Log out</a>
 	{else}
 	  <a href="wp-login.php?action=login">Autentificare</a>
-    / <a href="wp-login.php?action=register">Înscriere</a>
 	{/if}
-  / <a href="wp-login.php?action=register">De ce?</a>
+  /
+    <a href="{$site_path}?cid=6" class="{if $cid==6}black_link{/if}">Despre site</a></div>
 	</div>
 </div>
