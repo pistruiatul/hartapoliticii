@@ -32,9 +32,6 @@
       <a href="{$site_path}?cid=1&room=camera_deputatilor" class="{if $cid==1}black_link{/if}">
         2004-2008
       </a> |
-      <a href="{$site_path}?cid=2&room=camera_deputatilor" class="{if $cid==2}black_link{/if}">
-        alegeri'08
-      </a> |
       <a href="{$site_path}?cid=11&room=camera_deputatilor" class="{if $cid==11}black_link{/if}">
         2008-2012
       </a>
@@ -47,9 +44,6 @@
       <a href="{$site_path}?cid=3&room=senat" class="{if $cid==3}black_link{/if}">
         2004-2008
       </a> |
-      <a href="{$site_path}?cid=4&room=senat" class="{if $cid==4}black_link{/if}">
-        alegeri'08
-      </a>  |
       <a href="{$site_path}?cid=12&room=senat" class="{if $cid==12}black_link{/if}">
         2008-2012
       </a>

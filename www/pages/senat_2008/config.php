@@ -12,7 +12,11 @@ $subpages = array(
   array(
     "link" => "Lista voturi",
     "page" => "all_votes.php"
-  )
+  ),
+  array(
+    "link" => "Alegeri 2008",
+    "page" => "elections.php"
+  ),
 );
 
 function getSidFor($fileName) {
