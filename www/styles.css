@@ -67,7 +67,8 @@ body {
   font-weight: bold;
 }
 .menu .submenu {
-  font-size: 13px;
+  font-size: 14px;
+  margin-bottom: 3px;
 }
 .menu a {
   color: #213f9a;
@@ -240,7 +241,8 @@ body {
 }
 
 .submenu {
-  font-size: 0.9em;
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 .submenu a, .submenu a.visited {
   color: #00C;
