@@ -95,7 +95,7 @@ body {
   background: #EEEEEE;
   font-size: 1.1em;
 }
-#q {
+#q, #declarations_q {
   font-size: 15px;
   padding: 2px;
 }
@@ -466,4 +466,24 @@ body {
 .position_dates {
   color: #999;
   display: inline;
+}
+
+
+/* ------------------------------------------------------------------*/
+/* Declarations module */
+.search_declarations_panel {
+  padding: 5px;
+  background-color: #f2f2ff;
+  border: solid 1px #dfdffe;
+  margin-bottom: 20px;
+}
+
+.declaration_snippet {
+  font-size: 14px;
+  line-height: 1.5em;
+  margin-bottom: 15px;
+}
+
+.declaration_source, .declaration_source a {
+  color: #009900;
 }

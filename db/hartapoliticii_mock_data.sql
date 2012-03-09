@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2012 at 01:39 AM
+-- Generation Time: Mar 09, 2012 at 01:48 AM
 -- Server version: 5.5.12
 -- PHP Version: 5.3.8
 
@@ -906,6 +906,24 @@ CREATE TABLE IF NOT EXISTS `people_ambiguities` (
   `resolve_to` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=942 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `people_declarations`
+--
+
+DROP TABLE IF EXISTS `people_declarations`;
+CREATE TABLE IF NOT EXISTS `people_declarations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idperson` int(11) NOT NULL,
+  `source` varchar(250) NOT NULL,
+  `time` bigint(20) NOT NULL,
+  `declaration` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idperson` (`idperson`,`source`),
+  KEY `id_person` (`idperson`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

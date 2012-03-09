@@ -34,7 +34,8 @@ from xml.etree.ElementTree import parse
 
 NUM_DAYS_REWRITE = 20
 
-source = 'src/ro/vivi/news_parser/mediafax'
+# TODO: This should be specified as a parameter.
+source = 'python/src/ro/vivi/news_parser/mediafax'
 source_xml = 'http://www.mediafax.ro/rss/politic/'
 
 

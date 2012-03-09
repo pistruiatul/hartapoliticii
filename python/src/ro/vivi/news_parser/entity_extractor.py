@@ -23,12 +23,11 @@ import os
 import urllib
 import time
 import sys
-import json
 from datetime import datetime
 from xml.etree.ElementTree import parse
 
 from text_utils import strip_tags_and_new_lines
-from crawler import get_api_key
+from ro.vivi.hplib import *
 
 NUMBER_OF_DAYS_TO_PARSE = 3
 
@@ -41,10 +40,6 @@ if len(sys.argv) > 1:
 
 arr = SOURCE.split("/")
 SOURCE_NAME = arr[len(arr) - 1]
-
-API_KEY = get_api_key(sys.argv[2])
-
-BASE_URL = 'http://www.hartapoliticii.ro'
 
 def is_not_a_daily(file):
   return not file.find('daily_')
@@ -96,36 +91,13 @@ def get_names_from_text(data):
   return names
 
 
-# A global cache for names. Once we resolved a name we can afterwards look it
-# up here.
-globalPeopleCache = {}
-
 # A global cache for articles.
-globalArticlesCache = {}
+link_to_article_id_hash = {}
 
 # A global hash where I keep track of whether I've already added this
-# association. For now I don't need to add the fact that Basescu was mentioned
-# three times.
-globalAssociationCache = {}
-
-
-def resolve_name(name):
-  """ Given a name, attempts to resolve it to an id. If multiple id's are
-  returned, -n is returned so that I can further investigate why this
-  ambiguity exists.
-  """
-  if name in globalPeopleCache:
-    return globalPeopleCache[name]
-
-  f = urllib.urlopen(BASE_URL + '/api/search.php?q=' +
-                     urllib.quote(name) + '&api_key=' + API_KEY)
-  people = json.loads(f.read())
-  if len(people) == 1:
-    globalPeopleCache[name] = int(people[0]['id'])
-  else:
-    globalPeopleCache[name] = -len(people)
-
-  return globalPeopleCache[name]
+# article:person association. We need this so that we only tag a person in a
+# specific article once.
+tagged_people_hash = {}
 
 
 def add_article_to_db(id, time, place, link, title, photo):
@@ -148,15 +120,15 @@ def add_article_to_db(id, time, place, link, title, photo):
     'photo': photo
   }
 
-  if link in globalArticlesCache:
-    data['idarticle'] = globalArticlesCache[link]
+  if link in link_to_article_id_hash:
+    data['idarticle'] = link_to_article_id_hash[link]
 
     # also check if somehow I haven't added this already.
-    key = str(globalArticlesCache[link]) + ":" + str(id)
-    if key in globalAssociationCache:
+    key = str(link_to_article_id_hash[link]) + ":" + str(id)
+    if key in tagged_people_hash:
       return
     else:
-      globalAssociationCache[key] = 'been here, done that'
+      tagged_people_hash[key] = 'been here, done that'
 
   f1 = urllib.urlopen(BASE_URL + '/api/new_news_article.php?api_key=' + API_KEY,
                       urllib.urlencode(data))
@@ -165,7 +137,7 @@ def add_article_to_db(id, time, place, link, title, photo):
   #                urllib.urlencode(data))
 
   articleId = f1.read()
-  globalArticlesCache[link] = articleId
+  link_to_article_id_hash[link] = articleId
   data['idarticle'] = articleId
 
 
@@ -220,9 +192,9 @@ def get_qualifiers(name, data):
 
 
 def add_person_qualifier(link, idperson, name, qualifiers):
-  if link not in globalArticlesCache:
+  if link not in link_to_article_id_hash:
     return
-  idarticle = globalArticlesCache[link]
+  idarticle = link_to_article_id_hash[link]
   for q in qualifiers:
     if q == '':
       continue
@@ -282,13 +254,13 @@ for fname in files[-NUMBER_OF_DAYS_TO_PARSE : ]:
 
     for name in names:
       plain = ' '.join(name)
-      id = resolve_name(plain)
+      id = get_person_id_for_name(plain)
 
       if id > 0:
         add_article_to_db(id, time.mktime(d.timetuple()), place, link, title,
                           photo)
 
-      if link in globalArticlesCache:
+      if link in link_to_article_id_hash:
         add_person_qualifier(link, id, plain,
                              get_qualifiers(plain, news_content))
 

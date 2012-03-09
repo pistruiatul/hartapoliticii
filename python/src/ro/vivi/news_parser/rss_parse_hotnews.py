@@ -31,7 +31,7 @@ from xml.etree.ElementTree import parse
 from BeautifulSoup import BeautifulSoup
 from HTMLParser import HTMLParseError
 
-source = 'src/ro/vivi/news_parser/hotnews'
+source = 'python/src/ro/vivi/news_parser/hotnews'
 source_xml = 'http://www.hotnews.ro/rss/politic'
 
 NUM_DAYS_REWRITE = 20

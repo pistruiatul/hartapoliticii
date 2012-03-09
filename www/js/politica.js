@@ -310,7 +310,7 @@ function myAccountAddPerson() {
       '&display_name=' + displayName +
       '&photo_url=' + photoUrl;
 
-  elem('person_add_message').innerHTML = 
+  elem('person_add_message').innerHTML =
       'Așteatpă... <img src=/images/activity_indicator.gif>';
   sendPayload_(url, function(response) {
     elem('person_add_message').innerHTML = response;
