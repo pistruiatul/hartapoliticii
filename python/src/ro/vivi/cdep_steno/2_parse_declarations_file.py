@@ -17,7 +17,7 @@ import codecs
 
 from ro.vivi.hplib import *
 
-LAST_PROCESSED_LINE_FILE = '/tmp/pdf.lpl'
+NUMBER_OF_STENOS_TO_PARSE = 20
 
 # In this hash I will record the number declarations that are present at a
 # particular link from one person. This way when a person has multiple
@@ -27,7 +27,7 @@ LAST_PROCESSED_LINE_FILE = '/tmp/pdf.lpl'
 declaration_counts_hash = {}
 
 
-def record_declaration(hash, no_commit):
+def record_declaration(hash):
   """ Given a hash holding the person, time, link and text of a declaration,
   record this in the database or something.
   """
@@ -53,49 +53,46 @@ def record_declaration(hash, no_commit):
               (hash['link'], person_id, declaration_counts_hash[key]),
     'declaration': hash['declaration']
   }
-  if not no_commit:
-    urllib.urlopen(BASE_URL + '/api/new_declaration.php?api_key=' + API_KEY,
-                    urllib.urlencode(data))
+  urllib.urlopen(BASE_URL + '/api/declarations_new.php?api_key=' + API_KEY,
+                 urllib.urlencode(data))
 
 
-def write_last_processed_line(line_number):
-  f = codecs.open(LAST_PROCESSED_LINE_FILE, 'w', 'utf-8')
-  f.write('%d' % line_number)
-  f.close()
+def is_steno_file(file_name):
+  return file_name.find('stenos/steno_')
 
 
-def get_last_processed_line():
-  if not os.path.exists(LAST_PROCESSED_LINE_FILE) or \
-      os.path.getsize(LAST_PROCESSED_LINE_FILE) == 0:
-    return 0
+def steno_link_already_processed(link):
+  """ Checks whether we already have all the declarations in here in the
+  database on the server.
+  """
+  f = urllib.urlopen(BASE_URL + '/api/declarations_count.php?link=' +
+                     urllib.quote(link) + '&api_key=' + API_KEY)
+  count = int(f.read())
+  return count > 0
 
-  f = codecs.open(LAST_PROCESSED_LINE_FILE, 'r', 'utf-8')
-  line_number = int(f.read())
-  f.close()
-  return line_number
 
-
-def main():
-  if len(sys.argv) <= 1:
-    print "The first argument should be the file we're parsing."
-    sys.exit(1)
-  else:
-    input_file_name = sys.argv[1]
-    print "Input file: %s" % input_file_name
-
-  input_file = codecs.open(input_file_name, 'r', 'utf-8')
+def process_steno_file(file_name):
+  input_file = codecs.open(file_name, 'r', 'utf-8')
   input = input_file.read()
   input_file.close()
 
   lines = input.split("\n")
 
-  last_processed_line = get_last_processed_line()
-  print "Starting from %d line" % last_processed_line
+  link = lines[0]
+  print ' + processing %s, %s' % (file_name, link)
 
-  hash = {}
+  # Figure out if we've already processed this file and it's contents are
+  # already on the server.
+  if steno_link_already_processed(link):
+    print '   = already done'
+    return
+
+  hash = {
+    'link': link
+  }
   count = 0
   # The state is what we're expecting next.
-  for line in lines:
+  for line in lines[1:]:
     if line == "":
       continue
 
@@ -107,10 +104,24 @@ def main():
       print '%8d / %8d' % (count, len(lines))
       # We have parsed the last four lines and they are all now in the hash,
       # now store them somewhere.
-      record_declaration(hash, count < last_processed_line)
-      write_last_processed_line(count)
+      record_declaration(hash)
 
     count += 1
+
+
+def main():
+  if len(sys.argv) <= 1:
+    print "The first argument should be the file we're parsing."
+    sys.exit(1)
+  else:
+    input_dir = sys.argv[1]
+    print "Input directory: %s" % input_dir
+
+  files = filter(is_steno_file, os.listdir(input_dir))
+  files.sort()
+
+  for file_name in files:
+    process_steno_file(input_dir + file_name)
 
 
 main()

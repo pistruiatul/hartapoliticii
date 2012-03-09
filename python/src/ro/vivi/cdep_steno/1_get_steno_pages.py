@@ -148,10 +148,6 @@ def main():
 
   max_steno_id = get_max_stenogram_id()
 
-  # Now that we have the range of stenogram numbers, let's crawl them and
-  # extract useful info from them.
-  out = codecs.open(TMP_DIR + '/declaratii_agg.txt', 'w', 'utf-8')
-
   for steno_id in range(1, int(max_steno_id)):
     if steno_id in [5603, 7073]:
       # For whatever reason, cdep is consistently returning a 404 for these
@@ -172,15 +168,26 @@ def main():
     declarations = get_declarations(steno_page)
     print '   = %s declarations' % len(declarations)
 
+    if not len(declarations):
+      continue
+
+    # Write each stenogram in a separate file so it's easier for us to parse
+    # later on.
+    out = codecs.open(TMP_DIR + '/stenos/steno_%05d.txt' % steno_id, 'w',
+                      'utf-8')
+
+    # The very first line of every file is the link itself so that when we
+    # process it we can easily check if we've already processed this file.
+    out.write(link + '\n')
+
     # Write these into a file.
     for declaration in declarations:
       # Write the link, person, time and declaration.
-      out.write('link: %s\n' % link)
       out.write('time: %d\n' % time.mktime(date.timetuple()))
       out.write('person: %s\n' % declaration[0])
       out.write('declaration: %s\n' % declaration[1])
 
-  out.close()
+    out.close()
 
 
 main()

@@ -10,4 +10,4 @@ export PYTHONPATH
 python python/src/ro/vivi/cdep_steno/1_get_steno_pages.py /work/tmp/cdep_steno
 
 python python/src/ro/vivi/cdep_steno/2_parse_declarations_file.py \
-    /work/tmp/cdep_steno/declaratii_agg.txt
+    /work/tmp/cdep_steno/stenos/

@@ -405,7 +405,7 @@ class Person {
 
     $results = array();
     while ($r = mysql_fetch_array($s)) {
-      $r['declaration'] = strip_tags($r['declaration']);
+      $r['declaration'] = strip_tags(stripslashes($r['declaration']));
 
       if ($query != '') {
         $r['snippet'] = getSnippet($r['declaration'], $query);
