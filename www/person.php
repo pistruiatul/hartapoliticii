@@ -10,7 +10,8 @@ include_once('hp-includes/people_util.php');
 // indeed. This method is for security reasons so that we don't load random
 // files since we load the file based on the module name.
 function isExpandedModule($str) {
-  if ($str == 'news' || $str == 'cdep/2008' || $str == 'senat/2008') {
+  if ($str == 'news' || $str == 'cdep/2008' || $str == 'senat/2008' ||
+      $str == 'person_declarations') {
     return $str;
   }
   return NULL;
@@ -128,6 +129,8 @@ $t->display('person_qualifiers.tpl');
 
 // TODO: make the compact mods also something automatic.
 include('mods/news_compact.php');
+
+include('mods/person_declarations_compact.php');
 
 $t = new Smarty();
 $t->assign('title', $title);

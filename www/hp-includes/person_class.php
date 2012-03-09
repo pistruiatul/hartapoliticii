@@ -331,6 +331,7 @@ class Person {
     return $moduleTitle;
   }
 
+
   public function getLongTitleForWhat($what) {
   	$moduleTitle = '';
     switch($what) {
@@ -350,6 +351,7 @@ class Person {
       case "video":        $moduleTitle = "Video"; break;
       case "news":         $moduleTitle = "Știri pe larg"; break;
       case "news/expanded":$moduleTitle = "Știri pe larg"; break;
+      case "person_declarations":$moduleTitle = "Declarații"; break;
 
     }
     return $moduleTitle;
@@ -384,6 +386,39 @@ class Person {
     }
     return $news;
   }
+
+
+  /**
+   * Returns a list of the most recent declarations of this person.
+   * @param {Number} $count The number of declarations that we need.
+   * @return {Array} The array of results.
+   */
+  public function searchDeclarations($query, $start, $count) {
+    $s = mysql_query("
+      SELECT source, declaration, time
+      FROM people_declarations
+      WHERE idperson = {$this->id} AND
+          declaration LIKE '%{$query}%'
+      ORDER BY time DESC
+      LIMIT {$start}, {$count}
+    ");
+
+    $results = array();
+    while ($r = mysql_fetch_array($s)) {
+      $r['declaration'] = strip_tags($r['declaration']);
+
+      if ($query != '') {
+        $r['snippet'] = getSnippet($r['declaration'], $query);
+        $r['snippet'] = highlightStr($r['snippet'], $query);
+      } else {
+        $r['snippet'] = $r['declaration'];
+      }
+      $results[] = $r;
+    }
+
+    return $results;
+  }
+
 
   /**
    * Returns a list of ids for the people that show up in a news item.
@@ -422,7 +457,7 @@ class Person {
       WHERE p.idperson = {$this->id} AND time > {$tstart}
       GROUP BY assoc.idperson
       ORDER BY cnt DESC
-      LIMIT 0, $count");
+      LIMIT 0, {$count}");
     $res = array();
 
     $total = mysql_fetch_array($s);

@@ -1,5 +1,10 @@
 # Ignore the IntelliJ project files.
 .idea
 
-
 .DS_Store
+
+# Ignore .pyc files
+*.pyc
+
+# Ignore anything that's in the secret directory (the api key)
+secret

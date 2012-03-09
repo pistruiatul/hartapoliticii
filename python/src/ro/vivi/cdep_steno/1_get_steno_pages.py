@@ -9,18 +9,15 @@ all the stenograms are hosted on the cdep site for both.
 """
 
 import re
-import os
 import datetime
 import sys
-import urllib2
-import hashlib
 import codecs
 import time
 
 from sets import Set
-
-from urllib2 import URLError
 from dateutil.relativedelta import relativedelta
+
+from ro.vivi.hplib import *
 
 # A few constants used as states at some point.
 NONE = 0
@@ -32,52 +29,13 @@ END = 2
 TMP_DIR = '/tmp'
 
 
-def getFileData(fname):
-  """Returns the contents of a random file."""
-  f = codecs.open(fname, 'r', 'utf-8')
-  data = f.read()
-  f.close()
-  return data
-
-
-def removeHtmlTags(data):
+def remove_html_tags(data):
   p = re.compile(r'<.*?>')
   return p.sub('', data)
 
 
-def getPage(link):
-  """ Fetches the page at the provided link. Checks whether this is indeed the
-  page of a vote. If that is true it returns the page as a string, otherwise
-  returns None.
 
-  TODO: This is duplicated from cdep_crawler. We should just somehow move this
-  into a common library.
-  """
-
-  # First, see if this is already cached.
-  fname = TMP_DIR + '/cache/%s.html' % hashlib.md5(link).hexdigest()
-  if os.path.exists(fname):
-    return getFileData(fname)
-
-  success = False
-  while not success:
-    try:
-      f = urllib2.urlopen(link, None, 20)
-      data = unicode(f.read(), 'ISO-8859-2')
-      f.close()
-
-      # Write this page into a cached file, with a more common charset.
-      cache_file = codecs.open(fname, 'w', 'utf-8')
-      cache_file.write(data)
-      cache_file.close()
-
-      return data
-    except URLError:
-      print "Timed out, retrying ", link
-      success = False
-
-
-def getListOfStenogramLinks(page):
+def get_list_of_stenogram_links(page):
   """ Given the contents of the web page with the list of stenograms, return
   the links to all the stenograms referenced on that page.
   """
@@ -87,7 +45,7 @@ def getListOfStenogramLinks(page):
   return Set(reg_steno.findall(page))
 
 
-def getDeclarations(page):
+def get_declarations(page):
   """ Extracts the declarations from the stenogram page.
   """
 
@@ -123,10 +81,12 @@ def getDeclarations(page):
       # We now have a line that's a declaration. First check if it has a person
       # in it.
       persons = re.findall(
-          '<font color="#0000FF">(?:Domnul|Doamna) (.*)</font>', line)
+          '<font color="#0000FF">'
+          '(?:Domnul|Doamna) ([^:]*)(?: \((?:.*)\))?(?:[:])?(?: )?</font>',
+          line)
       if len(persons) > 0:
         current_person = persons[0]
-        declaration_start = line.find('</B>:') + 5
+        declaration_start = line.find('</B>') + 4
 
       declaration = line[declaration_start:]
 
@@ -140,7 +100,7 @@ def getDeclarations(page):
   return declarations
 
 
-def getMaxStenogramId():
+def get_max_stenogram_id():
   """ Returns the highest stenogram id found on the cdep site.
   """
 
@@ -153,9 +113,9 @@ def getMaxStenogramId():
             d.strftime('%Y%m%d'))
 
     print ' + fetching %s' % link
-    page = getPage(link)
+    page = get_page(link, TMP_DIR)
 
-    steno_numbers = getListOfStenogramLinks(page)
+    steno_numbers = get_list_of_stenogram_links(page)
     if len(steno_numbers) > 0:
       max_steno_id = max(steno_numbers)
 
@@ -164,7 +124,7 @@ def getMaxStenogramId():
   return max_steno_id
 
 
-def getDateFromStenoPage(page):
+def get_date_from_steno_page(page):
   """ Given a stenogram page, find out the date
   """
   # The date on the page will look like this '&gt; 28-02-2012'
@@ -186,25 +146,30 @@ def main():
     TMP_DIR = sys.argv[1]
     print TMP_DIR
 
-  max_steno_id = getMaxStenogramId()
+  max_steno_id = get_max_stenogram_id()
 
   # Now that we have the range of stenogram numbers, let's crawl them and
   # extract useful info from them.
   out = codecs.open(TMP_DIR + '/declaratii_agg.txt', 'w', 'utf-8')
 
   for steno_id in range(1, int(max_steno_id)):
+    if steno_id in [5603, 7073]:
+      # For whatever reason, cdep is consistently returning a 404 for these
+      # stenogram ids.
+      continue
+
     link = 'http://www.cdep.ro/pls/steno/steno.stenograma?ids=%s' % steno_id
 
-    steno_page = getPage(link)
+    steno_page = get_page(link, TMP_DIR)
     print ' + %s' % link
 
-    date = getDateFromStenoPage(steno_page)
+    date = get_date_from_steno_page(steno_page)
     if date is None:
       # It means this was an empty page that didn't even have a date.
       continue
 
     # Now that we've got the stenogram page, the hard part begins.
-    declarations = getDeclarations(steno_page)
+    declarations = get_declarations(steno_page)
     print '   = %s declarations' % len(declarations)
 
     # Write these into a file.

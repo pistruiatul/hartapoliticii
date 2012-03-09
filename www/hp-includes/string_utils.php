@@ -205,7 +205,18 @@ function strtolower_ro($str) {
 }
 
 
+function correctDiacritics($str) {
+  $repl = array(
+    'ţ' => 'ț',
+    'ş' => 'ș',
+  );
+  return strtr($str, $repl);
+}
+
+
 function highlightStr($haystack, $needle) {
+  $haystack = correctDiacritics($haystack);
+
   // return $haystack if there is no highlight color or strings given,
   // nothing to do.
   if (strlen($haystack) < 1 || strlen($needle) < 1) {
@@ -219,6 +230,37 @@ function highlightStr($haystack, $needle) {
     }
   }
   return $haystack;
+}
+
+
+/**
+ * Returns the best snippet that contains the query from the $text passed in
+ * as a parameter. For now this is a pretty dumb function, it could definitely
+ * be improved in the future.
+ *
+ * NOTE: This method is VERY basic and it will not get amazing results, but
+ * it's a start.
+ *
+ * NOTE: This seems to not work correctly if $query contains diacritics.
+ *
+ * @param {String} $text The original text from which we want to extract
+ *     the snippet.
+ * @param {String} $query The query text.
+ * @return {String}
+ */
+function getSnippet($text, $query) {
+  $text = correctDiacritics($text);
+  $query = correctDiacritics($query);
+
+  $first_pos = stripos($text, $query);
+
+  $start = max(0, $first_pos - 70);
+  $end = min(strlen($text), $first_pos + 200);
+
+  $prefix = $start > 0 ? '...' : '';
+  $suffix = $end < strlen($text) ? '...' : '';
+
+  return $prefix . substr($text, $start, $end - $start) . $suffix;
 }
 
 

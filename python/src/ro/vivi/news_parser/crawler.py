@@ -109,9 +109,3 @@ def capitalize(str):
     res.append(part.capitalize())
   return ' '.join(res)
 
-
-def get_api_key(file):
-  f = open(file, 'r')
-  key = f.read()
-  f.close()
-  return key
