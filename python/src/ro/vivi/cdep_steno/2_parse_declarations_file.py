@@ -20,9 +20,10 @@ from ro.vivi.hplib import *
 LAST_PROCESSED_LINE_FILE = '/tmp/pdf.lpl'
 
 # In this hash I will record the number declarations that are present at a
-# particular link. This way when a person has multiple declarations in that
-# file I can uniquely identify each of them with a separate URL.
-# http://www.cdep.ro/pls/steno/steno.stenograma?ids=5132#<declaration_number>
+# particular link from one person. This way when a person has multiple
+# declarations in that file I can uniquely identify each of them with a
+# separate URL and avoid duplicating them when we run the script again.
+# http://www.cde...rama?ids=5132#<idperson>:<declaration_number>
 declaration_counts_hash = {}
 
 
@@ -39,7 +40,7 @@ def record_declaration(hash, no_commit):
     return
 
   # See what is the number of this declaration.
-  key = hash['link']
+  key = '%s:%d' % (hash['link'], person_id)
   if key not in declaration_counts_hash:
     declaration_counts_hash[key] = 0
   declaration_counts_hash[key] += 1
@@ -48,11 +49,12 @@ def record_declaration(hash, no_commit):
   data = {
     'idperson': person_id,
     'time': hash['time'],
-    'source': '%s#%d' % (hash['link'], declaration_counts_hash[key]),
+    'source': '%s#%d:%d' %
+              (hash['link'], person_id, declaration_counts_hash[key]),
     'declaration': hash['declaration']
   }
   if not no_commit:
-    urllib.urlopen('http://zen.dev/api/new_declaration.php?api_key=' + API_KEY,
+    urllib.urlopen(BASE_URL + '/api/new_declaration.php?api_key=' + API_KEY,
                     urllib.urlencode(data))
 
 
@@ -88,6 +90,7 @@ def main():
   lines = input.split("\n")
 
   last_processed_line = get_last_processed_line()
+  print "Starting from %d line" % last_processed_line
 
   hash = {}
   count = 0

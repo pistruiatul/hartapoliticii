@@ -82,7 +82,7 @@ def get_declarations(page):
       # in it.
       persons = re.findall(
           '<font color="#0000FF">'
-          '(?:Domnul|Doamna) ([^:]*)(?: \((?:.*)\))?(?:[:])?(?: )?</font>',
+          '(?:Domnul|Doamna) ([^:]*)(?: \([^\)]+\))?(?:[:])?(?: )?</font>',
           line)
       if len(persons) > 0:
         current_person = persons[0]
