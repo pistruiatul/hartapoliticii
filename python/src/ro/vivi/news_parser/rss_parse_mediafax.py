@@ -102,7 +102,8 @@ for item in rss.findall('channel/item'):
   photo_url = get_photo_link_for_article(link)
 
   print " + " + link
-  print "   : " + photo_url
+  if photo_url:
+    print "   : " + photo_url
 
   if content is None:
     print ' ! ' + source + ' error for ' + link + ', main tags nowhere'
@@ -133,7 +134,8 @@ for item in rss.findall('channel/item'):
     f.write(" <news_place></news_place>\n")
     f.write(" <news_time>" + news_time + "</news_time>\n")
     f.write(" <news_content>" + urllib.quote(content) + "</news_content>\n")
-    f.write(" <news_photo>" + photo_url + "</news_photo>\n")
+    if photo_url:
+      f.write(" <news_photo>" + photo_url + "</news_photo>\n")
 
     if not is_cache_hit(source, link):
       f.write(" <news_status>fresh</news_status>")
