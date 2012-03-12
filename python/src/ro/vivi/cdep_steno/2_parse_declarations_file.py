@@ -36,7 +36,7 @@ def record_declaration(hash):
   # First, let's find the person id.
   person_id = get_person_id_for_name(hash['person'])
   if person_id <= 0:
-    print " + can't find %s" % hash['person']
+    print " - %s: can't find" % hash['person']
     return
 
   # See what is the number of this declaration.
@@ -45,7 +45,7 @@ def record_declaration(hash):
     declaration_counts_hash[key] = 0
   declaration_counts_hash[key] += 1
 
-  print "%s %s" % (hash['person'], person_id)
+  print " + %s: %s" % (hash['person'], person_id)
   data = {
     'idperson': person_id,
     'time': hash['time'],
@@ -79,7 +79,7 @@ def process_steno_file(file_name):
   lines = input.split("\n")
 
   link = lines[0]
-  print ' + processing %s, %s' % (file_name, link)
+  print '== Processing %s, %s' % (file_name, link)
 
   # Figure out if we've already processed this file and it's contents are
   # already on the server.
@@ -101,7 +101,6 @@ def process_steno_file(file_name):
     hash[tag] = content
 
     if tag == 'declaration':
-      print '%8d / %8d' % (count, len(lines))
       # We have parsed the last four lines and they are all now in the hash,
       # now store them somewhere.
       record_declaration(hash)
