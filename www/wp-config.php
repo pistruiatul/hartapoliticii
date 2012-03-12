@@ -21,9 +21,9 @@ if ($_SERVER['SERVER_NAME'] == 'localhost' ||
     $_SERVER['SERVER_NAME'] == 'zen.dev') {
   define('DB_NAME', 'hartapoliticii_pistruiatul');
 	/** MySQL database username */
-  define('DB_USER', 'root');
+  define('DB_USER', $DB_USER);
   /** MySQL database password */
-  define('DB_PASSWORD', 'root');
+  define('DB_PASSWORD', $DB_PASS);
   /** MySQL hostname */
   define('DB_HOST', 'localhost');
 
