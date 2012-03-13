@@ -249,6 +249,11 @@ function highlightStr($haystack, $needle) {
  * @return {String}
  */
 function getSnippet($text, $query) {
+  if ($query == '') {
+    $suffix = 250 < strlen($text) ? '...' : '';
+    return substr($text, 0, min(strlen($text), 250)) . $suffix;
+  }
+
   $text = correctDiacritics($text);
   $query = correctDiacritics($query);
 
