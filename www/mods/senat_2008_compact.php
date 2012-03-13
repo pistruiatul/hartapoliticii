@@ -1,4 +1,4 @@
-<?
+<?php
 include_once('mods/functions_common.php');
 include_once('mods/senat_2008_functions.php');
 

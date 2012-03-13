@@ -1,4 +1,4 @@
-<?
+<?php
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) {
   header('Location: http://www.hartapoliticii.ro/');
@@ -19,7 +19,7 @@ $title = "Harta Politicii din România";
 <meta itemprop="name" content="Harta Politicii din România">
 <meta itemprop="description" content="Punctul tău de referință pentru politicieni Români. Află cum au votat, cum au fost aleși, unde au fost menționați.">
 <meta itemprop="image" content="http://hartapoliticii.ro/top_title.png">
-<?
+<?php
 
 include('header.php');
 include('hp-includes/people_lib.php');

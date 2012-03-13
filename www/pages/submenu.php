@@ -1,4 +1,4 @@
-<?
+<?php
 // All this file does is, assuming there is a $page variable, look for
 // the configuration files for subpages and display them in a submenu.
 

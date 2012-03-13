@@ -5,7 +5,7 @@
     <b>Simulator</b> - introdu procentele estimate și vezi cine iese europarlamentar
 </td>
 <tr><td valign="top">
-<?
+<?php
 $v = getSimulationSystemValuesFromGet();
 if ($v != null) {
   $vstr = "{$v['p1']},{$v['p2']},{$v['p14']},{$v['p39']},".
@@ -75,7 +75,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 			"allowScriptAccess","sameDomain",
 			"type", "application/x-shockwave-flash",
 			"pluginspage", "http://www.adobe.com/go/getflashplayer",
-			"flashvars", "v=<? echo $vstr ?>" 
+			"flashvars", "v=<?php echo $vstr ?>" 
 	);
   } else {  // flash is too old or we can't detect the plugin
     var alternateContent = 'Alternate HTML content should be placed here. '
@@ -135,50 +135,50 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 <div style="text-align:right">
 <a class=small href="javascript:linkToThisPage()">Link to this page</a>
 </div>
-<?
+<?php
 /*
 ?>
 <form action="" method=GET>
   <input type=hidden name=cid value=10>
-  <input type=hidden name=sid value="<? echo $sid ?>">
+  <input type=hidden name=sid value="<?php echo $sid ?>">
   <table width=200>
     <tr>
       <td align=right>PNL: 
-        <input type=text name=p1 value="<? echo $v['p1']?>" size=5>%</td>
+        <input type=text name=p1 value="<?php echo $v['p1']?>" size=5>%</td>
     <tr>  
       <td align=right>PD-L: 
-        <input type=text name=p2 value="<? echo $v['p2']?>"size=5>%</td>
+        <input type=text name=p2 value="<?php echo $v['p2']?>"size=5>%</td>
     <tr>
       <td align=right>PSD+PC: 
-        <input type=text name=p14 value="<? echo $v['p14']?>" size=5>%</td>
+        <input type=text name=p14 value="<?php echo $v['p14']?>" size=5>%</td>
     <tr>
       <td align=right>PNTCD: 
-        <input type=text name=p39 value="<? echo $v['p39']?>" size=5>%</td>
+        <input type=text name=p39 value="<?php echo $v['p39']?>" size=5>%</td>
     <tr>
       <td align=right>UDMR: 
-        <input type=text name=p7 value="<? echo $v['p7']?>" size=5>%</td>
+        <input type=text name=p7 value="<?php echo $v['p7']?>" size=5>%</td>
     <tr>
       <td align=right>PRM: 
-        <input type=text name=p6 value="<? echo $v['p6']?>" size=5>%</td>
+        <input type=text name=p6 value="<?php echo $v['p6']?>" size=5>%</td>
     <tr>
       <td align=right>E.Băsescu: 
-        <input type=text name=pb value="<? echo $v['pb']?>" size=5>%</td>
+        <input type=text name=pb value="<?php echo $v['pb']?>" size=5>%</td>
     <tr>
       <td align=right>P.Abraham: 
-        <input type=text name=pa value="<? echo $v['pa']?>" size=5>%</td>
+        <input type=text name=pa value="<?php echo $v['pa']?>" size=5>%</td>
     <tr>
       <td align=right>Prezență la vot:
-          <input type=text name=vot value="<? echo $VOT_PRESENCE?>" size=4>%</td>
+          <input type=text name=vot value="<?php echo $VOT_PRESENCE?>" size=4>%</td>
       </tr>
       <td align=right><input type=submit name=Submit value="Simulează!"></td>
     </tr></table>
 </form>
-<?
+<?php
 */
 ?>
   </td><td valign=top>
     <div id="sim_results">
-  <?
+  <?php
   if (!maybeDisplaySimulationResults()) {
     ?>
     Să zicem că vrei să știi în ziua alegerilor cine exact o să fie 
@@ -190,7 +190,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
     
     <a href="?cid=10&p1=18.64&p2=33.1&p14=33.6&p39=0.98&vot=30.0&p7=6.2&p6=5.6&pb=0.98&pa=0.98&sid=2">Click aici</a> pentru a rula simulatorul de alegeri cu procentele de la
     parlamentarele din Noiembrie.
-    <?
+    <?php
   };
   ?>
   </div>

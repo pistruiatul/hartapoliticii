@@ -1,4 +1,4 @@
-<?
+<?php
 include("../_top.php");
 
 $s = mysql_query(
@@ -25,6 +25,6 @@ while ($r = mysql_fetch_array($s)) {
   
 </body>
 </html>
-<?
+<?php
 include("../_bottom.php");
 ?>

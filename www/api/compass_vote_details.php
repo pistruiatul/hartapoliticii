@@ -1,4 +1,4 @@
-<?
+<?php
 include ('../_top.php');
 
 include_once('../hp-includes/person_class.php');

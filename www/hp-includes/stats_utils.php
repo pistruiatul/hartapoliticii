@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Private helper function for a stats object where I add up stuff.
  * This is a very temporary function, I should delete it I think.

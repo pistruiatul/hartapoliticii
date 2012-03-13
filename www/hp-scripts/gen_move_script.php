@@ -1,4 +1,4 @@
-<?
+<?php
 include('../_top.php');
 
 $s = mysql_query("SELECT id, idperson FROM euro_2009_candidates");

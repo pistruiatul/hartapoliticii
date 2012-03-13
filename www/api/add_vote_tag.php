@@ -1,4 +1,4 @@
-<?
+<?php
 include ('../_top.php');
 include ('../functions.php');
 include_once('../hp-includes/people_lib.php');

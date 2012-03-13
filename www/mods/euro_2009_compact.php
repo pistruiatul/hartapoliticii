@@ -1,4 +1,4 @@
-<?
+<?php
 // Prints all the stuff that a guy did that was in the 2004-2008 senate.
 // We know that the person we are talking about is $person.
 
@@ -45,7 +45,7 @@ echo ". ";
 ?>
 Mai multe despre alegeri
 <a href="?c=alegeri+europarlamentare+2009&cid=10">aici</a>.</div>
-<?
+<?php
 echo "</div>";
 
 ?>

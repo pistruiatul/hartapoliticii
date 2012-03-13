@@ -1,4 +1,4 @@
-<?
+<?php
 include ('_top.php');
 include('pages/euro_2009/europarlament_functions.php');
 

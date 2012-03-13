@@ -1,4 +1,4 @@
-<?
+<?php
 // Adds a key/value pair to a certain person in the moderation queue. This
 // is currently used by the form where users can suggest a photo of a
 // politician. That form eventually ends up here, with a key='photo' and the

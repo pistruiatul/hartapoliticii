@@ -1,4 +1,4 @@
-<?
+<?php
 
 // This is a one-off script that loads a CSV with personId and name and
 // replaces the name in the people database with this new name.

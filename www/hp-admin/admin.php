@@ -1,4 +1,4 @@
-<?
+<?php
 include('../_top.php');
 include('../hp-includes/people_lib.php');
 ?>
@@ -9,7 +9,7 @@ include('../hp-includes/people_lib.php');
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<?
+<?php
 echo '<b>Photos</b><br>';
 
 $_POST['id'] = (int)$_POST['id'];

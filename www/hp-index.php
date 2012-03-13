@@ -23,7 +23,7 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   <meta property="fb:admins" content="521485175" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-  <link rel="stylesheet" href="styles.css?v=<? echo md5_file('styles.css');?>" />
+  <link rel="stylesheet" href="styles.css?v=<?php echo md5_file('styles.css');?>" />
   <script src="js/swfobject/swfobject.js" type="text/javascript"></script>
 
   <?php
@@ -31,9 +31,9 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   // or not.
   if ($_SERVER['SERVER_NAME'] == 'localhost') { ?>
     <script src="js/politica_localhost.js" type="text/javascript"></script>
-  <? } ?>
+  <?php } ?>
 
-  <script src="js/politica.js?v=<? echo md5_file('js/politica.js');?>"
+  <script src="js/politica.js?v=<?php echo md5_file('js/politica.js');?>"
           type="text/javascript"></script>
 
   <script type="text/javascript">

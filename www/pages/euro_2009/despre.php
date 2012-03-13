@@ -26,7 +26,7 @@
   <br>Site-ul BEC este <a href="http://www.bec2009pe.ro/">aici</a> (absolut jenant, făcut în Word!?).
 
   <p class="smalltitle"><strong>Despre candidați / partide</strong></p>
-  <?
+  <?php
   printPartySummary();
   ?>
   <br><a href="?c=alegeri+europarlamentare+2009&cid=10&sid=0">Click aici</a> pentru listele complete de candidați.
