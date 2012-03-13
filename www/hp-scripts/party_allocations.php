@@ -1,4 +1,4 @@
-<?
+<?php
 include("../_top.php");
 
 /**
@@ -39,6 +39,6 @@ if ($_GET['judet'] != "") {
   </form>
 </body>
 </html>
-<?
+<?php
 include("../_bottom.php");
 ?>

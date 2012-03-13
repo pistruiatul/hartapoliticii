@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * Print some summaries per parties for the elections?

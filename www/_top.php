@@ -1,4 +1,4 @@
-<?
+<?php
   include_once('secret/db_user.php');
 
   if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == 'zen.dev') {

@@ -1,4 +1,4 @@
-<?
+<?php
 // NOTE: This giant file is full of legacy code and old functions. It should be
 // organized and cleaned up, a bunch of these functions should be moved to
 // templates.
@@ -31,7 +31,7 @@ function printWarning() {
     la secțiunea <a href="?cid=6">despre site</a> sau la mine
   <a href="http://www.vivi.ro/blog/?p=1015">pe blog</a>. Citește, e important.
   </div>
-  <?
+  <?php
 }
 
 
@@ -125,38 +125,38 @@ function showPresencePercentage($sortby, $order) {
   $norder = $order == 'asc' ? 'desc' : 'asc';
   ?>
   <tr class=header><td></td><td>
-    <a href=?cid=<?
-    echo $cid ?>&sort=name&order=<?
+    <a href=?cid=<?php
+    echo $cid ?>&sort=name&order=<?php
     echo $norder?>>Deputat</a></td>
   <td>
-    <a href=?cid=<?
-    echo $cid ?>&sort=percent&order=<?
+    <a href=?cid=<?php
+    echo $cid ?>&sort=percent&order=<?php
     echo $norder?>>Procent de voturi<br>la care a fost prezent</a></td>
   <td>
-    <a href=?cid=<?
-    echo $cid ?>&sort=idparty&order=<?
+    <a href=?cid=<?php
+    echo $cid ?>&sort=idparty&order=<?php
     echo $norder?>>Partid</a></td>
   <td>
-    <a href=?cid=<?
-    echo $cid ?>&sort=seconds&order=<?
+    <a href=?cid=<?php
+    echo $cid ?>&sort=seconds&order=<?php
     echo $norder?>>Luări de cuvânt</a></td>
   <td>Reales</td></tr>
-  <?
+  <?php
   while ($rdep = mysql_fetch_array($sdep)) {
     // ------------------ vote percentages
     $timein = $rdep['timein'] / 1000;
     $timeout = $rdep['timeout'] / 1000;
     ?>
     <tr>
-    <td align=right><? echo $count++ ?></td>
-    <?
+    <td align=right><?php echo $count++ ?></td>
+    <?php
     $name = moveFirstNameLast($rdep['name']);
     ?>
-    <td><a href="?name=<?
-      urlencode($name) ?>&cid=9&id=<?
+    <td><a href="?name=<?php
+      urlencode($name) ?>&cid=9&id=<?php
       echo $rdep['idperson'] ?>"><?echo $name ?></a>
     <br><span class="small gray">
-    <?
+    <?php
     // ----------------- now print the times in office, if need be
     // 1103259600 = 17 dec 2004
     if ($timein != 1103259600 || $timeout != 0) {
@@ -307,19 +307,19 @@ function showSenatePresencePercentage($sortby, $order) {
   ?>
   <table class=bigtable width=900>
   <tr class=header><td></td><td>
-    <a href=?cid=<?
-      echo $cid ?>&sort=name&order=<? echo $norder?>>Senator</a></td>
+    <a href=?cid=<?php
+      echo $cid ?>&sort=name&order=<?php echo $norder?>>Senator</a></td>
   <td>
-    <a href=?cid=<?
-      echo $cid ?>&sort=percent&order=<?
+    <a href=?cid=<?php
+      echo $cid ?>&sort=percent&order=<?php
       echo $norder?>>Procent de voturi<br>la care a fost prezent</a>
       <br>începând cu Sep 2007</td>
   <td>
-    <a href=?cid=<?
-      echo $cid ?>&sort=idparty&order=<?
+    <a href=?cid=<?php
+      echo $cid ?>&sort=idparty&order=<?php
       echo $norder?>>Partid</a></td>
   <td>Reales</td></tr>
-  <?
+  <?php
   while ($rdep = mysql_fetch_array($sdep)) {
     echo "<tr>";
     echo "<td align=right>" . ($count++) . ".</td>";

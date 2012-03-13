@@ -1,4 +1,4 @@
-<?
+<?php
 require("person_class.php");
 
 /**
@@ -509,7 +509,7 @@ function printJsCommitCookieScript() {
       document.location.href = baseUrl + "?rand=" + Math.random() * 10000;
     }
   </script>
-  <?
+  <?php
   die("Time to ".
       "<a href=\"javascript:setCommitCookieAndRedirect();\">commit</a>.");
 }

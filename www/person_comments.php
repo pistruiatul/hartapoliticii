@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" href="styles-comments.css" type="text/css" media="screen" />
 
-<?
+<?php
 $postid = checkWordpressPostExistance($person);
 $permaLink = "/?cid=9&id={$person->id}";
 
