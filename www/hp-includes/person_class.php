@@ -390,10 +390,15 @@ class Person {
 
   /**
    * Returns a list of the most recent declarations of this person.
+   *
+   * @param {String} $query The query we are looking for.
+   * @param {Number} $start Where to start the results from.
    * @param {Number} $count The number of declarations that we need.
+   * @param {Boolean} $full_text Whether we want to return just snippets or
+   *     the full text for each of the results.
    * @return {Array} The array of results.
    */
-  public function searchDeclarations($query, $start, $count) {
+  public function searchDeclarations($query, $start, $count, $full_text) {
     $s = mysql_query("
       SELECT source, declaration, time
       FROM people_declarations
@@ -405,14 +410,19 @@ class Person {
 
     $results = array();
     while ($r = mysql_fetch_array($s)) {
-      $r['declaration'] = strip_tags(stripslashes($r['declaration']));
+      // HACK: Because I know that the transcripts from cdep.ro have only this
+      // one tag in them, I will manually replace it.
+      $r['declaration'] = preg_replace('<p align="justify">', 'sp',
+                                       $r['declaration']);
+
+      $r['declaration'] = stripslashes($r['declaration']);
+      $r['snippet'] = $full_text ?
+          $r['declaration'] : getSnippet($r['declaration'], $query, $full_text);
 
       if ($query != '') {
-        $r['snippet'] = getSnippet($r['declaration'], $query);
         $r['snippet'] = highlightStr($r['snippet'], $query);
-      } else {
-        $r['snippet'] = $r['declaration'];
       }
+
       $results[] = $r;
     }
 

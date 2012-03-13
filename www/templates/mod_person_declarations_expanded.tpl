@@ -5,6 +5,7 @@
     <form action="/" method="GET">
       <input type=hidden name="name" value="{$name}">
       <input type=hidden name="exp" value="person_declarations">
+      <input type=hidden name="text_mode" value="{$text_mode}">
 
       <input type=text size=30 name=dq value="{$dq}"
              id="declarations_q">
@@ -35,7 +36,7 @@
       </td><td valign="top">
 
        <div class="small declaration_snippet">
-         {$declarations[n].snippet|truncate:300:"...":true}&nbsp;
+         {$declarations[n].snippet}&nbsp;
          <div class="declaration_source">
            <img src="images/popout_icon.gif" border="0"
                 width="12" height="12">&nbsp;
@@ -51,18 +52,36 @@
     {/section}
   </table>
 
-  {if !$first_page}
-    <a href="{$prev_page_link}">Prev</a>
-  {else}
-    Prev
-  {/if}
+  <table width="100%">
+    <td>
+      {if !$first_page}
+        <a href="{$prev_page_link}">Prev</a>
+      {else}
+        Prev
+      {/if}
 
-  /
+      /
 
-  {if !$last_page}
-    <a href="{$next_page_link}">Next</a>
-  {else}
-    Next
-  {/if}
+      {if !$last_page}
+        <a href="{$next_page_link}">Next</a>
+      {else}
+        Next
+      {/if}
+    </td>
+    <td align="right">
+      {if $text_mode == 'full_text'}
+        Full text
+      {else}
+        <a href="{$full_text_link}">Full text</a>
+      {/if}
 
+      /
+
+      {if $text_mode == 'snippets'}
+        Snippets
+      {else}
+        <a href="{$snippets_link}">Snippets</a>
+      {/if}
+    </td>
+  </table>
 </div>
