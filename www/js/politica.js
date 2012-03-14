@@ -2,9 +2,11 @@
 // NOTE(vivi): This is obviously a big unsorted pile of all the javascript
 // we need. It should be split as some point, as needed.
 //
+// TODO(vivi): Replace some of these with jQuery methods.
 
-// ---------------- Utils
 
+// -----------------------------------------------------
+// DOM and NET Utils
 
 function elem(id) {
   return document.getElementById(id);
@@ -71,10 +73,12 @@ function onPayloadResponse_(xmlhttp, opt_callback, opt_err) {
 function loadHandler() {
 }
 
-// --------------- end utils
+// end utils
 
 
-// --------------- Europarlamentare
+// -----------------------------------------------------
+// Europarlamentare
+
 
 var parts = document.location.href.split("?");
 var globalSimParams = parts.length == 2 ? parts[1] : '';
@@ -112,7 +116,8 @@ function updateEuroResults_(url) {
 }
 
 
-// --------------- Person page javascript
+// -----------------------------------------------------
+// Person page javascript
 
 function togglePhotoSuggestForm() {
   toggleDiv('suggest_photo');
@@ -143,7 +148,8 @@ function getInputValue(id) {
 }
 
 
-// ------------ Youtube player stuff - for presidential candidate pages.
+// -----------------------------------------------------
+// Youtube player stuff - for presidential candidate pages.
 
 
 function onYouTubePlayerReady(playerId) {
@@ -207,7 +213,8 @@ function removeInlinePlayer() {
   wrapper.innerHTML = '<div id="ytapiplayer"></div>';
 }
 
-// ----------------------------------------------
+
+// -----------------------------------------------------
 // Functions related to tagging of laws.
 
 
@@ -283,8 +290,8 @@ function compassShowDetailsFor(personId, room, year, tagId) {
 }
 
 
-// -----------------------------------------------
-// ----- Functions for code that's in the user's my account page.
+// -----------------------------------------------------
+// Functions for code that's in the user's my account page.
 
 function myAccountAddPerson() {
   // First of all, find the data on the page.
@@ -318,3 +325,146 @@ function myAccountAddPerson() {
 }
 
 
+// -----------------------------------------------------
+// Functions for declaration utils.
+
+// A namespace for the functions related to declarations.
+var declarations = {};
+
+declarations.initSelectHandlers = function() {
+  // Go through all the divs on the page that are 'select' enabled and install
+  // a select handler on all of them.
+
+  // Keep a model in memory so that I can have the original text with tags and
+  // all of that so I can mark selects on the tagged text.
+  $(".declaration").mouseup(function(foo) {
+    // Wrap this in a timeout so that we let the browser deselect the text
+    // first, and only then run this method for when the user clicks to
+    // deselect a text.
+    setTimeout(function() {
+      var selectedText = $.trim(declarations.getSelectedText());
+      if (selectedText == '') return;
+
+      var selection = declarations.getCurrentSelection();
+
+      var startNode = selection.getRangeAt(0).startContainer;
+      var startWordId = declarations.getWordTokenIdBefore(startNode);
+      var startDeclarationId = declarations.getDeclarationIdFor(startNode);
+
+      var endNode = selection.getRangeAt(0).endContainer;
+      var endWordId = declarations.getWordTokenIdBefore(endNode);
+      var endDeclarationId = declarations.getDeclarationIdFor(endNode);
+
+      console.log('startDecl ' + startDeclarationId + ' endDecl ' +
+                  endDeclarationId + ' ' + startWordId + ' ' + endWordId);
+
+      // We selected some pretty random stuff, so we just return.
+      if (startWordId == -1 || endWordId == -1 ||
+          startDeclarationId != endDeclarationId) {
+        return;
+      }
+
+      console.log('declaration id ' + startDeclarationId + ' start word ' +
+                  startWordId);
+
+      // Somehow figure out the word numbers for the beginning and end of the
+      // selected passage. We will store those numbers as the markers for the
+      // passage that was declared as important, and then we'll also highlight
+      // that particular passage.
+
+      console.log('"' + selectedText +
+          '"\n\nVrei să marchezi asta ca important?');
+    }, 0);
+  });
+};
+
+
+/**
+ * Given a node, returns the declaration id that's holding it.
+ *
+ * @param {Node} node A node that probably belongs into one of the snippets
+ *     on the page.
+ * @return {Number} The id of the declaration that holds the node that is
+ *     passed in as a parameter.
+ */
+declarations.getDeclarationIdFor = function(node) {
+  // Walk the DOM up until we find a node that says 'declaration-'
+  while (!node.getAttribute ||
+      !node.getAttribute('id') ||
+      node.getAttribute('id').indexOf('declaration-') != 0) {
+    node = node.parentNode;
+    if (!node) return -1;
+  }
+
+  return node.getAttribute('id').match(/declaration-(\d+)/)[1];
+};
+
+
+/**
+ * Returns the word's token id that this node represents or
+ * @param {Node} wordNode A node that probably belongs into one of the snippets
+ *     on the page.
+ * @return {Number} The id of the declaration that holds the node that is
+ *     passed in as a parameter.
+ */
+declarations.getWordTokenIdBefore = function(wordNode) {
+  var node = wordNode;
+  // First, see if this is part of a node that holds a word id or a declaration
+  // id.
+  while (!node.getAttribute ||
+      !node.getAttribute('id') ||
+      (node.getAttribute('id').indexOf('word-') == -1 &&
+       node.getAttribute('id').indexOf('declaration-') == -1)) {
+    node = node.parentNode;
+    if (!node) return -1;
+  }
+
+  var nodeId = node.getAttribute('id');
+  // If the beginning of the selection was part of a marked word, just return
+  // that.
+  if (/word-(\d+)/.test(nodeId)) {
+    return nodeId.match(/word-(\d+)/)[1];
+  }
+
+  // At this point we know that wordNode is a text node in between words, so we
+  // just iterate all the children of the declaration node.
+  for (var i = 0; i < node.childNodes.length; i++) {
+    if (node.childNodes[i] == wordNode) {
+      nodeId = node.childNodes[i - 1].getAttribute('id');
+      return nodeId.match(/word-(\d+)/)[1];
+    }
+  }
+  return -1;
+};
+
+
+declarations.getSelectedText = function() {
+  var t = '';
+  if(window.getSelection) {
+    t = window.getSelection();
+  } else if(document.getSelection) {
+    t = document.getSelection();
+  } else if(document.selection) {
+    t = document.selection.createRange().text;
+  }
+  return t;
+};
+
+
+/**
+ * Returns the selection object. This object will be used to get the next or
+ * previous dom elements at the next one so that we can figure out what the
+ * user has selected.
+ *
+ * @return {Selection}
+ */
+declarations.getCurrentSelection = function() {
+  if(window.getSelection) {
+    return window.getSelection();
+  } else if(document.getSelection) {
+    return document.getSelection();
+  } else if(document.selection) {
+    return document.selection;
+  }
+  return null;
+};

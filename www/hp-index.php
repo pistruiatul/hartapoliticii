@@ -26,6 +26,9 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   <link rel="stylesheet" href="styles.css?v=<? echo md5_file('styles.css');?>" />
   <script src="js/swfobject/swfobject.js" type="text/javascript"></script>
 
+  <!-- Load jQuery -->
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
+
   <?php
   // Include or not include some scripts, depending on whether this is localhost
   // or not.
