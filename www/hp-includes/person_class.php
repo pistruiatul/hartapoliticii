@@ -400,7 +400,7 @@ class Person {
    */
   public function searchDeclarations($query, $start, $count, $full_text) {
     $s = mysql_query("
-      SELECT source, declaration, time
+      SELECT id, source, declaration, time
       FROM people_declarations
       WHERE idperson = {$this->id} AND
           declaration LIKE '%{$query}%'
@@ -412,12 +412,15 @@ class Person {
     while ($r = mysql_fetch_array($s)) {
       // HACK: Because I know that the transcripts from cdep.ro have only this
       // one tag in them, I will manually replace it.
-      $r['declaration'] = preg_replace('<p align="justify">', 'sp',
+      $r['declaration'] = preg_replace('/<p align="justify">/', ' ',
                                        $r['declaration']);
-
+      $r['declaration'] = strip_tags($r['declaration']);
       $r['declaration'] = stripslashes($r['declaration']);
+
       $r['snippet'] = $full_text ?
           $r['declaration'] : getSnippet($r['declaration'], $query, $full_text);
+
+      $r['snippet'] = markDownTextBlock($r['snippet']);
 
       if ($query != '') {
         $r['snippet'] = highlightStr($r['snippet'], $query);
