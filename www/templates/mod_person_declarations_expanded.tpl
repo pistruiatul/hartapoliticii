@@ -52,7 +52,7 @@
       </td>
       <td valign="top">
 
-       <div class="small declaration_snippet">
+       <div class="small declaration_snippet {$declarations[n].class}">
          <div class="declaration" id="declaration-{$declarations[n].id}">
            {$declarations[n].snippet}
          </div>
