@@ -38,6 +38,9 @@ body {
 .black {
   color: #000000;
 }
+.underline {
+  border-bottom: 2px dotted #ba0000;
+}
 #parties_table td {
   padding: 8px;
 }
@@ -488,4 +491,12 @@ body {
 
 .declaration_source, .declaration_source a {
   color: #009900;
+}
+
+.text_highlight_1 {
+  border-bottom: 2px dotted #00ba00;
+}
+
+.text_highlight_2 {
+  border-bottom: 2px dotted #ba0000;
 }

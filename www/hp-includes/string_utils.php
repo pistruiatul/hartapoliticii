@@ -283,7 +283,7 @@ function getSnippet($text, $query) {
  * @param {String} $text The text that we need to annotate.
  * @return {String} The annotated text with the spans in it.
  */
-function markDownTextBlock($text) {
+function markDownTextBlock($text, $prefix) {
   $new_text = preg_replace('/([\wșȘîÎăĂâÂțȚţŢşŞ]+)/',
                            '<span id=xxx>\1</span>', $text);
 

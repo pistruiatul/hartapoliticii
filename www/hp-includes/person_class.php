@@ -420,7 +420,7 @@ class Person {
       $r['snippet'] = $full_text ?
           $r['declaration'] : getSnippet($r['declaration'], $query, $full_text);
 
-      $r['snippet'] = markDownTextBlock($r['snippet']);
+      $r['snippet'] = markDownTextBlock($r['snippet'], "");
 
       if ($query != '') {
         $r['snippet'] = highlightStr($r['snippet'], $query);
