@@ -356,10 +356,9 @@ declarations.myRanges = {};
 declarations.originalDoms = {};
 
 
-declarations.initSelectHandlers = function() {
+declarations.initSelectHandlers = function(loggedIn) {
   // Go through all the divs on the page that are 'select' enabled and install
   // a select handler on all of them.
-
   $('.declaration').each(function(index, element) {
     var id = element.getAttribute('id');
     declarations.originalDoms[id] = element.innerHTML;
@@ -368,6 +367,8 @@ declarations.initSelectHandlers = function() {
   // Keep a model in memory so that I can have the original text with tags and
   // all of that so I can mark selects on the tagged text.
   $(".declaration").mouseup(function(foo) {
+    if (!loggedIn) return;
+
     // Wrap this in a timeout so that we let the browser deselect the text
     // first, and only then run this method for when the user clicks to
     // deselect a text.
@@ -382,12 +383,27 @@ declarations.initSelectHandlers = function() {
       var endWordId = declarations.getWordTokenIdBefore(endNode);
       var endDeclarationId = declarations.getDeclarationIdFor(endNode);
 
-      //
-      // TODO(vivi): Actually implement this in a meaningful way!
-      //
       var selectedText = $.trim(declarations.getSelectedText());
       if (selectedText == '') {
-        confirm('wanna delete?');
+        // See if the startWordId belongs to any of MY ranges.
+        var range = declarations.getRangeForWordId(
+            declarations.myRanges['declaration-' + startDeclarationId],
+            startWordId);
+        if (!range) {
+          return;
+        }
+
+        if (confirm('ATENȚIE!!!\n\n' +
+            'Ești sigur că vrei să ștergi acest highlight?')) {
+          // Get the proper declaration ids from this.
+          declarations.recordHighlight(startDeclarationId, range.start,
+                                       range.end, selectedText, 'delete');
+          // Basically delete the range.
+          range.start = -1;
+          range.end = -1;
+
+          declarations.refreshDeclaration(startDeclarationId);
+        }
         return;
       }
 
@@ -402,10 +418,54 @@ declarations.initSelectHandlers = function() {
                 startWordId, endWordId, true)) {
           selection.collapse();
           declarations.refreshDeclaration(startDeclarationId);
+
+          // Store this on the server.
+          declarations.recordHighlight(startDeclarationId, startWordId,
+                                       endWordId, selectedText, 'add');
         }
       }
     }, 0);
   });
+};
+
+
+/**
+ * Records the declaration once we know everything is good to go.
+ * @param declarationId
+ * @param startWord
+ * @param endWord
+ * @param selectedText
+ */
+declarations.recordHighlight = function(declarationId, startWord, endWord,
+    selectedText, action) {
+  var url = '/hooks/highlight.php?' +
+      'action=' + action +
+      '&declaration_id=' + declarationId +
+      '&start_word=' + startWord +
+      '&end_word=' + endWord +
+      '&content=' + selectedText;
+
+  sendPayload_(url, function(response) {
+    console.log(response);
+  });
+};
+
+
+/**
+ * Checks whether a particular word id is in the myRanges of this declaration.
+ *
+ * @param {Array} ranges The array of ranges.
+ * @param wordId
+ */
+declarations.getRangeForWordId = function(ranges, wordId) {
+  if (!ranges) return null;
+
+  // First check if there are overlapping ranges.
+  for (var i = 0; i < ranges.length; i++) {
+    var range = ranges[i];
+    if (wordId >= range.start && wordId <= range.end) return range;
+  }
+  return null;
 };
 
 
@@ -445,6 +505,15 @@ declarations.addRangeToMarkedPassages = function(declarationId, start, end) {
   });
 
   return true;
+};
+
+
+declarations.refreshAllDeclarations = function() {
+  $(".declaration").each(function(index, elem) {
+    var domId = elem.getAttribute('id');
+    var declarationId = parseInt(domId.match(/declaration-(\d+)/)[1]);
+    declarations.refreshDeclaration(declarationId);
+  });
 };
 
 

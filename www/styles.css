@@ -483,6 +483,20 @@ body {
   margin-bottom: 20px;
 }
 
+.please_login_panel {
+  padding: 5px;
+  background-color: #ffffe4;
+  border: solid 1px #ffeabe;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  color: #999;
+}
+
+.declaration_types_menu {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
 .declaration_snippet {
   font-size: 14px;
   line-height: 1.5em;
@@ -494,9 +508,11 @@ body {
 }
 
 .text_highlight_1 {
+  color: black;
   border-bottom: 2px dotted #00ba00;
 }
 
 .text_highlight_2 {
+  color: black;
   border-bottom: 2px dotted #ba0000;
 }
