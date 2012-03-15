@@ -15,6 +15,32 @@
       Exemplu: "pensii", "taxe", etc
     </div>
   </div>
+
+  <div class="please_login_panel">
+  {if !$logged_in}
+    Dacă <a href="/wp-login.php?action=login">te autentifici</a> vei putea
+    să selectezi pasaje de declarații pentru a le marca drept importante.
+
+  {else}
+    Selectează pasajele care crezi că sunt importnate. Pentru a șterge un
+    pasaj marcat important din greșală, dă click pe el.
+  {/if}
+  </div>
+
+  <div class="declaration_types_menu">
+    {if $decl_type == 'all'}Toate{else}
+        <a href="{$all_declarations_link}">Toate</a>
+    {/if}
+    &nbsp;/&nbsp;
+    {if $decl_type == 'important'}Doar cele importante{else}
+        <a href="{$important_declarations_link}">Doar cele importante</a>
+    {/if}
+    &nbsp;/&nbsp;
+    {if $decl_type == 'mine'}Marcate de mine{else}
+        <a href="{$my_declarations_link}">Marcate de mine</a>
+    {/if}
+  </div>
+
   <table width=100% cellspacing=2 cellpadding=2>
     {section name=n loop=$declarations}
     {strip}
@@ -53,7 +79,24 @@
   </table>
 
   <table width="100%">
-    <td>
+    <td align="right">
+      <!--
+      Uncomment this when and if we want to enable snippets.
+      {if $text_mode == 'full_text'}Full text{else}
+        <a href="{$full_text_link}">Full text</a>
+      {/if}
+
+      /
+
+      {if $text_mode == 'snippets'}
+        Snippets
+      {else}
+        <a href="{$snippets_link}">Snippets</a>
+      {/if}
+      -->
+    </td>
+
+    <td align="right">
       {if !$first_page}
         <a href="{$prev_page_link}">Prev</a>
       {else}
@@ -68,24 +111,6 @@
         Next
       {/if}
     </td>
-    <td align="right">
-      <!--
-      Uncomment this when and if we want to enable snippets.
-      {if $text_mode == 'full_text'}
-        Full text
-      {else}
-        <a href="{$full_text_link}">Full text</a>
-      {/if}
-
-      /
-
-      {if $text_mode == 'snippets'}
-        Snippets
-      {else}
-        <a href="{$snippets_link}">Snippets</a>
-      {/if}
-      -->
-    </td>
   </table>
 </div>
 
@@ -93,9 +118,45 @@
   // Initializes the select handlers on the declarations on this page. This
   // Means that when the user selects some text they can mark it as important
   // or interesting.
-  declarations.initSelectHandlers();
-  {literal}
-  declarations.globalRanges['declaration-126'] = [{ 'start': 30, 'end': 50 }];
-  {/literal}
-  declarations.refreshDeclaration(126);
+  declarations.initSelectHandlers({$logged_in});
+
+  // insert all the user's ranges and the global ranges here.
+  {section name=gr loop=$highlights_global_ranges}
+  {strip}
+    declarations.globalRanges[
+        'declaration-{$highlights_global_ranges[gr].declarationId}'] =
+        {literal}
+        [{
+        {/literal}
+          'start': {$highlights_global_ranges[gr].start},
+          'end': {$highlights_global_ranges[gr].end}
+        {literal}
+        }]
+        {/literal}
+        ;
+  {/strip}
+  {/section}
+  // insert all the user's ranges and the global ranges here.
+  {section name=mr loop=$highlights_my_ranges}
+  {strip}
+    declarations.myRanges[
+        'declaration-{$highlights_my_ranges[mr].declarationId}'] =
+    declarations.myRanges[
+        'declaration-{$highlights_my_ranges[mr].declarationId}'] || [];
+
+    declarations.myRanges[
+        'declaration-{$highlights_my_ranges[mr].declarationId}'].push(
+        {literal}
+        {
+        {/literal}
+          'start': {$highlights_my_ranges[mr].start},
+          'end': {$highlights_my_ranges[mr].end}
+        {literal}
+        }
+        {/literal}
+        );
+  {/strip}
+  {/section}
+
+  declarations.refreshAllDeclarations();
 </script>

@@ -396,20 +396,53 @@ class Person {
    * @param {Number} $count The number of declarations that we need.
    * @param {Boolean} $full_text Whether we want to return just snippets or
    *     the full text for each of the results.
+   * @param {String} $restrict The category of declarations that I am looking
+   *     for. Acceptable values for this are 'all', 'important' or 'mine'.
    * @return {Array} The array of results.
    */
-  public function searchDeclarations($query, $start, $count, $full_text) {
-    $s = mysql_query("
-      SELECT id, source, declaration, time
-      FROM people_declarations
-      WHERE idperson = {$this->id} AND
-          declaration LIKE '%{$query}%'
-      ORDER BY time DESC
-      LIMIT {$start}, {$count}
-    ");
+  public function searchDeclarations($query, $start, $count, $full_text,
+                                     $restrict) {
+    if ($restrict == 'all') {
+      $s = mysql_query("
+        SELECT id, source, declaration, time
+        FROM people_declarations
+        WHERE idperson = {$this->id} AND
+            declaration LIKE '%{$query}%'
+        ORDER BY time DESC
+        LIMIT {$start}, {$count}
+      ");
+    } else if ($restrict == 'important') {
+      $sql = "
+        SELECT d.id, h.source, d.declaration, d.time
+        FROM people_declarations AS d
+        LEFT JOIN people_declarations_highlights AS h ON h.source = d.source
+        WHERE idperson = {$this->id}
+        GROUP BY h.source
+        ORDER BY time DESC
+        LIMIT {$start}, {$count}
+      ";
+      $s = mysql_query($sql);
+    } else if ($restrict == 'mine') {
+      $uid = is_user_logged_in() ? wp_get_current_user()->ID : 0;
+      $sql = "
+        SELECT d.id, h.source, d.declaration, d.time
+        FROM people_declarations AS d
+        LEFT JOIN people_declarations_highlights AS h ON h.source = d.source
+        WHERE
+            idperson = {$this->id} AND
+            h.user_id={$uid}
+        GROUP BY h.source
+        ORDER BY time DESC
+        LIMIT {$start}, {$count}
+      ";
+      $s = mysql_query($sql);
+    } else {
+      return array();
+    }
 
     $results = array();
     while ($r = mysql_fetch_array($s)) {
+      if (!$r['source']) continue;
       // HACK: Because I know that the transcripts from cdep.ro have only this
       // one tag in them, I will manually replace it.
       $r['declaration'] = preg_replace('/<p align="justify">/', ' ',
