@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.0
+-- version 3.4.10.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2012 at 06:39 PM
+-- Generation Time: Mar 15, 2012 at 04:58 PM
 -- Server version: 5.5.12
 -- PHP Version: 5.3.8
 
@@ -924,6 +924,23 @@ CREATE TABLE IF NOT EXISTS `people_declarations` (
   UNIQUE KEY `idperson` (`idperson`,`source`),
   KEY `id_person` (`idperson`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `people_declarations_highlights`
+--
+
+DROP TABLE IF EXISTS `people_declarations_highlights`;
+CREATE TABLE IF NOT EXISTS `people_declarations_highlights` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `source` varchar(250) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `start_word` int(11) NOT NULL,
+  `end_word` int(11) NOT NULL,
+  `content` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
