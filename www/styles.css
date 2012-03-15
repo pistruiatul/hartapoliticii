@@ -35,6 +35,9 @@ body {
 .light_gray a {
   color: #CCC;
 }
+.dark_gray {
+  color: #555;
+}
 .black {
   color: #000000;
 }

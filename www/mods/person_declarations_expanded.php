@@ -1,6 +1,8 @@
 <?php
 include_once('hp-includes/declarations.php');
 
+$highlightsPerDeclaration = array();
+
 /**
  * Returns the array of highlights for this declaration. The separate ranges
  * will all be merged together and only continuous disjoint ranges will be
@@ -15,6 +17,8 @@ include_once('hp-includes/declarations.php');
  * @return {Array}
  */
 function getHighlightsForDeclaration($declarationId, $include=0, $exclude=0) {
+  global $highlightsPerDeclaration;
+
   $declarationLink = getDeclarationLink($declarationId);
 
   if ($include != 0) {
@@ -62,6 +66,7 @@ function getHighlightsForDeclaration($declarationId, $include=0, $exclude=0) {
           'declarationId' => $declarationId
         );
         $ranges[] = $newRange;
+        $highlightsPerDeclaration['declaration-' . $declarationId] = true;
       }
       $start = $i;
       $state = $map[$i];
@@ -123,7 +128,6 @@ $t = new Smarty();
 
 $t->assign('id', $person->id);
 $t->assign('name', $person->name);
-$t->assign('declarations', $declarations);
 $t->assign('dq', $dq);
 
 $t->assign('logged_in', is_user_logged_in());
@@ -151,7 +155,8 @@ $t->assign('prev_page_link', constructUrl('/', $currentParams,
 
 $nextStart = $start + $pageSize;
 $t->assign('next_page_link', constructUrl('/', $currentParams,
-                                          array('start' => $prevStart)));
+                                          array('start' => $nextStart)));
+
 
 $t->assign('full_text_link', constructUrl('/', $currentParams));
 $t->assign('snippets_link', constructUrl('/', $currentParams));
@@ -164,6 +169,7 @@ $t->assign('my_declarations_link',
            constructUrl('/', $currentParams, array('decl_type' => 'mine')));
 
 $ranges = getHighlights($declarations);
+$myRanges = array();
 
 if (is_user_logged_in()) {
   $ranges = getHighlights($declarations, 0, $uid);
@@ -171,6 +177,19 @@ if (is_user_logged_in()) {
   $uid = is_user_logged_in() ? $current_user->ID : 0;
   $myRanges = getHighlights($declarations, $uid, 0);
 }
+
+$newDeclarations = array();
+foreach ($declarations as $declaration) {
+  if ($decl_type == 'important' || $decl_type == 'mine') {
+    $declaration['class'] = 'light_gray';
+  } else {
+    if ($highlightsPerDeclaration['declaration-' . $declaration['id']]) {
+      $declaration['class'] = 'dark_gray';
+    }
+  }
+  array_push($newDeclarations, $declaration);
+}
+$t->assign('declarations', $newDeclarations);
 
 $t->assign('highlights_global_ranges', $ranges);
 $t->assign('highlights_my_ranges', $myRanges);
