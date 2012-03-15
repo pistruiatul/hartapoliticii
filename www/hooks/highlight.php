@@ -75,7 +75,8 @@ $personId = getPersonId($declarationId);
 
 mysql_query(
   "INSERT INTO moderation_queue(type, idperson, value, ip, time)
-   VALUES('highlight', {$personId}, 'by {$userLogin}', '$ip', ". time() . ")");
+   VALUES('highlight', {$personId}, 'highlight by {$userLogin}', '$ip',
+          ". time() . ")");
 
 echo "OK";
 
