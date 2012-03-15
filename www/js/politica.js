@@ -331,9 +331,39 @@ function myAccountAddPerson() {
 // A namespace for the functions related to declarations.
 var declarations = {};
 
+
+/**
+ * A global list of starts and ends of ranges. This is populated server side,
+ * the client side is pretty ignorant about it.
+ *
+ * The ranges in here will not overlap.
+ *
+ * @type {Object.<Array>}
+ */
+declarations.globalRanges = {};
+
+/**
+ * The user's one personal ranges. These take precedence over the global ones.
+ * These can't overlap!
+ */
+declarations.myRanges = {};
+
+
+/**
+ * A place where we keep the original DOM structures stored, so that when we
+ * render them we don't have to worry about removing past formatting.
+ */
+declarations.originalDoms = {};
+
+
 declarations.initSelectHandlers = function() {
   // Go through all the divs on the page that are 'select' enabled and install
   // a select handler on all of them.
+
+  $('.declaration').each(function(index, element) {
+    var id = element.getAttribute('id');
+    declarations.originalDoms[id] = element.innerHTML;
+  });
 
   // Keep a model in memory so that I can have the original text with tags and
   // all of that so I can mark selects on the tagged text.
@@ -342,9 +372,6 @@ declarations.initSelectHandlers = function() {
     // first, and only then run this method for when the user clicks to
     // deselect a text.
     setTimeout(function() {
-      var selectedText = $.trim(declarations.getSelectedText());
-      if (selectedText == '') return;
-
       var selection = declarations.getCurrentSelection();
 
       var startNode = selection.getRangeAt(0).startContainer;
@@ -355,8 +382,14 @@ declarations.initSelectHandlers = function() {
       var endWordId = declarations.getWordTokenIdBefore(endNode);
       var endDeclarationId = declarations.getDeclarationIdFor(endNode);
 
-      console.log('startDecl ' + startDeclarationId + ' endDecl ' +
-                  endDeclarationId + ' ' + startWordId + ' ' + endWordId);
+      //
+      // TODO(vivi): Actually implement this in a meaningful way!
+      //
+      var selectedText = $.trim(declarations.getSelectedText());
+      if (selectedText == '') {
+        confirm('wanna delete?');
+        return;
+      }
 
       // We selected some pretty random stuff, so we just return.
       if (startWordId == -1 || endWordId == -1 ||
@@ -364,18 +397,216 @@ declarations.initSelectHandlers = function() {
         return;
       }
 
-      console.log('declaration id ' + startDeclarationId + ' start word ' +
-                  startWordId);
-
-      // Somehow figure out the word numbers for the beginning and end of the
-      // selected passage. We will store those numbers as the markers for the
-      // passage that was declared as important, and then we'll also highlight
-      // that particular passage.
-
-      console.log('"' + selectedText +
-          '"\n\nVrei să marchezi asta ca important?');
+      if (confirm('Vrei să marchezi textul ăsta ca important?')) {
+        if (declarations.addRangeToMarkedPassages(startDeclarationId,
+                startWordId, endWordId, true)) {
+          selection.collapse();
+          declarations.refreshDeclaration(startDeclarationId);
+        }
+      }
     }, 0);
   });
+};
+
+
+/**
+ * Adds a certain range to a declaration id as being a marked important range.
+ *
+ * TODO(vivi): This needs to become more sophisticated and overlap user's
+ * ranges with ranges from the server.
+ *
+ * @param declarationId
+ * @param start
+ * @param end
+ *
+ * @return {Boolean} True if it was successful, false if it wasn't. We won't
+ *     add a range that's overlapping.
+ */
+declarations.addRangeToMarkedPassages = function(declarationId, start, end) {
+  var ranges = declarations.myRanges['declaration-' + declarationId] || [];
+  declarations.myRanges['declaration-' + declarationId] = ranges;
+
+  // First check if there are overlapping ranges.
+  for (var i = 0; i < ranges.length; i++) {
+    var range = ranges[i];
+    if (start >= range.start && start <= range.end) return false;
+    if (end >= range.start && end <= range.end) return false;
+    if (start <= range.start && end >= range.end) return false;
+  }
+
+  // Now just add our own range into the mix.
+  var index = 0;
+  while (index < ranges.length && ranges[index].end > start) {
+    index++;
+  }
+  ranges.splice(index, 0, {
+    'start': start,
+    'end': end
+  });
+
+  return true;
+};
+
+
+/**
+ * Refreshes a certain declaration to underline the right passages.
+ *
+ * @param declarationId
+ */
+declarations.refreshDeclaration = function(declarationId) {
+  var domId = 'declaration-' + declarationId;
+  $('#' + domId).get(0).innerHTML = declarations.originalDoms[domId];
+
+  var ranges = declarations.mergeRanges(
+      declarations.myRanges[domId] || [],
+      declarations.globalRanges[domId] || []);
+
+  for (var i = 0; i < ranges.length; i++) {
+    var range = ranges[i];
+    declarations.underlineRange(declarationId, range.start, range.end,
+                                range.type);
+  }
+};
+
+
+/**
+ * Given two series of ranges, merge them. The myRanges will ALWAYS take
+ * priority and overwrite the global ranges.
+ *
+ * @param {Array} myRanges
+ * @param {Array} globalRanges
+ */
+declarations.mergeRanges = function(myRanges, globalRanges) {
+  var maxA = myRanges.length == 0 ? 0 : myRanges[myRanges.length - 1].end;
+  var maxB = globalRanges.length == 0 ?
+      0 : globalRanges[globalRanges.length - 1].end;
+  var maxIndex = Math.max(maxA, maxB);
+
+  // We can afford looping through all the indexes because usually there are
+  // not that many words in each declaration. Hence we avoid the serious
+  // complications of merging ranges with all their stupid edge cases.
+  // NOTE: This is really fairly inefficient.
+  var colors = [];
+  for (var i = 0; i <= maxIndex; i++) {
+    colors[i] = 0;
+  }
+  for (var i = 0; i < globalRanges.length; i++) {
+    for (var j = globalRanges[i].start; j <= globalRanges[i].end; j++) {
+      colors[j] = 2;
+    }
+  }
+  for (var i = 0; i < myRanges.length; i++) {
+    for (var j = myRanges[i].start; j <= myRanges[i].end; j++) {
+      colors[j] = 1;
+    }
+  }
+
+  // Push a zero at the end of the colors array so that I simplify things.
+  colors.push(0);
+
+  // Now generate the ranges.
+  var state = 0;
+  var start = 0;
+  var ranges = [];
+
+  console.log(colors);
+  for (var i = 0; i < colors.length; i++) {
+    colors[i] = colors[i] || 0;
+    if (colors[i] != state) {
+      // wrap up the previous range.
+      if (state != 0) {
+        // I just ended a range of 1 or 2.
+        var newRange = {
+          'start': start,
+          'end': i - 1,
+          'type': state
+        };
+        ranges.push(newRange);
+      }
+      start = i;
+      state = colors[i];
+    }
+  }
+
+  return ranges;
+};
+
+
+/**
+ * Compares two ranges. Returns -1 if a < b, 0 for equal, 1 for a > b
+ * @param a
+ * @param b
+ */
+declarations.compareRanges = function(a, b) {
+  if (a.end < b.start) {
+    return -1;
+  }
+  if (a.start > b.end) {
+    return 1;
+  }
+
+};
+
+
+/**
+ * Marks a range as important, meaning that it underlines it in the text.
+ *
+ * TODO(vivi): Figure out how to highlight overlapping passages! Maybe I should
+ * always re-render the entire text instead of doing it incrementally, just
+ * hold in an array the beginnings and ends of passages sorted by start point
+ * and then go over and render.
+ *
+ * NOTE: This method needs to be refactored, but not by much, what's in here
+ * now is still useful.
+ *
+ * @param declarationId
+ */
+declarations.underlineRange = function(declarationId, startId, endId, type) {
+  var declaration = $('#declaration-' + declarationId).get(0);
+
+  var start = $('#declaration-' + declarationId +
+      ' > #word-' + startId).get(0);
+  var end = $('#declaration-' + declarationId +
+      ' > #word-' + endId).get(0);
+
+  console.log('Trying to underline ' + startId + ' ' + endId + ' ' + type);
+
+  // Now I need to extract all the nodes that are under declaration that are
+  // between start and end, append them to a <span underline> node and then
+  // insert that span node in the right place.
+  var newNode = $('<span class="text_highlight_' + type + '"></div>');
+  var state = 0;
+  var i = 0;
+  var beforeStartNode = null;
+
+  while (i < declaration.childNodes.length) {
+    if (declaration.childNodes[i] == start) {
+      state = 1;
+      beforeStartNode = declaration.childNodes[i - 1];
+    }
+
+    if (state == 1) {
+      $(declaration.childNodes[i]).appendTo(newNode);
+      if (start == end) {
+        $(newNode).insertAfter(beforeStartNode);
+        return;
+      }
+    }
+
+    // First the exit condition.
+    if (declaration.childNodes[i] == end) {
+      state = 0;
+
+      // Now append the new div into the declaration and then just exit here.
+      $(declaration.childNodes[i]).appendTo(newNode);
+      $(newNode).insertAfter(beforeStartNode);
+      return;
+    }
+
+    if (state == 0) {
+      i++;
+    }
+  }
 };
 
 
@@ -396,7 +627,7 @@ declarations.getDeclarationIdFor = function(node) {
     if (!node) return -1;
   }
 
-  return node.getAttribute('id').match(/declaration-(\d+)/)[1];
+  return parseInt(node.getAttribute('id').match(/declaration-(\d+)/)[1]);
 };
 
 
@@ -423,7 +654,7 @@ declarations.getWordTokenIdBefore = function(wordNode) {
   // If the beginning of the selection was part of a marked word, just return
   // that.
   if (/word-(\d+)/.test(nodeId)) {
-    return nodeId.match(/word-(\d+)/)[1];
+    return parseInt(nodeId.match(/word-(\d+)/)[1]);
   }
 
   // At this point we know that wordNode is a text node in between words, so we
@@ -431,7 +662,7 @@ declarations.getWordTokenIdBefore = function(wordNode) {
   for (var i = 0; i < node.childNodes.length; i++) {
     if (node.childNodes[i] == wordNode) {
       nodeId = node.childNodes[i - 1].getAttribute('id');
-      return nodeId.match(/word-(\d+)/)[1];
+      return parseInt(nodeId.match(/word-(\d+)/)[1]);
     }
   }
   return -1;

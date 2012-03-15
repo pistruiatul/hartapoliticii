@@ -8,8 +8,11 @@ $text_mode = $_GET['text_mode'] ? $_GET['text_mode'] : 'snippets';
 
 
 $dq = mysql_real_escape_string($_GET['dq'] ? $_GET['dq'] : '');
-$declarations = $person->searchDeclarations($dq, $start, $pageSize,
-                                            $text_mode == 'full_text');
+
+// NOTE(vivi): This code supports snippets too, but for now we are always going
+// to display full text. We do that so that the marking of important passages
+// gets a little easier to implement.
+$declarations = $person->searchDeclarations($dq, $start, $pageSize, true);
 
 $t = new Smarty();
 
@@ -32,8 +35,8 @@ $t->assign('prev_page_link', $baseUrl . "&start={$prevStart}");
 $nextStart = $start + $pageSize;
 $t->assign('next_page_link', $baseUrl . "&start={$nextStart}");
 
-$t->assign('full_text_link', $baseUrl . "&start={$start}&text_mode=full_text");
-$t->assign('snippets_link', $baseUrl . "&start={$start}&text_mode=snippets");
+$t->assign('full_text_link', $baseUrl . "&start={$start}");
+$t->assign('snippets_link', $baseUrl . "&start={$start}");
 
 $t->display('mod_person_declarations_expanded.tpl');
 

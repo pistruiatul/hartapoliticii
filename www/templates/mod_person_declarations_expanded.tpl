@@ -69,6 +69,8 @@
       {/if}
     </td>
     <td align="right">
+      <!--
+      Uncomment this when and if we want to enable snippets.
       {if $text_mode == 'full_text'}
         Full text
       {else}
@@ -82,6 +84,7 @@
       {else}
         <a href="{$snippets_link}">Snippets</a>
       {/if}
+      -->
     </td>
   </table>
 </div>
@@ -91,4 +94,8 @@
   // Means that when the user selects some text they can mark it as important
   // or interesting.
   declarations.initSelectHandlers();
+  {literal}
+  declarations.globalRanges['declaration-126'] = [{ 'start': 30, 'end': 50 }];
+  {/literal}
+  declarations.refreshDeclaration(126);
 </script>
