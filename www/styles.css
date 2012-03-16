@@ -519,3 +519,16 @@ body {
   color: black;
   border-bottom: 2px dotted #ba0000;
 }
+
+.declaration_home_page {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.declaration_home_page .content {
+  color: black;
+}
+
+.declaration_source_home_page {
+  display: inline;
+}
