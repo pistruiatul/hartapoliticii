@@ -265,6 +265,11 @@
            data-send="false" data-width="250" data-show-faces="false"
            data-action="like" data-font="verdana"></div>
 
+      <!-- Add the following three tags inside head -->
+      <meta itemprop="name" content="Harta Politicii din România">
+      <meta itemprop="description" content="O colecție centralizată de date adunate în jurul politicienilor români.">
+      <meta itemprop="image" content="http://hartapoliticii.ro/images/top_title.png">
+
       <!-- Place this tag where you want the +1 button to render -->
       <g:plusone annotation="inline" width="250" href="http://hartapoliticii.ro"></g:plusone>
 
