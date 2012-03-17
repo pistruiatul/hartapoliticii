@@ -24,7 +24,9 @@
         </div>
       </div>
     {sectionelse}
+      <div class=searchresult>
       Nu am găsit persoane cu numele ăsta.
+      </div>
     {/section}
 
     {* ---------------------------------------------- *}
@@ -39,12 +41,14 @@
         <div class=name>
           {$declarations[d].display_name}
           :
-          <a href="/?name={$declarations[d].name}&exp=person_declarations&dq={$query}">
+          <a href="/?name={$declarations[d].name}&exp=person_declarations&dq={$query}&ssid={$ssid}&ssp={$smarty.section.p.index+100}">
             {$declarations[d].cnt} mențiuni</a>
         </div>
       </div>
     {sectionelse}
+      <div class=searchresult>
       Nu am găsit persoane cu numele ăsta.
+      </div>
     {/section}
 
   </td>

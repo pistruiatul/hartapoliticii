@@ -6,6 +6,28 @@ include_once('../functions.php');
 include_once('../hp-includes/people_lib.php');
 include_once('../hp-includes/party_class.php');
 
+
+/**
+ * @param {Person} $person
+ * @return array
+ */
+function getOutputObjectForPerson($person) {
+  $p = array();
+  $p["id"] = $person->id;
+  $p["name"] = $person->displayName;
+  $p["party"] = $person->getFact("party");
+
+  if ($p["party"]) {
+    $party = new Party($p["party"]);
+    $p["party_name"] = $party->name;
+  } else {
+    $p["party_name"] = NULL;
+  }
+  $p["college_name"] = $person->getCollegeName();
+  return $p;
+}
+
+
 $query = trim($_GET['q']);
 $persons = search($query);
 
@@ -14,20 +36,16 @@ $persons = search($query);
 
 $output = array();
 
-for ($i = 0; $i < count($persons); $i++) {
-  $p = array();
-  $p["id"] = $persons[$i]->id;
-  $p["name"] = $persons[$i]->displayName;
-  $p["party"] = $persons[$i]->getFact("party");
+// If the first person is an exact match, just return that one, it means we
+// have identified the right person and it makes no sense to return the
+// other less strong matches.
 
-  if ($party) {
-    $party = new Party($p["party"]);
-    $p["party_name"] = $party->name;
-  } else {
-    $p["party_name"] = NULL;
+if (count($persons) > 0 && personQueryIsNavigational($query, $persons[0])) {
+  $output[] = getOutputObjectForPerson($persons[0]);
+} else {
+  for ($i = 0; $i < count($persons); $i++) {
+    $output[] = getOutputObjectForPerson($persons[$i]);
   }
-  $p["college_name"] = $persons[$i]->getCollegeName();
-  $output[] = $p;
 }
 
 echo json_encode($output);
