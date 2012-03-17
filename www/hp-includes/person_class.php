@@ -401,14 +401,18 @@ class Person {
    * @return {Array} The array of results.
    */
   public function searchDeclarations($query, $start, $count, $full_text,
-                                     $restrict) {
+                                     $restrict, $justDeclarationId=0) {
+    $navigationalRestrict =
+        $justDeclarationId ? "AND d.id={$justDeclarationId}" : "";
+
     if ($restrict == 'all') {
       $s = mysql_query("
-        SELECT id, source, declaration, time
-        FROM people_declarations
-        WHERE idperson = {$this->id} AND
-            declaration LIKE '%{$query}%'
-        ORDER BY time DESC
+        SELECT d.id, d.source, d.declaration, d.time
+        FROM people_declarations AS d
+        WHERE d.idperson = {$this->id} AND
+            d.declaration LIKE '%{$query}%'
+            {$navigationalRestrict}
+        ORDER BY d.time DESC
         LIMIT {$start}, {$count}
       ");
     } else if ($restrict == 'important') {
@@ -417,6 +421,7 @@ class Person {
         FROM people_declarations AS d
         LEFT JOIN people_declarations_highlights AS h ON h.source = d.source
         WHERE idperson = {$this->id}
+        {$navigationalRestrict}
         GROUP BY h.source
         ORDER BY time DESC
         LIMIT {$start}, {$count}
@@ -431,6 +436,7 @@ class Person {
         WHERE
             idperson = {$this->id} AND
             h.user_id={$uid}
+            {$navigationalRestrict}
         GROUP BY h.source
         ORDER BY time DESC
         LIMIT {$start}, {$count}
