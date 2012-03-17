@@ -74,10 +74,6 @@ switch ($cid) {
   case 1: include('pages/cdep_2004/cam_dep.php'); break;
   case 3: include('pages/senat_2004/senat.php'); break;
 
-  // The page about the results of the 2008 elections, showing who won and
-  // how many votes the guy in second place would have needed.
-  case 2: case 4: include('fiecarevot.php'); break;
-
   // Just some misc pages.
   case 5: include('pages/misc/utile.php'); break;
   case 6: include('pages/misc/despre.php'); break;
@@ -85,7 +81,7 @@ switch ($cid) {
   // A person's page.
   case 9: include('person.php'); break;
 
-  case 'search': include('hp-includes/search.php'); break;
+  case 'search': include('pages/misc/search.php'); break;
 
   // Alegeri europarlamentare 2009.
   case 10: include('pages/euro_2009/europarlament_page.php'); break;

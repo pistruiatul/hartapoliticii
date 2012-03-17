@@ -28,15 +28,15 @@
   </div>
 
   <div class="declaration_types_menu">
-    {if $decl_type == 'all'}Toate{else}
+    {if $decl_type == 'all' && $decl_id == 0}Toate{else}
         <a href="{$all_declarations_link}">Toate</a>
     {/if}
     &nbsp;/&nbsp;
-    {if $decl_type == 'important'}Doar cele importante{else}
+    {if $decl_type == 'important' && $decl_id == 0}Doar cele importante{else}
         <a href="{$important_declarations_link}">Doar cele importante</a>
     {/if}
     &nbsp;/&nbsp;
-    {if $decl_type == 'mine'}Marcate de mine{else}
+    {if $decl_type == 'mine' && $decl_id == 0}Marcate de mine{else}
         <a href="{$my_declarations_link}">Marcate de mine</a>
     {/if}
   </div>
@@ -56,21 +56,30 @@
          <div class="declaration" id="declaration-{$declarations[n].id}">
            {$declarations[n].snippet}
          </div>
-         <div class="declaration_source">
+         <table width="100%">
+           <td>
+             <div class="declaration_source">
 
-           <span class="medium gray">
-               {$declarations[n].time|date_format:"%d&nbsp;%b"}&nbsp;
-               {$declarations[n].time|date_format:"%Y"}
-           </span>
-           &nbsp;
-           <img src="images/popout_icon.gif" border="0"
-                width="12" height="12" hspace="5">&nbsp;
+               <span class="medium gray">
+                   {$declarations[n].time|date_format:"%d&nbsp;%b"}&nbsp;
+                   {$declarations[n].time|date_format:"%Y"}
+               </span>
+               &nbsp;
+               <img src="images/popout_icon.gif" border="0"
+                    width="12" height="12" hspace="5">&nbsp;
 
-           <span>
-             Sursa: <a href="{$declarations[n].source}">stenograme parlament</a>
-           </span>
-         </div>
-         </a>
+               <span>
+                 Sursa: <a href="{$declarations[n].source}">
+                     stenograme parlament</a>
+               </span>
+             </div>
+           </td>
+           <td align="right">
+             <a href="{$declarations[n].link_to}">
+               <img src="/images/link_icon.jpeg" border="0">
+             </a>
+           </td>
+         </table>
        </div>
       </td>
       </tr>
@@ -125,15 +134,20 @@
   {strip}
     declarations.globalRanges[
         'declaration-{$highlights_global_ranges[gr].declarationId}'] =
+    declarations.globalRanges[
+        'declaration-{$highlights_global_ranges[gr].declarationId}'] || [];
+
+    declarations.globalRanges[
+        'declaration-{$highlights_global_ranges[gr].declarationId}'].push(
         {literal}
-        [{
+        {
         {/literal}
           'start': {$highlights_global_ranges[gr].start},
           'end': {$highlights_global_ranges[gr].end}
         {literal}
-        }]
+        }
         {/literal}
-        ;
+        );
   {/strip}
   {/section}
   // insert all the user's ranges and the global ranges here.

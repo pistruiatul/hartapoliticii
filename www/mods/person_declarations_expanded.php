@@ -111,6 +111,10 @@ $start = (int)$_GET['start'];
 $text_mode = $_GET['text_mode'] ? $_GET['text_mode'] : 'snippets';
 $decl_type = $_GET['decl_type'] ? $_GET['decl_type'] : 'all';
 
+// If this is set, it will only show this declaration. It's a navigational
+// link.
+$decl_id = (int)$_GET['decl_id'];
+
 $dq = mysql_real_escape_string($_GET['dq'] ? $_GET['dq'] : '');
 
 define('FULL_TEXT', true);
@@ -121,9 +125,9 @@ define('FULL_TEXT', true);
 //
 // NOTE(vivi): Take the type of declarations I am interested in into
 // consideration.
-$declarations = $person->searchDeclarations($dq, $start, $pageSize, FULL_TEXT,
-                                            $decl_type);
 
+$declarations = $person->searchDeclarations($dq, $start, $pageSize, FULL_TEXT,
+                                            $decl_type, $decl_id);
 $t = new Smarty();
 
 $t->assign('id', $person->id);
@@ -139,6 +143,7 @@ $t->assign('first_page', $start == 0);
 
 $t->assign('text_mode', $text_mode);
 $t->assign('decl_type', $decl_type);
+$t->assign('decl_id', $decl_id);
 
 $currentParams = array(
   'name' => str_replace(' ', '+', $person->name),
@@ -161,12 +166,19 @@ $t->assign('next_page_link', constructUrl('/', $currentParams,
 $t->assign('full_text_link', constructUrl('/', $currentParams));
 $t->assign('snippets_link', constructUrl('/', $currentParams));
 
-$t->assign('all_declarations_link',
-           constructUrl('/', $currentParams, array('decl_type' => 'all')));
+$t->assign('all_declarations_link', constructUrl('/', $currentParams, array(
+  'decl_type' => 'all',
+  'start' => 0
+)));
 $t->assign('important_declarations_link',
-           constructUrl('/', $currentParams, array('decl_type' => 'important')));
-$t->assign('my_declarations_link',
-           constructUrl('/', $currentParams, array('decl_type' => 'mine')));
+           constructUrl('/', $currentParams, array(
+  'decl_type' => 'important',
+  'start' => 0
+)));
+$t->assign('my_declarations_link', constructUrl('/', $currentParams, array(
+  'decl_type' => 'mine',
+  'start' => 0
+)));
 
 $ranges = getHighlights($declarations);
 $myRanges = array();
@@ -179,6 +191,7 @@ if (is_user_logged_in()) {
 }
 
 $newDeclarations = array();
+
 foreach ($declarations as $declaration) {
   if ($decl_type == 'important' || $decl_type == 'mine') {
     $declaration['class'] = 'light_gray';
@@ -187,6 +200,11 @@ foreach ($declarations as $declaration) {
       $declaration['class'] = 'dark_gray';
     }
   }
+  $declaration['link_to'] = constructUrl('/', array(), array(
+    'name' => str_replace(' ', '+', $person->name),
+    'exp' => 'person_declarations',
+    'decl_id' => $declaration['id']
+  ));
   array_push($newDeclarations, $declaration);
 }
 $t->assign('declarations', $newDeclarations);

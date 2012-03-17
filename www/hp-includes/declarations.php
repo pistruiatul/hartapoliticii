@@ -48,4 +48,25 @@ function getMostRecentDeclarations() {
   return $results;
 }
 
+
+function searchDeclarations($query) {
+  $sql = "
+      SELECT d.id, d.source, d.declaration, d.time, count(*) as cnt,
+          people.display_name, people.name, d.idperson
+      FROM people_declarations AS d
+      LEFT JOIN people ON people.id = d.idperson
+      WHERE d.declaration LIKE '%{$query}%'
+      GROUP BY d.idperson
+      ORDER BY cnt DESC
+      LIMIT 0, 20";
+
+  $s = mysql_query($sql);
+  $results = array();
+  while ($r = mysql_fetch_array($s)) {
+    $r['name'] = str_replace(' ', '+', $r['name']);
+    $results[] = $r;
+  }
+  return $results;
+}
+
 ?>
