@@ -43,6 +43,7 @@ function getMostRecentDeclarations() {
   $results = array();
   while ($r = mysql_fetch_array($s)) {
     $r['name'] = str_replace(' ', '+', $r['name']);
+    $r['content'] = stripslashes($r['content']);
     $results[] = $r;
   }
   return $results;
