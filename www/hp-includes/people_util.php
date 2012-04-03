@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Tests the existance of a wordpress post for this person. If a post does not
  * exist, a post is created.

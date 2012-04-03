@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('../secret/db_user.php');
 require_once('../_top.php');
 

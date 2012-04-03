@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * @fileoverview Various utilities related to string operations, like removing
  * diacritics, measuring the distance in between two strings, etc.

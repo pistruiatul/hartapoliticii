@@ -1,4 +1,4 @@
-<?
+<?php
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) header('Location: /');
 
@@ -16,6 +16,6 @@ $top_warning = "<b><font color=red>Atenție</font></b>: ".
   <a href="http://www.vivi.ro/blog/?p=1340">găsiți aici</a>.
 </div>
 
-<?
+<?php
 showVotesThatCount($_GET['order'], 'senat');
 ?>

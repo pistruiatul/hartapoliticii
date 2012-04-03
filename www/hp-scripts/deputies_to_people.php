@@ -1,4 +1,4 @@
-<?
+<?php
 require("../_top.php");
 require("../hp-includes/people_lib.php");
 
@@ -76,7 +76,7 @@ function deputiesArePeopleToo() {
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <pre>
-<?
+<?php
 deputiesArePeopleToo();
 
 include("../_bottom.php");

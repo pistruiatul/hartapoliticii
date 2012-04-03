@@ -1,4 +1,4 @@
-<?
+<?php
 require('string_utils.php');
 
 /**

@@ -1,4 +1,4 @@
-<?
+<?php
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) {
   header('Location: /');
@@ -16,6 +16,6 @@ printWarning();
   exercitate între Septembrie 2007 și Noiembrie 2008.
 </div>
 
-<?
+<?php
   showSenatePresencePercentage($_GET['sort'], $_GET['order']);
 ?>

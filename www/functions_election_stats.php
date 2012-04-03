@@ -1,4 +1,4 @@
-<?
+<?php
 function getShortPartyName($name) {
     switch($name) {
       case 'partidul democrat liberal': 

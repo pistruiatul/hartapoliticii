@@ -1,4 +1,4 @@
-<?
+<?php
 require("../_top.php");
 require("../hp-includes/people_lib.php");
 
@@ -78,7 +78,7 @@ function infoFunction($person, $idString) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <body onload="window.scrollTo(0, 1000000);">
 <pre>
-<?
+<?php
 candidatesArePeopleToo();
 
 include("../_bottom.php");

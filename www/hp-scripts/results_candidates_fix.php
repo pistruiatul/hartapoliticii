@@ -1,4 +1,4 @@
-<?
+<?php
 require("../_top.php");
 require("../hp-includes/people_lib.php");
 
@@ -39,7 +39,7 @@ function fixResults2008Tables() {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <body onload="window.scrollTo(0, 1000000);">
 <pre>
-<?
+<?php
 fixResults2008Tables();
 
 include("../_bottom.php");

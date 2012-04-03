@@ -1,4 +1,4 @@
-<?
+<?php
 include("../_top.php");
 
 if ($_GET['original']) {
@@ -47,6 +47,6 @@ if ($_GET['original']) {
   <input type=submit value=Go>
 </form>
 </html>
-<?
+<?php
 include("../_bottom.php");
 ?>
