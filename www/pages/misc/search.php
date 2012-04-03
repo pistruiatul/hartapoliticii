@@ -49,7 +49,12 @@ for ($i = 0; $i < count($persons); $i++) {
 
 $t->assign('persons', $p);
 
-$declarations = searchDeclarations($query);
-$t->assign('declarations', $declarations);
+if (trim($_GET['d']) == 'true') {
+  $declarations = searchDeclarations($query);
+  $t->assign('declarations', $declarations);
+  $t->assign('searched_declarations', true);
+} else {
+  $t->assign('searched_declarations', false);
+}
 
 $t->display('pages_misc_search.tpl');

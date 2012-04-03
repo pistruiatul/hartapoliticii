@@ -5,10 +5,11 @@
   <td>
     {* ---------------------------------------------- *}
     {* People search *}
-
-    <p>
-      Persoane care se potrivesc cu "<b>{$query}</b>"
-    </p>
+    {if sizeof($persons) > 0}
+      <p>
+        Persoane care se potrivesc cu "<b>{$query}</b>"
+      </p>
+    {/if}
 
     {section name=p loop=$persons}
       <div class=searchresult>
@@ -32,9 +33,11 @@
     {* ---------------------------------------------- *}
     {* Declaration search *}
     <br>
-    <p>
-      Declarații care se potrivesc cu "<b>{$query}</b>"
-    </p>
+    {if sizeof($declarations) > 0}
+      <p>
+        Declarații care se potrivesc cu "<b>{$query}</b>"
+      </p>
+    {/if}
 
     {section name=d loop=$declarations}
       <div class=searchresult>
@@ -46,9 +49,18 @@
         </div>
       </div>
     {sectionelse}
-      <div class=searchresult>
-      Nu am găsit persoane cu numele ăsta.
-      </div>
+      {if $searched_declarations}
+        <div class=searchresult>
+          Nu am găsit termenul ăsta în declarații.
+        </div>
+      {else}
+        <div class=searchresult>
+          <b>Pentru a căuta în declarații,
+          <a href="?cid=search&q={$query}&d=true">click aici</a>.
+          </b>
+        </div>
+
+      {/if}
     {/section}
 
   </td>
