@@ -1,4 +1,4 @@
-<?
+<?php
 require("../_top.php");
 
 function extractPartyFacts() {
@@ -66,7 +66,7 @@ function extractPartyFacts() {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <body onload="window.scrollTo(0, 1000000);">
 <pre>
-<?
+<?php
 extractPartyFacts();
 
 include("../_bottom.php");

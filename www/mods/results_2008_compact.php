@@ -1,4 +1,4 @@
-<?
+<?php
 // We know that the person we are talking about is $person.
 
 $sql = "SELECT colegiu FROM results_2008 WHERE idperson = {$person->id}";
@@ -78,7 +78,7 @@ if ($hasHidden) {
     }
   }
   </script>
-  <?
+  <?php
   echo "<a href=\"javascript:showMinoritati();\">".
        "<span id=min_link>+ minorități</span></a>";
 }

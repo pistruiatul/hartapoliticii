@@ -1,4 +1,4 @@
-<?
+<?php
 // Various functions with functionality related to users of the site, grabbing
 // their handle name, permissions, etc.
 

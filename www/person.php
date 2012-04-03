@@ -1,4 +1,4 @@
-<?
+<?php
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) header('Location: http://www.hartapoliticii.ro');
 
@@ -40,14 +40,14 @@ $title = $person->displayName;
 <!-- For facebook sharing -->
 <meta property='og:site_name' content='Harta Politicii' />
 <meta property='og:website' content='http://hartapoliticii.ro' />
-<meta property='og:title' content='<? echo $person->displayName ?> - Harta politicii din România' />
+<meta property='og:title' content='<?php echo $person->displayName ?> - Harta politicii din România' />
 <meta property='fb:app_id' content='205183855930' />
 <!-- Update your html tag to include the itemscope and itemtype attributes -->
 <html itemscope itemtype="http://schema.org/Person">
 <!-- Add the following three tags inside head -->
-<meta itemprop="name" content="<? echo $person->displayName ?> - Harta Politicii din România">
+<meta itemprop="name" content="<?php echo $person->displayName ?> - Harta Politicii din România">
 
-<?
+<?php
 include('header.php');
 
 // ----------------------------------------------------------------
@@ -102,7 +102,7 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 // TODO: Move these in a template?
 ?>
 <div class="fb-like" style="margin-top: 15px;margin-bottom:15px;"
-     data-href="http://hartapoliticii.ro/?name=<? echo $person->getUrlName() ?>"
+     data-href="http://hartapoliticii.ro/?name=<?php echo $person->getUrlName() ?>"
      data-send="false" data-width="330" data-show-faces="false"
      data-action="like" data-font="verdana"></div>
 
@@ -117,7 +117,7 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
     s.parentNode.insertBefore(po, s);
   })();
 </script>
-<?
+<?php
 
 // ----------------------------------------------------------
 // -------------- The left hand side section ----------------

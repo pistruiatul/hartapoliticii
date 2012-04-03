@@ -1,4 +1,4 @@
-<title><? echo $title ?> - Harta politicii din România</title>
+<title><?php echo $title ?> - Harta politicii din România</title>
 </head>
 <body onload="loadHandler();">
 <center>

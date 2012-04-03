@@ -1,4 +1,4 @@
-<?
+<?php
 // Prints all the stuff that a guy did that was in 2007-2009
 // european parliament.
 // We know that the person we are talking about is $person.

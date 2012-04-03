@@ -8,3 +8,6 @@
 
 # Ignore anything that's in the secret directory (the api key)
 secret
+
+# Ignore emacs temporary files
+\#*
