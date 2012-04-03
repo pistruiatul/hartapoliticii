@@ -165,6 +165,7 @@ function search($name) {
  * @return {Boolean}
  */
 function personQueryIsNavigational($query, $person) {
+  $parts = array();
   // Makes the query into an alphabetically sorted array of cleaned up names.
   // For example, from "Pereș Alexandru" this will return 'alexandru peres'
   $cleanName = implode(' ', Person::addNameToAllNames($parts, $query));
