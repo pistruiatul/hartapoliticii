@@ -11,3 +11,4 @@ secret
 
 # Ignore emacs temporary files
 \#*
+*~

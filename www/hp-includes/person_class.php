@@ -556,5 +556,39 @@ class Person {
 
     return NULL;
   }
+
+  /**
+   * Returns a list of contact details (s.a. website and email) of this
+   * person imported from Agenda Parlamentarilor (http://agenda.grep.ro).
+   */
+  public function getContactDetails() {
+    $s = mysql_query("
+      SELECT attribute, value
+      FROM people_facts
+      WHERE idperson = {$this->id}
+      AND attribute LIKE 'contact/%'");
+
+    // Ordered by the probability to have that contact detail and its length
+    $details = array(
+                     "website"  => array(),
+                     "email"    => array(),
+                     "phone"    => array(),
+                     "address"  => array(),
+                     "facebook" => array(),
+                     "twitter"  => array()
+                     );
+
+    while ($r = mysql_fetch_array($s)) {
+      // Save recognized detail types out of attributes in db
+      $dkey = str_replace("contact/", "", $r['attribute']);
+      if (!array_key_exists($dkey, $details)) continue;
+
+      // There can be more than one detail of a type
+      $dval = $r['value'];
+      array_push($details[$dkey], $dval);
+    }
+
+    return $details;
+  }
 }
 ?>

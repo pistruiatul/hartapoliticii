@@ -121,6 +121,10 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 
 // ----------------------------------------------------------
 // -------------- The left hand side section ----------------
+
+// Display all contact details of the person
+include('mods/contact_details.php');
+
 // Display the most recent news stuff.
 
 $t = new Smarty();
