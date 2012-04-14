@@ -140,6 +140,7 @@
         + there need to be some changes to split them on cdep vs. senat tags
       TODO: make the list of public score cards dynamic, not hard coded.
       *}
+      <br>
       <p class="smalltitle">
         <strong>
           Busola politică pentru parlamentari
@@ -213,6 +214,48 @@
           <a href="http://www.hartapoliticii.ro/?p=4042">aici</a>.
         </div>
       </div>
+
+      {* ------------------------------------------------------ *}
+      {* The most recently highlighted shit *}
+      <br>
+      <p class="smalltitle">
+        <strong>
+          Cele mai recente declarații marcate ca importante
+        </strong>
+      </p>
+      <div class="medium">
+        <div class="gray" style="margin-left: 10px;">
+          {section name=d loop=$declarations}
+            <div class="declaration_home_page">
+              <div class="content">
+                "... {$declarations[d].content|truncate:200}"
+              </div>
+              <div class="explanation">
+                <div class="news_list_mention green_link">
+                  <a href="/?cid=9&id={$declarations[d].idperson}">
+                    {$declarations[d].display_name}</a>
+                </div>:
+                <div class="declaration_source_home_page">
+                 <span class="medium gray">
+                     {$declarations[d].time|date_format:"%d&nbsp;%b"}&nbsp;
+                     {$declarations[d].time|date_format:"%Y"}
+                 </span>
+                 &nbsp;
+                 <img src="images/popout_icon.gif" border="0"
+                      width="12" height="12">&nbsp;
+
+                 <span>
+                   <a href="/?name={$declarations[d].name}&exp=person_declarations&decl_type=important">
+                       vezi detalii</a>
+                 </span>
+               </div>
+              </div>
+            </div>
+          {/section}
+        </div>
+      </div>
+
+
     </td>
 
     <td valign="top" width="250">
@@ -221,6 +264,11 @@
            data-href="http://hartapoliticii.ro"
            data-send="false" data-width="250" data-show-faces="false"
            data-action="like" data-font="verdana"></div>
+
+      <!-- Add the following three tags inside head -->
+      <meta itemprop="name" content="Harta Politicii din România">
+      <meta itemprop="description" content="O colecție centralizată de date adunate în jurul politicienilor români.">
+      <meta itemprop="image" content="http://hartapoliticii.ro/images/top_title.png">
 
       <!-- Place this tag where you want the +1 button to render -->
       <g:plusone annotation="inline" width="250" href="http://hartapoliticii.ro"></g:plusone>

@@ -390,29 +390,81 @@ class Person {
 
   /**
    * Returns a list of the most recent declarations of this person.
+   *
+   * @param {String} $query The query we are looking for.
+   * @param {Number} $start Where to start the results from.
    * @param {Number} $count The number of declarations that we need.
+   * @param {Boolean} $full_text Whether we want to return just snippets or
+   *     the full text for each of the results.
+   * @param {String} $restrict The category of declarations that I am looking
+   *     for. Acceptable values for this are 'all', 'important' or 'mine'.
    * @return {Array} The array of results.
    */
-  public function searchDeclarations($query, $start, $count) {
-    $s = mysql_query("
-      SELECT source, declaration, time
-      FROM people_declarations
-      WHERE idperson = {$this->id} AND
-          declaration LIKE '%{$query}%'
-      ORDER BY time DESC
-      LIMIT {$start}, {$count}
-    ");
+  public function searchDeclarations($query, $start, $count, $full_text,
+                                     $restrict, $justDeclarationId=0) {
+    $navigationalRestrict =
+        $justDeclarationId ? "AND d.id={$justDeclarationId}" : "";
+
+    if ($restrict == 'all') {
+      $s = mysql_query("
+        SELECT d.id, d.source, d.declaration, d.time
+        FROM people_declarations AS d
+        WHERE d.idperson = {$this->id} AND
+            d.declaration LIKE '%{$query}%'
+            {$navigationalRestrict}
+        ORDER BY d.time DESC
+        LIMIT {$start}, {$count}
+      ");
+    } else if ($restrict == 'important') {
+      $sql = "
+        SELECT d.id, h.source, d.declaration, d.time
+        FROM people_declarations AS d
+        LEFT JOIN people_declarations_highlights AS h ON h.source = d.source
+        WHERE idperson = {$this->id}
+        {$navigationalRestrict}
+        GROUP BY h.source
+        ORDER BY time DESC
+        LIMIT {$start}, {$count}
+      ";
+      $s = mysql_query($sql);
+    } else if ($restrict == 'mine') {
+      $uid = is_user_logged_in() ? wp_get_current_user()->ID : 0;
+      $sql = "
+        SELECT d.id, h.source, d.declaration, d.time
+        FROM people_declarations AS d
+        LEFT JOIN people_declarations_highlights AS h ON h.source = d.source
+        WHERE
+            idperson = {$this->id} AND
+            h.user_id={$uid}
+            {$navigationalRestrict}
+        GROUP BY h.source
+        ORDER BY time DESC
+        LIMIT {$start}, {$count}
+      ";
+      $s = mysql_query($sql);
+    } else {
+      return array();
+    }
 
     $results = array();
     while ($r = mysql_fetch_array($s)) {
-      $r['declaration'] = strip_tags(stripslashes($r['declaration']));
+      if (!$r['source']) continue;
+      // HACK: Because I know that the transcripts from cdep.ro have only this
+      // one tag in them, I will manually replace it.
+      $r['declaration'] = preg_replace('/<p align="justify">/', ' ',
+                                       $r['declaration']);
+      $r['declaration'] = strip_tags($r['declaration']);
+      $r['declaration'] = stripslashes($r['declaration']);
+
+      $r['snippet'] = $full_text ?
+          $r['declaration'] : getSnippet($r['declaration'], $query, $full_text);
+
+      $r['snippet'] = markDownTextBlock($r['snippet'], "");
 
       if ($query != '') {
-        $r['snippet'] = getSnippet($r['declaration'], $query);
         $r['snippet'] = highlightStr($r['snippet'], $query);
-      } else {
-        $r['snippet'] = $r['declaration'];
       }
+
       $results[] = $r;
     }
 

@@ -3,6 +3,8 @@ include_once('pages/functions_common.php');
 include_once('pages/cdep_2008/functions.php');
 include_once('pages/senat_2008/functions.php');
 
+include_once('hp-includes/declarations.php');
+
 $t = new Smarty();
 
 // Show the guys that show up most in the news.
@@ -28,6 +30,8 @@ $parties = array(
   array("id" => "14", "logo" => "images/parties/14.jpg"),
 );
 $t->assign('parties', $parties);
+
+$t->assign('declarations', getMostRecentDeclarations());
 
 $t->display('home_page_summary.tpl');
 

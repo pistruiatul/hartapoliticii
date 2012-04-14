@@ -154,6 +154,24 @@ function search($name) {
 }
 
 
+/**
+ * Returns true if the query represents this person perfectly. We do this so
+ * that for the API, when we search for a complete and exact name, we're
+ * pretty sure that's the person you are looking for and we don't need to
+ * return weaker matches.
+ *
+ * @param $query
+ * @param $person
+ * @return {Boolean}
+ */
+function personQueryIsNavigational($query, $person) {
+  $parts = array();
+  // Makes the query into an alphabetically sorted array of cleaned up names.
+  // For example, from "Pereș Alexandru" this will return 'alexandru peres'
+  $cleanName = implode(' ', Person::addNameToAllNames($parts, $query));
+
+  return $cleanName == $person->name;
+}
 
 /**
  * Returns an empty string. Used as a defualt for when passing in pointers to

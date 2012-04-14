@@ -35,8 +35,14 @@ body {
 .light_gray a {
   color: #CCC;
 }
+.dark_gray {
+  color: #555;
+}
 .black {
   color: #000000;
+}
+.underline {
+  border-bottom: 2px dotted #ba0000;
 }
 #parties_table td {
   padding: 8px;
@@ -480,6 +486,20 @@ body {
   margin-bottom: 20px;
 }
 
+.please_login_panel {
+  padding: 5px;
+  background-color: #ffffe4;
+  border: solid 1px #ffeabe;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  color: #999;
+}
+
+.declaration_types_menu {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
 .declaration_snippet {
   font-size: 14px;
   line-height: 1.5em;
@@ -488,4 +508,27 @@ body {
 
 .declaration_source, .declaration_source a {
   color: #009900;
+}
+
+.text_highlight_1 {
+  color: black;
+  border-bottom: 2px dotted #00ba00;
+}
+
+.text_highlight_2 {
+  color: black;
+  border-bottom: 2px dotted #ba0000;
+}
+
+.declaration_home_page {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.declaration_home_page .content {
+  color: black;
+}
+
+.declaration_source_home_page {
+  display: inline;
 }

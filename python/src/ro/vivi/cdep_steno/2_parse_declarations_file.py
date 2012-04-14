@@ -119,7 +119,7 @@ def main():
   files = filter(is_steno_file, os.listdir(input_dir))
   files.sort()
 
-  for file_name in files:
+  for file_name in files[-20:]:
     process_steno_file(input_dir + file_name)
 
 

@@ -1,6 +1,6 @@
 <?php
 
-$declarations = $person->searchDeclarations('', 0, 5);
+$declarations = $person->searchDeclarations('', 0, 5, false, 'all');
 
 if (sizeof($declarations) > 0) {
   $t = new Smarty();

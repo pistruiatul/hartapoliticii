@@ -209,6 +209,8 @@ function correctDiacritics($str) {
   $repl = array(
     'ţ' => 'ț',
     'ş' => 'ș',
+    'Ş' => 'Ș',
+    'Ţ' => 'Ț'
   );
   return strtr($str, $repl);
 }
@@ -240,15 +242,22 @@ function highlightStr($haystack, $needle) {
  *
  * NOTE: This method is VERY basic and it will not get amazing results, but
  * it's a start.
- *
  * NOTE: This seems to not work correctly if $query contains diacritics.
+ *
+ * ATTENTION: This doesn't current work properly if tags are in here, it just
+ * cuts them in half.
  *
  * @param {String} $text The original text from which we want to extract
  *     the snippet.
  * @param {String} $query The query text.
- * @return {String}
+ * @return {String} The cut down string.
  */
 function getSnippet($text, $query) {
+  if ($query == '') {
+    $suffix = 250 < strlen($text) ? '...' : '';
+    return substr($text, 0, min(strlen($text), 250)) . $suffix;
+  }
+
   $text = correctDiacritics($text);
   $query = correctDiacritics($query);
 
@@ -263,5 +272,33 @@ function getSnippet($text, $query) {
   return $prefix . substr($text, $start, $end - $start) . $suffix;
 }
 
+
+/**
+ * Takes a string and marks it down each word with a span element that holds
+ * the id of that word in the sequence. For example, from the input string
+ *    "Foo bar."
+ * it will return the string
+ *    "<span tokenId=1>Foo</spam> <span tokenId=2>bar</span>."
+ *
+ * @param {String} $text The text that we need to annotate.
+ * @return {String} The annotated text with the spans in it.
+ */
+function markDownTextBlock($text, $prefix) {
+  $new_text = preg_replace('/([\wșȘîÎăĂâÂțȚţŢşŞ]+)/',
+                           '<span id=xxx>\1</span>', $text);
+
+  $pos = strpos($new_text, 'xxx');
+  $count = 0;
+
+  // Stupid workaround.
+  $one = 1;
+
+  while ($pos > 0) {
+    $new_text = preg_replace("/xxx/", "word-{$count}", $new_text, $one);
+    $pos = strpos($new_text, "xxx");
+    $count++;
+  }
+  return $new_text;
+}
 
 ?>
