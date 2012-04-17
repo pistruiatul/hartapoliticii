@@ -622,13 +622,13 @@ class Person {
 
     // Ordered by the probability to have that contact detail and its length
     $details = array(
-                     "website"  => array(),
-                     "email"    => array(),
-                     "phone"    => array(),
-                     "address"  => array(),
-                     "facebook" => array(),
-                     "twitter"  => array()
-                     );
+      "website"  => array(),
+      "email"    => array(),
+      "phone"    => array(),
+      "address"  => array(),
+      "facebook" => array(),
+      "twitter"  => array()
+    );
 
     while ($r = mysql_fetch_array($s)) {
       // Save recognized detail types out of attributes in db

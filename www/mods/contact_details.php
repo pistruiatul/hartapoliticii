@@ -2,13 +2,13 @@
 
 // TODO: move these Romanian names in a localization file
 $details_ro = array(
-		    "website"  => "Site",    // actually, English
-		    "email"    => "E-mail",  // actually, English
-		    "phone"    => "Telefon",
-		    "address"  => "Adresă",
-		    "facebook" => "Facebook",
-		    "twitter"  => "Twitter"
-		    );
+  "website"  => "Site",    // actually, English
+  "email"    => "E-mail",  // actually, English
+  "phone"    => "Telefon",
+  "address"  => "Adresă",
+  "facebook" => "Facebook",
+	"twitter"  => "Twitter"
+);
 
 $t = new Smarty();
 
