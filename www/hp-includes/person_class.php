@@ -333,7 +333,7 @@ class Person {
 
 
   public function getLongTitleForWhat($what) {
-  	$moduleTitle = '';
+    $moduleTitle = '';
     switch($what) {
       case "cdep/2004":    $moduleTitle = "Camera deputaților, 2004-2008"; break;
       case "cdep/2008":    $moduleTitle = "Camera deputaților, 2008-2012"; break;
@@ -480,17 +480,17 @@ class Person {
    * @return Array The array of persons ids.
    */
   private function getPeopleForNewsId($id) {
-  	$s = mysql_query("
-  	  SELECT idperson, display_name, name
-  	  FROM news_people AS p
-  	  LEFT JOIN people ON people.id = p.idperson
-  	  WHERE idarticle=$id");
-  	$res = array();
-  	while($r = mysql_fetch_array($s)) {
-  	  $r['name'] = str_replace(' ', '+', $r['name']);
-  		$res[] = $r;
-  	}
-  	return $res;
+    $s = mysql_query("
+      SELECT idperson, display_name, name
+      FROM news_people AS p
+      LEFT JOIN people ON people.id = p.idperson
+      WHERE idarticle=$id");
+    $res = array();
+    while($r = mysql_fetch_array($s)) {
+      $r['name'] = str_replace(' ', '+', $r['name']);
+      $res[] = $r;
+    }
+    return $res;
   }
 
   /**
@@ -500,7 +500,7 @@ class Person {
   public function getTopNewsAssociates($count) {
     $tstart = time() - 60 * 60 * 24 * 30; // 30 days ago
     $count = $count + 1;
-  	$s = mysql_query("
+    $s = mysql_query("
       SELECT count(*) AS cnt, assoc.idperson, people.display_name, people.name
       FROM news_people AS p
       LEFT JOIN news_people AS assoc ON assoc.idarticle = p.idarticle
@@ -517,7 +517,7 @@ class Person {
 
     while($r = mysql_fetch_array($s)) {
       $r['name'] = str_replace(' ', '+', $r['name']);
-    	$r['percent'] = 100 * $r['cnt'] / $total['cnt'];
+      $r['percent'] = 100 * $r['cnt'] / $total['cnt'];
       $res[] = $r;
     }
     return $res;
@@ -546,53 +546,53 @@ class Person {
     return $res;
   }
 
-	/**
-	 * Returns a list of most recent videos of this person.
-	 * @param $count
-	 * @return unknown_type
-	 */
-	public function getMostRecentVideos($count) {
-	  $s = mysql_query("
-	    SELECT v.idperson, v.thumb, v.title, v.player_url, v.time,
-	        v.duration, v.watch_url
-	    FROM yt_videos AS v
-	    WHERE v.approved = 1 AND idperson={$this->id}
-	    ORDER BY time DESC
-	    LIMIT 0, $count
-	    ");
+  /**
+   * Returns a list of most recent videos of this person.
+   * @param $count
+   * @return unknown_type
+   */
+  public function getMostRecentVideos($count) {
+    $s = mysql_query("
+      SELECT v.idperson, v.thumb, v.title, v.player_url, v.time,
+          v.duration, v.watch_url
+      FROM yt_videos AS v
+      WHERE v.approved = 1 AND idperson={$this->id}
+      ORDER BY time DESC
+      LIMIT 0, $count
+      ");
 
-	  $res = array();
-	  while($r = mysql_fetch_array($s)) {
-	    $r['title'] = stripslashes($r['title']);
-	    $res[] = $r;
-	  }
+    $res = array();
+    while($r = mysql_fetch_array($s)) {
+      $r['title'] = stripslashes($r['title']);
+      $res[] = $r;
+    }
 
-	  return $res;
-	}
+    return $res;
+  }
 
 
-	/**
-	 * Given an id, looks on disk for the tiny picture of this person.
-	 * Returns the default non-photo for people that don't have a tiny picture.
-	 * @param $id
-	 * @return unknown_type
-	 */
-	public function getTinyImgUrl() {
-	  $img = "images/people_tiny/{$this->id}.jpg";
-	  if (is_file($img)) {
-	    $fname = "images/people_tiny/{$this->id}.jpg";
-	    $count = 1;
-	    // Get the most recent file we have for this person.
-	    while (is_file($fname)) {
-	      $img = $fname;
-	      $fname = "images/people_tiny/{$this->id}_{$count}.jpg";
-	      $count++;
-	    }
-	  } else {
-	    return "images/tiny_person.jpg";
-	  }
-	  return $img;
-	}
+  /**
+   * Given an id, looks on disk for the tiny picture of this person.
+   * Returns the default non-photo for people that don't have a tiny picture.
+   * @param $id
+   * @return unknown_type
+   */
+  public function getTinyImgUrl() {
+    $img = "images/people_tiny/{$this->id}.jpg";
+    if (is_file($img)) {
+      $fname = "images/people_tiny/{$this->id}.jpg";
+      $count = 1;
+      // Get the most recent file we have for this person.
+      while (is_file($fname)) {
+        $img = $fname;
+        $fname = "images/people_tiny/{$this->id}_{$count}.jpg";
+        $count++;
+      }
+    } else {
+      return "images/tiny_person.jpg";
+    }
+    return $img;
+  }
 
 
   /**
