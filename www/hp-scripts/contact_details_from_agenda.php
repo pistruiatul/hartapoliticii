@@ -35,12 +35,52 @@ function importContactDetails() {
       foreach ($personData->$dkey as $dval) {
         info(" + {$dkey}: ${dval}");
 
+	if ($dkey == 'phone') {
+	  $dval = canonPhone($dval);
+
+	  // Incorrect phone number
+	  if (!$dval) continue;
+	}
+
         $sql = "INSERT INTO people_facts(idperson, attribute, value) " .
           "VALUES({$person->id}, 'contact/{$dkey}', '{$dval}')";
         mysql_query($sql);
       }
     }
   }
+}
+
+function canonPhone($phone) {
+  // Strip +4 from prefix if any
+  $phone = preg_replace('/^\+4/', '', $phone);
+
+  // Split the number in main and extension
+  $parts = preg_split('/int[ \.a-z]*/i', $phone);
+
+  // Extract the digits for the main part
+  $main = preg_replace('/[^\d]+/', '', $parts[0]);
+
+  // Incorrect number (must have at least 10 digits)
+  if (strlen($main) < 10) return 0;
+
+  if (strlen($main) == 10) {
+    // Romtelecom numbers for Bucharest have prefix (021)
+    $main = preg_replace('/^(021)(\d{3})(\d{2})(\d{2})/',
+      '($1)$2.$3.$4', $main);
+
+    // Regular phone numbers have 4-digit prefixes
+    $main = preg_replace('/^(?!021)(\d{4})(\d{3})(\d{3})/',
+      '($1)$2.$3', $main);
+
+    // Add extension if any
+    if (count($parts) > 1)
+      $main .= "/" . preg_replace('/[^\d]+/', '', $parts[1]);
+  }
+  else {
+    $main = $phone; // It's >10d long, quit guessing the canon
+  }
+
+  return $main;
 }
 
 function infoFunction($person, $idString) {
