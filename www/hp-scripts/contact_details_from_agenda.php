@@ -35,15 +35,15 @@ function importContactDetails() {
       foreach ($personData->$dkey as $dval) {
         info(" + {$dkey}: ${dval}");
 
-	if ($dkey == 'phone') {
-	  $dval = canonPhone($dval);
+        if ($dkey == 'phone') {
+          $dval = canonPhone($dval);
 
-	  // Incorrect phone number
-	  if (!$dval) continue;
-	}
+          // Incorrect phone number
+          if (!$dval) continue;
+        }
 
         $sql = "INSERT INTO people_facts(idperson, attribute, value) " .
-          "VALUES({$person->id}, 'contact/{$dkey}', '{$dval}')";
+            "VALUES({$person->id}, 'contact/{$dkey}', '{$dval}')";
         mysql_query($sql);
       }
     }
@@ -66,17 +66,17 @@ function canonPhone($phone) {
   if (strlen($main) == 10) {
     // Romtelecom numbers for Bucharest have prefix (021)
     $main = preg_replace('/^(021)(\d{3})(\d{2})(\d{2})/',
-      '($1)$2.$3.$4', $main);
+        '($1)$2.$3.$4', $main);
 
     // Regular phone numbers have 4-digit prefixes
     $main = preg_replace('/^(?!021)(\d{4})(\d{3})(\d{3})/',
-      '($1)$2.$3', $main);
+        '($1)$2.$3', $main);
 
     // Add extension if any
-    if (count($parts) > 1)
+    if (count($parts) > 1) {
       $main .= "/" . preg_replace('/[^\d]+/', '', $parts[1]);
-  }
-  else {
+    }
+  } else {
     $main = $phone; // It's >10d long, quit guessing the canon
   }
 
