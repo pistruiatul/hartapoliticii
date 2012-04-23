@@ -12,15 +12,11 @@
   </p>
 
   <p>
-    Ideal, atunci când cauți un politician ar trebui să poți vedea
-    <ul>
-      <li>cum a votat în parlament (pe issues, agregat, cu score-cards),
-      <li>ce funcții a deținut,
-      <li>dacă și unde a candidat,
-      <li>ce se zice prin ziare,
-      <li>dacă a apărut pe liste de candidați pătați,
-      <li>ce a declarat de-a lungul timpului.
-    </ul>
+    Ideal, atunci când cauți un politician ar trebui să poți vedea cum a votat
+    în parlament (pe issues, agregat, cu score-cards), ce funcții a deținut,
+    dacă și unde a candidat, ce se zice prin ziare, dacă a apărut pe liste de
+    candidați pătați, ce a declarat de-a lungul timpului.
+    <p>
     Nu mă refer doar
     la date brute, dar și concluzii agregate bazate pe datele astea.
   </p>
