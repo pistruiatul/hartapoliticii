@@ -3,7 +3,7 @@
 
   <hr size="1" style="color:#DDD">
   <div class="small gray">
-    <a href="https://github.com/okvivi/hartapoliticii">
+    <a href="https://github.com/pistruiatul/hartapoliticii">
       <img src="images/fork_me_on_github.png" border=0 align="right">
     </a>
 
