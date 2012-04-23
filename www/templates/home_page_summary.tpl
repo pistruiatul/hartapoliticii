@@ -345,7 +345,7 @@
       </tr>
       </table>
 
-      {* ------------------------------------------------------------------*}
+      {* ------------------------------------------------------------------ *}
       {* An explanatory text about this website. *}
       <p class="smalltitle">
         <strong>
@@ -367,6 +367,28 @@
       online. Deși eu sper că sunt corecte, este foarte posibil ca uneori să
       se strecoare erori neintenționate pentru care nu îmi asum răspunderea.
       </div>
+
+      {* ------------------------------------------------------------------ *}
+      {* The partners section *}
+
+      <p class="smalltitle">
+        <strong>
+          Parteneri
+        </strong>
+      </p>
+
+      <a href="http://www.fspub.unibuc.ro/" target="_blank">
+        <img src="/images/parteneri-fbpub.jpg"
+             class="banner-partners"
+             alt="Facultatea de Științe Politice">
+      </a>
+
+      <a href="http://www.alegericorecte.ro" target="_blank">
+        <img src="/images/parteneri-alegericorecte.jpg"
+             class="banner-partners"
+             alt="Coaliția Pentru Alegeri Corecte 2012">
+      </a>
+
     </td>
   </tr>
 </table>

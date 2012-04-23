@@ -532,3 +532,9 @@ body {
 .declaration_source_home_page {
   display: inline;
 }
+
+.banner-partners {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: #DDD solid 1px;
+}
