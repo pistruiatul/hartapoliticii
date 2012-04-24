@@ -389,6 +389,12 @@
              alt="Coaliția Pentru Alegeri Corecte 2012">
       </a>
 
+      <a href="http://www.activewatch.ro" target="_blank">
+        <img src="/images/parteneri-activewatch.jpg"
+             class="banner-partners"
+             alt="Active Watch">
+      </a>
+
     </td>
   </tr>
 </table>
