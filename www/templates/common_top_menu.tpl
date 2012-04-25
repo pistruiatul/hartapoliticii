@@ -3,7 +3,7 @@
 <table width="970">
   <td width="250">
     <a href="/">
-      <img src="images/top_title.png" border=0>
+      <img  itemprop="image" src="images/top_title.png" border=0>
     </a>
   </td>
 

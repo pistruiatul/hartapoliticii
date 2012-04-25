@@ -538,3 +538,13 @@ body {
   margin-bottom: 15px;
   border: #DDD solid 1px;
 }
+
+.follow_on_twitter {
+  margin-top: 10px;
+}
+
+.social_box {
+  padding: 10px 0 10px 10px;
+  border: #f3f3f3 1px solid;
+  margin-top: 10px;
+}

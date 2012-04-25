@@ -258,33 +258,7 @@
 
     </td>
 
-    <td valign="top" width="250">
-
-      <div class="fb-like" style="margin-top: 15px;margin-bottom:15px;"
-           data-href="http://hartapoliticii.ro"
-           data-send="false" data-width="250" data-show-faces="false"
-           data-action="like" data-font="verdana"></div>
-
-      <!-- Add the following three tags inside head -->
-      <meta itemprop="name" content="Harta Politicii din România">
-      <meta itemprop="description" content="O colecție centralizată de date adunate în jurul politicienilor români.">
-      <meta itemprop="image" content="http://hartapoliticii.ro/images/top_title.png">
-
-      <!-- Place this tag where you want the +1 button to render -->
-      <g:plusone annotation="inline" width="250" href="http://hartapoliticii.ro"></g:plusone>
-
-      {literal}
-      <!-- Place this render call where appropriate -->
-      <script type="text/javascript">
-        window.___gcfg = {lang: 'en'};
-
-        (function() {
-          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-          po.src = 'https://apis.google.com/js/plusone.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-      </script>
-      {/literal}
+    <td valign="top" width="250" style="padding-left:10px">
 
      <p class="smalltitle">
        <strong>
@@ -313,6 +287,39 @@
         <em><a href="/?cid=16">vezi tot blogul...</a></em>
       </span>
 
+
+    <div class="social_box">
+      <div class="fb-like" style="margin-top: 5px;margin-bottom:10px;"
+           data-href="http://hartapoliticii.ro"
+           data-send="false" data-width="240" data-show-faces="false"
+           data-action="like" data-font="verdana"></div>
+
+      <!-- Place this tag where you want the +1 button to render -->
+      <g:plusone annotation="inline" width="250" href="http://hartapoliticii.ro"></g:plusone>
+
+      {literal}
+      <!-- Place this render call where appropriate -->
+      <script type="text/javascript">
+        window.___gcfg = {lang: 'en'};
+
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+      {/literal}
+
+      {literal}
+      <div class="follow_on_twitter">
+        <a href="https://twitter.com/hartapoliticii" class="twitter-follow-button" data-show-count="false">Follow @hartapoliticii</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+      {/literal}
+     </div>
+
+
+
       {* ------------------------------------------------------------------*}
       {* A list of active parties. *}
       <p class="smalltitle">
@@ -320,7 +327,7 @@
           Partide active
         </strong>
       </p>
-      <table width="250">
+      <table width="240">
       <tr>
         <td valign="center" align="center" width="70">
           <a href="/?cid=17&id=1">
@@ -353,19 +360,14 @@
         </strong>
       </p>
       <div class="small">
-      Harta Politicii este o colecție de date despre politicienii români în
-      speranța de a oferi cât mai mult context pentru fiecare politician.
+      <span itemprop="description">
+      Cea mai mare colecție de date despre
+      politicieni români care oferă cât mai mult context despre viața lor
+      politică.</span>
       <p>
-      Apoi cu aceste date am tras concluzii utile cum ar fi câte voturi au
+      Cu aceste date am tras concluzii utile cum ar fi câte voturi au
       contat la alegerile parlamentare sau simulatorul de alegeri
       europarlamentare.
-
-      <p>
-      <b>Atenție</b>
-      <p>
-      Toate datele de pe acest site sunt alcătuite din informații prezente
-      online. Deși eu sper că sunt corecte, este foarte posibil ca uneori să
-      se strecoare erori neintenționate pentru care nu îmi asum răspunderea.
       </div>
 
       {* ------------------------------------------------------------------ *}
