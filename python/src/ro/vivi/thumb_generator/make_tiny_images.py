@@ -7,17 +7,25 @@ From all the images of people, make tiny images.
 '''
 
 import os
+import sys
 import Image
 
+if not os.path.exists(os.getcwd() + '/www/images/people/'):
+  print "Please run this from the repository root"
+  sys.exit(1)
+
 # Get the last five daily news files.
-files = os.listdir(os.getcwd() + '/people/')
+files = os.listdir(os.getcwd() + '/www/images/people/')
 
 target_height = 30
 target_width = 22
 
 for fname in files:
   print 'resizing people/' + fname
-  img = Image.open('people/' + fname)
+  try:
+    img = Image.open('www/images/people/' + fname)
+  except IOError:
+    continue
 
   width, height = img.size
 
@@ -29,4 +37,6 @@ for fname in files:
   img = img.resize((new_width, new_height), Image.ANTIALIAS)
   img = img.crop((extra, 0, new_width - extra, new_height))
 
-  img.save('people_tiny/' + fname)
+  if not os.path.exists('www/images/people_tiny/' + fname):
+    print " + generated new image", 'www/images/people_tiny/' + fname
+    img.save('www/images/people_tiny/' + fname)
