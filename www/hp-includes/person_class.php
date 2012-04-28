@@ -637,6 +637,7 @@ class Person {
 
       // There can be more than one detail of a type
       $dval = $r['value'];
+
       array_push($details[$dkey], $dval);
     }
 

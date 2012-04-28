@@ -122,14 +122,14 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 // ----------------------------------------------------------
 // -------------- The left hand side section ----------------
 
-// Display all contact details of the person
-include('mods/contact_details.php');
-
 // Display the most recent news stuff.
 
 $t = new Smarty();
 $t->assign('qualifiers', $person->getNewsQualifiers(10));
 $t->display('person_qualifiers.tpl');
+
+// Display all contact details of the person
+include('mods/contact_details.php');
 
 // TODO: make the compact mods also something automatic.
 include('mods/news_compact.php');

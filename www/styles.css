@@ -197,6 +197,11 @@ body {
 .module_expand_link {
   font-size: 0.8em;
   text-align: right;
+  margin-right: 20px;
+}
+
+.module_expand_link a, .module_expand_link a:visited{
+  color: #888;
 }
 
 .personrow, .personrow a {
@@ -547,4 +552,19 @@ body {
   padding: 10px 0 10px 10px;
   border: #f3f3f3 1px solid;
   margin-top: 10px;
+}
+
+/* ------------------------ person page stuff ------------------------*/
+
+.contact_block {
+  padding: 3px 0 5px 5px;
+}
+
+.contact_block .address {
+  color: #AAA;
+  border-bottom: #EEE dashed 1px;
+}
+
+.contact_block img {
+  margin-right: 5px;
 }
