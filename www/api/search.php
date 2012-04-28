@@ -1,5 +1,5 @@
 <?php
-include_once('../secret/api_key.php');
+include_once('../secret/read_api_key.php');
 
 include_once('../_top.php');
 include_once('../functions.php');

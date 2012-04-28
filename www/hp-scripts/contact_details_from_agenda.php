@@ -33,14 +33,19 @@ function importContactDetails() {
       if (!array_key_exists($dkey, $personData)) continue;
 
       foreach ($personData->$dkey as $dval) {
+        if ($dkey == 'phone') {
+          $dval = getCanonicalPhoneNumber($dval);
+          // Incorrect phone number
+          if (!$dval) continue;
+        }
+
+        if ($dkey == 'website') {
+          $dval = getCanonicalWebsite($dval);
+          // Incorrect phone number
+          if (!$dval) continue;
+        }
+
         info(" + {$dkey}: ${dval}");
-
-	if ($dkey == 'phone') {
-	  $dval = canonPhone($dval);
-
-	  // Incorrect phone number
-	  if (!$dval) continue;
-	}
 
         $sql = "INSERT INTO people_facts(idperson, attribute, value) " .
           "VALUES({$person->id}, 'contact/{$dkey}', '{$dval}')";
@@ -50,7 +55,7 @@ function importContactDetails() {
   }
 }
 
-function canonPhone($phone) {
+function getCanonicalPhoneNumber($phone) {
   // Strip +4 from prefix if any
   $phone = preg_replace('/^\+4/', '', $phone);
 
@@ -81,6 +86,35 @@ function canonPhone($phone) {
   }
 
   return $main;
+}
+
+
+function getCanonicalWebsite($address) {
+  // If it starts with http://, remove it.
+  if (startsWith($address, 'http://')) {
+    $address = substr($address, 7);
+  }
+
+  if (endsWith($address, '/')) {
+    $address = substr($address, 0, strlen($address) - 1);
+  }
+
+  return $address;
+}
+
+function startsWith($haystack, $needle) {
+  $length = strlen($needle);
+  return (substr($haystack, 0, $length) === $needle);
+}
+
+function endsWith($haystack, $needle) {
+  $length = strlen($needle);
+  if ($length == 0) {
+      return true;
+  }
+
+  $start  = $length * -1; //negative
+  return (substr($haystack, $start) === $needle);
 }
 
 function infoFunction($person, $idString) {
