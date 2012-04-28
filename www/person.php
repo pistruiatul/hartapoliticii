@@ -98,27 +98,6 @@ $t = $width == 250 ? "width=$width" : "";
 
 echo "<div class=identity_img><img src=\"$img\" $t></div>";
 
-// Display the LIKE and the +1 buttons.
-// TODO: Move these in a template?
-?>
-<div class="fb-like" style="margin-top: 15px;margin-bottom:15px;"
-     data-href="http://hartapoliticii.ro/?name=<?php echo $person->getUrlName() ?>"
-     data-send="false" data-width="330" data-show-faces="false"
-     data-action="like" data-font="verdana"></div>
-
-<!-- Place this render call where appropriate -->
-<script type="text/javascript">
-  window.___gcfg = {lang: 'en'};
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript';
-    po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(po, s);
-  })();
-</script>
-<?php
-
 // ----------------------------------------------------------
 // -------------- The left hand side section ----------------
 
