@@ -13,7 +13,7 @@ http://hartapoliticii.ro
 
 ### Dacă vrei să participi
 
-Citește [wiki-ul](https://github.com/okvivi/hartapoliticii/wiki), acolo găsești
+Citește [wiki-ul](https://github.com/pistruiatul/hartapoliticii/wiki), acolo găsești
 tot ce trebuie.
 
 
