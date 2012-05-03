@@ -386,7 +386,7 @@
       </a>
 
       <a href="http://www.alegericorecte.ro" target="_blank">
-        <img src="/images/parteneri-alegericorecte.jpg"
+        <img src="/images/parteneri-alegericorecte-2.jpg"
              class="banner-partners"
              alt="Coaliția Pentru Alegeri Corecte 2012">
       </a>

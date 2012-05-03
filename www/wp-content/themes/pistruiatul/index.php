@@ -13,14 +13,34 @@ get_header(); ?>
 		<?php while (have_posts()) : the_post(); ?>
 
 			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+				<h2>
+          <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+        </h2>
 				<small><?php the_time('F jS, Y') ?> <!-- by <?php the_author() ?> --></small>
 
 				<div class="entry">
 					<?php the_content('Read the rest of this entry &raquo;'); ?>
 				</div>
 
-				<p class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
+				<p class="postmetadata">
+          <?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
+
+          <span style="float:right">
+            <a href="https://twitter.com/share"
+               class="twitter-share-button"
+               data-text="<?php the_title(); ?>"
+               data-via="hartapoliticii">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            <div class="fb-like" style="display:inline"
+                           data-href="<?php the_permalink() ?>"
+                           data-send="false"
+                           data-layout="button_count"
+                           data-width="100"
+                           data-show-faces="false"></span>
+          </span>
+
+        </p>
 			</div>
 
 		<?php endwhile; ?>
