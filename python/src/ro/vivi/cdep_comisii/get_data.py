@@ -10,7 +10,7 @@ Comisii & comisii from cdep.ro
 """
 
 import re
-import datetime
+import datetime, time
 import sys
 import codecs
 import time
@@ -18,7 +18,7 @@ import time
 import hashlib
 import json
 import os
-import urllib2
+import urllib2, urllib
 
 from urllib2 import URLError
 from BeautifulSoup import BeautifulSoup
@@ -77,11 +77,17 @@ def get_meetings(com_id, year, tmp_dir):
     for dtr in tt.findAll('tr'):
       cells = dtr.findAll('td')
       name = cells[0].text
-      link = cells[1].find('a')['href']
+      anchors = cells[1].findAll('a')
+      if len(anchors) == 0:
+        continue
 
-      docs.append({'name': name, 'link': link})
+      if link is None:
+        continue
 
-    #print "\t %s -> %d doc(s)" % (date, len(docs))
+      for a in anchors:
+        link = a['href']
+        docs.append({'name': name, 'link': link})
+
     meetings.append((date, docs))
     
     # next row that has the date/time of the meeting
@@ -168,8 +174,6 @@ def get_comisie_details(id, tmp_dir):
 
     #time.mktime(datetime.date.today().timetuple())
     members.append( (nume, functia, partid, timein, None))
-    #print "  nume: ", nume
-    #print "  functia: ", functia
 
   for t in tbs:
     new_members = extract_former_members(t)
@@ -183,10 +187,10 @@ def get_bin_file(link, tmp_dir):
   """
 
   _, file_ext = os.path.splitext(link)
-  if ext == '': ext = '.dat'
+  if file_ext == '': file_ext = '.dat'
 
   # First, see if this is already cached.
-  fname = tmp_dir + '/bin_cache/%s%s' % hashlib.md5(link).hexdigest(), ext
+  fname = tmp_dir + '/bin_cache/%s%s' % (hashlib.md5(link).hexdigest(), file_ext)
   if os.path.exists(fname):
     return get_file_data(fname)
 
@@ -203,9 +207,26 @@ def get_bin_file(link, tmp_dir):
       cache_file.close()
 
       return data
-    except URLError:
+    except _, e:
+      print e
       print "Timed out, retrying ", link
       success = False
+      time.sleep(2)
+
+
+def get_documents(meetings, year, tmp_dir):
+  reg_pdf = re.compile('\.pdf$', re.I)
+  for m in meetings:
+    for d in m[1]:
+      link = d['link']
+      if reg_pdf.search(link, re.I) is None:
+        continue
+      if re.match('/', link):
+        link = 'http://www.cdep.ro' + re.sub(' ', '%20', link)
+      else:
+        link = 'http://www.cdep.ro/co/' + re.sub(' ', '%20', link)
+      get_bin_file(link, tmp_dir)
+
 
 def main():
   """ Main function. """
@@ -225,11 +246,16 @@ def main():
     if len(comisii) > 0:
       for comisie in comisii:
         com_id = comisie[0]
-        #if com_id != '2': continue
+        if com_id != '1': continue
         members = get_comisie_details(com_id, TMP_DIR)
-        print "\t%d membri" % len(members)
-        sedinte = get_meetings(com_id, 2011, TMP_DIR)
-        print "\t %d ședințe" % len(sedinte)
+        print "\t* %d membri" % len(members)
+        years = [2012]
+        #years = [2009, 2010, 2011, 2012]
+        for y in years:
+          meetings = get_meetings(com_id, y, TMP_DIR)
+          # sedinte[0] = (<date,ro>, [<doc1>, doc2]), where dict x = {name: $name, link: $link}
+          print "\t* %d meetings" % len(meetings)
+          get_documents(meetings, y, TMP_DIR)
 
 
 main()
