@@ -5,38 +5,43 @@
  */
 ?>
   <div id="sidebar">
-    <div>
+    <div style="text-align:left">
     <h2>Despre acest site</h2>
     <br>
-    Harta Politicii este o colecție de date despre politicienii români.
-    <br><br>
-    Am adunat date de prezență, ce s-a scris în diverse liste despre politicieni,
-    rezultatele de la diverse alegeri, în speranța de a da cât mai mult
-    context fiecărui politician.
-    <br><br>
-    Apoi cu aceste date am tras concluzii utile cum ar fi
-    <a href="?cid=2&room=camera_deputatilor">câte voturi
-    au contat la alegerile parlamentare</a> sau
-    <a href="?c=alegeri+europarlamentare+2009&cid=10&sid=2">simulatorul de alegeri
-    europarlamentare</a>.
-    <br><br>
-     Este o încercare de a
-    aduna într-un singur loc cât mai multă informație relevantă și cât
-    mai puțină "vrăjeală", sătul de promisiunile goale legate de viitor și
-    în căutarea faptelor, singurele care mi se par relevante.
-    <br><br>
-    Este un experiment mai degrabă personal pe care, pentru că
-    eu îl găsesc util, m-am gândit să îl fac public. Chiar dacă mai este
-    mult de muncă la site-ul ăsta, trebuia să încep de undeva. :-)
-    <br><br>
 
-    <h2>Atenție</h2>
-    <br>Toate datele de pe acest site sunt alcătuite din informații
-    prezente online. Deși eu sper că sunt corecte, este foarte posibil ca
-    uneori să se strecoare erori neintenționate
-    pentru care nu îmi asum răspunderea.
-    <br><br>
+    <span itemprop="description">
+    Cea mai mare colecție de date despre
+    politicieni români care oferă cât mai mult context despre viața lor
+    politică.</span>
+    <p>
+    Cu aceste date am tras concluzii utile cum ar fi câte voturi au
+    contat la alegerile parlamentare sau simulatorul de alegeri
+    europarlamentare.
 
+    <p class="smalltitle">
+      <strong>
+        Parteneri
+      </strong>
+    </p>
+      <center>
+    <a href="http://www.fspub.unibuc.ro/" target="_blank">
+      <img src="/images/parteneri-fbpub.jpg"
+           class="banner-partners"
+           alt="Facultatea de Științe Politice">
+    </a>
+
+    <a href="http://www.alegericorecte.ro" target="_blank">
+      <img src="/images/parteneri-alegericorecte-2.jpg"
+           class="banner-partners"
+           alt="Coaliția Pentru Alegeri Corecte 2012">
+    </a>
+
+    <a href="http://www.activewatch.ro" target="_blank">
+      <img src="/images/parteneri-activewatch.jpg"
+           class="banner-partners"
+           alt="Active Watch">
+    </a>
+    </center>
 
     <div style="border:1px solid #EEE;padding:3px;text-align:center;">
       Te poți abona la acest blog
@@ -119,21 +124,8 @@
 			<?php endif; ?>
 		</ul>
 		</td><td width=50% valign="top">
-		  <ul>
-		  <li></li>
-		  <li><h2>Diverse</h2><br>
-		  <a href="http://www.webstock.ro/2009/09/castigatorii-webstock-awards-2009/">
-      <img src="i/badge-loc-ii-contentagg.gif" border=0>
-      </a>
-      </li>
-      </ul>
-
-      <script type="text/javascript">FB.init("07ac442b81b3c626a5c903acaf5819af");</script>
-      <fb:fan profile_id="162595812729" stream="" connections="9" width="180" height="380"></fb:fan>
-      <div style="font-size:8px; padding-left:10px">
-      <a href="http://www.facebook.com/pages/Harta-Politicii-din-Romania/162595812729">Harta Politicii din România on Facebook</a>
-      </div>
-
+      <br><br>
+      <div class="fb-like-box" data-href="http://www.facebook.com/hartapoliticii" data-width="190" data-height="380" data-show-faces="true" data-stream="false" data-header="false"></div>
 
 		</td></table>
 	</div>

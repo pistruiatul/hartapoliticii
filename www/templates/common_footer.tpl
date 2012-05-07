@@ -4,8 +4,8 @@
     <td>
     <hr size="1" style="color:#DDD; background-color:#DDD; border: 0;height:1px;">
       <br>
-
-      <table width="950">
+      <center>
+      <table width="920">
         <td>
           Harta politicii <br>a apărut în
         </td>
@@ -30,7 +30,7 @@
           </a>
         </td>
       </table>
-
+      </center>
     </td>
   </tr>
   <tr>
