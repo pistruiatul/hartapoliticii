@@ -23,9 +23,7 @@ get_header(); ?>
 				</div>
 
 				<p class="postmetadata">
-          <?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
-
-          <span style="float:right">
+          <div style="float:right">
             <a href="https://twitter.com/share"
                class="twitter-share-button"
                data-url="<?php the_permalink() ?>"
@@ -33,14 +31,11 @@ get_header(); ?>
                data-via="hartapoliticii">Tweet</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-            <div class="fb-like" style="display:inline"
-                           data-href="<?php the_permalink() ?>"
-                           data-send="false"
-                           data-layout="button_count"
-                           data-width="100"
-                           data-show-faces="false"></span>
-          </span>
+            <div class="fb-like" data-href="<?php the_permalink() ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
 
+          </div>
+
+          <?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
         </p>
 			</div>
 

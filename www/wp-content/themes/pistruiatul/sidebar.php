@@ -128,7 +128,6 @@
       </li>
       </ul>
 
-      <script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"></script>
       <script type="text/javascript">FB.init("07ac442b81b3c626a5c903acaf5819af");</script>
       <fb:fan profile_id="162595812729" stream="" connections="9" width="180" height="380"></fb:fan>
       <div style="font-size:8px; padding-left:10px">

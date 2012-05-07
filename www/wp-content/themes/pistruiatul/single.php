@@ -36,7 +36,7 @@ get_header();
                data-send="false"
                data-layout="button_count"
                data-width="100"
-               data-show-faces="false"></span>
+               data-show-faces="false"></div>
         </div>
 
 				<p class="postmetadata alt">
