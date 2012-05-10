@@ -1,11 +1,21 @@
 <?php
-include_once('../secret/read_api_key.php');
-
 include_once('../_top.php');
 include_once('../functions.php');
 include_once('../hp-includes/people_lib.php');
 include_once('../hp-includes/party_class.php');
 
+// Load wp-config so that we can use the fact that the user is logged in.
+require_once('../wp-config.php');
+
+// current_user is a variable set by Wordpress.
+$uid = is_user_logged_in() ? $current_user->ID : 0;
+
+if ($uid == 0 || getUserLevel($uid) == 0) {
+  // If we're not logged in or is a logged in user with no privileges, check
+  // the api key. For logged in users with admin privileges we don't check
+  // this key.
+  include_once('../secret/read_api_key.php');
+}
 
 /**
  * @param {Person} $person
@@ -16,6 +26,7 @@ function getOutputObjectForPerson($person) {
   $p["id"] = $person->id;
   $p["name"] = $person->displayName;
   $p["party"] = $person->getFact("party");
+  $p["snippet"] = $person->getHistorySnippet();
 
   if ($p["party"]) {
     $party = new Party($p["party"]);

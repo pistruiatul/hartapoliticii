@@ -51,9 +51,11 @@
       </div>
     </div>
 
-    {if $show_add_person}
+    {if $user_is_admin}
       {include file="my_account_add_new_person.tpl"
           recent_people=$recent_people}
+
+      {include file="my_account_add_position.tpl"}
     {/if}
 
   </div>

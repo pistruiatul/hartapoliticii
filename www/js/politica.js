@@ -8,6 +8,29 @@
 // -----------------------------------------------------
 // DOM and NET Utils
 
+var profile = profile || {};
+
+// A namespace for the functions related to declarations.
+var declarations = declarations || {};
+
+
+/**
+ * Global initializer for whatever listeners we might need on pages.
+ */
+$(document).ready(function() {
+  // For the my_account section, add a listener to the name element for adding
+  // a new position, so that on blur we can look the person up.
+  console.log('set up the listener');
+  $('#new_position_display_name').focusout(function() {
+    console.log('focusout!');
+    profile.handleDisplayNameTyped();
+  });
+});
+
+
+/* ------------------------------------------------------ */
+/* Some util functions */
+
 function elem(id) {
   return document.getElementById(id);
 }
@@ -293,7 +316,11 @@ function compassShowDetailsFor(personId, room, year, tagId) {
 // -----------------------------------------------------
 // Functions for code that's in the user's my account page.
 
-function myAccountAddPerson() {
+/**
+ * Handles the submission of the form for adding a person from the admin
+ * interface.
+ */
+profile.addPerson = function() {
   // First of all, find the data on the page.
   var nameAll = elem('person_name_all').value;
   var displayName = elem('person_display_name').value;
@@ -322,15 +349,67 @@ function myAccountAddPerson() {
   sendPayload_(url, function(response) {
     elem('person_add_message').innerHTML = response;
   });
-}
+};
+
+/**
+ * The person ID that comes back from the server.
+ */
+profile.person_id = 0;
+
+/**
+ * Handles the user tabbing out of the display name field after typing a
+ * person's name. We look that name up, and if it's legit, we store the
+ * id of the person so we can submit stuff.
+ */
+profile.handleDisplayNameTyped = function() {
+  var name = $('#new_position_display_name').val();
+  var url = '/api/search.php?q=' + name;
+
+  sendPayload_(url, function(response) {
+    // The response looks like this:
+    // [ {"id":"3393", "name":"Traian B\u0103sescu", ...}]
+    var people = eval(response);
+    if (people.length == 1) {
+      $('#new_position_searched_person').html(
+          '<b>' + people[0].name + '</b><br>' +
+          people[0].snippet);
+      profile.person_id = people[0].id;
+    } else {
+      $('#new_position_searched_person').html('Ambiguous or no person.');
+    }
+  });
+};
+
+
+profile.handleSubmitPosition = function() {
+  var what = $('#new_position_what').val();
+  var title = $('#new_position_title').val();
+  var url = $('#new_position_url').val();
+  var start_time = $('#new_position_start_time').val();
+
+  if (profile.person_id == 0 || what == '' || title == '' || url == '') {
+    elem('new_position_searched_person').innerHTML = 'fill everything!';
+    return;
+  }
+
+  // Now call the server hook to add the person to the db.
+  var hook = '/hooks/add_new_position.php' +
+      '?person_id=' + profile.person_id +
+      '&what=' + what +
+      '&title=' + title +
+      '&url=' + url +
+      '&start_time=' + start_time;
+
+  elem('new_position_searched_person').innerHTML =
+      'Așteatpă... <img src=/images/activity_indicator.gif>';
+  sendPayload_(hook, function(response) {
+    elem('new_position_searched_person').innerHTML = response;
+  });
+};
 
 
 // -----------------------------------------------------
 // Functions for declaration utils.
-
-// A namespace for the functions related to declarations.
-var declarations = {};
-
 
 /**
  * A global list of starts and ends of ranges. This is populated server side,

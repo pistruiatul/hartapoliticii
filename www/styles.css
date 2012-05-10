@@ -238,7 +238,7 @@ body {
 .searchresult .name {
   font-size:1.2em;
 }
-.searchresult .what {
+.what {
   display:inline;
 }
 .searchresult .snippet {

@@ -52,7 +52,7 @@
       </td>
       <td>
         <input type="Submit" value="  Adaugă  "
-               onclick="myAccountAddPerson();" id="person_submit">
+               onclick="profile.addPerson();" id="person_submit">
         <div id="person_add_message"></div>
       </td>
     </tr>

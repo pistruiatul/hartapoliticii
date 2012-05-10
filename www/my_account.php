@@ -47,7 +47,7 @@ $t->assign('senatTags', $senatTags);
 $t->assign('cdepTags', $cdepTags);
 $t->assign('user_login', $user_login);
 
-$t->assign('show_add_person', getUserLevel($uid) > 0);
+$t->assign('user_is_admin', getUserLevel($uid) > 0);
 if (getUserLevel($uid) > 0) {
   // Also show the history of the most recent 5 people added.
   $t->assign('recent_people', getMostRecentNewPeople());
