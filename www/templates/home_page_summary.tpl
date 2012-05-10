@@ -397,6 +397,12 @@
              alt="Active Watch">
       </a>
 
+      <a href="http://www.cineceapromis.ro" target="_blank">
+        <img src="/images/parteneri-cineceapromis.jpg"
+             class="banner-partners"
+             alt="Cine Ce-a Promis">
+      </a>
+
     </td>
   </tr>
 </table>
