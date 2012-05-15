@@ -1,5 +1,4 @@
 #!/bin/bash -e
-set -x
 
 read -s -p "Enter Password: " PASS
 
