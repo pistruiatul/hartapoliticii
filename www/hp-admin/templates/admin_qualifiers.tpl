@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../styles.css?v=2" />
-  <script type="text/javascript" src="../politica.js"></script>
+  <script type="text/javascript" src="../js/politica.js"></script>
   {literal}
 	<script type="text/javascript">
 	/**

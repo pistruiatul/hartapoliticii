@@ -16,6 +16,7 @@ mirror -v -R --ignore-time \
     -X 'images/people_tiny/*' \
     -X '.git/*' \
     -X '*.DS_Store' \
+    -X 'secret/db_user.php' \
     ./ /www/www
 quit 0
 EOF
