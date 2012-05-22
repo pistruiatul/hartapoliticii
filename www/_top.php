@@ -9,7 +9,7 @@
 
   mysql_set_charset('UTF8', $dblink);
 
-  mysql_select_db("hartapoliticii_pistruiatul", $dblink) or die("Could not select database");
+  mysql_select_db($DB_NAME, $dblink) or die("Could not select database");
 
   function info($msg) {
     $msg = str_replace("[", "[<font color=red>", $msg);
