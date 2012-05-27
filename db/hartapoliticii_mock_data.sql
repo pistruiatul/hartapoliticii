@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 15, 2012 at 04:58 PM
+-- Generation Time: May 27, 2012 at 06:49 AM
 -- Server version: 5.5.12
--- PHP Version: 5.3.8
+-- PHP Version: 5.3.10
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -587,7 +587,73 @@ CREATE TABLE IF NOT EXISTS `govro_people` (
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
   KEY `idperson` (`idperson`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
+
+--
+-- Dumping data for table `govro_people`
+--
+
+INSERT INTO `govro_people` (`id`, `name`, `idperson`, `title`, `mintime`, `maxtime`, `link`) VALUES
+(1, 'Emil Boc', 3396, 'Prim-ministru', 1229904000, 1328486400, 'http://www.gov.ro/emil-boc__l1a56.html'),
+(2, 'Dan Nica', 300, 'Viceprim-Ministru, Ministrul Administraţiei şi Internelor', 1229904000, 1254355200, 'http://www.gov.ro/dan-nica__l1a103794.html'),
+(3, 'Gheorghe Pogea', 3397, 'Ministrul Finanţelor Publice', 1229904000, 1261526400, 'http://www.gov.ro/gheorghe-pogea__l1a58.html'),
+(4, 'Radu Berceanu', 150, 'Ministrul Transporturilor şi Infrastructurii', 1229904000, 1283472000, 'http://www.gov.ro/radu-berceanu__l1a62.html'),
+(5, 'Cristian Diaconescu', 29, 'Ministrul Afacerilor Externe', 1229904000, 1254355200, 'http://www.gov.ro/cristian-diaconescu__l1a57.html'),
+(6, 'Adriean Videanu', 3399, 'Ministrul Economiei', 1229904000, 1283472000, 'http://www.gov.ro/adriean-videanu__l1a103793.html'),
+(7, 'Ecaterina Andronescu', 167, 'Ministrul Educaţiei, Cercetării şi Inovării', 1229904000, 1254355200, 'http://www.gov.ro/ecaterina-andronescu__l1a63.html'),
+(8, 'Vasile Blaga', 9, 'Ministrul Dezvoltării Regionale şi Locuinţei', 1229904000, 1285545600, 'http://www.gov.ro/vasile-blaga__l1a68.html'),
+(9, 'Marian Sârbu', 354, 'Ministrul Muncii, Familiei şi Protecţiei Sociale', 1229904000, 1254355200, 'http://www.gov.ro/marian-sarbu__l1a64.html'),
+(10, 'Mihai Stănişoară', 520, 'Ministrul Apărării Naţionale', 1229904000, 1261526400, 'http://www.gov.ro/mihai-stanisoara__l1a61.html'),
+(11, 'Catalin Marian Predoiu', 922, 'Ministrul Justiţiei', 1229904000, 1328486400, 'http://www.gov.ro/catalin-marian-predoiu__l1a59.html'),
+(12, 'Ilie Sârbu', 101, 'Ministrul Agriculturii, Pădurilor şi Dezvoltării Rurale', 1229904000, 1254355200, 'http://www.gov.ro/ilie-sarbu__l1a66.html'),
+(13, 'Elena Udrea', 1130, 'Ministrul Turismului', 1229904000, 1328486400, 'http://www.gov.ro/elena-udrea__l1a103797.html'),
+(14, 'Ion Bazac', 3400, 'Ministrul Sănătăţii', 1229904000, 1254355200, 'http://www.gov.ro/ion-bazac__l1a67.html'),
+(15, 'Theodor Paleologu', 1027, 'Ministrul Culturii, Cultelor şi Patrimoniului Naţional', 1229904000, 1261526400, 'http://www.gov.ro/theodor-paleologu__l1a165.html'),
+(16, 'Nicolae Nemirschi', 3401, 'Ministrul Mediului', 1229904000, 1254355200, 'http://www.gov.ro/nicolae-nemirschi__l1a167.html'),
+(17, 'Sorina Luminiţa Plăcintă', 2284, 'Ministrul Tineretului şi Sportului', 1229904000, 1261526400, 'http://www.gov.ro/sorina-luminita-placinta__l1a105930.html'),
+(18, 'Constantin Niţă', 243, 'Ministrul IMM-urilor, Comerţului şi Mediului de Afaceri', 1229904000, 1254355200, 'http://www.gov.ro/constantin-nita__l1a65.html'),
+(19, 'Gabriel Sandu', 259, 'Ministrul Comunicaţiilor şi Societăţii Informaţionale', 1229904000, 1283472000, 'http://www.gov.ro/gabriel-sandu__l1a164.html'),
+(20, 'Victor Ponta', 301, 'Ministrul pentru Relaţia cu Parlamentul', 1229904000, 1254355200, 'http://www.gov.ro/victor-ponta__l1a166.html'),
+(21, 'Mihai-Răzvan Ungureanu', 3415, 'Prim-ministru', 1328820586, 1336348800, 'http://www.guv.ro/mihai-razvan-ungureanu-prim-ministru__l1a1.html'),
+(22, '', 59, 'Viceprim-Ministru', 1328820586, 1336348800, 'http://www.gov.ro/marko-bela__l1a103794.html'),
+(23, '', 703, 'Ministrul Administraţiei şi Internelor', 1328820586, 1336348800, 'http://www.gov.ro/gabriel-berca__l1a115903.html'),
+(24, '', 3420, 'Ministrul Finanţelor Publice', 1328820586, 1336348800, 'http://www.gov.ro/bogdan-alexandru-dragoi__l1a115906.html'),
+(25, '', 1982, 'Ministrul Economiei, Comerţului şi Mediului de Afaceri', 1328820586, 1336348800, 'http://www.gov.ro/lucian-nicolae-bode__l1a115907.html'),
+(26, '', 29, 'Ministrul Afacerilor Externe', 1328820586, 1336348800, 'http://www.gov.ro/cristian-diaconescu__l1a57.html'),
+(27, '', 3421, 'Ministrul Afacerilor Europene', 1328820586, 1336348800, 'http://www.gov.ro/leonard-orban__l1a164.html'),
+(28, '', 3200, 'Ministrul Transporturilor şi Infrastructurii', 1328820586, 1336348800, 'http://www.gov.ro/alexandru-nazare__l1a115908.html'),
+(29, '', 505, 'Ministrul Mediului şi Pădurilor', 1328820586, 1334016000, 'http://www.gov.ro/laszlo-borbely__l1a167.html'),
+(30, '', 1050, 'Ministrul Dezvoltării Regionale şi Turismului', 1328820586, 1336348800, 'http://www.gov.ro/cristian-petrescu__l1a115909.html'),
+(31, '', 922, 'Ministrul Justiţiei', 1328820586, 1336348800, 'http://www.gov.ro/catalin-marian-predoiu__l1a59.html'),
+(32, '', 325, 'Ministrul Apărării Naţionale', 1328820586, 1336348800, 'http://www.gov.ro/gabriel-oprea__l1a61.html'),
+(33, '', 379, 'Ministrul Culturii şi Patrimoniului Naţional', 1328820586, 1336348800, 'http://www.gov.ro/kelemen-hunor__l1a165.html'),
+(34, '', 2265, 'Ministrul Comunicaţiilor şi Societăţii Informaţionale', 1328820586, 1336348800, 'http://www.gov.ro/razvan-mustea-serban__l1a115910.html'),
+(35, '', 571, 'Ministrul Muncii, Familiei şi Protecţiei Sociale', 1328820586, 1336348800, 'http://www.gov.ro/claudia-boghicevici__l1a115911.html'),
+(36, '', 3422, 'Ministrul Educaţiei, Cercetării, Tineretului şi Sportului', 1328820586, 1336348800, 'http://www.gov.ro/catalin-ovidiu-baba__l1a115912.html'),
+(37, '', 3423, 'Ministrul Sănătăţii', 1328820586, 1336348800, 'http://www.gov.ro/ladislau-ritli__l1a114223.html'),
+(38, '', 350, 'Ministrul Agriculturii şi Dezvoltării Rurale', 1328820586, 1336348800, 'http://www.gov.ro/stelian-fuia__l1a115914.html'),
+(39, '', 1602, 'Ministrul Mediului şi Pădurilor', 1334016000, 1336348800, 'http://www.gov.ro/attila-korodi__l1a116705.html'),
+(40, '', 301, 'Prim-Ministru', 1336435200, 0, 'http://www.gov.ro/victor-viorel-ponta__l1a116983.html'),
+(42, '', 3435, 'Viceprim–ministru, Ministrul Finanţelor Publice', 1336435200, 0, 'http://www.gov.ro/florin-georgescu__l1a116984.html'),
+(43, '', 3161, 'Ministrul Administraţiei şi Internelor', 1336435200, 0, 'http://www.gov.ro/ioan-rus__l1a116985.html'),
+(44, '', 3439, 'Ministrul Afacerilor Externe', 1336435200, 0, 'http://www.gov.ro/andrei-marga__l1a116986.html'),
+(45, '', 506, 'Ministrul Justiţiei', 1336435200, 0, 'http://www.gov.ro/titus-corlatean__l1a116987.html'),
+(49, '', 3442, 'Ministrul Agriculturii şi Dezvoltării Rurale', 1336435200, 0, 'http://www.gov.ro/daniel-constantin__l1a116988.html'),
+(48, '', 1024, 'Ministrul Muncii, Familiei şi Protecţiei Sociale ', 1336435200, 0, 'http://www.gov.ro/mariana-campeanu__l1a116989.html'),
+(50, '', 1555, 'Ministrul Economiei, Comerţului şi Mediului de Afaceri', 1336435200, 0, 'http://www.gov.ro/daniel-chitoiu__l1a116990.html'),
+(51, '', 481, 'Ministrul Transporturilor şi Infrastructurii', 1336435200, 0, 'http://www.gov.ro/ovidiu-ioan-silaghi__l1a116991.html'),
+(52, '', 516, 'Ministrul Mediului şi Pădurilor ', 1336435200, 0, 'http://www.gov.ro/rovana-plumb__l1a116992.html'),
+(53, '', 214, 'Ministrul Dezvoltării Regionale şi Turismului', 1336435200, 0, 'http://www.gov.ro/eduard-hellvig__l1a116993.html'),
+(54, '', 3443, 'Ministrul Apărării Naţionale', 1336435200, 0, 'http://www.gov.ro/corneliu-dobritoiu__l1a116994.html'),
+(55, '', 773, 'Ministrul Educaţiei, Cercetării, Tineretului şi Sportului', 1336435200, 1337040000, 'http://www.gov.ro/ioan-mang__l1a116995.html'),
+(56, '', 3444, 'Ministrul Sănătăţii', 1336435200, 0, 'http://www.gov.ro/vasile-cepoi__l1a116996.html'),
+(57, '', 300, 'Ministrul Comunicaţiilor şi Societăţii Informaţionale', 1336435200, 0, 'http://www.gov.ro/dan-nica__l1a116997.html'),
+(58, '', 645, 'Ministrul Culturii şi Patrimoniului Naţional', 1336435200, 0, 'http://www.gov.ro/mircea-diaconu__l1a116998.html'),
+(59, '', 3421, 'Ministrul Afacerilor Europene ', 1336435200, 0, 'http://www.gov.ro/leonard-orban__l1a116999.html'),
+(60, '', 406, 'Ministrul pentru Relaţia cu Parlamentul', 1336435200, 0, 'http://www.gov.ro/mircea-dusa__l1a117000.html'),
+(61, '', 1492, 'Ministrul delegat pentru Administraţie', 1336435200, 0, 'http://www.gov.ro/victor-paul-dobre__l1a117001.html'),
+(62, '', 3438, 'Ministrul delegat pentru Mediul de Afaceri', 1336435200, 0, 'http://www.gov.ro/lucian-isar__l1a117002.html'),
+(63, '', 3445, 'Ministrul delegat pentru Dialog Social', 1336435200, 0, 'http://www.gov.ro/liviu-marian-pop__l1a117003.html');
 
 -- --------------------------------------------------------
 
@@ -606,14 +672,16 @@ CREATE TABLE IF NOT EXISTS `log_searches` (
   PRIMARY KEY (`id`),
   KEY `time` (`time`),
   KEY `num_results` (`num_results`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3742 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3744 ;
 
 --
 -- Dumping data for table `log_searches`
 --
 
 INSERT INTO `log_searches` (`id`, `query`, `time`, `ip`, `num_results`, `found`) VALUES
-(3741, 'crin', 1328728990, '127.0.0.1', 1, 0);
+(3741, 'crin', 1328728990, '127.0.0.1', 1, 0),
+(3742, 'ponta', 1338115611, '127.0.0.1', 1, 0),
+(3743, 'ponta', 1338115702, '127.0.0.1', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -883,14 +951,69 @@ CREATE TABLE IF NOT EXISTS `people` (
   `ext` varchar(100) NOT NULL COMMENT 'An extended field to distinguish between persons with identical names. Usage TBD.',
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3415 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3446 ;
 
 --
 -- Dumping data for table `people`
 --
 
 INSERT INTO `people` (`id`, `name`, `display_name`, `ext`) VALUES
-(453, 'antonescu crin george laurentiu', 'Antonescu Crin', '');
+(453, 'antonescu crin george laurentiu', 'Antonescu Crin', ''),
+(9, 'blaga vasile', 'Vasile Blaga', ''),
+(29, 'cristian diaconescu', 'Cristian Diaconescu', ''),
+(59, 'bela marko', 'Markó Béla', ''),
+(101, 'ilie sarbu', 'Ilie Sârbu', ''),
+(150, 'berceanu mircea radu', 'Radu Berceanu', ''),
+(167, 'andronescu ecaterina', 'Ecaterina Andronescu', ''),
+(214, 'eduard hellvig raul', 'Eduard Raul Hellvig', ''),
+(243, 'constantin nita', 'Constantin Niţă', ''),
+(259, 'gabriel sandu', 'Gabriel Sandu', ''),
+(300, 'dan nica', 'Dan Nica', ''),
+(301, 'ponta victor viorel', 'Victor Ponta', ''),
+(325, 'gabriel oprea', 'Gabriel Oprea', ''),
+(350, 'fuia stelian', 'Stelian Fuia', ''),
+(354, 'marian sarbu', 'Marian Sârbu', ''),
+(379, 'hunor kelemen', 'Hunor Kelemen', ''),
+(406, 'dusa mircea', 'Mircea Duşa', ''),
+(481, 'ioan ovidiu silaghi', 'Ovidiu Silaghi', ''),
+(505, 'borbely laszlo', 'László Borbély', ''),
+(506, 'corlatean titus', 'Titus Corlăţean', ''),
+(516, 'plumb rovana', 'Rovana Plumb', ''),
+(520, 'mihai stanisoara', 'Mihai Stănişoară', ''),
+(571, 'boghicevici claudia ghicevici pantea', 'Claudia Boghicevici', ''),
+(645, 'diaconu mircea', 'Mircea Diaconu', ''),
+(703, 'berca gabriel', 'Gabriel Berca', ''),
+(773, 'ioan mang', 'Ioan Mang', ''),
+(922, 'catalin marian predoiu', 'Cătălin Predoiu', ''),
+(1024, 'campeanu mariana', 'Mariana Campeanu', ''),
+(1027, 'paleologu theodor', 'Theodor Paleologu', ''),
+(1050, 'cristian petrescu', 'Cristian Petrescu', ''),
+(1130, 'elena gabriela udrea', 'Elena Udrea', ''),
+(1492, 'dobre paul victor', 'Victor Paul Dobre', ''),
+(1555, 'chitoiu daniel', 'Daniel Chitoiu', ''),
+(1602, 'attila korodi', 'Attila Korodi', ''),
+(1982, 'bode lucian nicolae', 'Lucian Nicolae Bode', ''),
+(2265, 'mustea razvan serban', 'Răzvan Mustea-Șerban', ''),
+(2284, 'luminita placinta sorina', 'Sorina Luminița Plăcintă', ''),
+(3161, 'ioan rus', 'Ioan Rus', ''),
+(3200, 'alexandru nazare', 'Alexandru Nazare', ''),
+(3396, 'boc emil', 'Emil Boc', ''),
+(3397, 'gheorghe pogea', 'Pogea Gheorghe', ''),
+(3399, 'adriean videanu', 'Videanu Adriean', ''),
+(3400, 'bazac ion', 'Ion Bazac', ''),
+(3401, 'nemirschi nicolae', 'Nemirschi Nicolae', ''),
+(3415, 'mihai razvan ungureanu', 'Mihai-Răzvan Ungureanu', ''),
+(3420, 'alexandru bogdan dragoi', 'Bogdan Drăgoi', ''),
+(3421, 'leonard orban', 'Leonard Orban', ''),
+(3422, 'baba catalin ovidiu', 'Cătălin Ovidiu Baba', ''),
+(3423, 'ladislau ritli', 'Ladislau Ritli', ''),
+(3435, 'florin georgescu', 'Florin Georgescu', ''),
+(3438, 'isar lucian', 'Lucian Isar', ''),
+(3439, 'andrei marga', 'Andrei Marga', ''),
+(3442, 'constantin daniel', 'Daniel Constantin', ''),
+(3443, 'corneliu dobritoiu', 'Corneliu Dobriţoiu', ''),
+(3444, 'cepoi vasile', 'Vasile Cepoi', ''),
+(3445, 'liviu marian pop', 'Liviu Marian Pop', '');
 
 -- --------------------------------------------------------
 
@@ -940,7 +1063,7 @@ CREATE TABLE IF NOT EXISTS `people_declarations_highlights` (
   `end_word` int(11) NOT NULL,
   `content` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -986,7 +1109,7 @@ CREATE TABLE IF NOT EXISTS `people_history` (
   KEY `idperson` (`idperson`),
   KEY `what` (`what`),
   KEY `time` (`time`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=7125 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=7161 ;
 
 --
 -- Dumping data for table `people_history`
@@ -998,7 +1121,62 @@ INSERT INTO `people_history` (`id`, `idperson`, `what`, `url`, `time`) VALUES
 (4623, 453, 'results/2008', 'http://alegeri-2008.ro/candidati/x-10/', 0),
 (6089, 453, 'catavencu/2008', 'http://www.catavencu.ro/bucuresti-4474.html', 0),
 (7072, 453, 'senat/2008', '/', 1230768000),
-(7082, 453, 'pres/2009', 'http://www.alegeri.tv/alegeri-prezidentiale-2009', 1258848000);
+(7082, 453, 'pres/2009', 'http://www.alegeri.tv/alegeri-prezidentiale-2009', 1258848000),
+(7096, 3396, 'gov/ro', 'www.gov.ro', 1258848000),
+(7097, 300, 'gov/ro', 'www.gov.ro', 1258848000),
+(7098, 3397, 'gov/ro', 'www.gov.ro', 1258848000),
+(7099, 150, 'gov/ro', 'www.gov.ro', 1258848000),
+(7100, 29, 'gov/ro', 'www.gov.ro', 1258848000),
+(7101, 3399, 'gov/ro', 'www.gov.ro', 1258848000),
+(7102, 167, 'gov/ro', 'www.gov.ro', 1258848000),
+(7103, 9, 'gov/ro', 'www.gov.ro', 1258848000),
+(7104, 354, 'gov/ro', 'www.gov.ro', 1258848000),
+(7105, 520, 'gov/ro', 'www.gov.ro', 1258848000),
+(7106, 922, 'gov/ro', 'www.gov.ro', 1258848000),
+(7107, 101, 'gov/ro', 'www.gov.ro', 1258848000),
+(7108, 1130, 'gov/ro', 'www.gov.ro', 1258848000),
+(7109, 3400, 'gov/ro', 'www.gov.ro', 1258848000),
+(7110, 1027, 'gov/ro', 'www.gov.ro', 1258848000),
+(7111, 3401, 'gov/ro', 'www.gov.ro', 1258848000),
+(7112, 2284, 'gov/ro', 'www.gov.ro', 1258848000),
+(7113, 243, 'gov/ro', 'www.gov.ro', 1258848000),
+(7114, 259, 'gov/ro', 'www.gov.ro', 1258848000),
+(7115, 301, 'gov/ro', 'www.gov.ro', 1258848000),
+(7125, 3415, 'gov/ro', 'http://www.guv.ro/mihai-razvan-ungureanu-prim-ministru__l1a1.html', 1330362940),
+(7126, 59, 'gov/ro', 'http://www.gov.ro/marko-bela__l1a103794.html', 1328820586),
+(7127, 703, 'gov/ro', 'http://www.gov.ro/gabriel-berca__l1a115903.html', 1328820586),
+(7128, 3420, 'gov/ro', 'http://www.gov.ro/bogdan-alexandru-dragoi__l1a115906.html', 1328820586),
+(7129, 1982, 'gov/ro', 'http://www.gov.ro/lucian-nicolae-bode__l1a115907.html', 1328820586),
+(7132, 505, 'gov/ro', 'www.gov.ro', 1328820586),
+(7131, 3421, 'gov/ro', 'http://www.gov.ro/leonard-orban__l1a164.html', 1328820586),
+(7133, 3200, 'gov/ro', 'www.gov.ro', 1328820586),
+(7134, 1050, 'gov/ro', 'www.guv.ro', 1328820586),
+(7135, 325, 'gov/ro', 'www.guv.ro', 1328820586),
+(7136, 379, 'gov/ro', 'www.guv.ro', 1328820586),
+(7137, 2265, 'gov/ro', 'ww.guv.ro', 1328820586),
+(7138, 571, 'gov/ro', 'www.guv.ro', 1328820586),
+(7139, 3422, 'gov/ro', 'www.guv.ro', 1328820586),
+(7140, 3423, 'gov/ro', 'www.guv.ro', 1328820586),
+(7141, 350, 'gov/ro', 'www.guv.ro', 1328820586),
+(7142, 1602, 'gov/ro', 'www.guv.ro', 1334016000),
+(7143, 3435, 'gov/ro', 'http://www.gov.ro/florin-georgescu__l1a116984.html', 1336435200),
+(7144, 3161, 'gov/ro', 'http://www.gov.ro/ioan-rus__l1a116985.html', 1336435200),
+(7145, 3439, 'gov/ro', 'http://www.gov.ro/andrei-marga__l1a116986.html', 1336435200),
+(7146, 506, 'gov/ro', 'http://www.gov.ro/titus-corlatean__l1a116987.html', 1336435200),
+(7147, 3442, 'gov/ro', 'http://www.gov.ro/titus-corlatean__l1a116987.html', 1336435200),
+(7148, 1024, 'gov/ro', 'http://www.gov.ro/mariana-campeanu__l1a116989.html', 1336435200),
+(7149, 1555, 'gov/ro', 'http://www.gov.ro/daniel-chitoiu__l1a116990.html', 1336435200),
+(7150, 481, 'gov/ro', 'http://www.gov.ro/ovidiu-ioan-silaghi__l1a116991.html', 1336435200),
+(7151, 516, 'gov/ro', 'http://www.gov.ro/rovana-plumb__l1a116992.html', 1336435200),
+(7152, 214, 'gov/ro', 'http://www.gov.ro/eduard-hellvig__l1a116993.html', 1336435200),
+(7153, 3443, 'gov/ro', 'http://www.gov.ro/corneliu-dobritoiu__l1a116994.html', 1336435200),
+(7154, 773, 'gov/ro', 'http://www.gov.ro/ioan-mang__l1a116995.html', 1336435200),
+(7155, 3444, 'gov/ro', 'http://www.gov.ro/vasile-cepoi__l1a116996.html', 1336435200),
+(7156, 645, 'gov/ro', 'http://www.gov.ro/mircea-diaconu__l1a116998.html', 1336435200),
+(7157, 406, 'gov/ro', 'http://www.gov.ro/mircea-dusa__l1a117000.html', 1336435200),
+(7158, 1492, 'gov/ro', 'http://www.gov.ro/victor-paul-dobre__l1a117001.html', 1336435200),
+(7159, 3438, 'gov/ro', 'http://www.gov.ro/lucian-isar__l1a117002.html', 1336435200),
+(7160, 3445, 'gov/ro', 'http://www.gov.ro/liviu-marian-pop__l1a117003.html', 1336435200);
 
 -- --------------------------------------------------------
 
