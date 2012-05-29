@@ -19,14 +19,14 @@
 
 if ($_SERVER['SERVER_NAME'] == 'localhost' ||
     $_SERVER['SERVER_NAME'] == 'zen.dev') {
-  define('DB_NAME', 'hartapoliticii_pistruiatul');
+  define('DB_NAME', $DB_NAME);
 	/** MySQL database username */
   define('DB_USER', $DB_USER);
   /** MySQL database password */
   define('DB_PASSWORD', $DB_PASS);
   /** MySQL hostname */
   define('DB_HOST', 'localhost');
-
+  define('WP_DEBUG', true);
 } else {
   define('DB_NAME', 'hartapoliticii_pistruiatul');
 
