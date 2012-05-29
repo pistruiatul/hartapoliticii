@@ -52,6 +52,7 @@ while ($r = mysql_fetch_array($s)) {
 }
 
 $t = new Smarty();
+$t->assign('person_name', $person->getUrlName());
 $t->assign('positions', $positions);
 $t->display('mod_gov_ro.tpl');
 

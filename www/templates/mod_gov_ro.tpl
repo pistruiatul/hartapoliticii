@@ -25,9 +25,9 @@
     </td>
 
     <td valign="top">
-      <a href="{$positions[p].link}">
+      <a href="?name={$person_name}&exp=gov/ro">
         {$positions[p].title}</a> în cabinetul&nbsp;
-      <a href="?cid=9&id={$positions[p].cabinet.person_id}">
+      <a href="?cid=9&id={$positions[p].cabinet.person_id}&exp=gov/ro">
         {$positions[p].cabinet.display_name}</a><br>
     </td>
   </tr>

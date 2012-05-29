@@ -11,7 +11,13 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   $s = mysql_query("SELECT name FROM people WHERE id = {$_GET['id']}");
   if ($r = mysql_fetch_array($s)) {
     $om = str_replace(' ', '+', $r['name']);
-    header("Location: /?name={$om}");
+
+    $url = "/?name={$om}";
+    if ($_GET['exp']) {
+      $url .= "&exp=" . $_GET['exp'];
+    }
+
+    header("Location: " . $url);
   }
 }
 
