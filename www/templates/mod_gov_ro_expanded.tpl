@@ -7,12 +7,13 @@
   {assign var="prime_minister" value=$prime_ministers[$i]}
   <tr>
     <td>
-      {$prime_minister.title}
+      <b>{$prime_minister.title}</b>
     </td>
     <td>
-      {$prime_minister.display_name}
+      <b>{$prime_minister.display_name}</b>
     </td>
     <td>
+      <b>
       <nobr>
       {$prime_minister.time_from|date_format:"%e %b %Y"} - 
       </nobr>
@@ -23,6 +24,7 @@
         {$prime_minister.time_to|date_format:"%e %b %Y"}
         </nobr>
       {/if}
+      </b>
     </td>
   </tr>
   {assign var="viceprime_minister" value=$viceprime_ministers[$i]}
