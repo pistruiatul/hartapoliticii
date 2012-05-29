@@ -11,7 +11,7 @@ include_once('hp-includes/people_util.php');
 // files since we load the file based on the module name.
 function isExpandedModule($str) {
   if ($str == 'news' || $str == 'cdep/2008' || $str == 'senat/2008' ||
-      $str == 'person_declarations') {
+      $str == 'person_declarations' || $str == 'gov/ro') {
     return $str;
   }
   return NULL;
