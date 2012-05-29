@@ -26,7 +26,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost' ||
   define('DB_PASSWORD', $DB_PASS);
   /** MySQL hostname */
   define('DB_HOST', 'localhost');
-  define('WP_DEBUG', true);
+
 } else {
   define('DB_NAME', 'hartapoliticii_pistruiatul');
 
