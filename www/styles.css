@@ -474,13 +474,46 @@ body {
 }
 
 /* ------------------------------------------------------------------*/
-/* Some styles for the government mod. */
+/* gov_ro mods */
 
 .position_dates {
   color: #999;
   display: inline;
 }
 
+.gov_name {
+  font-size: 15px;
+}
+
+.gov_position, .gov_position_highlighted {
+  font-size: 13px;
+  color: #666;
+  float: right;
+  text-align: right;
+}
+
+.gov_position_highlighted {
+  font-size: 15px;
+  color: #000;
+  font-weight: bold;
+}
+
+.gov_avatar {
+  float: left;
+  margin-right: 10px;
+  width: 22px;
+  height: 30px;
+}
+
+.gov_position .time_period {
+  font-size: 13px;
+  color: #CCC;
+}
+
+.gov_position_highlighted .time_period {
+  font-size: 13px;
+  color: #333;
+}
 
 /* ------------------------------------------------------------------*/
 /* Declarations module */

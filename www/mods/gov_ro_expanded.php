@@ -1,5 +1,7 @@
 <?php
 
+include('pages/functions_common.php');
+
 /**
  * Returns the name of the person holding the prime-minister function at the
  * time passed in as a parameter.
@@ -23,7 +25,9 @@ function getPrimeMinister($time) {
     'display_name' => $r['display_name'],
     'time_from' => $r['mintime'],
     'time_to' => $r['maxtime'],
-    'person_id' => $r['idperson']);
+    'idperson' => $r['idperson'],
+    'tiny_img_url' => getTinyImgUrl($r['idperson'])
+  );
 }
 
 function getVicePrimeMinister($prime_minister) {
@@ -42,9 +46,10 @@ function getVicePrimeMinister($prime_minister) {
   $vice = array (
       'display_name' => $r['display_name'],
       'title' => $r['title'],
-      'person_id' => $r['idperson'],
+      'idperson' => $r['idperson'],
       'time_from' => $r['mintime'],
-      'time_to' => $r['maxtime']
+      'time_to' => $r['maxtime'],
+      'tiny_img_url' => getTinyImgUrl($r['idperson'])
     );
 
   return $vice;
@@ -70,9 +75,10 @@ function getGovernment($prime_minister, $current_person_id) {
     $member = array (
       'display_name' => $r['display_name'],
       'title' => $r['title'],
-      'person_id' => $r['idperson'],
+      'idperson' => $r['idperson'],
       'time_from' => $r['mintime'],
-      'time_to' => $r['maxtime']
+      'time_to' => $r['maxtime'],
+      'tiny_img_url' => getTinyImgUrl($r['idperson'])
     );
 
     array_push($government, $member);
@@ -106,10 +112,11 @@ while ($r = mysql_fetch_array($s)) {
   $position = array(
     'display_name' => $person->displayName,
     'title' => $r['title'],
-    'person_id' => $person->id,
+    'idperson' => $person->id,
     'link' => $r['link'],
     'time_from' => $r['mintime'],
-    'time_to' => $r['maxtime']
+    'time_to' => $r['maxtime'],
+    'tiny_img_url' => getTinyImgUrl($person->id)
   );
 
   $government = getGovernment($prime_minister, $person->id);

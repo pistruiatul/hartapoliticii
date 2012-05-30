@@ -2,98 +2,26 @@
 
 {foreach from=$governments item=government name=government}
   {strip}
-<table>
-  {assign var="i" value=$smarty.foreach.government.index}
-  {assign var="prime_minister" value=$prime_ministers[$i]}
-  <tr>
-    <td>
-      <b>{$prime_minister.title}</b>
-    </td>
-    <td>
-      <b>{$prime_minister.display_name}</b>
-    </td>
-    <td>
-      <b>
-      <nobr>
-      {$prime_minister.time_from|date_format:"%e %b %Y"} - 
-      </nobr>
-      {if $prime_minister.time_to == 0}
-        prezent
-      {else}
-        <nobr>
-        {$prime_minister.time_to|date_format:"%e %b %Y"}
-        </nobr>
-      {/if}
-      </b>
-    </td>
-  </tr>
-  {assign var="viceprime_minister" value=$viceprime_ministers[$i]}
-  <tr>
-    <td>
-      {$viceprime_minister.title}
-    </td>
-    <td>
-      {$viceprime_minister.display_name}
-    </td>
-    <td>
-      <nobr>
-      {$viceprime_minister.time_from|date_format:"%e %b %Y"} - 
-      </nobr>
-      {if $viceprime_minister.time_to == 0}
-        prezent
-      {else}
-        <nobr>
-        {$viceprime_minister.time_to|date_format:"%e %b %Y"}
-        </nobr>
-      {/if}
-    </td>
-  </tr>
-  {assign var="position" value=$positions[$i]}
-  {if not $position.title|stristr:'prim'}
-  <tr>
-    <td>
-      {$position.title}
-    </td>
-    <td>
-      {$position.display_name}
-    </td>
-    <td>
-      <nobr>
-      {$position.time_from|date_format:"%e %b %Y"} - 
-      </nobr>
-      {if $position.time_to == 0}
-        prezent
-      {else}
-        <nobr>
-        {$position.time_to|date_format:"%e %b %Y"}
-        </nobr>
-      {/if}
-    </td>
-  {/if}
-  </tr>
-{foreach from=$government item=member name=member}
-  <tr>
-    <td>
-    {$member.title}
-    </td>
-    <td>
-    {$member.display_name}
-    </td>
-    <td>
-      <nobr>
-      {$member.time_from|date_format:"%e %b %Y"} - 
-      </nobr>
-      {if $member.time_to == 0}
-        prezent
-      {else}
-        <nobr>
-        {$member.time_to|date_format:"%e %b %Y"}
-        </nobr>
-      {/if}
-    </td>
-  </tr>
-{/foreach}
+  <table width="590">
+    {assign var="i" value=$smarty.foreach.government.index}
+
+    {include file="mod_gov_ro_expanded_person_row.tpl"
+        person=$prime_ministers[$i]
+        highlight=true}
+
+    {include file="mod_gov_ro_expanded_person_row.tpl"
+        person=$viceprime_ministers[$i]}
+
+    {if not $positions[$i].title|stristr:'prim'}
+      {include file="mod_gov_ro_expanded_person_row.tpl" person=$positions[$i]}
+    {/if}
+
+    {foreach from=$government item=member name=member}
+      {include file="mod_gov_ro_expanded_person_row.tpl" person=$member}
+    {/foreach}
+
+  </table>
+  <hr>
   {/strip}
-</table>
 <br />
 {/foreach}
