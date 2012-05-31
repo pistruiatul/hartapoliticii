@@ -20,14 +20,20 @@ function getPrimeMinister($time) {
   $s = mysql_query($sql);
   $r = mysql_fetch_array($s);
 
-  return array(
+  $prime_person = new Person();
+  $prime_person->setId($r['idperson']);
+
+  $prime = array(
     'title' => $r['title'],
     'display_name' => $r['display_name'],
     'time_from' => $r['mintime'],
     'time_to' => $r['maxtime'],
     'idperson' => $r['idperson'],
+    'history_snippet' => $prime_person->getHistorySnippet(),
     'tiny_img_url' => getTinyImgUrl($r['idperson'])
   );
+
+  return $prime;
 }
 
 function getVicePrimeMinister($prime_minister) {
@@ -43,12 +49,17 @@ function getVicePrimeMinister($prime_minister) {
 
   $s = mysql_query($sql);
   $r = mysql_fetch_array($s);
+
+  $vice_person = new Person();
+  $vice_person->setId($r['idperson']);
+
   $vice = array (
       'display_name' => $r['display_name'],
       'title' => $r['title'],
       'idperson' => $r['idperson'],
       'time_from' => $r['mintime'],
       'time_to' => $r['maxtime'],
+      'history_snippet' => $vice_person->getHistorySnippet(),
       'tiny_img_url' => getTinyImgUrl($r['idperson'])
     );
 
@@ -72,12 +83,16 @@ function getGovernment($prime_minister, $current_person_id) {
 
   $s = mysql_query($sql);
   while ($r = mysql_fetch_array($s)) {
+    $gov_person = new Person();
+    $gov_person->setId($r['idperson']);
+
     $member = array (
       'display_name' => $r['display_name'],
       'title' => $r['title'],
       'idperson' => $r['idperson'],
       'time_from' => $r['mintime'],
       'time_to' => $r['maxtime'],
+      'history_snippet' => $gov_person->getHistorySnippet(),
       'tiny_img_url' => getTinyImgUrl($r['idperson'])
     );
 
@@ -116,6 +131,7 @@ while ($r = mysql_fetch_array($s)) {
     'link' => $r['link'],
     'time_from' => $r['mintime'],
     'time_to' => $r['maxtime'],
+    'history_snippet' => $person->getHistorySnippet(),
     'tiny_img_url' => getTinyImgUrl($person->id)
   );
 

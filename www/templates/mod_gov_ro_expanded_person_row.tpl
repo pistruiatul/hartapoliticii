@@ -8,7 +8,8 @@
     <div class="gov_name">
       <a href="/?cid=9&id={$person.idperson}">
         {$person.display_name}
-      </a>
+      </a><br />
+      {$person.history_snippet}
     </div>
   </td>
 
