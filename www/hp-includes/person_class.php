@@ -303,9 +303,9 @@ class Person {
        WHERE idperson={$this->id}
        ORDER BY id DESC");
     while ($r = mysql_fetch_array($s)) {
-      $url = $r['url'];
-      $moduleTitle = $this->getShortTitleForWhat($r['what']);
+      if ($r['what'] == 'alegeri/2008') continue;
 
+      $moduleTitle = $this->getShortTitleForWhat($r['what']);
       $arr[] = "<div class=what>$moduleTitle</div>";
     }
     return implode(", ", $arr);

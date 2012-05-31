@@ -1,19 +1,21 @@
 {* Smarty *}
 
-<tr>
+<tr class="gov_person_row">
   <td valign="top">
     <img src="{$person.tiny_img_url}" class="gov_avatar">
   </td>
-  <td valign="top">
+  <td valign="top" width="60%">
     <div class="gov_name">
       <a href="/?cid=9&id={$person.idperson}">
         {$person.display_name}
-      </a><br />
+      </a>
+    </div>
+    <div class="gov_snippet">
       {$person.history_snippet}
     </div>
   </td>
 
-  <td>
+  <td valign="top">
     <div class="gov_position{if $highlight}_highlighted{/if}">
       {$person.title}<br>
       <span class="time_period">

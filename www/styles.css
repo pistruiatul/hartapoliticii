@@ -507,12 +507,21 @@ body {
 
 .gov_position .time_period {
   font-size: 13px;
-  color: #CCC;
+  color: #CCC !important;
 }
 
 .gov_position_highlighted .time_period {
   font-size: 13px;
   color: #333;
+}
+
+.gov_snippet {
+  font-size: 12px;
+  color: #CCC;
+}
+
+.gov_person_row td {
+  padding-bottom: 10px;
 }
 
 /* ------------------------------------------------------------------*/
