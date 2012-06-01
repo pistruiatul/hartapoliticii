@@ -485,6 +485,10 @@ body {
   font-size: 15px;
 }
 
+.gov_name a {
+  text-decoration: none;
+}
+
 .gov_position, .gov_position_highlighted {
   font-size: 13px;
   color: #333;
@@ -507,7 +511,7 @@ body {
 
 .gov_position .time_period {
   font-size: 13px;
-  color: #CCC !important;
+  color: #999 !important;
 }
 
 .gov_position_highlighted .time_period {
