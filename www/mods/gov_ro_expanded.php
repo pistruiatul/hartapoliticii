@@ -2,6 +2,16 @@
 
 include('pages/functions_common.php');
 
+
+function removeUselessPrefix($title) {
+  $needle = "Ministrul ";
+  $length = strlen($needle);
+  if (substr($title, 0, $length) === $needle) {
+    return substr($title, $length);
+  }
+  return $title;
+}
+
 /**
  * Returns the name of the person holding the prime-minister function at the
  * time passed in as a parameter.
@@ -24,7 +34,7 @@ function getPrimeMinister($time) {
   $prime_person->setId($r['idperson']);
 
   $prime = array(
-    'title' => $r['title'],
+    'title' => removeUselessPrefix($r['title']),
     'display_name' => $r['display_name'],
     'time_from' => $r['mintime'],
     'time_to' => $r['maxtime'],
@@ -55,7 +65,7 @@ function getVicePrimeMinister($prime_minister) {
 
   $vice = array (
       'display_name' => $r['display_name'],
-      'title' => $r['title'],
+      'title' => removeUselessPrefix($r['title']),
       'idperson' => $r['idperson'],
       'time_from' => $r['mintime'],
       'time_to' => $r['maxtime'],
@@ -88,7 +98,7 @@ function getGovernment($prime_minister, $current_person_id) {
 
     $member = array (
       'display_name' => $r['display_name'],
-      'title' => $r['title'],
+      'title' => removeUselessPrefix($r['title']),
       'idperson' => $r['idperson'],
       'time_from' => $r['mintime'],
       'time_to' => $r['maxtime'],
@@ -126,7 +136,7 @@ while ($r = mysql_fetch_array($s)) {
 
   $position = array(
     'display_name' => $person->displayName,
-    'title' => $r['title'],
+    'title' => removeUselessPrefix($r['title']),
     'idperson' => $person->id,
     'link' => $r['link'],
     'time_from' => $r['mintime'],
