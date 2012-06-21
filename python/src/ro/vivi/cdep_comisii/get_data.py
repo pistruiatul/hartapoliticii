@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """
-Created on April 14, 2012
-
 Comisii & comisii from cdep.ro
 
 @author: cornel
@@ -17,7 +15,7 @@ import time
 
 import hashlib
 import json
-import os
+import os, getopt
 import urllib2, urllib
 
 from urllib2 import URLError
@@ -26,6 +24,8 @@ from sets import Set
 #from dateutil.relativedelta import relativedelta
 
 from ro.vivi.hplib import *
+
+import MySQLdb
 
 # page start 
 # http://www.cdep.ro/pls/parlam/structura.co
@@ -38,7 +38,7 @@ from ro.vivi.hplib import *
   # sedinte
   # http://www.cdep.ro/co/sedinte.lista?tip=<ID>&an=2012 # 2011, 2010, 2009
 
-  # documente
+  # documente/proiecte
   # http://www.cdep.ro/pls/proiecte/upl_com.lista?idc=<ID>&an=2012
 
 def get_comisii(tmp_dir):
@@ -46,7 +46,7 @@ def get_comisii(tmp_dir):
   comisii_page = get_page(link, tmp_dir)
   reg_comisii = re.compile('HREF="/pls/parlam/structura\.co\?idc=(\d+)">(.*?)<\/')
 
-  return Set(reg_comisii.findall(comisii_page))
+  return list(Set(reg_comisii.findall(comisii_page)))
 
 def get_meetings(com_id, year, tmp_dir):
   link = 'http://www.cdep.ro/co/sedinte.lista?tip=%s&an=%s' % (com_id, year) # 2011, 2010, 2009
@@ -137,7 +137,7 @@ def extract_former_members(tb):
 
 # extracts data from the html page (it also retrives it)
 #
-def get_comisie_details(id, tmp_dir):
+def get_commitee_details(id, tmp_dir):
   try:
     id = int(id)
   except ValueError:
@@ -146,7 +146,12 @@ def get_comisie_details(id, tmp_dir):
   members = []
   link = 'http://www.cdep.ro/pls/parlam/structura.co?idc=%d' % id
   print " + %s" % link
-  comisie_page = get_page(link, tmp_dir)
+  try:
+    comisie_page = get_page(link, tmp_dir)
+  except:
+    print "  :) skipping for now"
+    return members
+  
   soup = BeautifulSoup(comisie_page)
   tbs = soup.findAll('table', attrs={"class" : "tip01"})
 
@@ -192,7 +197,7 @@ def get_bin_file(link, tmp_dir):
   # First, see if this is already cached.
   fname = tmp_dir + '/bin_cache/%s%s' % (hashlib.md5(link).hexdigest(), file_ext)
   if os.path.exists(fname):
-    return get_file_data(fname)
+    return fname
 
   success = False
   while not success:
@@ -206,9 +211,8 @@ def get_bin_file(link, tmp_dir):
       cache_file.write(data)
       cache_file.close()
 
-      return data
-    except _, e:
-      print e
+      return fname
+    except:
       print "Timed out, retrying ", link
       success = False
       time.sleep(2)
@@ -221,16 +225,59 @@ def get_documents(meetings, year, tmp_dir):
       link = d['link']
       if reg_pdf.search(link, re.I) is None:
         continue
+
+      ## fix damn ș`s
+      #link = re.sub(u'\u0219', '&#537;', link)
       if re.match('/', link):
         link = 'http://www.cdep.ro' + re.sub(' ', '%20', link)
       else:
         link = 'http://www.cdep.ro/co/' + re.sub(' ', '%20', link)
-      get_bin_file(link, tmp_dir)
+      try:
+        get_bin_file(link, tmp_dir)
+      except:
+        print ' :[ skiping file ', link
 
 
-def main():
+def get_db():
+  db = MySQLdb.Connection(
+              host = 'localhost', 
+              db   = 'hartapoliticii_pistruiatul',
+              user = 'cornel',
+              passwd = 'a'
+            )
+  db.set_character_set('utf8')
+  cursor = db.cursor()
+  cursor.execute('SET NAMES utf8')
+  cursor.execute('SET CHARACTER SET utf8')
+  cursor.execute('SET character_set_connection=utf8')
+  
+  return cursor
+
+def get_db_committees(db):
+  sql = "SELECT idcom, name, link FROM committees ORDER BY idcom"
+  db.execute(sql)
+  return db.fetchall()
+
+def store_committees(db, committees):
+  sql = "INSERT INTO committees (idcom, name, link) " \
+        + " VALUES(%s, %s, %s)"
+ 
+  for c in committees:
+    (idcom, name) = c
+    link = 'http://www.cdep.ro/pls/parlam/structura.co?idc=%s' % idcom
+    db.execute(sql, (idcom, name, link))
+
+def usage():
+  print """
+    get_data.py -t tmddir [-y <YEAR=2012>] -a <committees|members|meetings>
+  """
+
+def main(argv):
   """ Main function. """
   global TMP_DIR
+  global debug
+
+  debug = False
 
   if len(sys.argv) <= 1:
     print "The first argument should be the output directory."
@@ -238,25 +285,113 @@ def main():
   else:
     TMP_DIR = sys.argv[1]
 
+  if len(sys.argv) >= 2:
+    debug = True
+
+  for d in [TMP_DIR, "%s/%s" % (TMP_DIR, 'cache'),  "%s/%s" % (TMP_DIR, 'bin_cache')]:
+    if (not os.path.exists(d)):
+      os.mkdir(d)
+
+  # year we're interested in
+  year = '2012'
+
+  committees = get_comisii(TMP_DIR)
+  if debug:
+    print "Found %d comisii\n" % len(committees)
+
+  #print json.dumps(committees)
+
+  for c in committees:
+    idcom, name = c
+
+    # get members of this commitee
+    members = get_commitee_details(idcom, TMP_DIR)
+    #print json.dumps(members)
+    
+    #for m in members:
+    #  # name, funcție, party, in, out = m
+    #  print m[0], m[1]
+
+    # get meetings for the given year
+    meetings = get_meetings(idcom, year, TMP_DIR)
+    #print json.dumps(meetings)
+    # meetings[0] = (<date,ro>, [<doc1>, doc2]), where dict x = {name: $name, link: $link}
+    print "\t* %d meetings" % len(meetings)
+    
+    continue
+    get_documents(meetings, year, TMP_DIR)
+
+
+
+def main__(argv):
+  """ Main function. """
+  global TMP_DIR
+  global _debug
+
+  actions = ('committees', 'members', 'meetings')
+
+  TMP_DIR = "/tmp"
+  _debug = 0
+  action = ''
+
+  # year we're interested in
+  year = '2012'
+
+  try:                                
+    opts, args = getopt.getopt(argv, "ht:y:a:d", ['help', 'tmpdir=', 'year=', 'action='])
+  except getopt.GetoptError:
+    usage()
+    sys.exit(2)
+
+  for opt, arg in opts:
+    if opt in ("-h", "--help"):
+      usage()
+      sys.exit()
+    elif opt in ("-t", "--tmpdir"):
+      TMP_DIR = arg
+    elif opt == '-d':
+      _debug = 1
+    elif opt in ('-y', '--year'):
+      year = arg
+    elif opt in ('-a', '--action'):
+      action = arg
+
+  if action not in actions:
+    print "\n    Error: unkown action [%s]" % action
+    usage()
+    sys.exit(2)
+
+  if _debug: print opts
+
   print "tmp_dir: %s" % TMP_DIR
+  print "action: %s" % action
+  print "year: %s" % year
 
-  if True:
-    comisii = get_comisii(TMP_DIR)
-    print "Found %d comisii\n" % len(comisii)
-    if len(comisii) > 0:
-      for comisie in comisii:
-        com_id = comisie[0]
-        if com_id != '1': continue
-        members = get_comisie_details(com_id, TMP_DIR)
-        print "\t* %d membri" % len(members)
-        years = [2012]
-        #years = [2009, 2010, 2011, 2012]
-        for y in years:
-          meetings = get_meetings(com_id, y, TMP_DIR)
-          # sedinte[0] = (<date,ro>, [<doc1>, doc2]), where dict x = {name: $name, link: $link}
-          print "\t* %d meetings" % len(meetings)
-          get_documents(meetings, y, TMP_DIR)
+  db = get_db()
 
+  if action == 'committees':
+    committees = get_comisii(TMP_DIR)
+    print "Found %d comisii\n" % len(committees)
+    store_committees(db, committees)
 
-main()
+  comms = get_db_committees(db)
+
+  if action == 'members':
+    for c in comms:
+      idcom, name, _ = c
+      if _debug and idcom != '1': continue
+      members = get_commitee_details(idcom, TMP_DIR)
+      for m in members:
+        # name, funcție, party, in, out = m
+        print m[0], m[1]
+
+      continue
+      # get meetings for the given year
+      meetings = get_meetings(com_id, year, TMP_DIR)
+      # meetings[0] = (<date,ro>, [<doc1>, doc2]), where dict x = {name: $name, link: $link}
+      print "\t* %d meetings" % len(meetings)
+      get_documents(meetings, year, TMP_DIR)
+
+if __name__ == "__main__":
+  main(sys.argv[1:])
 
