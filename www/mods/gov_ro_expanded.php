@@ -86,8 +86,8 @@ function getGovernment($prime_minister, $current_person_id) {
         title NOT LIKE 'viceprim%' AND
         mintime >= {$prime_minister[time_from]} AND
         ((maxtime = 0 AND {$prime_minister[time_to]} = 0) OR
-        (maxtime != 0 AND maxtime <= {$prime_minister[time_to]}))
-    ORDER BY title";
+        (maxtime != 0 AND maxtime >= {$prime_minister[time_to]}))
+    ORDER BY maxtime, title";
 
   $government = array();
 
