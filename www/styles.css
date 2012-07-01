@@ -489,6 +489,10 @@ body {
   text-decoration: none;
 }
 
+.gov_name a:hover {
+  text-decoration: underline;
+}
+
 .gov_position, .gov_position_highlighted {
   font-size: 13px;
   color: #333;
