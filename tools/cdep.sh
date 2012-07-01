@@ -5,6 +5,15 @@ set -x
 
 TEMP="/work/tmp/cdep"
 
+unamestr=`uname -s`
+if [[ "$unamestr" == 'Linux' ]]; then
+   TEMP="/tmp/work/cdep"
+   # Create TEMP dir if it does not exist
+   test -d "$TEMP" || mkdir -p "$TEMP"
+fi
+echo 'System: ' $unamestr
+echo 'Temporary dir: '$TEMP
+
 # Get the pages with the votes.
 /usr/bin/python ./python/src/ro/vivi/cdep_crawler/1_get_votes_pages.py $TEMP
 
