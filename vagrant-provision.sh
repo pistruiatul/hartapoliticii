@@ -32,6 +32,6 @@ debconf-set-selections /var/local/preseeding-mysql-server.seed
 apt-get install -y mysql-client mysql-server
 
 # TODO only run once:
-#mysqladmin -u root -proot password ""
+mysqladmin -u root -proot password "" || echo "root password already blank?"
 mysql -u root -e "create database hartapoliticii"
 mysql -u root hartapoliticii < /vagrant/db/hartapoliticii_mock_data.sql
