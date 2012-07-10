@@ -13,3 +13,6 @@ secret
 \#*
 *~
 tmp
+
+# Ignore vagrant status file
+.vagrant
