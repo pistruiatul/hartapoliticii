@@ -25,17 +25,17 @@ if ($_SERVER['SERVER_NAME'] == 'localhost' ||
   /** MySQL database password */
   define('DB_PASSWORD', $DB_PASS);
   /** MySQL hostname */
-  define('DB_HOST', 'localhost');
+  define('DB_HOST', $DB_HOST);
 
 } else {
-  define('DB_NAME', 'hartapoliticii_pistruiatul');
+  define('DB_NAME', $DB_NAME);
 
   /** MySQL database username */
   define('DB_USER', $DB_USER);
   /** MySQL database password */
   define('DB_PASSWORD', $DB_PASS);
   /** MySQL hostname */
-  define('DB_HOST', 'localhost:/tmp/mysql5.sock');
+  define('DB_HOST', $DB_HOST);
 }
 
 /** Database Charset to use in creating database tables. */
