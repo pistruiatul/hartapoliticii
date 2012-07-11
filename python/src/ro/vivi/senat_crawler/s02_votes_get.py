@@ -23,6 +23,8 @@ import md5
 import urllib2
 import sys
 
+from xml.etree import ElementTree as parse
+
 def get_votes_from_file(fname):
   """ Crawls all the pages with votes on them (the daily stuff produced at the
   first step in the pipeline) and produces a list of tuples with the links to
@@ -31,35 +33,48 @@ def get_votes_from_file(fname):
   f = open(outdir + '/pages/' + fname)
   page = f.read()
   f.close()
-
-  # Finds all the links to the law pages. These are the pages under the
-  # "Denumire VOT" column, but that's wrongly named.
-  # NOTE: This is the old regular expression and i'll keep it here, just
-  # because I love the 'sergiusenat' format. :-)
-  #
-  #laws = re.findall('(sergiusenat\\.proiect\\.asp\\?cod=(\d*)&amp;pos=(\d*)'
-  #    '&amp;NR=([\w\d]*)&amp;AN=(\d*))" target="_blank">([^<]*)</a>',
-  #    page)
-
-  # <a href="Legis/Lista.aspx?cod=13816&amp;pos=0&amp;NR=L661&amp;AN=2008"
-  # target="_blank">L661/2008| - vot final</a>
-  laws = re.findall('(Legis/Lista\\.aspx\\?cod=(\d*)&amp;pos=(\d*)&amp;'
-      'NR=([\w\d]*)&amp;AN=(\d*))" target="_blank">([^<]*)</a>', page)
-
-  votes = re.findall('(VoturiPlenDetaliu\\.aspx\\?AppID=([\w-]*))" '
-      'target="_blank">([^<]*)<', page)
-
-  if len(laws) > 0:
-    print "Working on ", fname, ", laws: ", len(laws)
+  
+  # This page has h4 html tags that are not closed. 
+  # This causes the parser to fail. There is no need for h4 tags. Remove all
+  strings_to_remove_list = ["<h4>", "</h4>", "&nbsp;", 
+                            " xmlns=\"http://www.w3.org/1999/xhtml\""]
+  for string_to_remove in strings_to_remove_list:
+      page = page.replace(string_to_remove, "")
+  
+  html_page = parse.fromstring(page)
+  
+  # Get all table rows
+  tr_tag_list = html_page.findall("body/form/div/table/tr")
+  
+  if len(tr_tag_list) > 0:
+    print "Working on ", fname, ", laws: ", len(tr_tag_list)
 
   results = []
-  for index in range(len(laws)):
-    law_link = 'http://www.senat.ro/' + laws[index][0].replace('&amp;', '&')
-    vote_link = 'http://www.senat.ro/' + votes[index][0]
-    results.append([law_link, vote_link])
+  # Work trough each row separately
+  for tr_tag in tr_tag_list:
+    # Get the table data from the current row.
+    td_tag_list = tr_tag.findall("td")
+    
+    if td_tag_list:
+      # Only the second and third columns are interesting: 
+      # "Denumire"(law) and "Descriere"(vote)
+      law_anchor_attributes = td_tag_list[1].find("font/a").attrib
+      vote_anchor_attributes = td_tag_list[2].find("font/a").attrib
+      
+      law_link = ""
+      vote_link = ""
 
+      if "href" in law_anchor_attributes:
+        law_link = 'http://www.senat.ro/' + law_anchor_attributes['href']\
+          .replace('&amp;', '&')
+      if "href" in vote_anchor_attributes:
+        vote_link = 'http://www.senat.ro/' + vote_anchor_attributes['href']\
+          .replace("./VoturiPlenDetaliu.aspx?AppID=", 
+                   "VoturiPlenDetaliu.aspx?AppID=")
+        
+      if law_link and vote_link:
+        results.append([law_link, vote_link])
   return results
-
 
 def crawl_voting_and_laws_pages(votes):
   """ Given the tuples of law/vote page URL's, it goes ahead and crawls those
