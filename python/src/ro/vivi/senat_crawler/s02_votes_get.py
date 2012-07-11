@@ -34,8 +34,10 @@ def get_votes_from_file(fname):
   page = f.read()
   f.close()
   
-  # This page has h4 html tags that are not closed. This causes the parser to fail. There is no need for h4 tags. Remove all
-  strings_to_remove_list = ["<h4>", "</h4>", "&nbsp;", " xmlns=\"http://www.w3.org/1999/xhtml\""]
+  # This page has h4 html tags that are not closed. 
+  # This causes the parser to fail. There is no need for h4 tags. Remove all
+  strings_to_remove_list = ["<h4>", "</h4>", "&nbsp;", 
+                            " xmlns=\"http://www.w3.org/1999/xhtml\""]
   for string_to_remove in strings_to_remove_list:
       page = page.replace(string_to_remove, "")
   
@@ -54,7 +56,8 @@ def get_votes_from_file(fname):
     td_tag_list = tr_tag.findall("td")
     
     if td_tag_list:
-      # The second and third columns are interesting: "Denumire"(law) and "Descriere"(vote)
+      # Only the second and third columns are interesting: 
+      # "Denumire"(law) and "Descriere"(vote)
       law_anchor_attributes = td_tag_list[1].find("font/a").attrib
       vote_anchor_attributes = td_tag_list[2].find("font/a").attrib
       
@@ -62,9 +65,12 @@ def get_votes_from_file(fname):
       vote_link = ""
 
       if "href" in law_anchor_attributes:
-        law_link = 'http://www.senat.ro/' + law_anchor_attributes['href'].replace('&amp;', '&')
+        law_link = 'http://www.senat.ro/' + law_anchor_attributes['href']\
+          .replace('&amp;', '&')
       if "href" in vote_anchor_attributes:
-        vote_link = 'http://www.senat.ro/' + vote_anchor_attributes['href'].replace("./VoturiPlenDetaliu.aspx?AppID=", "VoturiPlenDetaliu.aspx?AppID=")
+        vote_link = 'http://www.senat.ro/' + vote_anchor_attributes['href']\
+          .replace("./VoturiPlenDetaliu.aspx?AppID=", 
+                   "VoturiPlenDetaliu.aspx?AppID=")
         
       if law_link and vote_link:
         results.append([law_link, vote_link])
