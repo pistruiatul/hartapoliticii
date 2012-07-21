@@ -14,7 +14,7 @@ import urllib2
 from urllib2 import URLError
 
 
-BASE_URL = 'http://www.hartapoliticii.ro'
+BASE_URL = 'http://hartapoliticii.ro'
 
 
 # A global cache for names. Once we resolved a name we can afterwards look it
