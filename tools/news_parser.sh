@@ -2,16 +2,18 @@
 
 # Export the current directory as a python path so we can include modules
 # from various python scripts as "ro.vivi.module_name"
-PYTHONPATH="`pwd`/python/src"
-export PYTHONPATH
-
 PYBIN='/usr/bin/python'
 
 if [ $HOSTNAME = 'zen.local' ]; then
-  cd /work/hartapoliticii
+  WORKING_DIR=/work/hartapoliticii
 else
-  cd /workspace/hartapoliticii
+  WORKING_DIR=/workspace/hartapoliticii
 fi
+
+PYTHONPATH="$WORKING_DIR/python/src"
+export PYTHONPATH
+
+cd $WORKING_DIR
 
 # TODO: Move the directory where we save cached file somewhere outside the
 # repository.
