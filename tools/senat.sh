@@ -9,13 +9,13 @@ if [ ! -d $TEMP ]; then
 fi
 
 # Get the pages with the days.
-#/usr/bin/python ./python/src/ro/vivi/sawler/s01_days_get.py $TEMP
+/usr/bin/python ./python/src/ro/vivi/senat_crawler/s01_days_get.py $TEMP
 
 # From the files with the days, get the votes and the law pages.
-/usr/bin/python ./python/src/ro/vivi/sawler/s02_votes_get.py $TEMP
+/usr/bin/python ./python/src/ro/vivi/senat_crawler/s02_votes_get.py $TEMP
 
 # From all these files now generate the aggregate monster file.
-/usr/bin/python ./python/src/ro/vivi/sawler/s03_votes_parse.py \
+/usr/bin/python ./python/src/ro/vivi/senat_crawler/s03_votes_parse.py \
   $TEMP $TEMP/senat_2008_agg.txt
 
 # Transform the big file with all votes into a database, plus aggregate stuff.
@@ -51,6 +51,12 @@ mysqldump -u root -proot -v --port=3306 \
   > $TEMP/data.sql
 
 set +x
+
+read -p "Do you want to push this to prod now? [y/n] " -n 1
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit 1
+fi
 
 read -s -p "Enter Password: " PASS
 

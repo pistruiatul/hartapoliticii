@@ -114,7 +114,7 @@ if len(sys.argv) <= 1:
 # Go through all the ids starting with 4829 (the first vote on February 4th 2009
 # from this session. Stop when you don't get anything anymore.
 vote_id = 4828
-last_vote_id = 8828 #int(getMostRecentVoteId())
+last_vote_id = int(getMostRecentVoteId())
 print "Max vote id:", last_vote_id
 
 outdir = sys.argv[1]
