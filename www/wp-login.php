@@ -55,8 +55,8 @@ function login_header($title = 'Log In', $message = '', $wp_error = '') {
 	$shake_error_codes = array( 'empty_password', 'empty_email', 'invalid_email', 'invalidcombo', 'empty_username', 'invalid_username', 'incorrect_password' );
 	$shake_error_codes = apply_filters( 'shake_error_codes', $shake_error_codes );
 
-	if ( $shake_error_codes && $wp_error->get_error_code() && in_array( $wp_error->get_error_code(), $shake_error_codes ) )
-		add_action( 'login_head', 'wp_shake_js', 12 );
+	//if ( $shake_error_codes && $wp_error->get_error_code() && in_array( $wp_error->get_error_code(), $shake_error_codes ) )
+		//add_action( 'login_head', 'wp_shake_js', 12 );
 
 	?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -68,6 +68,7 @@ function login_header($title = 'Log In', $message = '', $wp_error = '') {
   include('header.php');
 ?>
   <link rel="stylesheet" href="styles.css?v=3" />
+  
   <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
   <?php
   do_action('login_head');
@@ -589,17 +590,21 @@ default:
 		<label><?php _e('Password') ?><br />
 		<input type="password" name="pwd" id="user_pass" class="input" value="" size="20" tabindex="20" /></label>
 	</p>
-<?php do_action('login_form'); ?>
+	
+	<?php do_action('login_form'); ?>
+	
 	<p class="forgetmenot"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"<?php checked( $rememberme ); ?> /> <?php esc_attr_e('Remember Me'); ?></label></p>
-	<p class="submit">
-		<input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="<?php esc_attr_e('Log In'); ?>" tabindex="100" />
-<?php	if ( $interim_login ) { ?>
-		<input type="hidden" name="interim-login" value="1" />
-<?php	} else { ?>
-		<input type="hidden" name="redirect_to" value="<?php echo esc_attr($redirect_to); ?>" />
-<?php 	} ?>
-		<input type="hidden" name="testcookie" value="1" />
-	</p>
+		<p class="submit">
+			<input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="<?php esc_attr_e('Log In'); ?>" tabindex="100" />
+	<?php	if ( $interim_login ) { ?>
+			<input type="hidden" name="interim-login" value="1" />
+	<?php	} else { ?>
+			<input type="hidden" name="redirect_to" value="<?php echo esc_attr($redirect_to); ?>" />
+	<?php 	} ?>
+			<input type="hidden" name="testcookie" value="1" />
+		</p>
+	
+	
 </form>
 
 <?php if ( !$interim_login ) { ?>
