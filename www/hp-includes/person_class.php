@@ -643,5 +643,12 @@ class Person {
 
     return $details;
   }
+  
+  /**
+   * Returns the name of the person that can be put in a URL.
+   */
+  public function getNameForUrl() {
+  	return str_replace(' ', '+', $this->name);
+  }
 }
 ?>
