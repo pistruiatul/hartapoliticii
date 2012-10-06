@@ -1,6 +1,11 @@
 # Ignore the IntelliJ project files.
 .idea
 
+# Ignore the Eclipse/Aptana/PyDev project files.
+.project
+.pydevproject
+.settings
+
 .DS_Store
 
 # Ignore .pyc files
@@ -16,3 +21,5 @@ tmp
 
 # Ignore vagrant status file
 .vagrant
+
+
