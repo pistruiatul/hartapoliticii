@@ -2,6 +2,7 @@
 
 include_once('hp-includes/rss_class.php');
 include_once('hp-includes/person_class.php');
+include_once('hp-includes/url_functions.php');
 
 $id = $_GET['id'];
 
@@ -13,54 +14,22 @@ $person->loadFromDb();
 
 $declarations = $person->searchDeclarations('', 0, 10, false, 'all');
 
-function constructUrl($baseUrl, $params, $newParams=array()) {
-  $baseUrl .= '?';
-
-  $p = array_merge($params, $newParams);
-
-  foreach ($p as $key => $value) {
-    $baseUrl .= "{$key}={$value}&";
-  }
-
-  return $baseUrl;
-}
-
 if (sizeof($declarations) > 0) {
 	
+  $title = "Declaratii ".$person->displayName;
+  $linkPath = $person->getPersonDeclarationsUrl();
+  $description = "Fluxul declarațiilor lui ".$person->displayName;
+  $rss = new Rss($title,$linkPath,$description);
   
-  $rssTitle = "Declaratii ".$person->displayName;
-  $rssLinkPath = "?name={$person->getNameForUrl()}&exp=person_declarations";
-  $rssDescription = "Fluxul declarațiilor lui ".$person->displayName;
-  $rss = new Rss($rssTitle,$rssLinkPath,$rssDescription);
-  
-  $t = new Smarty();
-  
-  $rss2['title'] = "Declaratii ".$person->displayName;
-  $rss2['link'] = $site_url."?name={$person->getNameForUrl()}&exp=person_declarations";
-  $rss2['description'] = "Fluxul declarațiilor lui ".$person->displayName;
-
   foreach ($declarations as $declaration) {
-  		
-  	$date = gmdate(DATE_RSS, strtotime($declaration['time'].time()));
-    $rss2_item['title'] = "Declaratie ".$person->displayName." la data de ".$date;
-    $rss2_item['description'] = substr($declaration['declaration'], 0, 250)."...";
-	$rss2_item['link'] = constructUrl($site_url, array(), array(
-	    'name' => $site_url.$person->getNameForUrl(),
-    	'exp' => 'person_declarations',
-    	'decl_id' => $declaration['id']
-  	));
-    $rss2_item['pubDate'] = $date;
-    $rss2_items[] = $rss2_item;
-	
-	
-	$rss->addRssItem()
-	
+  	$rssItemPubDate = gmdate(DATE_RSS, strtotime($declaration['time'].time()));
+    $rssItemTitle = "Declaratie ".$person->displayName." la data de ".$rssItemPubDate;
+    $rssItemDescription = $declaration['declaration'];
+	$rssItemLink = $person->getDeclarationUrl($declaration['id']);
+	$rss->addRssItem($rssItemTitle,$rssItemDescription,$rssItemLink,$rssItemPubDate);
   }
-  $t->assign('rss', $rss2);
-  $t->assign('rss_items', $rss2_items);
-
-  $t->display('rss.tpl');
-  //http://www.phpeveryday.com/articles/Smarty-Variable-Associative-Arrays-P611.html
+  
+  $rss->printRssSmarty();
 }
 
 ?>

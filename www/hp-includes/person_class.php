@@ -1,5 +1,6 @@
 <?php
 require('string_utils.php');
+include_once('url_functions.php');
 
 /**
  * @fileoverview This Class is identifying a person in our table. It's
@@ -650,5 +651,28 @@ class Person {
   public function getNameForUrl() {
   	return str_replace(' ', '+', $this->name);
   }
+  
+  public function getRssDeclarationUrl(){
+	$rssDeclarationUr = constructUrl(getSiteUrl(), array(), array(
+	  'name' => $site_url.$person->getNameForUrl(),
+      'exp' => 'person_declarations',
+      'decl_id' => $declaration['id']
+  	));
+	return $rssDeclarationUr;
+  }
+  
+  public function getPersonDeclarationsUrl(){
+	return getSiteUrl()."?name={$this->getNameForUrl()}&exp=person_declarations";
+  }
+  
+  public function getDeclarationUrl($declarationId){
+  	$declarationUrl = constructUrl(getSiteUrl(), array(), array(
+	    'name' => getSiteUrl().$this->getNameForUrl(),
+    	'exp' => 'person_declarations',
+    	'decl_id' => $declarationId
+  	));
+	return $declarationUrl;
+  }
+  
 }
 ?>
