@@ -6,7 +6,7 @@ if (sizeof($declarations) > 0) {
   $t = new Smarty();
 
   $t->assign('id', $person->id);
-  $t->assign('name', str_replace(' ', '+', $person->name));
+  $t->assign('name', $person->getNameForUrl());
   $t->assign('person', $person);
   $t->assign('declarations', $declarations);
 

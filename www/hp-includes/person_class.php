@@ -670,7 +670,7 @@ class Person {
   
   public function getDeclarationUrl($declarationId){
   	$declarationUrl = constructUrl(getSiteUrl(), array(), array(
-	    'name' => getSiteUrl().$this->getNameForUrl(),
+	    'name' => $this->getNameForUrl(),
     	'exp' => 'person_declarations',
     	'decl_id' => $declarationId
   	));

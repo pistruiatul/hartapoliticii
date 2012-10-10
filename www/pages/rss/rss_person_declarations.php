@@ -19,12 +19,14 @@ if (sizeof($declarations) > 0) {
   $title = "Declaratii ".$person->displayName;
   $linkPath = $person->getPersonDeclarationsUrl();
   $description = "Fluxul declarațiilor lui ".$person->displayName;
-  $rss = new Rss($title,$linkPath,$description);
+  $rssDeclarationUrl = $person->getRssDeclarationUrl();
+  $rss = new Rss($title,$linkPath,$description,$rssDeclarationUrl);
   
   foreach ($declarations as $declaration) {
+  	$declarationText = trim($declaration['declaration']);
     $rssItemPubDate = gmdate(DATE_RSS, $declaration['time']);
-    $rssItemTitle = "Declaratie ".$person->displayName." la data de ".$rssItemPubDate;
-    $rssItemDescription = $declaration['declaration'];
+    $rssItemTitle = $person->displayName.": ".$declarationText;
+    $rssItemDescription = $declarationText;
 	$rssItemLink = $person->getDeclarationUrl($declaration['id']);
 	$rss->addRssItem($rssItemTitle,$rssItemDescription,$rssItemLink,$rssItemPubDate);
   }

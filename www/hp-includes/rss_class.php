@@ -17,17 +17,22 @@ class Rss {
   /** The rss description. */
   public $description;
   
+  /** The URL that points to the origin of the RSS feed. */
+  public $atomLinkSelf;
+  
+  /** The list of rss items. */
   public $rssItems = array();
   
-  public function __construct($title,$linkPath,$description){
+  public function __construct($title,$linkPath,$description,$atomLinkSelf){
     $this->title=$title;
     $this->link=getSiteUrl().$linkPath;
     $this->description=$description;
+	$this->atomLinkSelf = $atomLinkSelf;
   }
   
   public function addRssItem($rssItemTitle,$rssItemDescription,$rssItemLink,$rssItemPubDate){
-	$rssItem['title'] = trim($rssItemTitle);
-	$rssItem['description'] = substr(trim($rssItemDescription), 0, 250)."...";;
+	$rssItem['title'] = substr(trim($rssItemTitle), 0, 50)."...";
+	$rssItem['description'] = substr(trim($rssItemDescription), 0, 250)."...";
 	$rssItem['link'] = $rssItemLink;
 	$rssItem['pubDate'] = $rssItemPubDate;
 	$this->rssItems[] = $rssItem;
@@ -43,6 +48,10 @@ class Rss {
 
   public function getDescription(){
   	return $this->description;
+  }
+
+  public function getAtomLinkSelf(){
+  	return $this->atomLinkSelf;
   }
 
   public function getRssItems(){

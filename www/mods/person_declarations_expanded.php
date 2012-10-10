@@ -134,7 +134,7 @@ $t->assign('decl_type', $decl_type);
 $t->assign('decl_id', $decl_id);
 
 $currentParams = array(
-  'name' => str_replace(' ', '+', $person->name),
+  'name' => $person->getNameForUrl(),
   'exp' => 'person_declarations',
   'dq' => $dq,
   'start' => $start,
@@ -189,13 +189,14 @@ foreach ($declarations as $declaration) {
     }
   }
   $declaration['link_to'] = constructUrl('/', array(), array(
-    'name' => str_replace(' ', '+', $person->name),
+    'name' => $person->getNameForUrl(),
     'exp' => 'person_declarations',
     'decl_id' => $declaration['id']
   ));
   array_push($newDeclarations, $declaration);
 }
 $t->assign('declarations', $newDeclarations);
+$t->assign('person', $person);
 
 $t->assign('highlights_global_ranges', $ranges);
 $t->assign('highlights_my_ranges', $myRanges);
