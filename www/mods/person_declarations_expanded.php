@@ -1,4 +1,5 @@
 <?php
+include_once('hp-includes/url_functions.php');
 include_once('hp-includes/declarations.php');
 
 $highlightsPerDeclaration = array();
@@ -88,19 +89,6 @@ function getHighlights($declarations, $include=0, $exclude=0) {
         getHighlightsForDeclaration($declaration['id'], $include, $exclude));
   }
   return $ranges;
-}
-
-
-function constructUrl($baseUrl, $params, $newParams=array()) {
-  $baseUrl .= '?';
-
-  $p = array_merge($params, $newParams);
-
-  foreach ($p as $key => $value) {
-    $baseUrl .= "{$key}={$value}&";
-  }
-
-  return $baseUrl;
 }
 
 

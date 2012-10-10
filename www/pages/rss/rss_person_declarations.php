@@ -22,7 +22,7 @@ if (sizeof($declarations) > 0) {
   $rss = new Rss($title,$linkPath,$description);
   
   foreach ($declarations as $declaration) {
-  	$rssItemPubDate = gmdate(DATE_RSS, strtotime($declaration['time'].time()));
+    $rssItemPubDate = gmdate(DATE_RSS, $declaration['time']);
     $rssItemTitle = "Declaratie ".$person->displayName." la data de ".$rssItemPubDate;
     $rssItemDescription = $declaration['declaration'];
 	$rssItemLink = $person->getDeclarationUrl($declaration['id']);

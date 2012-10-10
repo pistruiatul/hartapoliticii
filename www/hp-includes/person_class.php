@@ -653,16 +653,19 @@ class Person {
   }
   
   public function getRssDeclarationUrl(){
-	$rssDeclarationUr = constructUrl(getSiteUrl(), array(), array(
-	  'name' => $site_url.$person->getNameForUrl(),
-      'exp' => 'person_declarations',
-      'decl_id' => $declaration['id']
+  	$rssDeclarationUrl = constructUrl(getSiteUrl(), array(), array(
+	  'cid' => '50',
+      'id' => $this->id,
   	));
-	return $rssDeclarationUr;
+	return $rssDeclarationUrl;
   }
   
   public function getPersonDeclarationsUrl(){
-	return getSiteUrl()."?name={$this->getNameForUrl()}&exp=person_declarations";
+  	$personDeclarationsUrl = constructUrl("", array(), array(
+	  'name' => $this->getNameForUrl(),
+      'exp' => 'person_declarations',
+  	));
+	return $personDeclarationsUrl;
   }
   
   public function getDeclarationUrl($declarationId){
