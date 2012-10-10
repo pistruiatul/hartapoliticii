@@ -40,7 +40,10 @@ function getOutputObjectForPerson($person) {
 
 
 $query = trim($_GET['q']);
-$persons = search($query);
+if($query == '')
+  $query = trim($_GET['term']);
+$limit = (isset($_GET['limit']) ? (int)$_GET['limit'] : null);
+$persons = search($query, true, $limit);
 
 // If I reached this point, I know for sure I either have one
 // or zero matches, there are no ambiguities.
@@ -50,6 +53,7 @@ $output = array();
 // If the first person is an exact match, just return that one, it means we
 // have identified the right person and it makes no sense to return the
 // other less strong matches.
+$persons = array_slice($persons, 0, $limit);
 
 if (count($persons) > 0 && personQueryIsNavigational($query, $persons[0])) {
   $output[] = getOutputObjectForPerson($persons[0]);
@@ -60,4 +64,3 @@ if (count($persons) > 0 && personQueryIsNavigational($query, $persons[0])) {
 }
 
 echo json_encode($output);
-?>
