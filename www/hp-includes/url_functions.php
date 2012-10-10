@@ -1,13 +1,17 @@
 <?php
 
 /**
- * Returns the site url.
- * @return {string}
+ * Returns the site URL.
+ * @return the site URL.
  */
 function getSiteUrl() {
   return 'http://'.$_SERVER['HTTP_HOST']."/";
 }
 
+/**
+ * Builds a URL using the params.
+ * @return the new URL.
+ */
 function constructUrl($baseUrl, $params, $newParams=array()) {
   $baseUrl .= '?';
 

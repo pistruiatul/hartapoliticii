@@ -652,6 +652,11 @@ class Person {
   	return str_replace(' ', '+', $this->name);
   }
   
+  /**
+   * Returns URL for the rss declarations. This is the URL 
+   * the user needs to acces in order to subscribe to the 
+   * declarations RSS.
+   */
   public function getRssDeclarationUrl(){
   	$rssDeclarationUrl = constructUrl(getSiteUrl(), array(), array(
 	  'cid' => '50',
@@ -660,6 +665,11 @@ class Person {
 	return $rssDeclarationUrl;
   }
   
+  /**
+   * Returns url for the all the declarations of the current person. 
+   * This is the URL the user clicks to see all the declarations of a specific 
+   * person.
+   */
   public function getPersonDeclarationsUrl(){
   	$personDeclarationsUrl = constructUrl("", array(), array(
 	  'name' => $this->getNameForUrl(),
@@ -668,6 +678,11 @@ class Person {
 	return $personDeclarationsUrl;
   }
   
+  /**
+   * Returns url for a specific declaration. 
+   * @param $declarationId the id of the declaration that the URL points to.
+   * 
+   */
   public function getDeclarationUrl($declarationId){
   	$declarationUrl = constructUrl(getSiteUrl(), array(), array(
 	    'name' => $this->getNameForUrl(),
