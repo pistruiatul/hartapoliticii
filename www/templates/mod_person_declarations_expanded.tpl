@@ -39,6 +39,9 @@
     {if $decl_type == 'mine' && $decl_id == 0}Marcate de mine{else}
         <a href="{$my_declarations_link}">Marcate de mine</a>
     {/if}
+	<a href="{$person->getRssDeclarationUrl()}">
+	    <img src="wp-includes/images/rss.png" alt="Flux RSS">
+	</a>
   </div>
 
   <table width=100% cellspacing=2 cellpadding=2>
