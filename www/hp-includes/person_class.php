@@ -1,5 +1,6 @@
 <?php
 require('string_utils.php');
+include_once('url_functions.php');
 
 /**
  * @fileoverview This Class is identifying a person in our table. It's
@@ -643,5 +644,53 @@ class Person {
 
     return $details;
   }
+  
+  /**
+   * Returns the name of the person that can be put in a URL.
+   */
+  public function getNameForUrl() {
+  	return str_replace(' ', '+', $this->name);
+  }
+  
+  /**
+   * Returns URL for the rss declarations. This is the URL 
+   * the user needs to acces in order to subscribe to the 
+   * declarations RSS.
+   */
+  public function getRssDeclarationUrl(){
+  	$rssDeclarationUrl = constructUrl(getSiteUrl(), array(), array(
+	  'cid' => '50',
+      'id' => $this->id,
+  	));
+	return $rssDeclarationUrl;
+  }
+  
+  /**
+   * Returns url for the all the declarations of the current person. 
+   * This is the URL the user clicks to see all the declarations of a specific 
+   * person.
+   */
+  public function getPersonDeclarationsUrl(){
+  	$personDeclarationsUrl = constructUrl("", array(), array(
+	  'name' => $this->getNameForUrl(),
+      'exp' => 'person_declarations',
+  	));
+	return $personDeclarationsUrl;
+  }
+  
+  /**
+   * Returns url for a specific declaration. 
+   * @param $declarationId the id of the declaration that the URL points to.
+   * 
+   */
+  public function getDeclarationUrl($declarationId){
+  	$declarationUrl = constructUrl(getSiteUrl(), array(), array(
+	    'name' => $this->getNameForUrl(),
+    	'exp' => 'person_declarations',
+    	'decl_id' => $declarationId
+  	));
+	return $declarationUrl;
+  }
+  
 }
 ?>

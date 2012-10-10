@@ -1,6 +1,9 @@
 {* Smarty *}
 
 <div class="sidemoduletitle">
+	  <a href="{$person->getRssDeclarationUrl()}">
+		<img src="wp-includes/images/rss.png" alt="Flux RSS">
+	  </a>
 	  Declarații
 	</div>
 	<div style="padding-left:10px">
@@ -37,6 +40,7 @@
 		</table>
 	</div>
 	<div class="module_expand_link">
-	  <a href="?name={$name}&exp=person_declarations">
+	  <a href="{$person->getPersonDeclarationsUrl()}">
       mai multe declarații...</a>
 	</div>
+	
