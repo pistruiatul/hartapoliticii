@@ -127,7 +127,7 @@ function getPersonsByName($name,
  *
  * @return {Array.<Person>}
  */
-function search($name) {
+function search($name, $is_search = false, $limit = null) {
   global $people;
 
   $parts = array();
@@ -135,12 +135,24 @@ function search($name) {
   $matches = array();
   $scores = array();
 
+  if($is_search === true) {
+    $people = loadPeopleFromDbBySearchName($name, $limit);
+  }
+
   if (count($people)) {
     foreach ($people as $key => $person) {
       if ($key == $cleanName ||
           $person->isSubsetOf($parts) ||
           $person->isSupersetFor($parts)) {
         $score =
+          min(Person::getApproxSubsetDistance($person->allNames, $parts),
+              Person::getApproxSubsetDistance($parts, $person->allNames));
+
+        $matches[] = $person;
+        $scores[] = $score;
+        array_multisort($scores, SORT_ASC, SORT_NUMERIC, $matches);
+      } else if($is_search === true) {
+      	$score =
           min(Person::getApproxSubsetDistance($person->allNames, $parts),
               Person::getApproxSubsetDistance($parts, $person->allNames));
 
@@ -423,6 +435,31 @@ function loadPeopleFromDb() {
   return $results;
 }
 
+/**
+ * Loads the people that are currently in the people table in our database by search name
+ *
+ * @return {HashMap.<String, Person>} The hash table with the people, where
+ *     the key is the name of each person (lower case, no diacritics, all
+ *     names sorted alphabetically).
+ */
+function loadPeopleFromDbBySearchName($name, $limit = null) {
+  $results = array();
+  $name = preg_replace("/[^a-z -]/",'', $name);
+  $query = "SELECT * FROM people WHERE LOWER(name) LIKE '%{$name}%' ";
+  if($limit <> null)
+  	$query .= "LIMIT 0,{$limit}";
+  
+  $s = mysql_query($query);
+  while($r = mysql_fetch_array($s)) {
+    $person = new Person();
+    $person->setName($r['name']);
+    $person->setDisplayName($r['display_name']);
+    $person->setId($r['id']);
+
+    $results[$person->name] = $person;
+  }
+  return $results;
+}
 
 /**
  * Loads the parties that are currently in the parties table in our database.

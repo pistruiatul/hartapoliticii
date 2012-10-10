@@ -30,10 +30,12 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
   <link rel="stylesheet" href="styles.css?v=<?php echo md5_file('styles.css');?>" />
+  <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.24.custom.css?v=<?php echo md5_file('jquery-ui-1.8.24.custom.css');?>" />
   <script src="js/swfobject/swfobject.js" type="text/javascript"></script>
 
   <!-- Load jQuery -->
   <script src="http://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="js/jquery-ui-1.8.24.custom.min.js?v=<?php echo md5_file('js/jquery-ui-1.8.24.custom.min.js');?>" type="text/javascript"></script>
 
   <?php
   // Include or not include some scripts, depending on whether this is localhost
@@ -54,7 +56,25 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   try {
   var pageTracker = _gat._getTracker("UA-71349-2");
   pageTracker._trackPageview();
-  } catch(err) {}</script>
+  } catch(err) {}
+  $(document).ready(function(){
+	$('#search_form').autocomplete({
+		source: "api/search.php?limit=10&api_key=hackathon",
+		minLength: 2,
+		dataType: "json",
+		select: function( event, ui ) {
+			$( this ).val( ui.item.name );
+			return false;
+		}
+	}).data( "autocomplete" )._renderItem = function( ul, item ) {
+			return $( "<li></li>" )
+			.data( "item.autocomplete", item )
+			.append( "<a>" + item.name + " - " + item.snippet + "</a>" )
+			.appendTo( ul );
+	};;
+  });
+  
+  </script>
 
 <?php
 // See if this was a search result and update the search logs.
