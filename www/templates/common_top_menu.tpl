@@ -9,10 +9,10 @@
 
   <td width="300">
   {* The search form *}
-  <form action="" method=GET>
-    <input type=hidden name=cid value=search>
-    <input type=text size=22 name=q value="{$escaped_query}" id="q">
-    <input type=submit value="Caută" id="cauta">
+  <form action="" method="get">
+    <input type="hidden" name="cid" value="search" />
+    <input type="text" size="22" name="q" id="search_form" value="{$escaped_query}" id="q" />
+    <input type="submit" value="Caută" id="cauta" />
   </form>
   <div class="small gray">
     Exemplu: "Traian Basescu", "Becali", etc
