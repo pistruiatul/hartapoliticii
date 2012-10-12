@@ -57,23 +57,6 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   var pageTracker = _gat._getTracker("UA-71349-2");
   pageTracker._trackPageview();
   } catch(err) {}
-  $(document).ready(function(){
-	$('#search_form').autocomplete({
-		source: "api/search.php?limit=10&api_key=hackathon",
-		minLength: 2,
-		dataType: "json",
-		select: function( event, ui ) {
-			$( this ).val( ui.item.name );
-			return false;
-		}
-	}).data( "autocomplete" )._renderItem = function( ul, item ) {
-			return $( "<li></li>" )
-			.data( "item.autocomplete", item )
-			.append( "<a>" + item.name + " - " + item.snippet + "</a>" )
-			.appendTo( ul );
-	};;
-  });
-  
   </script>
 
 <?php

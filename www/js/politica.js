@@ -8,11 +8,15 @@
 // -----------------------------------------------------
 // DOM and NET Utils
 
+// A namespace for javascript utilities, functions and variables that are
+// scoped to most of the site.
+var hpol = hpol || {};
+
+// A namespace for a user's profile page.
 var profile = profile || {};
 
 // A namespace for the functions related to declarations.
 var declarations = declarations || {};
-
 
 /**
  * Global initializer for whatever listeners we might need on pages.
@@ -20,12 +24,53 @@ var declarations = declarations || {};
 $(document).ready(function() {
   // For the my_account section, add a listener to the name element for adding
   // a new position, so that on blur we can look the person up.
-  console.log('set up the listener');
   $('#new_position_display_name').focusout(function() {
     console.log('focusout!');
     profile.handleDisplayNameTyped();
   });
+
+  hpol.initAutocompleteHandler();
+
+  // Give focus to the search box;
+  $('#search_form').focus();
 });
+
+
+/* ------------------------------------------------------ */
+/* Stuff related to autocomplete in the search box. */
+
+/**
+ * Initializes the listener and the the code that displays an autocomplete
+ * box for the search box in the header of the site.
+ */
+hpol.initAutocompleteHandler = function() {
+  $('#search_form').autocomplete({
+    source: "api/search.php?limit=10&api_key=hackathon",
+    minLength: 2,
+    dataType: "json",
+    select: function(event, ui) {
+      // Picked a candidate, redirect to /?cid=9&id=3393
+      document.location.href = "/?cid=9&id=" + ui.item.id;
+
+      $(this).val(ui.item.name);
+      return false;
+    }
+  }).data("autocomplete")._renderItem = function(ul, item) {
+    // Construct the HTML for the list item to be displayed as autocomplete.
+    var result_html = "<a>";
+    result_html += "<img src=" + item.thumb + " class=thumb>" + item.name;
+    if (item.snippet) {
+      result_html += "<div class='snippet'>" + item.snippet + "</div>";
+    }
+    result_html += "</a>";
+
+    // Return this html as a li element.
+    return $("<li></li>").
+        data("item.autocomplete", item).
+        append(result_html).
+        appendTo(ul);
+  };
+};
 
 
 /* ------------------------------------------------------ */
@@ -215,7 +260,7 @@ function inlinePlay(url) {
   wrapper.style.display = 'block';
 
   wrapper.innerHTML =
-      '<div id="ytcontrols" style="background:#EEEEEE;padding:4px;">' +
+      '<div id="ytcontrols" style="padding:4px;">' +
       '<a href="javascript:removeInlinePlayer();">Închide</a></div>' +
       '<div id="ytapiplayer"></div>';
 
@@ -273,9 +318,9 @@ function removeVoteTag(room, year, idvote, tag, idtag) {
       '&delete=' + 1;
 
   sendPayload_(url, function(response) {
-	  if (response == 'done') {
-	    elem('tag_' + idtag).innerHTML = '';
-	  }
+    if (response == 'done') {
+      elem('tag_' + idtag).innerHTML = '';
+    }
     window.console.log('done!? ' + response);
   });
 }
@@ -299,7 +344,7 @@ function compassShowDetailsFor(personId, room, year, tagId) {
 
   sendPayload_(url, function(response) {
     var el = elem('compass_vote_details_' + tagId + '_' + personId);
-	  el.innerHTML = response;
+    el.innerHTML = response;
 
     toggleDiv('compass_vote_details_' + tagId + '_' + personId);
 

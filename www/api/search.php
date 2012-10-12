@@ -35,13 +35,16 @@ function getOutputObjectForPerson($person) {
     $p["party_name"] = NULL;
   }
   $p["college_name"] = $person->getCollegeName();
+  $p["thumb"] = $person->getTinyImgUrl("../");
+
   return $p;
 }
 
 
 $query = trim($_GET['q']);
-if($query == '')
+if($query == '') {
   $query = trim($_GET['term']);
+}
 $limit = (isset($_GET['limit']) ? (int)$_GET['limit'] : null);
 $persons = search($query, true, $limit);
 

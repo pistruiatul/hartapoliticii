@@ -618,3 +618,27 @@ body {
 .contact_block img {
   margin-right: 5px;
 }
+
+/* ----------------------- autocomplete stuff -------------------*/
+
+.ui-corner-all .snippet {
+  display: block;
+  font-size: 77%;
+  margin-bottom: 5px;
+  color: #AAA;
+  font-weight: normal;
+}
+
+.ui-corner-all .thumb {
+  float: left;
+  margin: 5px;
+}
+
+.ui-menu-item {
+  background-color: white;
+}
+
+#search_form {
+  font-size: 16px;
+  width: 220px;
+}

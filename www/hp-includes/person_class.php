@@ -578,21 +578,31 @@ class Person {
    * @param $id
    * @return unknown_type
    */
-  public function getTinyImgUrl() {
-    $img = "images/people_tiny/{$this->id}.jpg";
+  public function getTinyImgUrl($prefix="") {
+    $img = $prefix . "images/people_tiny/{$this->id}.jpg";
+    $result = "";
+
     if (is_file($img)) {
-      $fname = "images/people_tiny/{$this->id}.jpg";
+      $result = "images/people_tiny/{$this->id}.jpg";
+
       $count = 1;
+      $fname = $prefix . "images/people_tiny/{$this->id}_{$count}.jpg";
+
       // Get the most recent file we have for this person.
       while (is_file($fname)) {
-        $img = $fname;
-        $fname = "images/people_tiny/{$this->id}_{$count}.jpg";
         $count++;
+        $fname = $prefix . "images/people_tiny/{$this->id}_{$count}.jpg";
       }
+
+      if ($count > 1) {
+        $count--;
+        $result = "images/people_tiny/{$this->id}_{$count}.jpg";
+      }
+
     } else {
       return "images/tiny_person.jpg";
     }
-    return $img;
+    return $result;
   }
 
 
