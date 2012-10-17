@@ -42,11 +42,11 @@ function getOutputObjectForPerson($person) {
 
 
 $query = trim($_GET['q']);
-if($query == '') {
+if ($query == '') {
   $query = trim($_GET['term']);
 }
 $limit = (isset($_GET['limit']) ? (int)$_GET['limit'] : null);
-$persons = search($query, true, $limit);
+$persons = search($query, isset($_GET['autocomplete']), $limit);
 
 // If I reached this point, I know for sure I either have one
 // or zero matches, there are no ambiguities.

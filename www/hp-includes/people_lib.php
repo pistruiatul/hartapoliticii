@@ -118,16 +118,10 @@ function getPersonsByName($name,
  * be the persons for this name.
  *
  * @param {string} name The name of the person we are looking for.
- * @param {string} opt_idString A string that should identify the name we are
- *     searching for in the logs, when we print it. A good example is when
- *     adding names from the 2008 elections, the id string could represent the
- *     college he is running for (which narrows down the identification).
- * @param {Function} A function to call in order to get extra information
- *     about a person found as a match and display it in the extra info field.
  *
  * @return {Array.<Person>}
  */
-function search($name, $is_search = false, $limit = null) {
+function search($name, $is_autocomplete = false, $limit = null) {
   global $people;
 
   $parts = array();
@@ -135,24 +129,13 @@ function search($name, $is_search = false, $limit = null) {
   $matches = array();
   $scores = array();
 
-  if($is_search === true) {
-    $people = loadPeopleFromDbBySearchName($name, $limit);
-  }
-
   if (count($people)) {
     foreach ($people as $key => $person) {
       if ($key == $cleanName ||
           $person->isSubsetOf($parts) ||
-          $person->isSupersetFor($parts)) {
+          $person->isSupersetFor($parts) ||
+          ($is_autocomplete && $person->matchesAutocomplete($parts))) {
         $score =
-          min(Person::getApproxSubsetDistance($person->allNames, $parts),
-              Person::getApproxSubsetDistance($parts, $person->allNames));
-
-        $matches[] = $person;
-        $scores[] = $score;
-        array_multisort($scores, SORT_ASC, SORT_NUMERIC, $matches);
-      } else if($is_search === true) {
-      	$score =
           min(Person::getApproxSubsetDistance($person->allNames, $parts),
               Person::getApproxSubsetDistance($parts, $person->allNames));
 
@@ -162,7 +145,7 @@ function search($name, $is_search = false, $limit = null) {
       }
     }
   }
-  return $matches;
+  return $limit == null ? $matches : array_slice($matches, 0, $limit);
 }
 
 
@@ -436,7 +419,8 @@ function loadPeopleFromDb() {
 }
 
 /**
- * Loads the people that are currently in the people table in our database by search name
+ * Loads the people that are currently in the people table in our database
+ * by search name
  *
  * @return {HashMap.<String, Person>} The hash table with the people, where
  *     the key is the name of each person (lower case, no diacritics, all
@@ -447,7 +431,7 @@ function loadPeopleFromDbBySearchName($name, $limit = null) {
   $name = preg_replace("/[^a-z -]/",'', $name);
   $query = "SELECT * FROM people WHERE LOWER(name) LIKE '%{$name}%' ";
   if($limit <> null)
-  	$query .= "LIMIT 0,{$limit}";
+    $query .= "LIMIT 0,{$limit}";
   
   $s = mysql_query($query);
   while($r = mysql_fetch_array($s)) {

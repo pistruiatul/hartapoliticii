@@ -45,7 +45,7 @@ $(document).ready(function() {
  */
 hpol.initAutocompleteHandler = function() {
   $('#search_form').autocomplete({
-    source: "api/search.php?limit=10&api_key=hackathon",
+    source: "api/search.php?limit=10&api_key=hackathon&autocomplete=true",
     minLength: 2,
     dataType: "json",
     select: function(event, ui) {

@@ -223,6 +223,34 @@ class Person {
 
 
   /**
+   * Returns true if the names of this person match the parts sent in as a
+   * parameter. Since this is about autocomplete, the computation is much
+   * simpler.
+   *
+   * @param {array} $parts We assume that the array is already sorted.
+   * @return {Boolean}
+   */
+  public function matchesAutocomplete($parts) {
+    // We can do N^2 here because we only have on an average two names per
+    // person.
+    $is_match = true;
+
+    foreach ($parts as $part) {
+      $at_least_one = false;
+      foreach ($this->allNames as $name) {
+        if (strpos($name, $part) === FALSE) {
+          // not found in this one.
+        } else {
+          $at_least_one = true;
+        }
+      }
+      $is_match = $is_match && $at_least_one;
+    }
+    return $is_match;
+  }
+
+
+  /**
    * Returns the approximate distance between a subset of strings and a
    * superset, but only from the subset to the superset. The purpose is to
    * determine if one array is indeed a subset of another array, within a
