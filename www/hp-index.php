@@ -99,6 +99,10 @@ switch ($cid) {
   case 11: include('pages/cdep_2008/cdep_2008_page.php'); break;
   case 12: include('pages/senat_2008/senat_2008_page.php'); break;
 
+  // Senat si camerat deputatilor 2008 - 2012.
+  case 21: include('pages/cdep_2012/cdep_2012_page.php'); break;
+  case 22: include('pages/senat_2012/senat_2012_page.php'); break;
+
   // Alegeri prezidentiale 2009.
   case 13: include('pages/pres_2009/page.php'); break;
 

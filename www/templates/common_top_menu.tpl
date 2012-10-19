@@ -34,6 +34,9 @@
       </a> |
       <a href="{$site_path}?cid=11&room=camera_deputatilor" class="{if $cid==11}black_link{/if}">
         2008-2012
+      </a> |
+      <a href="{$site_path}?cid=21&room=camera_deputatilor" class="red_link{if $cid==21}_sel{/if}">
+        Alegeri 2012
       </a>
     </div>
   </td>
@@ -46,6 +49,9 @@
       </a> |
       <a href="{$site_path}?cid=12&room=senat" class="{if $cid==12}black_link{/if}">
         2008-2012
+      </a> |
+      <a href="{$site_path}?cid=22&room=senat" class="red_link{if $cid==22}_sel{/if}">
+        Alegeri 2012
       </a>
       </div>
   </td>
@@ -70,8 +76,7 @@
     Utile
     <div class=submenu>
       <a href="{$site_path}?cid=14" class="{if $cid==14}black_link{/if}">Presă</a> |
-      <a href="{$site_path}?cid=16" class="{if !$cid}black_link{/if}">Actualizări</a> |
-      <a href="{$site_path}?cid=5" class="{if $cid==5}black_link{/if}">Link-uri</a>
+      <a href="{$site_path}?cid=16" class="{if !$cid}black_link{/if}">Actualizări</a>
 
   </td>
 </table>

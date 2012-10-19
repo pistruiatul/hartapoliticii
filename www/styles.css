@@ -341,6 +341,21 @@ body {
 .black_link a:hover {
 	text-decoration: underline;
 }
+a.red_link {
+  color: #cc0000 !important;
+  text-decoration: underline;
+}
+a.red_link:hover {
+	text-decoration: underline;
+}
+
+a.red_link_sel {
+  color: darkred !important;
+  text-decoration: none;
+}
+a.red_link:hover {
+	text-decoration: underline;
+}
 
 /* The login bar. */
 .login_bar {
