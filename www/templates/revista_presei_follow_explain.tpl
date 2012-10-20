@@ -4,7 +4,7 @@
       <br><br>
       <center>
       Dacă ești autentificat poți urmări anumiți politicieni.
-      Mai multe <a href="#">detalii aici</a>.
+      Mai multe <a href="http://hartapoliticii.ro/?cid=16&p=5731">detalii aici</a>.
 
       <p>
 
