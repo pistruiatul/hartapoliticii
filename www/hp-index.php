@@ -2,8 +2,6 @@
 include('_top.php');
 include('functions.php');
 include('functions_election_stats.php');
-include('hp-includes/news.php');
-include('hp-includes/follow_graph.php');
 
 if (!is_user_logged_in() && $_GET['cid'] == 'profile') {
   header('Location: /wp-login.php');

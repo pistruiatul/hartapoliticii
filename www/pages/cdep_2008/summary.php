@@ -2,6 +2,8 @@
 include_once('pages/functions_common.php');
 include_once('pages/cdep_2008/functions.php');
 
+include_once('hp-includes/news.php');
+
 $t = new Smarty();
 
 // Show the top most present and absent people.

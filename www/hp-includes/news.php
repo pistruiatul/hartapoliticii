@@ -1,4 +1,6 @@
 <?php
+include_once('hp-includes/follow_graph.php');
+
 /**
  * Returns an array of people given an SQL query. This is a private helper
  * method only for this file.
@@ -207,12 +209,22 @@ function extractExtraInfo($ids, $year, $mod, $table, $field) {
  * @param $mod
  * @param $year
  * @param $count
+ * @param {Array.<Number>} $restrict_to_ids The list of person ids that I
+ *     should restrict this search for news to. Only get news for this list
+ *     of people. Usually used for passing in the list of people one user
+ *     choses to follow, but could be used for other lists in the future as
+ *     well.
  * @return unknown_type
  */
-function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax') {
+function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax',
+                                   $restrict_to_ids = NULL) {
   $where_clause = '';
   if ($mod != NULL && $year != NULL) {
     $where_clause = "AND h.what = '{$mod}/{$year}'";
+  }
+  if ($restrict_to_ids) {
+    $ids = implode(",", $restrict_to_ids);
+    $where_clause .= " AND p.idperson in ($ids)";
   }
 
   $s = mysql_query("
@@ -222,7 +234,7 @@ function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax') {
     LEFT JOIN people_history AS h
       ON h.idperson = p.idperson
     WHERE a.source LIKE '$source'
-    {$where_clause}
+      {$where_clause}
     GROUP BY a.id
     ORDER BY a.time DESC
     LIMIT 0, $count");
@@ -256,7 +268,7 @@ function countAllMostRecentNews($days, $source = 'mediafax') {
  * @return Array The array of persons ids.
  */
 function getPeopleForNewsId($id) {
-  global $following;
+  global $followPeopleHashById;
 
   $s = mysql_query("
     SELECT idperson, name, display_name
@@ -266,7 +278,7 @@ function getPeopleForNewsId($id) {
   $res = array();
   while($r = mysql_fetch_array($s)) {
     $r['name'] = str_replace(' ', '+', $r['name']);
-    $r['following'] = $following[$r['idperson']] ? true : false;
+    $r['following'] = array_key_exists($r['idperson'], $followPeopleHashById);
 
     $res[] = $r;
   }

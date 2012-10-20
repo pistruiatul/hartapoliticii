@@ -22,6 +22,8 @@ $MAX_QUERIES_BEFORE_COMMIT = 100;
 $people = loadPeopleFromDb();
 $parties = loadPartiesFromDb();
 
+$peopleHashById = createPeopleHashById($people);
+
 maybeAddDisambiguationResolver();
 $ambiguities = loadAmbiguitiesFromDb();
 maybeTestForCommitCookie();
@@ -419,30 +421,20 @@ function loadPeopleFromDb() {
 }
 
 /**
- * Loads the people that are currently in the people table in our database
- * by search name
+ * Creates a hash of people indexed by person ID from the hash of people indexed
+ * by person name.
  *
- * @return {HashMap.<String, Person>} The hash table with the people, where
- *     the key is the name of each person (lower case, no diacritics, all
- *     names sorted alphabetically).
+ * @param $people
+ * @return array
  */
-function loadPeopleFromDbBySearchName($name, $limit = null) {
-  $results = array();
-  $name = preg_replace("/[^a-z -]/",'', $name);
-  $query = "SELECT * FROM people WHERE LOWER(name) LIKE '%{$name}%' ";
-  if($limit <> null)
-    $query .= "LIMIT 0,{$limit}";
-  
-  $s = mysql_query($query);
-  while($r = mysql_fetch_array($s)) {
-    $person = new Person();
-    $person->setName($r['name']);
-    $person->setDisplayName($r['display_name']);
-    $person->setId($r['id']);
+function createPeopleHashById($people) {
+  global $people;
 
-    $results[$person->name] = $person;
+  $hash = array();
+  foreach($people as $name => $person) {
+    $hash[$person->id] = $person;
   }
-  return $results;
+  return $hash;
 }
 
 /**

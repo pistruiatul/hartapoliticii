@@ -6,6 +6,9 @@ include_once('hp-includes/wiki_edits.php');
 include_once('hp-includes/people_lib.php');
 include_once('hp-includes/people_util.php');
 
+include_once('hp-includes/follow_graph.php');
+include_once('hp-includes/news.php');
+
 // Checks that the string passed as a parameter represets and expanded module
 // indeed. This method is for security reasons so that we don't load random
 // files since we load the file based on the module name.

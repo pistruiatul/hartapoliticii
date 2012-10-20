@@ -1,6 +1,9 @@
 <?php
 include_once('pages/functions_common.php');
 include_once('pages/pres_2009/functions.php');
+
+include_once('hp-includes/news.php');
+
 $t = new Smarty();
 
 // Show the guys that show up most in the news.

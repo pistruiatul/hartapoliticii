@@ -16,6 +16,15 @@
     </div>
 
     <div class="section">
+      <div class="title">Politicieni pe care îi urmărești</div>
+      <div class="content">
+        {include
+            file="my_account_follow_list.tpl"
+            followed_people=$followed_people}
+      </div>
+    </div>
+
+    <div class="section">
       <div class="title">Anotații legi</div>
       <div class="content">
         Mai multe detalii despre anotarea de legi

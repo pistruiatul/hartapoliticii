@@ -2,6 +2,8 @@
 include_once('pages/functions_common.php');
 include_once('pages/senat_2008/functions.php');
 
+include_once('hp-includes/news.php');
+
 $t = new Smarty();
 
 // Here do some magical stuff to actually show statistics. :-)

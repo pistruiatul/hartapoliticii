@@ -27,7 +27,7 @@ $ip = $_SERVER['REMOTE_ADDR'];
 $userLogin = getUserLogin($uid);
 mysql_query(
   "INSERT INTO moderation_queue(type, idperson, value, ip, time)
-   VALUES('follow', $person_id, 'by {$userLogin}', '$ip', ". time() . ")");
+   VALUES('follow', $person_id, 'follow by {$userLogin}', '$ip', ". time() . ")");
 
 if ($action == 'follow') {
   $person->addFollowByUser($uid);

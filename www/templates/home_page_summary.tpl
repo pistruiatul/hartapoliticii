@@ -36,8 +36,9 @@
       {/strip}
       {/section}
       </table>
-
-
+      <div class="small">
+        <a href="/?cid=14&sid=3">Vezi toată lista...</a>
+      </div>
       {* ------------------------------------------------------------------*}
       {* Show the presence for the senate. *}
       <p class="smalltitle">
@@ -73,6 +74,11 @@
     <td valign="top" width="510">
       {* ------------------------------------------------------------------*}
       {* The main news section from the front page. *}
+      <div style="float:right;margin-top:12px;">
+        <a href="/?cid=14&sid=0">toate știrile</a> |
+        <a href="/?cid=14&sid=1">doar follow</a>
+      </div>
+
       <div class="news_type_menu">
         Știri recente
       </div>
