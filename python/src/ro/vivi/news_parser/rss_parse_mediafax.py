@@ -72,7 +72,7 @@ def get_photo_link_for_article(url):
   content = get_page(url)
 
   # Now try to find the photo if it exists.
-  img = re.compile("<img src=\"(.*)\?width=605\" alt=\"\"/>")
+  img = re.compile("<img src=\"(.*)\?width=400\" alt=\"\"/>")
   m = img.findall(content)
 
   if len(m) > 0:
