@@ -162,6 +162,25 @@ body {
   border-top-width: 1px;
 }
 
+.follow_button {
+  width: 118px;
+  height: 31px;
+  float: right;
+  margin-top: -5px;
+  cursor: hand;
+  cursor: pointer;
+}
+
+.follow_button.follow {
+  background: url(/images/follow_button.png);
+}
+.follow_button.unfollow {
+  background: url(/images/follow_button_active.png);
+}
+.follow_button.unfollow:hover {
+  background: url(/images/follow_button_stop.png);
+}
+
 .module {
   font-size: 1.0em;
   background: #FFF;
@@ -308,6 +327,9 @@ body {
   text-decoration: none;
   color: #999;
 }
+.news_list_mention.following {
+  background: #ffffcc;
+}
 
 .invisible_link a {
   text-decoration: none;
@@ -341,19 +363,19 @@ body {
 .black_link a:hover {
 	text-decoration: underline;
 }
-a.red_link {
-  color: #cc0000 !important;
+a.new_link {
+  color: #990099 !important;
   text-decoration: underline;
 }
-a.red_link:hover {
+a.new_link:hover {
 	text-decoration: underline;
 }
 
-a.red_link_sel {
-  color: darkred !important;
+a.new_link_sel {
+  color: #000066 !important;
   text-decoration: none;
 }
-a.red_link:hover {
+a.new_link:hover {
 	text-decoration: underline;
 }
 
@@ -656,4 +678,9 @@ a.red_link:hover {
 #search_form {
   font-size: 16px;
   width: 220px;
+}
+.news_type_menu {
+  margin: 11px 0 10px 0;
+  font-size: 14px;
+  font-weight: bold;
 }

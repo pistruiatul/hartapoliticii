@@ -86,7 +86,7 @@
            <div class="small">
              {section name=x loop=$news[n].people}
              {strip}
-               <div class="news_list_mention green_link">
+               <div class="news_list_mention green_link {if $news[n].people[x].following}following{/if}">
                  <a href="?name={$news[n].people[x].name}">
                    {$news[n].people[x].display_name}
                  </a>

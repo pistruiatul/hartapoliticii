@@ -4,6 +4,7 @@ include_once('pages/cdep_2008/functions.php');
 include_once('pages/senat_2008/functions.php');
 
 include_once('hp-includes/declarations.php');
+include_once('hp-includes/follow_graph.php');
 
 $t = new Smarty();
 

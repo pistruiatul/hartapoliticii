@@ -68,7 +68,13 @@ if ($exp = isExpandedModule($_GET['exp'])) {
   );
 }
 
+// current_user is a variable set by Wordpress.
+$uid = is_user_logged_in() ? $current_user->ID : 0;
+
 $t->assign('crumbs', $crumbs);
+$t->assign('following', $person->isFollowedByUserId($uid));
+$t->assign('person_id', $person->id);
+
 $t->display('person_top_bar.tpl');
 
 

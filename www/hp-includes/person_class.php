@@ -127,7 +127,6 @@ class Person {
    * Adds this person to the people database and sets the id appropriately.
    */
   public function loadFromDb() {
-    global $people;
     $s = mysql_query("SELECT * FROM people WHERE id={$this->id}");
     $r = mysql_fetch_array($s);
 
@@ -409,7 +408,7 @@ class Person {
         $r['title'] = highlightStr($r['title'], $n);
       }
 
-      $r['people'] = $this->getPeopleForNewsId($r['id']);
+      $r['people'] = getPeopleForNewsId($r['id']);
 
       $news[] = $r;
     }
@@ -498,28 +497,6 @@ class Person {
     }
 
     return $results;
-  }
-
-
-  /**
-   * Returns a list of ids for the people that show up in a news item.
-   * TODO(vivi): Deduplicate this function and put it somewhere in a common
-   * place.
-   * @param {number} id The id of the news item.
-   * @return Array The array of persons ids.
-   */
-  private function getPeopleForNewsId($id) {
-    $s = mysql_query("
-      SELECT idperson, display_name, name
-      FROM news_people AS p
-      LEFT JOIN people ON people.id = p.idperson
-      WHERE idarticle=$id");
-    $res = array();
-    while($r = mysql_fetch_array($s)) {
-      $r['name'] = str_replace(' ', '+', $r['name']);
-      $res[] = $r;
-    }
-    return $res;
   }
 
   /**
@@ -729,6 +706,60 @@ class Person {
   	));
 	return $declarationUrl;
   }
-  
+
+  /**
+   * Checks whether a particular user is following this person.
+   *
+   * @param {int} $uid The logged in user id, 0 if not logged in.
+   * @return {Boolean}
+   */
+  public function isFollowedByUserId($uid) {
+    if ($uid <= 0) return false;
+
+    $s = mysql_query("
+      SELECT user_id, meta_key, meta_value
+      FROM wp_usermeta
+      WHERE user_id = {$uid} AND
+            meta_key = 'follow' AND
+            meta_value = {$this->id}");
+
+    return mysql_num_rows($s) > 0;
+  }
+
+  /**
+   * Checks whether a particular user is following this person.
+   *
+   * @param {int} $uid The logged in user id, 0 if not logged in.
+   * @return {Boolean}
+   */
+  public function addFollowByUser($uid) {
+    if ($uid <= 0) return false;
+    if ($this->isFollowedByUserId($uid)) return false;
+
+    mysql_query("
+      INSERT INTO wp_usermeta(user_id, meta_key, meta_value)
+          VALUES({$uid}, 'follow', {$this->id})");
+
+    return true;
+  }
+
+  /**
+   * Checks whether a particular user is following this person.
+   *
+   * @param {int} $uid The logged in user id, 0 if not logged in.
+   * @return {Boolean}
+   */
+  public function removeFollowByUser($uid) {
+    if ($uid <= 0) return false;
+    if (!$this->isFollowedByUserId($uid)) return false;
+
+    mysql_query("
+      DELETE FROM wp_usermeta
+      WHERE user_id = {$uid} AND
+            meta_key = 'follow' AND
+            meta_value = {$this->id}");
+
+    return true;
+  }
 }
 ?>

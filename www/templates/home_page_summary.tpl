@@ -73,9 +73,11 @@
     <td valign="top" width="510">
       {* ------------------------------------------------------------------*}
       {* The main news section from the front page. *}
-      <br>
-      <div class="medium">
+      <div class="news_type_menu">
+        Știri recente
+      </div>
 
+      <div class="medium">
       <table cellspacing=2 cellpadding=2 class="recent_news">
         {section name=n loop=$news}
           <tr>
@@ -107,7 +109,7 @@
               <div class="mentions_block">
                 {section name=x loop=$news[n].people}
                 {strip}
-                  <div class="news_list_mention green_link">
+                  <div class="news_list_mention green_link {if $news[n].people[x].following}following{/if}">
                     <a href="?name={$news[n].people[x].name}">
                       {$news[n].people[x].display_name}
                     </a>

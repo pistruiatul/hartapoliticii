@@ -31,6 +31,8 @@ $(document).ready(function() {
 
   hpol.initAutocompleteHandler();
 
+  hpol.initFollowButtons();
+
   // Give focus to the search box;
   $('#search_form').focus();
 });
@@ -71,6 +73,41 @@ hpol.initAutocompleteHandler = function() {
         appendTo(ul);
   };
 };
+
+
+/* ------------------------------------------------------ */
+/* Stuff related to following and unfollowing politicians. */
+hpol.initFollowButtons = function() {
+  $('.follow_button').click(function() {
+    console.log($(this).attr('action') + $(this).attr('person_id'));
+
+    // Make an HTTP request here to follow or unfollow this person.
+    // Depending on the result of the request, update the button or pop
+    // an alert when we're done.
+    var personId = $(this).attr('person_id');
+    var action = $(this).attr('action');
+
+    var url = '/hooks/follow.php' +
+        '?person_id=' + personId +
+        '&action=' + action;
+
+    var targetDiv = $(this);
+    sendPayload_(url, function(response) {
+      var result = eval(response);
+
+      if (result.error) {
+        alert(result.error);
+
+      } else if (result.new_action) {
+        // Change the div.
+        targetDiv.attr('class', 'follow_button ' + result.new_action);
+        targetDiv.attr('action', result.new_action);
+
+      }
+    });
+  });
+};
+
 
 
 /* ------------------------------------------------------ */
