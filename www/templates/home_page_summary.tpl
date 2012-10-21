@@ -76,7 +76,7 @@
       {* The main news section from the front page. *}
       <div style="float:right;margin-top:12px;">
         <a href="/?cid=14&sid=0">toate știrile</a> |
-        <a href="/?cid=14&sid=1">doar follow</a>
+        <a href="/?cid=14&sid=1">doar cei ce-i urmărești</a>
       </div>
 
       <div class="news_type_menu">

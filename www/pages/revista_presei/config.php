@@ -7,7 +7,7 @@ $subpages = array(
     "link" => "Toate știrile",
     "page" => "summary.php"
   ),array(
-    "link" => "Doar politicieni pe care îi urmărești",
+    "link" => "Doar cei ce-i urmărești",
     "page" => "only_follow.php"
   ), array(
     "link" => "Ziare monitorizate",
