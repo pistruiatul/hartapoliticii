@@ -11,6 +11,10 @@ function getCountUsersFollowingOthers() {
   return mysql_num_rows($s);
 }
 
+function getCountUsers() {
+  $s = mysql_query("SELECT distinct(ID) FROM wp_users");
+  return mysql_num_rows($s);
+}
 
 function getCountPeopleBeingFollowed() {
   $s = mysql_query("SELECT meta_value FROM wp_usermeta WHERE meta_key='follow'");
@@ -38,6 +42,8 @@ $t = new Smarty();
 $t->assign('follow_users', getCountUsersFollowingOthers());
 $t->assign('following_people', getCountPeopleBeingFollowed());
 $t->assign('total_people', sizeof($people));
+$t->assign('count_users', getCountUsers());
+
 $t->assign('recent_searches', getRecentSearches());
 
 $t->display('about.tpl');

@@ -1,13 +1,15 @@
 
 <div class="stats" style="width:300px; float:right">
-  <div class="plaintext" style="width:700px">
+  <div class="plaintext" style="width:300px">
 
   <p>
     <strong>Câteva statistici</strong>
   </p>
 
   Monitorizăm <b>{$total_people}</b> politicieni.
-    <br>
+  <br>
+  <b>{$count_users}</b> utilizatori înregistrați.
+  <br>
   <b>{$follow_users}</b> utilizatori urmăresc <b>{$following_people}</b> politicieni.
 
   <br><br>
@@ -16,7 +18,7 @@
       <span class="small gray">
       {$recent_searches[i].time|date_format:"%b %d %l%p"|replace:"PM":"pm"|replace:"AM":"am"}
       </span>
-      - <a href="?cid=search&q={$recent_searches[i].query}">{$recent_searches[i].query}</a><br>
+      - <a href="?cid=search&q={$recent_searches[i].query|htmlspecialchars}">{$recent_searches[i].query|htmlspecialchars}</a><br>
 
     {/section}
 
