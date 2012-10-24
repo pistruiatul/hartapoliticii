@@ -5,7 +5,7 @@
 require_once('secret/db_user.php');
 
 // Include the templating engine class.
-include ('smarty/Smarty.class.php');
+include('smarty/Smarty.class.php');
 
 /**
  * Checks whether it is a RSS request
@@ -13,7 +13,8 @@ include ('smarty/Smarty.class.php');
  * @return {Boolean} True when we should load the blog.
  */
 function isRssRequest() {
-  return ($_GET['cid'] && $_GET['cid'] >= 50 && $_GET['cid'] <= 100 );  // the rss sections are starting from 50 to 100  
+  // the rss sections are starting from 50 to 100
+  return ($_GET['cid'] && $_GET['cid'] >= 50 && $_GET['cid'] <= 100 );
 }
 
 /**

@@ -10,7 +10,7 @@ include_once('hp-includes/news.php');
 $t = new Smarty();
 
 // Show the guys that show up most in the news.
-$list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, '%');
+$list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, NULL);
 $list = newsAddPreviousWeekToList($list, NULL, '%');
 $t->assign('topPeople', $list);
 

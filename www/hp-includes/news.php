@@ -10,7 +10,7 @@ include_once('hp-includes/follow_graph.php');
  */
 function getMostPresentInNews($count, $what = NULL, $tstart = NULL,
                               $tend = NULL, $for_ids = NULL,
-                              $source = 'mediafax') {
+                              $source = NULL) {
   if ($tstart == NULL && $tend == NULL) {
     $tend = time() + 60 * 60 * 8; // Adjusting for the time zone.
     $tstart = time() - 60 * 60 * 24 * 7;
@@ -24,9 +24,14 @@ function getMostPresentInNews($count, $what = NULL, $tstart = NULL,
     $what_filter = "AND h.what = '{$what}'";
   }
 
-  $restrict = "";
+  $restrict_to_ids = "";
   if ($for_ids != NULL) {
-    $restrict = "AND p.idperson IN (" . implode(",", $for_ids) . ")";
+    $restrict_to_ids = "AND p.idperson IN (" . implode(",", $for_ids) . ")";
+  }
+
+  $where_source = '';
+  if ($source) {
+    $where_source = "AND a.source LIKE '${source}'";
   }
 
   $query = "
@@ -37,9 +42,10 @@ function getMostPresentInNews($count, $what = NULL, $tstart = NULL,
     LEFT JOIN news_articles AS a ON a.id = p.idarticle
     {$history_join}
     WHERE a.time > {$tstart} AND
-          a.time < {$tend} AND
-          a.source LIKE '$source'
-        {$restrict} {$what_filter}
+          a.time < {$tend}
+          {$where_source}
+          {$restrict_to_ids}
+          {$what_filter}
     GROUP BY p.idperson
     ORDER BY mentions DESC, p.idperson
     LIMIT 0, $count";
