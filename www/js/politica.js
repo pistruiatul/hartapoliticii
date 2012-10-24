@@ -109,6 +109,17 @@ hpol.initFollowButtons = function() {
 };
 
 
+/* ------------------------------------------------------ */
+/* Some random global function */
+hpol.showMinorities = function() {
+  var rows = document.getElementsByName('minoritati');
+  for (var i = 0; i < rows.length; i++) {
+    rows[i].className =
+        rows[i].className.indexOf('minoritati') >= 0 ? '' : 'minoritati';
+  }
+};
+
+
 
 /* ------------------------------------------------------ */
 /* Some util functions */

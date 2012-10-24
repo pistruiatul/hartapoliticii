@@ -21,6 +21,17 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
   }
 }
 
+// Checks if this query is exactly the name of a college and redirects the
+// user to that page.
+if (isSet($_GET['q'])) {
+  $query = trim($_GET['q']);
+  if (isNavigationalCollegeQuery($query)) {
+    header('Location: /?cid=23&colegiul=' . urlencode($query));
+    die();
+  }
+}
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -117,6 +128,9 @@ switch ($cid) {
   case 16: break; // The blog, just reserve it.
 
   case 17: include('party.php'); break;
+
+  // Renders everything there is to know about a certain electoral college.
+  case 23: include('pages/electoral_college/electoral_college.php'); break;
 }
 
 $t = new Smarty();

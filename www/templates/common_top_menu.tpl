@@ -15,7 +15,7 @@
     <input type="submit" value="Caută" id="cauta" />
   </form>
   <div class="small gray">
-    Exemplu: "Traian Basescu", "Becali", etc
+    Exemplu: "Basescu", "d1 prahova", etc
   </div>
   </td>
 

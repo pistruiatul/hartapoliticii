@@ -2,7 +2,6 @@
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) header('Location: /');
 
-
 $query = trim($_GET['q']);
 $query_orig = $query;
 

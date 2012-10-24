@@ -942,4 +942,13 @@ function printCsvDeputies() {
   echo "</pre>";
 }
 
+
+function isNavigationalCollegeQuery($query) {
+  $college = mysql_real_escape_string($query);
+  $s = mysql_query("SELECT count(*) as cnt
+      FROM results_2008_agg WHERE college='{$college}'");
+  $r = mysql_fetch_array($s);
+  return $r['cnt'] != "0";
+}
+
 ?>
