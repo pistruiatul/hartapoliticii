@@ -6,8 +6,8 @@
 	  </a>
 	  Declarații
 	</div>
-	<div style="padding-left:10px">
-		<table width=320 cellspacing=2 cellpadding=2 class="recent_news">
+	<div style="padding-left:0px">
+		<table width=290 cellspacing=2 cellpadding=2 class="recent_news">
 		  {section name=n loop=$declarations}
 		  {strip}
 		    <tr>
@@ -31,7 +31,7 @@
                sursa: <a href="{$declarations[n].source}">stenograme parlament</a>
              </span>
            </div>
-           </a><br>
+           <br>
 		     </div>
 		    </td>
 		    </tr>

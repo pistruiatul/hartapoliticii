@@ -113,7 +113,7 @@ def get_max_stenogram_id():
             d.strftime('%Y%m%d'))
 
     print ' + fetching %s' % link
-    page = get_page(link, TMP_DIR)
+    page = get_page(link)
 
     steno_numbers = get_list_of_stenogram_links(page)
     if len(steno_numbers) > 0:

@@ -157,13 +157,9 @@ body {
 }
 
 .top_bar {
-  padding: 8px;
-  padding-left: 12px;
-  margin-top: 10px;
-  background: #F4F4F4;
-  border-top-style: solid;
-  border-top-color: #DDD;
-  border-top-width: 1px;
+  margin: 15px 0 15px 10px;
+  background: white;
+  /*border-top: solid 1px #DDD;*/
 }
 
 .follow_button {

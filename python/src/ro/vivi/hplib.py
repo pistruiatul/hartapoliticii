@@ -73,7 +73,7 @@ def get_file_data(fname):
 
 
 
-def get_page(link, tmp_dir):
+def get_page(link, tmp_dir=None):
   """ Fetches the page at the provided link. Checks whether this is indeed the
   page of a vote. If that is true it returns the page as a string, otherwise
   returns None.
@@ -83,9 +83,12 @@ def get_page(link, tmp_dir):
   """
 
   # First, see if this is already cached.
-  fname = tmp_dir + '/cache/%s.html' % hashlib.md5(link).hexdigest()
-  if os.path.exists(fname):
-    return get_file_data(fname)
+  fname = None
+
+  if tmp_dir:
+    fname = tmp_dir + '/cache/%s.html' % hashlib.md5(link).hexdigest()
+    if os.path.exists(fname):
+      return get_file_data(fname)
 
   success = False
   while not success:
@@ -95,9 +98,10 @@ def get_page(link, tmp_dir):
       f.close()
 
       # Write this page into a cached file, with a more common charset.
-      cache_file = codecs.open(fname, 'w', 'utf-8')
-      cache_file.write(data)
-      cache_file.close()
+      if fname:
+        cache_file = codecs.open(fname, 'w', 'utf-8')
+        cache_file.write(data)
+        cache_file.close()
 
       return data
     except URLError:
