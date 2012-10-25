@@ -147,7 +147,7 @@ def main():
 
   max_steno_id = get_max_stenogram_id()
 
-  for steno_id in range(1, int(max_steno_id)):
+  for steno_id in range(1, int(max_steno_id) + 1):
     if steno_id in [5603, 7073]:
       # For whatever reason, cdep is consistently returning a 404 for these
       # stenogram ids.
