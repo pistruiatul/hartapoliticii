@@ -58,7 +58,6 @@ def get_declarations(page):
 
   # first of all, split the text in lines.
   lines = page.split("\n")
-  print '   = %s lines' % len(lines)
 
   state = NONE
   current_person = ''
@@ -157,7 +156,6 @@ def main():
     link = 'http://www.cdep.ro/pls/steno/steno.stenograma?ids=%s' % steno_id
 
     steno_page = get_page(link, TMP_DIR)
-    print ' + %s' % link
 
     date = get_date_from_steno_page(steno_page)
     if date is None:
@@ -166,7 +164,7 @@ def main():
 
     # Now that we've got the stenogram page, the hard part begins.
     declarations = get_declarations(steno_page)
-    print '   = %s declarations' % len(declarations)
+    print '   = %s declarations in %s' % (len(declarations), link)
 
     if not len(declarations):
       continue
