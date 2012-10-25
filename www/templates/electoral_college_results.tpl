@@ -1,5 +1,6 @@
 <table width=100% cellpadding=2>
   <tr bgcolor="#EEEEEE">
+    <td width="25"></td>
     <td>Candidat</td>
     <td>Partid</td>
     <td>Voturi</td>
@@ -15,6 +16,9 @@
 
   <tr class="{$row_css_class}{if $candidates[c].minoritati == 1} minoritati{/if}"
       name="{if $candidates[c].minoritati == 1}minoritati{/if}">
+    <td>
+      <img src="{$candidates[c].tiny_img_url}">
+    </td>
     <td>
       <a href="?name={$candidates[c].name|replace:' ':'+'}">
       {$candidates[c].display_name}

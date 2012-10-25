@@ -26,6 +26,12 @@ if ($_GET['cid'] && $_GET['cid'] == 9) {
 if (isSet($_GET['q'])) {
   $query = trim($_GET['q']);
   if (isNavigationalCollegeQuery($query)) {
+    // add it to the database
+    mysql_query(
+      "INSERT INTO log_searches(query, time, ip, num_results)
+       VALUES('". mysql_real_escape_string($query) . "', " . time() . ",
+       '" .$_SERVER['REMOTE_ADDR'] . "', -1)");
+
     header('Location: /?cid=23&colegiul=' . urlencode($query));
     die();
   }

@@ -1,5 +1,7 @@
 <?php
 
+include_once('pages/functions_common.php');
+
 /**
  * Returns the id of the winner of the 2008 elections.
  *
@@ -48,9 +50,28 @@ function getResults2008ForCollege($college) {
 
   while ($r = mysql_fetch_array($s)) {
     $person_object = $r;
+    $person_object['tiny_img_url'] = getTinyImgUrl($r['id']);
     $candidates[] = $person_object;
   }
   return $candidates;
+}
+
+
+/**
+ * @param {string} $college The college name needs to be in the form of
+ *     "S1 Alba" or "D3 Prahova". Capitalization is important.
+ * @return
+ */
+function getDescription2008ForCollege($college) {
+  $parts = explode(" ", $college);
+
+  $sql =
+    "SELECT description ".
+    "FROM alegeri_2008_colleges ".
+    "WHERE url LIKE '%{$parts[1]}-{$parts[0]}'";
+
+  $r = mysql_fetch_array(mysql_query($sql));
+  return $r['description'];
 }
 
 ?>
