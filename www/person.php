@@ -83,7 +83,7 @@ $t->display('person_top_bar.tpl');
 
 // ----------------------------------------------------------------
 // -- This person's left hand side identity, photo and links ------
-echo "<table width=970>".
+echo "<table width=970 cellpadding=0 cellspacing=0>".
      "<td valign=top width=340>";
 echo "<div class=identity>";
 
@@ -129,7 +129,7 @@ $t->assign('title', $title);
 $t->assign('idperson', $person->id);
 $t->display('person_sidebar_extra_links.tpl');
 
-echo "</div></td>";
+echo "</div></td><td width=1></td>";
 
 // ----------------------------------------------------------
 // --------------- The main mods section --------------------
