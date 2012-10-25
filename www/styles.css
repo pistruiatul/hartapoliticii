@@ -138,11 +138,15 @@ body {
 }
 
 .identity {
-  padding: 2px;
+  border: solid 3px #EEE;
+  margin-top: 2px;
+  padding: 20px;
+  background-color: #FAFAFA;
+  height: 100%;
 }
 
 .identity_li {
-  padding: 0px;
+  padding: 0;
   margin-left: -20px;
   padding-top: 5px;
 }
@@ -184,15 +188,16 @@ body {
 .module {
   font-size: 1.0em;
   background: #FFF;
-  border: 1px;
+  border: solid 3px #EEE;
   padding: 1px;
+  margin-top: 2px;
 }
 .module .moduletitle {
   font-size: 1.2em;
   font-weight: bold;
-  padding: 2px;
+  padding: 5px;
   color: #369;
-  background: #FFF;
+  background: #F8F8F8;
   border-bottom-style: solid;
   border-bottom-color: #9CF;
   border-bottom-width: 1px;

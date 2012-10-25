@@ -379,6 +379,7 @@ class Person {
       case "video":        $moduleTitle = "Video"; break;
       case "news":         $moduleTitle = "Știri pe larg"; break;
       case "news/expanded":$moduleTitle = "Știri pe larg"; break;
+      case "news/main":    $moduleTitle = "Știri recente"; break;
       case "person_declarations":$moduleTitle = "Declarații"; break;
 
     }

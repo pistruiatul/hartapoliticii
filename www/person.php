@@ -120,7 +120,7 @@ $t->display('person_qualifiers.tpl');
 include('mods/contact_details.php');
 
 // TODO: make the compact mods also something automatic.
-include('mods/news_compact.php');
+//include('mods/news_compact.php');
 
 include('mods/person_declarations_compact.php');
 
@@ -160,6 +160,8 @@ if ($expandedModule = isExpandedModule($_GET['exp'])) {
   // at the end so that the page doesn't look totally stupid.
   if (sizeof($history) <= 1) {
     array_push($history, 'news/expanded');
+  } else {
+    array_unshift($history, 'news/main');
   }
 
   // If we are simply displaying a person's page, go through all the modules
