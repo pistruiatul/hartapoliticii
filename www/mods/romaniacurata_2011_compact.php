@@ -18,7 +18,10 @@ $rhistory = mysql_fetch_array($shistory);
 
 
 $t = new Smarty();
-$t->assign('text', $r['value']);
+
+$text = preg_replace("/(\n+)/", "<div style='height:12px;'></div>", trim($r['value']));
+$t->assign('text', $text);
+
 $t->assign('source', $rhistory['url']);
 $t->display('mod_romaniacurata_2011.tpl');
 ?>

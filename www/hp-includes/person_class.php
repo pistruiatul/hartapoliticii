@@ -355,6 +355,7 @@ class Person {
       case "pres/2009":    $moduleTitle = "Candidat Președenție 2009"; break;
       case "gov/ro":       $moduleTitle = "Membru al guvernului"; break;
       case "video":        $moduleTitle = "Video"; break;
+      case "romaniacurata/2011": $moduleTitle = "Listele România Curată 2011"; break;
     }
     return $moduleTitle;
   }
