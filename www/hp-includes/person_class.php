@@ -381,6 +381,7 @@ class Person {
       case "news/expanded":$moduleTitle = "Știri pe larg"; break;
       case "news/main":    $moduleTitle = "Știri recente"; break;
       case "person_declarations":$moduleTitle = "Declarații"; break;
+      case "romaniacurata/2011": $moduleTitle = "Listele România Curată, 2011"; break;
 
     }
     return $moduleTitle;

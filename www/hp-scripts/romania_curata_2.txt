@@ -1,0 +1,216 @@
+# Text luat de aici http://www.romaniacurata.ro/lista-neagra-a-senatorilor-care-au-afaceri-cu-statul-1718.htm
+# Formatul acestor fișiere este după cum urmează:
+#
+#   + orice linie începe cu # este ignorată.
+#
+#   + orice linie începe cu "număr. " va conține numele persoanei despre care
+#     este vorba în următorul format: "număr. Numele Persoanei, text explicativ"
+#
+#   + textul imediat după linia cu "nume=" până la următoarea linie cu nume
+#     sau până la sfârșitul fișierului se referă la persoana respectivă.
+
+# Text luat de aici http://www.romaniacurata.ro/lista-neagra-a-senatorilor-care-au-afaceri-cu-statul-1718.htm
+# Formatul acestor fișiere este după cum urmează:
+#
+#   + orice linie începe cu # este ignorată.
+#
+#   + orice linie începe cu "număr. " va conține numele persoanei despre care
+#     este vorba în următorul format: "număr. Numele Persoanei, text explicativ"
+#
+#   + textul imediat după linia cu "nume=" până la următoarea linie cu nume
+#     sau până la sfârșitul fișierului se referă la persoana respectivă.
+
+sursa=http://www.romaniacurata.ro/lista-neagra-a-senatorilor-care-au-afaceri-cu-statul-1718.htm
+
+1. Silviu Prigoana, deputat PDL de Bucuresti
+Probabil este cel mai bogat parlamentar din Romania, cu afaceri in salubritate si mass-media. Declaratia sa de interese postata pe site-ul Camerei Deputatilor este impresionanta, avand 309 de pagini. Prigoana a trecut in declaratie 12.397 de contracte ale firmelor sale, din care aproximativ jumatate au fost incheiate cu institutii de stat, fara a specifica si valoarea acestora. Rosal Grup SRL, firma care presteaza servicii de salubritate, are in derulare contracte cu gradinite, scoli, licee, universitati, inspectorate scolare, cluburi sportive, case de cultura, spitale, muzee, case de pensii, directii de impozite si taxe, primarii si consilii judetene sau locale (Sectorul 3 Bucuresti, Baia Mare, Cluj Napoca, Ludus, Ploiesti, Suceava, Urziceni), Loteria Romana, Romarm, Posta Romana, ITM, structuri ale Ministerului de Interne (sedii de politie, Directia Generala de Politie a Municipiului Bucuresti, Directia Generala Anticoruptie, Directia Generala de Informatii si Protectie Interna), unitati militare, DIICOT, Agentia Nationala Antidrog, Serviciul de Protectie si Paza, Consiliul Superior al Magistraturii, tribunale, parchete, curti de apel, Oficiul National de Prevenire si Combatere a Spalarii Banilor, penitenciare, ANL, Garda de Mediu, Garda Financiara, BNR, Societatea Nationala Radiocomunicatii, RADET, Romgaz, RA-APPS.
+
+2. Cristian Boureanu, deputat PDL de Arges
+Este unul dintre cei mai bogati parlamentari, activand in companii de comert, constructii, consultanta economica: Altipo Construct SRL Bucuresti, Ramplast Distributie Profile SRL, CS Industrial Construct Management SRL, Myway Business Consulting SRL, Boureanu LTD. Firma Ramplast Distributie Profile SRL deruleaza din 2005 un contract cu Oltchim-Divizia Materiale de Constructii, insa Boureanu nu a trecut in declaratia de interese valoarea acestui contract, specificand ca sumele depind de cantitatile de materiale consumate. Posesor a 20 de terenuri, aproape toate cu regim de intravilan, si a unui apartament in New York, pe care il imparte cu sotia sa Valentina Pelinel, Boureanu mai are o colectie obiecte uz casnic din argint in valoare de 45.000 euro, plus bijuterii din aur, diamante si ceasuri cu o valoare estimata la 380.000 euro. Cristian Boureanu are numai putin de 14 credite, ce insumeaza aproximativ 8 milioane de euro.
+
+3. Dan Pasat, deputat PDL de Giurgiu
+Are afaceri profitabile cu primarii din propriul colegiu. Prin intermediul firmei Prod Invest SRL (montaj tamplarie PVC si aluminiu), el a primit cinci contracte de lucrari in comunele Valea Dragului (1,1 milioane lei), Bucsani (490.000 lei), Varasti (2,8 milioane lei si 1,1 milioane lei), Bulbucata (800.000 lei). Primarul din Varasti, Vasile Preda, a fost trimis in judecata recent de procurorii DNA impreuna cu Dan Pasat, in dosarul in care parlamentarul este acuzat de santaj.
+
+4. Valerian Vreme, deputat PDL de Bacau si ministru al Comunicatiilor
+Actualul ministru al Comunicatiilor detine direct sau prin sotia sa actiuni la patru sicietati comerciale. Una dintre aceste firme, Um-Soft SRL din Onesti, producator de softweare, a primit in 2002-2011 sapte contracte de la Primaria Barsanesti, Gura Vaii, Berzunti din judetul Bacau, Termoelectrica, Termoserv si Casa de Pensii Bacau in valoare lunara totala de 4.144 lei, fara a fi precizata insa durata derularii contractelor.
+
+5. Valeriu Tabara, deputat PDL de Timis si ministru al Agriculturii
+Potrivit ultimei declaratii de interese, ministrul Agriculturii si Dezvoltarii Rurale, Valeriu Tabara, a fost director de proiect pentru doua contracte ce au ca obiect "instruirea profesionala".
+Unul dintre proiecte are valoarea de 1.182.000 euro si se afla inca in derulare, celalalt, de 478.000 lei s-a incheiat in decembrie 2010. Contractele au fost obtinute prin intermediul Universitatii de Stiinte Agricole si Medicina Veterinara a Banatului (USAMVB) - Timisoara. Pe cele doua proiecte, Valeriu Tabara a incasat 174.361 lei, insa a declarat ca s-a retras din aceste functii dupa ce a fost numit ministru. De asemenea, Tabara a afirmat ca s-a retras dintr-un proiect derulat de Statiunea de Cercetare Agricola Severin, ce avea o valoare de 649.000 lei.
+
+6. Costica Canacheu, deputat PDL de Bucuresti
+Mult mai activ in afacerile cu statul este deputatul Costica Canacheu. Compania sa, Neico Grup SA, detine una din cele mai importante tipografii din Bucuresti. Firma a incheiat, in 2008, 12 contracte cu institutii publice (Institutul de Etnografie, Muzeul de Arheologie, RA RASIROM, RATB, UM 0461, UM 02560, Tarom, Universitatea "Al.I. Cuza", Rompress, U.R.T.R, Imprimeria Nationala, Parchetul de pe langa Curtea de Casatie si Justitie), cu o valoare totala de 177.382 lei; alte 12 contracte in 2009 (Imprimeria Nationala, Prefectura Dambovita, Muzeul de Istorie Prahova, Primaria comunei Stejari, RATB, Tarom, Universitatea "Al.I.Cuza", Teatrul Metropolis, Universitatea Bucuresti, CJ Dambovita, Biblioteca Academiei) cu o valoare de 281.105 lei; sase contracte in 2010 (RATB, Tarom, Universitatea "Al.I. Cuza", Parchetul de pe langa Curtea de Casatie si Justitie, Electrica), in valoare de 277.070 lei; plus inca trei contracte in 2011 (Monitorul Oficial, Romatsa, Tarom), in valoare de 38.000 lei.
+
+7. Florin Anghel, deputat PDL de Prahova
+Fost presedinte al Consiliului Judetean Prahova, Florin Anghel a castigat bani frumosi in fiecare an din contractele incheiate cu primarii din propriul colegiu. Potrivit declaratiei de interese, firma Fibec SA Campina (constructii civile, industriale, telecomunicatii, drumuri, retele apa), in care sotia lui Anghel detine 50%, a incheiat 12 contracte cu primariile din Tomsani (alimentare cu apa, 2,1 milioane lei), Floresti (retea apa potabila, 321.000 lei), Valea Doftanei (doua contracte de extindere retea alimenatre cu apa, 748.000 lei si 779.000 lei), Corbita - Vrancea (alimentare cu apa, 1,1 milioane lei), Brebu (canalizare, 5,4 milioane lei), Produlesti-Dambovita (sistem canalizare, 1,8 milioane lei), I.L. Caragiale- Dambovita (canalizare si statie de epurare, 4,5 milioane lei), Topolog-Tulcea (sistem canalizare, 6,6 milioane lei), Secaria (alimentare cu apa, 5,3 milioane lei), doua contracte cu Ecoaqua SA Calarasi, in valoare de 21,6 milioane lei si 13,3 milioane lei.Valoarea totala a acestor contracte se ridica la peste 60 milioane lei (15 milioane euro).
+
+8. Gheorghe Albu, deputat PDL de Dambovita
+Este actionar la saptamanalul Universul Dambovitean, publicatie care a primit in 2010 un contract de publicitate de la Grupul Scolar "Nicolae Cioranescu" din Targoviste, pe o durata de un an, in valoare de aproape 2.000 lei si un alt contract tot de publicitate de la Universitatea Valahia din Targoviste, cu o valoare de 4.300 lei.
+
+9. Marin Bobes, deputat PDL de Olt
+Parlamentarul detine actiuni la doua companii, Serena SA si Serena 94 SA, primind, in perioada 2009-2010, trei contracte de la Unitatea Administrativa Valcele (2,5 milioane lei), Compania de Apa Olt (3,6 milioane lei), Consiliul Local Babiciu (543.000 lei).
+
+10. Cristian Ion Burlacu, deputat PDL de Prahova
+Impreuna cu sotia detine mai multe companii, printre care si SC Marami Construct Sinaia, firma ce a derulat in perioada 2008-2010 sase contracte cu Sanatoriul Balnear Techirghiol si unul cu Primaria din Sinaia, valoare cumulata a acestora ridicandu-se la aproape 10 milioane lei.
+
+11. Sorin Gheorghe Buta, deputat PDL de Arges
+Deputat in circumscriptia Campulung Muscel, detine impreuna cu sotia compania de consultanta in constructii Global Proiect Construct SRL. Societatea a castigat mai multe contracte cu primarii de comuna, toate din Muscel: Vladesti, Cetateni, Dambovicioara, Leresti, Valea Mare, Titesti, Boteni, dar si contracte primite de la APIA Arges, Grup Scolar Tehnologic ARO, cu o valoare de 150.000, insa el a uitat sa treaca in declaratia de interese moneda. Cel mai probabil, este vorba despre lei.
+
+12. Dragos Adrian Iftime, deputat PDL de Vaslui
+In declaratia de interese depusa in noiembrie 2010 a treacut un contract incheiat in 2010 prin firma Fleischparty SRL, detinuta de Ionel Iftime, tatal deputatului, cu Spitalul de Urgenta Vaslui, pentru furnizare de produse, in valoare de 90.321 lei. Contractul a fost semnat pe perioada determinata: 21 ianuarie-30.04.2010. Contractul nu mai apare in declaratia de interese despusa in iunie 2011.
+
+13. Chirila Constantin, deputat PDL de Constanta
+Parlamentarul detine actiuni la sase companii: Contempo SRL Constanta, S&T Real Estate SRL Bucuresti, Best Recovery SRL Iasi, RNCC Consulting SRL Bucuresti,  GA&Premium SRL, Gir Forest. Ultima companie a primit, in iunie 2011, de la MADR – Agentia de Plati pentru Dezvoltare Rurala si Pescuit, un contract de finantare nerambursabila de 390.000 euro.
+
+14. Marian Dan Mihai, deputat PDL de Vaslui
+Tatal deputatului, Neculai Marian, a primit patru contracte incheiate in 2010 prin firma "Industrial Marian SRL" cu Spitalul de Urgenta Vaslui si cu Spitalul Municipal "Dumitru Castroian" din Husi, pentru furnizare de produse lactate, in valoare de 249.000 lei.
+
+15. Neculai Marius, deputat PDL de Neamt
+Detine actiuni la firmele Nemase Com Prod SRL, Termoplast SRL, Fiesta Construct SRL si Romgraf SRL. Termolpast SRL, specializata in tamplarie PVC, a primit in 2010 contracte de la Colegiul Tehnic "Petru Musat" Suceava, Primaria comunei Tamaseni, Primaria comunei Ion Neculce si Spitalul Municipal Roman, cu o valoare totala de 260.000 lei.
+
+16. Dumitru Pardau, deputat PDL de Suceava
+In declaratia de interese, Dumitru Pardau a trecut o finantare SAPARD, pirmita in 2007, prin intermediul firmei Clas Decent SRL Dorna Candrenilor, in valoare de 367.570 lei si o alta de la Ministerul Finantelor, in februarie 2010, in valoare de 391.155 lei. De asemenea, Agentia de Plati pentru Dezvoltare Rurala si Pescuit a finantat SC Agroturism Paraul Pietrei SRL Dorna Candrenilor cu 788.600 lei, insa deputatul sustine ca nu a accesat acest fond.
+
+17. Alin Silviu Trasculescu, deputat PDL de Vrancea
+Are sase contracte incheiate in 2010 prin firma TSDM Dollar Prod SRL cu Primariile Jaristea, Odobesti, Urechesti, Popesti, Dumbraveni, toate din judetul Vrancea si Penitenciarul Focsani, avand ca obiect neutralizare de deseuri. Perioada de derulate este de un an, iar valoarea este de 0,21 euro pe kilogramul de deseu.
+
+18. Dan Nica, deputat PSD de Galati
+Fost minsitru al Comunicatiilor in vremea guvernarii Nastase si fost ministru al Internelor in Guvernul Boc, pesedistul Dan Nica detine 40% actiuni din compania Viticom SRL Panciu, restul actiunilor fiind ale tatalui sau. Specializata in producerea de vinuri marca "Panciu", societatea a primit de la Minsiterul Agriculturii suma de 944.000 lei pentru reconversie plantatie vita de vie si alti 153.000 lei subventie. Are de incasat dividende de peste 300.000 lei.
+
+19. Valeriu Zgonea, deputat PSD de Dolj
+In declaratia de interese, deputatul PSD Valeriu Zgonea a trecut mai multe sponsorizari din partea Petrom SA catre Asociatia „Tinerii lupta impotriva viciilor mileniului trei“. Astfel, in perioada 2008-2010, Asociatia a primit trei contracte de la Petrom, in valoare de 37.045 lei si 8.835 euro si un contract de la Ministerul Integrarii in 2004, in valoare de 40.185 euro. Parlamentarul nu a precizat daca este simplu membru sau daca are o functie de conducere in cadrul asociatiei.
+
+20. Ion Dumitru, deputat PSD
+Pana in 2004 a fost director general la Romsilva, calitate in care s-a ales si cu un dosar penal, fiind acuzat ca a prejudiciat institutia cu peste 100 miliarde lei vechi, prin achizitii de marfuri la preturi mult umflate. A fost achitat definitiv in 2009. Fiul sau, Dragos Dumitru, este un prosper om de afaceri in judetul Dambovita. El a incheiat prin firma SC Blitz Lighting Company 11 contracte cu institutii ale statului: unul in 2008 de la Consiliul Local Valeni, noua in 2009 cu consiliile locale din Tartatesti, Valea Lunga, Visinesti, Produlesti, Ulmi, Produlesti, toate din judetul Dambovita, Electrica Distributie Muntenia Nord- filiala Targoviste, ENEL Distrubutie Dobrogea, Constanta, Electrica Distributie Muntenia Nord, filiala Targoviste, si unul in 2010 cu Electrica Distributie Muntenia Nord, filiala Targoviste. Contractele sunt si acum in derulare, avand o valoare totala de peste 7 milioane lei.
+
+21. Eduard Stelian Martin, deputat PSD de Constanta
+Este patron la mai multe companii, cele mai importante fiind Polaris M Holding SRL, Servicii de Salubrizare SRL si GMG Management SRL. Considerat un apropiat al presedintelui CJ Constanta, Nicusor Constantinescu si al primarului Radu Mazare, Eduard Stelian Martin este unul dintre principalii beneficiari ai contractelor cu statul. Derulate in prtincipal prin Polaris Holding SRL, o companie de salubritate, numarul acestor contracte de ridica la aproximativ 380. Polaris are contracte cu cele mai importante institutii publice din judetul si orasul Contanta: SRI, Primaria Constanta,  Prefectura, Inspectorul Judetean de Politie, CFR, RAR, Muftiatul Cultului Musulman, DGFP, Electrica Serv, ANIF RA, Universitatea "Ovidius", Primaria Mangalia, Primaria Navodari, Primaria Eforie, Posta Romana, Arhiepiscopia Tomisului, Muzeul de Arta, unitati militare, tribunale, judecatorii, spitale, gradinite, scoli, licee. Pe langa contractele de salubrizare din Constanta, Eforie si Mangalia, Polaris M Holding a inceput sa incaseze bani si din alte orase importante din tara: Arad si Targu- Jiu.
+
+22. Anghel Stanciu, deputat PSD de Iasi
+In CV-ul postat pe site-ul Camerei Deputatilor, Anghel Stanciu se mandreste ca a fost membru al PCR in perioada 1968-1989 si apoi al PRM 1991-2005.  Ales in 2008 deputat in Colegiul Harlau, se pare ca lui Anghel Stanciu ii merge bine si in capitalism. Este actionar in patru companii si mai multe fundatii si asociatii. Prin Fundatia Ecologica "Green Education", a primit, in februarie 2011, de la Agentia Nationala pentru Romi, un contract in valoare de 33.000 lei. De asemenea, Fundatia Ecologica "Green" Iasi, condusa de sotia deputatului, a primit sapte contracte cu bani europeni de la OIR Posdru Nord Est si AJOFM Vaslui in valoare de peste 10 milioane lei. Anghel Stanciu detine si compania Geotop Constructii SRL Iasi, ce a primit un contract de la Gradinita nr.13 din Iasi, incheiat in 2005, cu termen de finalizare in cinci ani, in valoare de 421.000 lei si un alt contract semnat in 2010 in valoare de 843.000 lei.
+
+23. Gheorghe Antochi, deputat PSD
+Este cel mai bogat parlamentar din judetul Bacau. Are actiuni la zece companii (cea mai importanta fiind Agricola Bacau cu afaceri de zeci de milioane euro), zece terenuri si cinci case. Sotia sa, Ana Antochi, este actionara la Agriconstruct SRL Bacau, companie ce luat in ultimul an patru contracte de la Directia Silvica Bacau (36.000 lei), Directia Silvica Targu Ocna (35.000 lei), SC Smart SA (societate publica ce se ocupa de servicii de mentenanta a retelelor electrice, 292.000 lei), Universitatea "Vasile Alecsandri" Bacau (61.000 lei). Cei doi soti au obtinut in 2010 venituri importante: 147.000 salarii (salarii), 47.000 lei (activitati independente),71.000 lei (pensii), 3.600 (activitati agricole).
+
+24. Gheorghe Ana, deputat PSD de Dambovita
+Detine actiuni la Complis SA Targoviste, firma specializata in constructii, ce a primit, in perioada 2001-2009, cinci contracte publice: doua de la Consiliul Judetean Dambovita, trei la Consiliul Local Runcu, Primaria Vulcana Pandele si  Primaria Tartasesti, toate din judetul Dambovita, un contract de la Primaria Petresti, si un altul primit de la Consiliul Local Valeni. Valoarea totala a acestora se ridica la 11,7 milioane lei. Prin aceeasi firma, au mai fost incheiate doua contracte in 2007 si 2008 in valoare totala de 10 milioane euro, ambele cu Ministerul Dezvoltarii Regionale si Turismului. Le fel de profitabile sunt afacerile derulate de fiica deputatului, Maria Cristina Stefan, care a primit in cursul anului 2010, prin firmele SC Diana ENG Grup SA, CML Consult SRL si CMB Investment SRL, nu mai putin de 14 contracte cu primarii si consilii locale din judetul Dambovita, cu o valoare totala de aproape 500.000 lei.
+
+25. Constantin Mazilu, deputat PSD de Valcea
+Este actionar la firma de constructii Ghecon Construct SRL, ce a incheiat 19 contracte in ultimii doi ani cu diverse institutii: Administratia Strazilor Bucuresti, Consiliul Judetean Buzau, Primaria Valea Mare, Primaria Gusoieni, Primaria Zatreni, Primaria Ladesti (toate din Buzau), Consiliul Judetean Vrancea, Primaria Gura Teghii, Primaria Fartatesti, Primaria Diculesti, Primaria Balan, Unitatea Administrativ Teritoriala Amara, Primaria Valea Mare, Primaria Sectorului 6. Valoarea acestor contracte se ridica la 42 milioane lei (10 milioane de euro).
+
+26 Ioan Munteanu, deputat PSD de Neamt
+Fiul deputatului, Dorin Andrei Munteanu, deruleaza prin firma Proinvest SRL 14 contracte cu institutii publice: Primaria Savinsti, Primaria Comunei Girov, Primaria comunei Tupilati, Primaria Farcasa, Primaria Moldoveni (toate din judetul Neamt), Hidroserv Bistrita SA, Publiserv SRL din Piatra Neamt, Primaria Piatra Neamt, Primaria Roman, ABA Siret Bacau. Valoarea acestora se ridica la 5,2 milioane lei (1,3 milioane euro).
+
+27. Lucretia Rosca, deputat PSD de Galati
+Are un contract incheiat in octombrie 2010 de Cabinetul Medical Individul Lucretia Rosca cu Casa de Nationala de Sanatate pentru furnizare de servicii medicale, in valoare de 270.000 lei.
+
+28. Horia Teodorescu, deputat PSD de Tulcea
+Este unicul asociat la firma de constructii SC Condor SRL Babadag, avand si actiuni la SC Gazoteh Bucuresti. Potrivit declaratiei de interese, SC Condor SRL Babadag a primit in ultimul an 13 contrcte, indeosebi de la primarii din judetul Tulcea: Beidaud, Luncavita, Cerna, Maliuc, Slava Cercheza, Ceamurlia de Jos, Baia, Niculitel, dar si de la Gropeni-Braila, Compania Nationala de Investitii, Primaria din Babadag, in valoare de peste 45 milioane lei (10 milioane euro).
+
+29. Cornel Itu, deputat PSD de Cluj
+Parlamentarul are actiuni la patru companii: Parc Rex SRL Dej, Itcomar Prodserv SRL Dej, Mecsom SA Dej, Agro 33 SRL Dej.  In declaratia de interese depusa in decembrie 2010 Cornel Itu a trecut zece contracte incheiate in 2009 si 2010 prin firma Mecsom SA Dej (confectii metalice) cu primarii din comune clujene: Caseiu, Mintiul Gherlii, Catcau, Chinteni, dar si cu Palatul Copiilor Cluj, Directia Generala Ajutor de Stat, Practici Neloiale si Preturi Reglementate din Ministerul Finantelor, in valoare totala de 1,5 milioane lei. In declaratia de interese depusa in iunie 2011 mai apare un singur contract incheiat in decembrie 2010 cu Societatea Nationala a Sarii, avand ca obiect achizitie deseuri, in valoare de 11.383 lei.
+
+30. Ioan Sorin Roman, deputat PSD de Bihor
+In declaratia de interese, deputatul a trecut un contract cu Agentia de Plati pentru Dezvoltare Rurala si Pescuit, primit prin intermediul "Roman Ioan Sorin Intreprindere Individuala", valabil pana in 2014, in valoare de 243.000 euro. De asemenea, in 2011, sotia sa a primit alti 105.000 euro de la aceeasi institutie, prin intermediul "Roman Alexandra Intreprindere Individuala" reprezentand ajutor financiar nerambursabil.
+
+31. Eugen Nicolaescu, deputat PNL de Calarasi
+Fostul ministru al Sanatatii, liberalul Eugen Nicolaescu, nu a uitat ca a fost pe vremuri contabil, asa ca a incheiat cu Romtehnica un contract de audit financiar in valoare de 5.000 euro. In 2010, ANI a deschis o ancheta impotriva lui, pentru ca nu a trecut in declaratia de avere donatii de aproape 175.000 de lei primite in campania electorala pentru Parlament din 2008.
+
+32. Relu Fenechiu, deputat PNL de Iasi
+Deputatul liberal de Iasi Relu Fenechiu este unul dintre cei mai puternici oameni din Moldova. Prin compania sa, Fene Grup SRL, el a primit numeroase contracte de la institutii publice situate in colegiul sau electoral: Spitalul Clinic de Urgenta Sfanta Maria (anul 2008, contract lucrari, valoarea 540.000 lei), Primaria Municipiului Iasi (anul 2008, contract lucrari, 650.000 lei), Inspectoratul Scolar Judetean Iasi (anul 2009, lucrari la o gradinita, 3 milioane lei), Universitatea Ion Ionescu de la Brad (anul 2008, lucrari la o editura, 600.000 lei), Comuna Baltati-Iasi (anul 2010, contract lucrari, valoare 680.000 lei), Consiliul Judetean Iasi (anul 2010, valoare 4,5 milioane lei). In 2010 si 2011, Relu Fenechiu a primit de la compania Fene Grup SRL dividende in valoare de 1,8 milioane lei, iar de la Tehnorom alti 195.000 lei.
+
+33. Nini Sapunaru, deputat PNL de Vrancea
+Fost sef al Vamilor intre 1997-2000, Nini Sapunaru detine 49% din compania Europroiect SRL, ce are ca obiect de activitate proiectarea de drumuri. Compania a primit in ultimul an 20 de contracte de la primarii din judetul Vrancea: Cotesti, Cirligele, Slobozia Bradului, Vintileasca, Pufesti, Balesti, Jaristea, Sihlea, Jitia, Garoafa, dar si de la CJ Harghita, in total 680.000 lei. In plus, Europroiect SRL a semnat in 2009 un contract valabil pe 5 ani cu Societatea Nationala a Sarii, cu o valoare de  43.000 euro/an.
+
+34. Dan Bordeianu, deputat PNL de Vaslui
+Are actiuni la doua companii: SC Bind SRL si SC Energoest SRL, insa afacerile cu statul le deruleaza prin SC Ecologic SRL, unde actionar este sotia sa, Nicoleta Bordeianu. Mai precis, firma a primit contracte de la patru primarii (Draceni, Deleni, Stanilesti, Munteni de Sus) aflate chiar in colegiul electoral al deputatului. Contractele au fost semnate in 2008 si se intind pana la sfarsitul anului 2010, avand o valoare totala de 8,5 milioane lei.
+
+35. Mihai Lupu, deputat PNL de Constanta
+Are patru contracte incheiate in 1992, 2008 si 2010 prin firma Constructii Hidrotehnice SRL Iasi cu Hidroelectrica SA, Administratia Bazinala de Apa Siret si ANIF, in valoare de peste 600 milioane lei.
+
+36. Mihai Aurel Dontu, deputat PNL de Brasov
+Deputatul liberal are doua contracte cu APIA, derulate prin firmele Robusta Horus Tour SRL si Donad Turism SRL, reprezentand ajutor financiar nerambursabil in valoare de  396.998 euro. Deputatul a tinut sa mentioneze in declaratia de interese ca aceste ajutoare nu reprezinta contracte cu statul.
+
+37. Florin Turcanu, deputat PNL de Botosani
+In 2007, a primit in concesiune de la Primaria Sulita (Botosani), locul unde altfel s-a si nascut, un teren de 90 de hectare de pasune. Contactul este semnat pe 25 de ani, parlamenarul urmand sa plateasca 9.255 lei/an. El nu a respectat insa intelegerea, astfel incat Primaria Sultita a trimis in 2010 o adresa catre Camera Deputatilor prin care cerea sa ii opreasca parlamentarului o parte din veniturile lunare. Florin Turcanu este si patronul unei fabrici de paine, alimentand cu produse de panificatie Liceul Economic, Liceul „Elie Radu”, Liceul Nicolae Iorga, toate din Botosani, Gradinita nr. 10 din Botosani si Spitalul de Neuropsihiatrie din Saveni, Primaria Sulita si ADS, in schimbul a aproape 100.000 lei.
+
+38. Ionel Palar, deputat PNL de Bacau
+Conform ultimei sale declaratii de interese, deputatul liberal detine actiuni la societatile Luxor SRL Bacau, SC Clinica Medicala Luxor Bacau si Clinica Luxor Bacau. SC Luxor SRL Bacau a primit in 2009 un contract valabil pe trei ani de la Romatsa-filiala Bacau, cu o valoare de 22.000 lei, pentru reparare si intretinere instalatii de climatizare. Tot in 2009, compania a inchiriat de la Consiliul Judetean Bacau un depozit, pentru care plateste 19.200 lei pe urmatorii cinci ani. In 2010, aceeasi firma a castigat o licitatie de la Primaria Bacau avand ca obiect furnizare de piese de schimb si reparare echipamente frigorifice si de climiatizare, in valoare de 19.000 lei.
+
+39. Viorel Palasca, deputat PNL de Mehedinti
+Detine actiuni la firma Piramid 92 SRL din Drobeta Turnu Severin, ce are ca obiect de activitate restaurarea de monumente si constructii civile. In martie 2011, compania a semnat doua contracte cu Institutul National al Patrimoniului, pentru lucrari de consolidare si restaurare, cu valori de 250.000 lei si 97.000 lei. De asemenea, Piramid 92 SRL a primit un contract de la Confort SA Timisoara pentru restaurarea de monumente, pentru care a luat 1,1 milioane lei.
+
+40. Gabriel Plaiasu, deputat PNL de Dambovita
+In declaratia de interese depusa la Camera Deputatilor in octombrie 2010, Gabriel Plaiasu a trecut patru contracte incheiate in perioada februarie-august 2010 prin firma Quartz SRL cu CFR Marfa, CFR Infrastructura si Metrorex in valoare de 180.000 lei, insa aceste contracte nu mai apar si in declaratia de interese completata in iunie 2011.
+
+41. Gheorghe Dragomir, deputat PNL de Constanta
+Fiul deputatului, Radu Aurelian Dragomir, este actionar la firma Histria Industry SRL, ce  primit in 2010 un contract de la APIA Constanta in valoarea de 285.714 euro.
+
+42. Derzsi Akos, deputat UDMR de Bihor
+In perioada 2008-2009, parlamentarul a incheiat prin firma Europrint SRL 21 de contracte cu institutii ale statului: Editura Didactica si Pedagogica, Monitorul Oficial al Judetului Bihor, Consiliul Judetean Bihor, Scoala Andrei Muresanu” din Oradea, Parchetul de pe langa Curtea de Apel Oradea, Parchetul Tribunalului Bihor, Primaria Simian, Primaria Bors, Primaria Ciuhoi, Primaria Viisoara, Primaria Salonta, Primaria Buduslau, Primaria Valea lui Mihai toate din judetul Bihor,  Revista „Familia”, Revista Culturala „Varad” Oradea, Directia de Cultura Bihor, Centrul Culturii Traditionale Salaj, Directia Regionala pentru Accize si Operatiuni Vamale, OTL RA Oradea. Toate contractele sunt pentru servicii de tiparire, valoarea totala a acestora ridicandu-se la 291.511 lei. Potrivit ultimei declaratii de interese postata in iunie 2011, Europrint SRL mai are in derulare doar patru contracte cu Revista Culturala "Varad" Oradea, Ministerul Finantelor si Primaria Bors, cu o valoare cumulata de 252.000 lei.
+
+43. Edler Andras Gyorg, deputat UDMR de Covasna
+Tatal deputatului, Edler Laszlo Gyorg, detine doua companii Edler Laszlo Gyorg PFA si Unit Prest SRL prin care a primit contracte cu institutii publice din judetul unde a fost ales fiul sau: Primaria Ghidfalau, Primaria Arcus, Primaria Lemnia, Primaria Zagon, Primaria Poian, Primaria Bretcu, Primaria Bodoc si Primaria Sfantul Gheorghe, cu o valoarea totala ce depsseste 150.000 lei.
+
+44. Attila Korodi, deputat UDMR de Harghita
+Are actiuni la trei companii: Webmedia SRL, Scustica Eco-Logic SRL si SC Carbon Management Group SRL.  In 2010, Webmedia SRL a primit doua contracte de la Primaria Comunei Frumoasa (1.000 lei) si Consiliul Judetean Harghita (4.400 lei). Anterior, in 2009, aceeasi firma a incheiat sapte contracte cu institutii ale statului (Primaria Miercurea Ciuc, Primaria Santimbru, Primaria Siculeni, Primaria Cozmeni, Primaria Cristuru Secuiesc, judetul Harghita, Consiliul Judetean Harghita), in valoare de 7.300 lei.
+
+45. Olosz Gergely, deputat UDMR de Covasna
+In declaratia de interese figureaza ca asociat in opt firme: Cleantech SRL, Gut Holz SRL, Tool Exim SRL, Petra Impex SRL, Biota Forest SRL, Carpati Universal SRL, Panificatie Prod-Kanyadi SRL, Terraprest SRL. Cea mai activa este Cleantech SRL din Sfantu Gheorghe, firma specializata in servicii de curatenie, ce a primit, in 2010 si 2011, sase contracte publice de la Garda de Mediu Sibiu, Electrica Transilvania, Electrica Serv, Directia de Sanatate Publica Covasna, Consiliul Judetean Covasna, in valoare de 140.000 lei.
+
+46. Ovidiu Gant, deputat Forumul Democrat al Germanilor din Romania
+Tatal deputatului detine firma Diagnostic Terapie Halcis Alergie SRL, ce a incheiat in 2009 un contract cu Spitalul Clinic de Urgenta pentru Copii "Louis Turcanu" Timisoara, in valoare de 17.152 lei.
+
+47. Varujan Pambuccian, deputat minoritati
+Lider al grupului parlamentarilor al minoritatilor nationale, Varujan Pambuccian detine pachetul majoritar la firma CCT SRL, un furnizor de consultanta IT. In 2010 si 2011, CCT SRL a primit patru contracte de la institutii publice: Unitatea Executiva pentru Finantarea Invatamantului Superior si a Cercetarii Stiintifice Universitare (servicii informatice, 500.000 lei), Hidroelectrica (executie lucrari, 6.200 lei), Institutul National de Cercetare-Dezvoltare pentru Protectia Muncii "Alexandru Darabont" (servicii, 8.000 lei), Universitatea de Medicina si Farmacie Carol Davila (25.000 lei).
+
+#
+# Sursa pentru următorii este de aici
+# http://www.romaniacurata.ro/ltfont-colorblackgtar-trebui-modificata-legea-care-le-permite-sa-ia-ba-1691.htm
+#
+#
+
+sursa=http://www.romaniacurata.ro/ltfont-colorblackgtar-trebui-modificata-legea-care-le-permite-sa-ia-ba-1691.htm
+
+1. Mircea Andrei, Senatorul PDL de Arges
+Senatorul PDL de Arges Mircea Andrei este unul dintre cei mai bogati parlamentari romani. El detine 10 terenuri, 9 case, un Mercedes S 500 si un BMW X5, bijuterii (80.000 euro), tablouri (70.000 euro), colectie pietre de mina (25.000 euro), timbre (50.000 euro), plus 6 milioane de euro cash in banca. A acordat impumuturi unor persoane fizice de 3,7 milioane euro si a cumparat titluri emise de statul roman si de o banca Hong Kong in valoare de 1,3 milioane euro.
+Mircea Andrei si-a rotunjit veniturile cu un contract de consultanta incheiat cu SC Electrica SA in martie 2010, pentru care primeste 100 de euro/ora, atunci cand este solicitat.
+“Tunul” dat de Mircea Andrei este reprezentat de trei contracte semnate cu cei de la Consiliul Judetean Giurgiu, unde presedinte este liberalul Dumitru Beianu. In 2009, Cabinetul „Mircea Andrei si Asociatii“ a obtinut de CJ Giurgiu, fara licitatie,  un prim contract de consultanta juridica, in valoare de 120.000 euro, in vederea privatizarii SC Uzina Termoelectrica (SCUT) Giurgiu. In septembrie 2010, aceeasi casa de avocatura a primit de la CJ Giurgiu un contract in valoare de 500 euro si 25.000 euro onorariu de succes, plus un al treilea contract de 10.000 de lei, ce are ca obiect reprezentarea CJ Giurgiu intr-un proces, pierdut de altfel la Curtea de Apel Bucuresti.
+
+2. Ioan Chelaru, senatorul PSD
+Presedinte al Baroului Neamt, senatorul PSD Ioan Chelaru, a primit contracte de reprezentare juridica de la trei primari din colegiul sau, respectiv din comunele Tamaseni (14.880 lei), Oniceni (14.880 lei) si Boghicea (18.744 lei). Contractele au fost semnate in ianuarie 2010 pe o perioada de un an.
+Posesor a cinci terenuri si cinci case raspandite prin judetul Neamt, Ioan Chelaru se plimba cu un Mercedes si are in posesie 20 tablouri, 10 statuete si 10 vase ornamentale. Parlamentarul detine printre altele actiuni la postul Radio Nord Est din Roman. Senatorul PSD este si cercetat de catre ANI.
+
+3. Adrian Tutuianu, senator PSD
+Si senatorul PSD de Dambovita Adrian Tutuianu a facut bani frumosi din contracte publice. In ianuarie 2011, el a convins mai multi primari din propriul colegiu electoral sa-i acorde contracte de reprezentare juridica pe urmatoarele 12 luni: comuna Salcioara (Dambovita - 1300 lei/luna), comuna Matasaru (1300 /luna), comuna Gura Sutii (1300 lei/luna), comuna Morieni (1000 lei/luna), municipiul Moroieni (1700 lei/luna), comuna Vacaresti (1300 lei/luna), comuna Comisani (1500 lei/luna), comuna Tatarani (1300 lei/luna), comuna Dragomiresti (2000 lei/luna),  comuna Nucet (1300/luna).
+
+In plus, in mai 2011, el a mai primit alte contracte de reprezentare in procese de sine statatoare in cazul a patru primarii din judetul Dambovita: Primaria Sotanga (2500 lei), Primaria Produlesti (1500 lei), Primaria Uliesti (1400 lei) si Primaria Potlogi (1500 lei).
+Pe langa aceste contracte, el a mai luat alte doua incheiate cu Agentia pentru Dezvolare Regionala Sud Muntenia din Municipiul Calarasi, de unde firma senatorului incaseaza 5000 lei/luna si Asociatia Biroul pentru Cooperare Transfrontaliera Romania/Bulgaria tot de la Calarasi pentru care Tutuianu primeste 1200 euro/luna, pana la sfarsitul anului 2011.
+
+Senatorul Tutuianu a primit aceste contracte fara licitatie, pentru ca demnitarul se bazeaza pe un articol din legea administratiei locale care spune ca primarul sau seful consiliului judetean poate apela la un avocat pentru a reprezenta interesele comunitatii in justitie. Si mai dubios este faptul ca in anul 2010 primaria din comuna Tatarani era in pragul falimentului, salariile angajatilor nefiind platite de jumatate de an.
+
+4. Tudor Chiuariu, Fost ministru al Justitiei
+Fost ministru al Justitiei, Tudor Chiuariu, a semnat in 2010 si 2011 patru contracte de asistenta juridica cu primarul si Consiliul Local din Caransebes, pentru care a primit 3.200 de euro. Anul trecut, el a castigat de la casa sa de avocatura “Chiariu & Asociatii” suma de 380.000 lei.
+
+5. Alina Gorghiu, deputat PNL
+Anul 2010 nu pare a fi fost foarte bun pentru Alina Gorghiu, deputat PNL, de vreme ce casa sa de avocatura “Gorghiu, Pop & Asociatii” nu a inregistrat profit, cu toate ca ea a primit 9.600 lei de la BTT Bucuresti, institutie pe care a aparat-o in cadrul unui proces.
+
+6. Mures Ciprian Dobre, deputat liberal
+Iuliana Dobre, sotia deputatul liberal de Mures Ciprian Dobre, detine o casa de avocatura ce a continuat in 2010 derularea unui contract de asistenta juridica cu Primaria din orasul Iernut, pentru care a primit 2.000 de euro. In plus, sotia parlamentarului a reprezentat OTIMMC Tg. Mures intr-un proces, in schimbul a 2.500 lei.
+
+7. Cristian Petrescu, deputatului PDL
+Sotia deputatului PDL Cristian Petrescu a primit de la CNADNR, in perioada anilor 2004-2006, trei contracte de asistenta juridica pentru exproprieri de terenuri in cadrul constructiei autostrazilor A2 si A3, in valoare de 54.000 euro si 4,6 milioane lei (un million de euro).
+
+Cristian Petrescu este presedintele Asociatiei Profesionistilor din Turism din Romania, calitate in care a primit de la colega sa de partid, minstrul Dezvoltarii, Elena Udrea, trei contracte pentru promovarea turistica: “Drumul vechilor cetati dobrogene”- 950.000 lei, “Traseu turistic Maramures-Bucovina”- 989.000 lei si “Trasee tursitice si de agrement din Transilvania” – 989.000 lei.
+
+8. Mihaela Popa, senator PDL
+Emil Popa, sotul senatoarei PDL Mihaela Popa, este sef oficiu la OTTIMC Iasi (Oficiul Teritorial pentru Intreprinderi Mici si Mijlocii si Cooperatie), institutie aflata in subordinea Ministerului Economiei. Firma familiei, Consultanta Antreprenoriala Europeana SRL, a incheiat in martie 2010 un contract de consultanta cu Consiliul Judetean Prahova, condus de Mircea Cosma (PSD), valoarea fiind de 54.900 lei fara TVA.
+
+In plus, Emil Popa a incasat mai multe sume din traininguri/consultanta sustinute in cadrul unor proiecte organizate de Asociatia Femeilor Rome din Romania (1.569 lei), Arine Iasi (900) si Asociatia Egreta (3.000).
+
+9. Iulian Urban, pdl
+Pedelistul Iulian Urban, vicepresedinte al Comisiei Juridice din Senat, a primit in 2010 un contract de la primarul din comuna ilfoveana, Ion Florian Danut, un contract de asistenta juridica, in valoare de 2.600 de lei.
+Urban continua traditia din anii trecuti, cand a primit contracte de la patru primarii din propriul colegiu.
+
+10. Gabriel Tita-Nicolaescu, deputat UNPR
+Deputatul Gabriel Tita-Nicolaescu de la UNPR a reprezentat Primaria din Brasov in 53 de procese in instante, pentru care a primit aproximativ 200.000 lei. In declaratia de interese, deputatul de Brasov a tinut sa mentioneze ca a avut castig de cauza in majoritatea proceselor finalizate.

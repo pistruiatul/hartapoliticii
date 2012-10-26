@@ -1,0 +1,169 @@
+# Text luat de aici http://www.romaniacurata.ro/lista-neagra-a-senatorilor-care-au-afaceri-cu-statul-1718.htm
+# Formatul acestor fișiere este după cum urmează:
+#
+#   + orice linie începe cu # este ignorată.
+#
+#   + orice linie începe cu "număr. " va conține numele persoanei despre care
+#     este vorba în următorul format: "număr. Numele Persoanei, text explicativ"
+#
+#   + textul imediat după linia cu "nume=" până la următoarea linie cu nume
+#     sau până la sfârșitul fișierului se referă la persoana respectivă.
+
+sursa=http://www.romaniacurata.ro/lista-neagra-a-senatorilor-care-au-afaceri-cu-statul-1718.htm
+
+1. Vasile Blaga, senator PDL de Bucuresti
+Potrivit ultimei declaratii de interese, Agathe Cristina Rudeanu, fiica fostului ministru de interne Vasile Blaga a castigat in 2011 patru contracte cu statul. Firma Axis Emergency SRL a incheiat cu Casa Nationala de Asigurari de Sanatate un contract tip "prestari servicii transport sanitar", pentru care a incasat 3.000 de lei. Consiliul local Buftea a semnat un contract similar cu firma detinuta de Agathe Rudeanu, pentru care a platit 10.450 lei.
+
+De asemenea, Spitalul Judetean Deva si Spitalul Municipal Hunedoara au incredintat aceleiasi firme contracte de tipul "servicii de transport medical" pentru 1,79 lei/km.
+
+In decembrie 2010, senatorul a primit mostenire un teren in suprafata de 6.200 metri patrati in comuna Petrileni, judetul Bihor si casa parinteasca in suprafata de 200 mp in aceeasi localitate. Acestea se adauga mai vechilor proprietati imobiliare detinute de Vasile Blaga: doua terenuri in Oradea si comuna Cihei (judetul Bihor), o casa in Oradea si un apartament de lux in Bucuresti.
+
+2. Sorina Placinta, senator PDL de Vrancea
+Fostul ministru al Tineretului si Sportului, senatorul PDL Sorina Placinta, a primit de la colega sa de partid Elena Udrea bani pentru promovarea turismului.
+
+Potrivit declaratiei de interese, Sorin Placinta este actionar majoritar la doua fime: SC Sorste SA Focsani si Inmartextil SA, fiind si presedinte al Fundatiei "Zi Deschisa".
+
+In 2010, SC Sorste SA Focsani a primit doua contracte de la Complexul Energetic Turceni (107.000 si 143.000 lei), un ajutor financiar de la Ministerul Economiei de 248.000 lei si alti 8,8 milioane de lei de la acelasi minister, reprezentand un program sectorial pentru cresterea competitivitatii economice si 2 milioane lei pentru un program european pe resurse umane.
+Ministerul Turismului si Dezvoltarii, condus de Elena Udrea, a acordat Fundatiei "Zi Deschisa" suma de 970.000 lei, in cadrul unui Program Operational Regional, privind promovarea potentialului turistic.
+
+Tot ministerul Elenei Udrea a acordat firmei Inmartextil SRL suma de 1 milion de lei, reprezentand o cerere de finantare in cadrul unui program de sprijinire a dezvoltarii microintreprinderilor.
+
+De altfel, Fundatia "Zi Deschisa" este foarte activa in accesarea de bani europeni, primind alti 2 milioane lei printr-un program privind promovarea masurilor active de ocupare a fortei de munca.
+
+Sorina Placinta a luat de la Administratia Fondului de Mediu suma de 6.000 lei, reprezentand programul "Casa Verde".
+Potrivit decalariei de avere, senatorul PDL a cumparat, in 2010, un teren de 700 mp si o casa de 370 mp in Timisoara si un apartament de 115 mp in Bucuresti.
+
+Si-a vandut propriei firme, SC Sorste SA Focsani, doua case din Focsani pentru 835.000 lei si 880.000 lei, precum si un sistem de irigatie in valoare de 67.000 lei.
+
+De asemenea, a imprumutat SC Sorste SA Focsani cu suma de 1 milion de euro si in contul acestei datorii si-a majorat participatia la capitatului social la aceasta firma.
+
+3. Mihai Stanisoara, senator PDL de Mehedinti
+Senatorul PDL Mihai Stanisoara a lichidat societatea comerciala SC Software Total Concept SRL, incasand suma de 877.000 lei.
+
+O alta companie a senatorului SC Terra Sat Severin SRL (firma care detine un post de televiziune si un radio local, precum si cotidianul "Informatia de Severin") a incheiat un contract de publictate cu RNP Romsilva-Parcul National Portile de Fier, in valoare de 19.500 lei.
+
+4. Mihail Hardau, senator PDL de Cluj
+Fiul senatorul PDL de Cluj Mihail Hardau, Andrei Hardau, are un contract de prestari servicii, incheiat in 2010  pentru o perioada de trei ani cu Agentia Judeteana pentru Ocuparea Fortei de Munca Cluj, valoarea acestuia fiind de de 200 lei pentru ora de lucru.
+
+5. Petru Basav, senator PDL de Mures
+Are actiuni la opt firme: SC Teleson SRL, SC Teleson Com SRL, SC Delason SRL, SC Help Serv IFN SRL Sighisoara, SC Vesatel SRL Targu Mures, SC Edipres Tipo SRL Targu Mures, SC Editura Mureseana SRL Tg. Mures, SC Agromec Sighisoara SA.
+In declaratia de interese senatorul a trecut mai multe contracte incheiate de Vesatel SRL Targu Mures (furnizor de telefonie si internet prin fibra optica) pe perioada  nedeterminata cu institutii publice din judetul Mures: Gimnaziul de Stat "Augustin Maior" Reghin (contract din 2005, 175 lei/luna), Gimnaziul de Stat "Al. Ceusianu" Reghin (2006, 165 lei/luna), Centrul Scolar Reghin (2006, 165 lei/luna), Muzeu Reghin (2009, 44 lei/luna), Grup Scolar "Ioan Bojor" Reghin (2010, 260 lei/luna), D.G.A.S.P (2007, 303 lei/luna).
+
+6. Viorel Constantinescu, senator PDL de Buzau
+Potrivit ultimei declaratii de interese, senatorul are actiuni la doua companii: SC Proiect SA Buzau si Constotal SRL Buzau. Specializata in proiectare, Constotal SRL a primit in 2010 si 2011 contracte de la Primaria Buzau, Primaria Comunei Tisau, Primaria Comunei Pietroasele si Consiliul Judetean Sibiu, cu o valoare cumulata de 119.000 lei.
+
+7. Marian Ovidiu, senator PDL de Arad
+Sotia senatorului, Melania Marian, detine compania Charoo Trading&Service SRL ce a incheiat in 2010 cu Primaria comunei Varfurile un contract de 43.431 lei, avand ca obiect "diriginte de santier". De remarcat ca primarul comunei, Giurgelea Radu Tiberiu, este membru al PDL.
+
+8. Dumitru Oprea, senator PDL de Iasi
+Membru in mai multe fundatii si asociatii, senatorul a primit in decembrie 2010 de la Academia Romana un proiect valabil pe 18 luni, de studii post-doctorale in economie, pentru care va primi 4.500 lei/luna.
+
+9. Serban Mihailescu, senator UNPR de Bucuresti
+Senatorul Serban Mihailescu a trecut in declaratia de interese ca "nu are contracte directe cu statul", insa sotia sa detine 20% din firma SC Hanex SRL Romania (unde este director general adjunct), companie care a incheiat in perioda februarie-mai 2011 sase contracte cu societati comerciale avand capital de stat, ce au ca obiect livrarea de elemente de asamblare si electrozi de sudura: Intretinere Mecanizata a Caii Ferate SA (17.429 lei), RATB (65.000 lei, electrozi pentru sudura), Complexul Energetic Turceni SA (furnizare electrozi de sudura, 4.500 lei), Compania Nationala a Huilei ( doua contracte de 90.000 lei si 92.000 lei), CFR IRV Constanta (189.290 lei).
+
+10. Liviu Campanu, senator UNPR de Botosani
+De profesie medic, Liviu Campanu este actionar la SC Medas SRL Darabani, companie ce a incheiat cu Casa de Asigurari de Sanatate Botosani un contract de prestari servicii medicale.
+
+De altfel, in calitate de medic de familie, Liviu Campanu a castigat in ultimul an 11.676 lei, iar sotia sa, Minodora Campanu, 12.528 lei, ea fiind administrator la SC Medas SRL.
+
+11. Sorin Serioja Chivu, senator UNPR de Prahova
+Detine 71% din actiunile companiei Mecca Plast Service SA Ploiesti, dealer autorizat Hyundai (vanzare, inchiriere sau reparare de autovehicule).
+
+In declaratia de interese, senatorul a trecut un contract de inchiriere atribuit in 2003 de Consiliul Local din Ploiesti, ce a fost reinoit anual si are o valoare de 11.500 lei/luna.
+
+De asemenea, sotia sa, Elena Sonia Chivu, a primit in martie 2011 de la Sanatoriul Balnear si de Recuparare Techirghiol, prin intermediul SC Ela Inter Consulting SRL, un contract de prestari servicii, cu o valoare de 78.988 lei.
+
+12. Ion Toma, senator UNPR de Olt
+A fost ales pe listele PSD, insa a fost exclus din partid in martie 2011. In prezent a trecut in randurile UNPR.
+
+Detine 357.424 actiuni la SCADT SA Slatina (fosta intreprindere de constructii a judetului Olt), cu valoare nominala 178.712 lei.
+
+Calitatea de membru PSD i-a adus lui Ion Toma numeroase contracte cu institutii publice, majoritatea cu primarii oltene conduse de primari PSD.
+
+Potrivit declaratiei sale de interese, SCADT SA a primit, in perioada 2007-martie 2011, contracte de la Primaria Barasti (3.786.768) lei; doua contracte de la Ministerul Educatiei si Invatamantului (12.811.791 si 8.942.496 lei), Primaria Corabia (8,9 milioane lei), Primaria Oporelu (1.453.588 lei); Primaria Tatulesti (855.001 lei); Primaria Baldovinesti (1.203.909 lei); Primaria Cezieni (2.610.595 lei); Primaria Visina (2.580.570 lei), trei contracte de la ANL Bucuresti (25 milioane lei), Consiliul Judetean Olt (1,6 milioane lei), Primaria Brasov (4,6 milioane lei), Primaria Orodel – Dolj (7,1 milioane lei), Consiliul Judetan Ialomita (1,2 miloane lei), Comuna Urzica (3,4 milioane lei).
+
+In 2010, Ion Toma a primit dividende de la SCADT SA in cuantum de 136.080 lei.
+
+13. Florin Constantinescu, senator PSD de Iasi
+Este unul dintre cei mai activi parlamentari in domeniul afacerilor. Detine actiuni la cinci companii: SC ACK SRL Pascani, SC Moralux Florena SRL, Atelierul Mihail Sadoveanu 2007 Pascani, SC ACK Fluid SRL Pascani si SC ACK Eolian SRL Pascani.
+SC ACK Fluid SRL Pascani (producator de echipamente necesare masurarii si contorizarii cantitatilor de fluide: gaze tehnice, gaze naturale, abur, energie termica, apa industriala, apa uzata) a primit in 2011 patru contracte de la sucursalele din Constanta, Craiova si Isalnita ale Societatii Electrocentrale si Compania de Apa Olt, in valoare de 700.000 lei.
+
+Aceeasi firma a primit in 2010 de la Ministerul Comunicatiilor o finantare nerambursabila de 193.706 lei.
+
+In plus, SC ACK SRL Pascani (contoare si echipamente de masura, servicii de apa si canalizare) a primit o finantare nerambursabila de la Ministerul Mediului in valoare de 20 de milioane lei.
+
+La randul sau, firma Moralux Florena SRL, ce detine o moara in satul Crivesti din comuna Vanatori, a incheiat cu sase primarii din judetul Iasi (Miroslovesti, Vanatori, Strunga, Helesteni, Ruginoasa, Oteleni) contracte de achizitii de 235.000 lei.
+
+Moralux Florena SRL a mai incheiat cu Primaria Comunei Cristesti un contract de inchiriere, valabil 5 ani, in cuantum de 2.255 lei/an.
+
+Florin Constantinescu are o avere impresionanta: cinci terenuri intravilan, un apartament in Iasi si o casa in Pascani, bijuterii si alte obiecte din metale pretioase de 30.000 euro, active financiare de 14 milioane lei, dar si credite de aproape 500.000 euro. Senatorul a castigat in ultimul an 232.000 lei numai din dividende.
+
+14. Iulian Badescu, senator PSD de Prahova
+Potrivit declaratiei de interese, Iulian Badescu este actionar la trei companii: SC Cerbul SA Sinaia, SC Bipress SRL si Bloom Press SRL Ploiesti.
+
+Bloom Press SRL Ploiesti este compania care editeaza cotidianul "Republicanul" si saptamanalul "Monitorul de Prahova". Firma a primit doua contracte de publicitate de la Parc Industrial Ploiesti SA pentru 4.000 si 7.500 de lei.
+
+In plus, 29 de primarii din judetul Prahova au facut abonamente la cotidianul "Republicanul", ce au costat intre 100 si 300 lei fiecare.
+
+15. Gheorghe Pop, senator PSD de Salaj
+Sotia senatorului, Maria Pop, este administrator si actionar la  SC Bavaria All Cons, cu sediul in comuna Mesesenii de Jos, companie ce a castigat o finantare europeana de 630.136 lei pentru achizitia unor utilaje folosite in constructii.
+
+Finantarea a fost primita de la Centrul Regional de Plati pentru Dezvoltare Rurala si Pescuit Satu Mare, prin Programul National de Dezvoltare Rurala – masura 312 "Sprijin pentru crearea si dezvoltarea de microintreprinderi".
+
+16. Ioan Mang, senator PSD de Bihor
+Detine actiuni direct sau prin intermediul sotiei si al fiului sau la trei companii: SC DEC SRL Oradea, SC Tipografia GrafX SRL Oradea, SC Key Ticket Solutions SRL.
+
+Potrivit declaratiei de interese, SC DEC SRL Oradea (produse softweare, licente antivirus, comercializare calculatoare) a incheiat in 2010 si 2011 contracte cu Spitalul Clinic Judetean de Urgenta Bihor, Primaria Oradea, Primaria orasului Stei, Curtea de Apel Oradea, OTL RA (transport local Oradea), in valoare de 45.000 lei.
+
+Key Ticket Solutions SRL (furnizare echipamente IT), unde asociat este fiul senatorului, Ioan Alexandru Mang, a primit trei contracte de la Primaria orasului Stei, Universitatea Politehnica Timisoara si Spitalul Clinic Judetean de Urgenta Oradea, cu o valoare cumulata de aproape 100.000 lei.
+
+De asemenea, Tipografia GrafX SRL Oradea a incheiat contracte cu Primaria orasului Stei si Curtea de Apel Oradea, pentru 28.000 lei.
+
+17. Verestoy Attila, senator UDMR
+Verestoy Attila detine actiuni la mai multe firme nelistate pe bursa: Junior Com SRL, Eastern Securities SA, Director Factor IFN SA, Trinserv, MES Slatina SA, Hellas Primex SRL SA, Sajo Hor KFT (Ungaria), General Kemia KFT (Ungarua), Eurorail Ways Holdings SA sau listate pe RASDAQ: Famos SA Odorheiu Secuiesc.
+
+In iunie 2011, Verestoy Attila avea actiuni la companii listate pe Bursa de Valori Bucuresti in valoare de 36 milioane lei, inregistrand o pierdere de 1,3 milioane lei, iar sotia sa, Erzsebet Verestoy, detinea actiuni in valoare de 4 milioane lei.
+Pe tot anul 2010, Verestoy Attila a castigat din tranzactii la bursa suma de 10 milioane lei (2,5 milioane euro), a incasat dividende de 700.000 lei si alti 1,2 milioane lei de la doua fonduri de investitii.
+
+In declaratia de interese, senatorul UDMR spune ca in 2010 si prima parte din 2011 a derulat trei contracte cu institutii ale statului, prin firma Junior Com SRL Odorheiu Secuiesc: Spitalul Municipal Odorheiu Secuiesc - 420.000 lei, furnizare alimente de baza; Primaria Odorheiu Secuiesc - 30.000 lei, mese servite in cadrul cantinei sociale; Gradinita de Copii nr. 9 Odorheiu Secuiesc - 108.000 lei, furnizare alimente pentru copii.
+
+Ca avere, senatorul are aproape 100.000 ha teren, patru aparamente in Bucuresti, o casa in Cristuru Secuiesc, o casa in Odorheiul Secuiesc si o casa de vacanta in Ilfov, trei masini de lux, bijuterii de 50.000 euro si tablouri de 25.000 euro.
+In conturi, Verestoy Attila are 13 milioane lei, peste 8 milioane euro si 30 milioane forinti.
+
+18. Gyorgy Frunda, senator UDMR de Mures
+Senatorul UDMR a militat in permanenta impotriva confiscarii averilor demnitarilor, fiind un opozant deschis al Agentiei Nationale de Integritate, institutie care a deschis o ancheta pe numele sau.
+
+Este actionar la sapte companii: Ortoprofil Prod Romania SRL, Ortoprofil Com SRL, Ortomedi SRL, Alamo Impex SRL, Fisch Publicity, Marmed SRL, Goldring SA.
+
+Numai valoarea partilor sociale detinute la Ortoprofil Prod Romania SRL se ridica la 1,5 milioane euro.
+
+Potrivit declaratiei de interese, Ortoprofil Prod Romania SRL (producator de dispozitive medicale ortopedice) a primit in 2010 mai multe contracte de la casele judetene de asigurari de sanatate, Casa de Asigurari de Sanatate a Apararii, CAS a Ministerului Transporturilor, avand ca obiect "furnizare de dispozitive medicale destinate recuperarii unor deficiente organice functionale in ambulatoriu". Frunda nu a dezvaluit care este valoarea acestor contracte, trecand doar ca acestea sunt variabile in functie de numarul bolnavilor deserviti.
+
+Presa centrala a dezvaluit ca numai contractele firmei cu CAS a Muncipiului Bucuresti se ridicau la 1 milion de lei, iar in prima jumatate a anului 2010 la 500.000 lei.
+
+Tot in declaratia de interese, senatorul UDMR a trecut faptul ca sotia sa, Martha Orsolya, a incheiat cu CAS Mures, prin intermediul Marmed SRL, un contract de prestari servicii, fara a indica insa si valoarea acestuia.
+
+Gyorgy Frunda are sase terenuri, doua case de locuit si o casa de vacanta, trei apartamente, bijuterii de 50.000 euro, ceasuri (20.000 euro), obiecte de arta (60.000 euro).
+
+De asemenea, senatorul UDMR are in conturi bancare aproape 2 milioane de lei si 140.000 euro, iar sotia sa in jur de 700.000 lei.
+
+In 2010, senatorul a castigat 348.000 lei din avocatura si 2,3 milioane lei dividende de la Ortoprofil Prod Romania SRL.
+
+19. Dan Voiculescu, senator PC de Bucuresti
+Cu o avere estimata in prezent la 200 milioane euro, Dan Voiculescu deruleaza prin firme, asociatii si fundatii afaceri impresionante cu institutii ale statului.Valoarea contractelor incheiate in ultimul an sau aflate in derulare in perioada 2010-2011 se ridica la aproape 16 milioane de euro.
+
+Astfel, Fundatia Dan Voiculescu pentru Dezvoltarea Romaniei a primit de la Fondul European Social al Ministerului Muncii, prin Programul Operational Sectorial "Dezvoltarea Resurselor Umane", un contract in valoare de 4.059.098 lei (din care 3.972.916 este finantare nerambursabila).
+
+Asociatia Oamenilor de Afaceri din Romania, unde Dan Voiculescu figureaza ca fondator, a primit doua contracte de 9,9 milioane lei si 1,5 milioane lei de la Autoritatea de Management a Programului Operational Sectorial Dezvoltarea Resurselor Umane (finantare din fonduri europene).
+
+Contracte cu institutii ale statului au derulat si companiile detinute acum de fiicele sale, Camelia si Corina Voiculescu.
+
+Grivco SA a primit in 2010 contracte prin negociere directa de la Termoelectrica (3,3 milioane lei); Electrica Muntenia Nord SA (6 milioane lei), Institutul National de Cercetare-Dezvoltare pentru Imbunatatiri Funciare Baneasa (250.000 lei /an), S.N. Radiocomunicatii (130.000 euro/an), Camera de Comert si Industrie a Municipiului Bucuresti (120.000 euro).
+
+SC Intact Production SRL, o alta companie detinuta de familia Voiculescu, a incheiat contracte cu Romexpo (674.000 euro/an, inchiriere cladire si un teren), Camera de Industrie si Comert a Romaniei (38.000 euro), SC Tipografia Intact SA tipareste revista Loto-Prono - contract cu Loteria Romana pe durata unui an, in schimbul a 870.000 lei.
+
+SC Media Casa Press SRL a incheiat mai multe contracte de publicitate cu institutii ale statului sau companii unde statul este actionar majoritar: Autoritatea Nationala pentru Sport si Tineret - 7.000 lei; Eximbank - 3.000 euro si 14.280 euro; Antibiotice - 10.000 euro; Asociatia de Dezvoltare Intracomunitara Zona Metropolitana Oradea - 10.000 euro; Oltchim SA - 100.000 euro; Tarom - 6.000 euro, Romtelecom-35.000 euro.
+
+SC Smart Food Solutions SRL a derulat pana in decembrie 2010 un contract cu Agentia de Plati pentru Dezvoltare Rurala si Pescuit in valoare de 21 milioane lei, iar Blue Sky Turism SRL a primit fara licitatie de la Eximbank un contract de prestari servicii in valoare de 3,6 milioane lei.
+
+In plus, Europexpo Trade Fairs SRL a luat doua contracte de la Comisia de Supraveghere a Asigurarilor de aproape 100.000 euro.

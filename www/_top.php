@@ -15,6 +15,7 @@
     $msg = str_replace("{", "{<font color=purple>", $msg);
     $msg = str_replace("}", "</font>}", $msg);
 
+    date_default_timezone_set('Europe/Bucharest');
     echo date('h:i:s') . ': <font color=#999999>' . $msg . '</font><br>';
   }
 ?>
