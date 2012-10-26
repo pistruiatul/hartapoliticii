@@ -4,7 +4,8 @@
 // We know that the person we are talking about is $person.
 
 $sql =
-  "SELECT dep.id, dep.name, dep.idm, dep.timein, dep.timeout, dep.motif, ".
+  "SELECT dep.id, dep.idperson, dep.name, dep.idm, dep.timein, dep.timeout, ".
+    "dep.motif, ".
     "video.seconds, video.idv, video.sessions, ".
     "votes_agg.possible, votes_agg.percent, ".
     "belong_agg.idparty, ".
@@ -36,7 +37,7 @@ if ($rdep['timeout'] != 0) {
  $t->assign('reason', $rdep['motif'] != "" ? " (" . $rdep['motif'] . ")" : "");
 }
 
-$parties = getPartiesFor($rdep['id'], 2004);
+$parties = getPartiesFor($rdep['idperson'], 2004);
 $t->assign('party', getPartyName($parties[0]['name']));
 
 $party_list = array();
