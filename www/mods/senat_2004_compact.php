@@ -3,7 +3,7 @@
 // We know that the person we are talking about is $person.
 
 $sql =
-  "SELECT sen.id, sen.name, idm, timein, timeout, motif, ".
+  "SELECT sen.id, sen.idperson, sen.name, idm, timein, timeout, motif, ".
     "possible, percent, idparty " .
   "FROM senat_2004_senators AS sen " .
     "LEFT JOIN senat_2004_votes_agg AS votes ".
@@ -32,7 +32,7 @@ if ($rdep['timeout'] != 0) {
 }
 
 // Print the party belonging during his senator years
-$parties = getPartiesForSenator($rdep['id']);
+$parties = getPartiesForSenator($rdep['idperson']);
 $t->assign('party', getPartyName($parties[0]['name']));
 
 $party_list = array();
