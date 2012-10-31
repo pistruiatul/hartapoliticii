@@ -317,4 +317,8 @@ function endsWith($haystack, $needle) {
   return (substr($haystack, -$length) === $needle);
 }
 
+
+function startsWith($haystack, $needle) {
+  return !strncmp($haystack, $needle, strlen($needle));
+}
 ?>

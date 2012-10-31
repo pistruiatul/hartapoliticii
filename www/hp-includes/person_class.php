@@ -31,6 +31,9 @@ class Person {
   /** The name that this person will be displayed under. */
   public $displayName = '';
 
+  /** The history array. If this is already fetched, don't get twice. */
+  private $history;
+
   /**
    * A sorted array with all the individual names of this person, both basic
    * and extended. All the names in this array are lower case, no diacritics.
@@ -296,19 +299,60 @@ class Person {
 
 
   /**
+   * If this person is an active senator or deputy, return the name of his/her
+   * electoral college. If this person is no longer active, return FALSE;
+   *
+   * @return bool|string
+   */
+  public function getActiveParliamentElectoralCollege() {
+    if (!$this->history) $this->getHistory();
+
+    $is_active = FALSE;
+    if (in_array('cdep/2008', $this->history)) {
+      // Make sure that the timeout is zero.
+      $sql = mysql_query(
+        "SELECT timeout FROM cdep_2008_deputies WHERE idperson={$this->id}");
+      $r = mysql_fetch_array($sql);
+      if ($r['timeout'] == 0) {
+        // Now get the college name.
+        $is_active = TRUE;
+      }
+    }
+    if (in_array('senat/2008', $this->history)) {
+      // Make sure that the timeout is zero.
+      $sql = mysql_query(
+        "SELECT timeout FROM senat_2008_senators WHERE idperson={$this->id}");
+      $r = mysql_fetch_array($sql);
+      if ($r['timeout'] == 0) {
+        $is_active = TRUE;
+      }
+    }
+
+    if (!$is_active) return FALSE;
+
+    // We know that the person we are talking about is $person.
+    $sql = "SELECT colegiu FROM results_2008 WHERE idperson = {$this->id}";
+    $r = mysql_fetch_array(mysql_query($sql));
+    return $r['colegiu'];
+  }
+
+
+  /**
    * Returns a list of strings with the history of this person.
    * @return {Array} A list of history strings.
    */
   public function getHistory() {
+    if ($this->history) return $this->history;
+
     $s = mysql_query("SELECT * FROM people_history ".
                      "WHERE idperson={$this->id} ".
                      "ORDER BY time DESC, id DESC");
 
-    $ret = array();
+    $this->history = array();
     while ($r = mysql_fetch_array($s)) {
-      $ret[] = $r['what'];
+      $this->history[] = $r['what'];
     }
-    return $ret;
+    return $this->history;
   }
 
 

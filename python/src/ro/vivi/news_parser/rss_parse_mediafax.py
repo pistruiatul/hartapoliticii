@@ -28,7 +28,7 @@ import re
 from datetime import datetime
 from dateutil import parser
 
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 from HTMLParser import HTMLParseError
 from xml.etree.ElementTree import parse
 

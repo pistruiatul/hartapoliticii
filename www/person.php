@@ -6,6 +6,8 @@ include_once('hp-includes/wiki_edits.php');
 include_once('hp-includes/people_lib.php');
 include_once('hp-includes/people_util.php');
 
+include_once('hp-includes/electoral_colleges.php');
+
 include_once('hp-includes/follow_graph.php');
 include_once('hp-includes/news.php');
 
@@ -115,6 +117,18 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 $t = new Smarty();
 $t->assign('qualifiers', $person->getNewsQualifiers(10));
 $t->display('person_qualifiers.tpl');
+
+$college_name = $person->getActiveParliamentElectoralCollege();
+if ($college_name) {
+  $t = new Smarty();
+  $t->assign('college_name', $college_name);
+
+  $t->assign("pc_county_short", getCollegeCountyShort($college_name));
+  $t->assign("pc_number", getCollegeNumber($college_name));
+  $t->assign("pc_id", startsWith($college_name, "D") ? 15 : 14);
+
+  $t->display('person_sidebar_electoral_college.tpl');
+}
 
 // Display all contact details of the person
 include('mods/contact_details.php');

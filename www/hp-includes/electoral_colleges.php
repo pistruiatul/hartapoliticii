@@ -74,4 +74,67 @@ function getDescription2008ForCollege($college) {
   return $r['description'];
 }
 
+/**
+ * Extracts the county short name from a give full college name. So for example
+ * from "D3 Arges" this will extract "AG". Unfortunately, I think the best
+ * way to do this is with a giant switch statement.
+ */
+function getCollegeCountyShort($college_name) {
+  $name = strtolower_ro($college_name);
+  $county_hash = array(
+    "alba" => "AB",
+    "arad" => "AR",
+    "arges" => "AG",
+    "bacau" => "BC",
+    "bihor" => "BH",
+    "bistrita-nasaud" => "BN",
+    "botosani" => "BT",
+    "brasov" => "BV",
+    "braila" => "BR",
+    "buzau" => "BZ",
+    "calarasi" => "CL",
+    "caras-severin" => "CS",
+    "cluj" => "CJ",
+    "constanta" => "CT",
+    "covasna" => "CV",
+    "dambovita" => "DB",
+    "dolj" => "DJ",
+    "galati" => "GL",
+    "giurgiu" => "GR",
+    "gorj" => "GJ",
+    "hargita" => "HR",
+    "hunedoara" => "HD",
+    "ialomita" => "IL",
+    "iasi" => "IS",
+    "ilfov" => "IF",
+    "maramures" => "MM",
+    "mehedinti" => "MH",
+    "mures" => "MS",
+    "neamt" => "NT",
+    "olt" => "OT",
+    "prahova" => "PH",
+    "satu mare" => "SM",
+    "salaj" => "SJ",
+    "sibiu" => "SB",
+    "suceava" => "SV",
+    "teleorman" => "TR",
+    "timis" => "TM",
+    "tulcea" => "TL",
+    "vaslui" => "VS",
+    "valcea" => "VL",
+    "vrancea" => "VN",
+    "bucuresti" => "B"
+  );
+
+  preg_match("/(d|s)(\\d+) (.*)/", $name, $matches);
+  return $county_hash[$matches[3]];
+}
+
+
+function getCollegeNumber($college_name) {
+  preg_match("/(d|s)(\\d+) (\\w+)/", strtolower_ro($college_name), $matches);
+  return $matches[2];
+}
+
+
 ?>

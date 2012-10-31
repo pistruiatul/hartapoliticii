@@ -28,7 +28,7 @@ import urllib
 from datetime import datetime
 from dateutil import parser
 from xml.etree.ElementTree import parse
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 from HTMLParser import HTMLParseError
 
 source = 'python/src/ro/vivi/news_parser/hotnews'
