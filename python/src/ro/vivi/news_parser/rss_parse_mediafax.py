@@ -53,7 +53,7 @@ def get_news_text_from_html(data):
   data = replace_circ_diacritics(data)
 
   try:
-    soup = BeautifulSoup(data)
+    soup = BeautifulSoup(data, "lxml")
   except HTMLParseError:
     return 'error'
 

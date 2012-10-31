@@ -51,7 +51,7 @@ def get_news_text_from_html(data):
   data = replace_html_comments(data)
 
   try:
-    soup = BeautifulSoup(data)
+    soup = BeautifulSoup(data, "lxml")
   except HTMLParseError:
     return 'error'
 

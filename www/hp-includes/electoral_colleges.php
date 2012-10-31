@@ -102,7 +102,7 @@ function getCollegeCountyShort($college_name) {
     "galati" => "GL",
     "giurgiu" => "GR",
     "gorj" => "GJ",
-    "hargita" => "HR",
+    "harghita" => "HR",
     "hunedoara" => "HD",
     "ialomita" => "IL",
     "iasi" => "IS",
