@@ -80,7 +80,7 @@ function getDescription2008ForCollege($college) {
  * way to do this is with a giant switch statement.
  */
 function getCollegeCountyShort($college_name) {
-  $name = strtolower_ro($college_name);
+  $name = getStringWithoutDiacritics(strtolower_ro($college_name));
   $county_hash = array(
     "alba" => "AB",
     "arad" => "AR",
