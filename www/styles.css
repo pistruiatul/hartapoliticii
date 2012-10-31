@@ -685,3 +685,9 @@ a.new_link:hover {
   font-size: 1.1em;
   font-weight: bold;
 }
+
+.powered_by {
+  text-align: right;
+  color: #AAA;
+  font-size: 83%;
+}

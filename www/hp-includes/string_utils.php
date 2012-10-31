@@ -301,4 +301,20 @@ function markDownTextBlock($text, $prefix) {
   return $new_text;
 }
 
+
+/**
+ * Checks if a string ends in a certain other string.
+ * @param $haystack
+ * @param $needle
+ * @return bool
+ */
+function endsWith($haystack, $needle) {
+  $length = strlen($needle);
+  if ($length == 0) {
+    return true;
+  }
+
+  return (substr($haystack, -$length) === $needle);
+}
+
 ?>
