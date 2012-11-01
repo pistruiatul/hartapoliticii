@@ -50,7 +50,8 @@ function getCollegeSearch($query) {
 
   $likes = array();
   foreach($words as $word) {
-    if (strlen($word) > 1) {
+    if (strlen($word) > 1 && $word != "str" && $word != "ale" &&
+        $word != "din" && $word != "bld") {
       $likes[] = "description LIKE '%{$word}%'";
     }
   }
