@@ -211,6 +211,13 @@
 
     <td valign="top" width="250" style="padding-left:10px">
 
+      <p class="smalltitle">
+      <div class="college_search_button">
+        <span class="red">Nou</span>:
+        <a href="/?cid=cauta_colegiu">Caută colegiul din care faci parte</a>
+      </div>
+      </p>
+
      <p class="smalltitle">
        <strong>
          Blog
@@ -237,7 +244,6 @@
       <span class="small">
         <em><a href="/?cid=16">vezi tot blogul...</a></em>
       </span>
-
 
     <div class="social_box">
       <div class="fb-like" style="margin-top: 5px;margin-bottom:10px;"

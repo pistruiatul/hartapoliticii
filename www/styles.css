@@ -697,3 +697,19 @@ a.new_link:hover {
   margin: 15px;
   font-size: 90%;
 }
+
+.college_search {
+  margin: 50px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+.college_search .q {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.college_search .submit {
+  font-size: 25px;
+}

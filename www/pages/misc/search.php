@@ -3,6 +3,7 @@
 if (!$DB_USER) header('Location: /');
 
 $query = trim($_GET['q']);
+$restrict = trim($_GET['r']);
 $query_orig = $query;
 
 $title = $query;
@@ -10,8 +11,6 @@ $title = $query;
 include_once('header.php');
 include_once('hp-includes/people_lib.php');
 include_once('hp-includes/declarations.php');
-
-
 
 function collegeResultCompare($a, $b) {
   if ($a['score'] == $b['score']) {
@@ -61,7 +60,8 @@ function getCollegeSearch($query) {
     $key = $r['name'];
 
     if (array_key_exists($key, $result)) {
-      $result[$key]['description'][] = $r['description'];
+      $result[$key]['description'][] =
+          highlightWords(correctDiacritics($r['description']), $words);
 
       $result[$key]['matched_words'] = setMatchedWords(
         $result[$key]['matched_words'], $r['description'], $words);
@@ -70,7 +70,9 @@ function getCollegeSearch($query) {
     } else {
       $result[$key] = array();
       $result[$key]['description'] = array();
-      $result[$key]['description'][] = $r['description'];
+      $result[$key]['description'][] =
+          highlightWords(correctDiacritics($r['description']), $words);
+
       $result[$key]['name'] = $r['name'];
 
       $result[$key]['matched_words'] = array();
@@ -104,7 +106,7 @@ $query = eliminatePartyNames($query);
 // And now here I should put some content, like something about the elections,
 // some stats, some news, something like that.
 
-if ($query) {
+if ($query && $restrict != "cs") {
   $persons = search($query);
 }
 
@@ -133,6 +135,7 @@ for ($i = 0; $i < count($persons); $i++) {
   );
   $p[] = $person;
 }
+$show_people = (count($p) > 0);
 
 $t->assign('persons', $p);
 
@@ -140,10 +143,17 @@ if (trim($_GET['d']) == 'true') {
   $declarations = searchDeclarations($query);
   $t->assign('declarations', $declarations);
   $t->assign('searched_declarations', true);
+
+  $show_people = $show_people || count($declarations) > 0;
 } else {
   $t->assign('searched_declarations', false);
 }
 
-$t->assign('colleges', getCollegeSearch($query));
+$colleges = getCollegeSearch($query);
+$t->assign('colleges', $colleges);
+$show_people = $show_people || count($colleges) == 0;
+
+if ($restrict == 'cs') $show_people = false;
+$t->assign('show_people', $show_people);
 
 $t->display('pages_misc_search.tpl');

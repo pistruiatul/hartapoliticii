@@ -216,6 +216,18 @@ function correctDiacritics($str) {
 }
 
 
+function prepareNeedleForDiacriticsRegex($needle) {
+  $needle = getStringWithoutDiacritics($needle);
+
+  // Replace all the t's with ors for tț
+  $needle = str_replace('t', '(t|ț|Ț)', $needle);
+  $needle = str_replace('s', '(s|ș|Ș)', $needle);
+  $needle = str_replace('a', '(a|ă|â|Ă|Â)', $needle);
+
+  return $needle;
+}
+
+
 function highlightStr($haystack, $needle) {
   $haystack = correctDiacritics($haystack);
 
@@ -225,11 +237,27 @@ function highlightStr($haystack, $needle) {
     return $haystack;
   }
 
+  $needle = prepareNeedleForDiacriticsRegex($needle);
+
   preg_match_all("/$needle+/i", $haystack, $matches);
   if (is_array($matches[0]) && count($matches[0]) >= 1) {
     foreach ($matches[0] as $match) {
       $haystack = str_replace($match, '<b>'.$match.'</b>', $haystack);
     }
+  }
+  return $haystack;
+}
+
+
+/**
+ * Highlights a list of words inside a string.
+ * @param $haystack
+ * @param $needles
+ * @return mixed|string
+ */
+function highlightWords($haystack, $needles) {
+  foreach ($needles as $needle) {
+    $haystack = highlightStr($haystack, $needle);
   }
   return $haystack;
 }

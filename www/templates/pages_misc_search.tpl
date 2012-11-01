@@ -2,6 +2,7 @@
 
 
 <table width=970 cellspacing=15>
+  {if $show_people}
   <td valign="top">
     {* ---------------------------------------------- *}
     {* People search *}
@@ -33,7 +34,7 @@
     {* ---------------------------------------------- *}
     {* Declaration search *}
     <br>
-    {if sizeof($declarations) > 0}
+    {if count($declarations) > 0}
       <p>
         Declarații care se potrivesc cu "<b>{$query}</b>"
       </p>
@@ -64,6 +65,7 @@
     {/section}
 
   </td>
+  {/if}
   <td width=50% valign="top">
     {* ---------------------------------------------- *}
     {* People search *}
