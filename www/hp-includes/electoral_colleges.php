@@ -95,6 +95,17 @@ function getDescriptionsForCollege($college_name) {
 }
 
 
+function getDescriptionSourceForCollege($college_name) {
+  $sql =
+    "SELECT distinct(source) ".
+    "FROM electoral_colleges ".
+    "WHERE name = '{$college_name}'";
+  $s = mysql_query($sql);
+
+  $r = mysql_fetch_array($s);
+  return $r['source'];
+}
+
 
 /**
  * Extracts the county short name from a give full college name. So for example

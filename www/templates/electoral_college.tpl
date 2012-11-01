@@ -39,7 +39,7 @@
 
     <div class="medium gray">
       Sursa:
-      <a href="{$source}">site-ul BEC</a>.
+      <a href="{$description_source}" target="_blank">site-ul BEC</a>.
     </div>
   </td>
 </table>

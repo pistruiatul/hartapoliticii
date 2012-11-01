@@ -24,6 +24,7 @@ $t->assign("id_winner_2008", getWinner2008ForCollege($college_name));
 $t->assign("show_minorities_link", strpos($college_name, "D") === 0);
 
 $t->assign("descriptions", getDescriptionsForCollege($college_name));
+$t->assign("description_source", getDescriptionSourceForCollege($college_name));
 
 $t->display("electoral_college.tpl");
 
