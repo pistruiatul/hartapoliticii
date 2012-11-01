@@ -6,6 +6,8 @@ $query = trim($_GET['q']);
 // Just take out the quotes.
 $query = str_replace("\\'", "", $query);
 $query = str_replace("\\\"", "", $query);
+$query = str_replace(",", "", $query);
+$query = str_replace(".", "", $query);
 
 $restrict = trim($_GET['r']);
 $query_orig = $query;
