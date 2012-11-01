@@ -97,7 +97,7 @@ function getCollegeSearch($query) {
   }
 
   usort($result, "collegeResultCompare");
-  return $result;
+  return array_slice($result, 0, 15);
 }
 
 
