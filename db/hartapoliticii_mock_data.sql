@@ -12215,6 +12215,24 @@ CREATE TABLE IF NOT EXISTS `yt_videos` (
   KEY `watch_url` (`watch_url`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3785 ;
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `electoral_colleges`
+--
+
+DROP TABLE IF EXISTS `electoral_colleges`;
+CREATE TABLE IF NOT EXISTS `electoral_colleges` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `year` int(11) NOT NULL DEFAULT '2012',
+  `source` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

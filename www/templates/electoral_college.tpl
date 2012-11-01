@@ -28,14 +28,18 @@
     <br><br>
 
     <span class="smalltitle">
-      <b>Ce includea acest colegiul în 2008</b>
+      <b>Ce include acest colegiu</b>
     </span>
 
-    <br>
-      {$description_2008}.
-    <br>
-    Pentru descrierea pe larg vizitați
-    <a href="http://www.becparlamentare2008.ro/colegii_uninominale.html">site-ul BEC</a>.
-    <br>
+    <div class="ec_description">
+      {section loop=$descriptions name=d}
+        <div>{$descriptions[d]}</div>
+      {/section}
+    </div>
+
+    <div class="medium gray">
+      Sursa:
+      <a href="{$source}">site-ul BEC</a>.
+    </div>
   </td>
 </table>

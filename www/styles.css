@@ -691,3 +691,9 @@ a.new_link:hover {
   color: #AAA;
   font-size: 83%;
 }
+
+.ec_description {
+  line-height: 1.6em;
+  margin: 15px;
+  font-size: 90%;
+}

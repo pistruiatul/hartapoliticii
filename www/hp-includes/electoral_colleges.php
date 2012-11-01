@@ -74,6 +74,28 @@ function getDescription2008ForCollege($college) {
   return $r['description'];
 }
 
+
+/**
+ * @param {string} $college The college name needs to be in the form of
+ *     "S1 Alba" or "D3 Prahova". Capitalization is important.
+ * @return
+ */
+function getDescriptionsForCollege($college_name) {
+  $sql =
+    "SELECT description ".
+    "FROM electoral_colleges ".
+    "WHERE name = '{$college_name}'";
+  $s = mysql_query($sql);
+
+  $descriptions = array();
+  while ($r = mysql_fetch_array($s)) {
+    $descriptions[] = $r['description'];
+  }
+  return $descriptions;
+}
+
+
+
 /**
  * Extracts the county short name from a give full college name. So for example
  * from "D3 Arges" this will extract "AG". Unfortunately, I think the best

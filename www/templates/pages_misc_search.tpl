@@ -2,7 +2,7 @@
 
 
 <table width=970 cellspacing=15>
-  <td>
+  <td valign="top">
     {* ---------------------------------------------- *}
     {* People search *}
     {if sizeof($persons) > 0}
@@ -62,6 +62,31 @@
 
       {/if}
     {/section}
+
+  </td>
+  <td width=50% valign="top">
+    {* ---------------------------------------------- *}
+    {* People search *}
+    {if sizeof($colleges) > 0}
+      <p>
+        Colegii electorale care se potrivesc cu "<b>{$query}</b>"
+      </p>
+    {/if}
+
+    {foreach from=$colleges item=result}
+      <div class=searchresult>
+        <div class=name>
+          <a href="/?cid=23&colegiul={$result.name|replace:' ':'+'}">
+            {$result.name|ucwords}</a>
+        </div>
+        <div style="margin-left:10px">
+          {section name=d loop=$result.description}
+            {$result.description[d]}<br>
+          {/section}
+          ...
+        </div>
+      </div>
+    {/foreach}
 
   </td>
 </table>
