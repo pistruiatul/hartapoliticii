@@ -213,7 +213,7 @@
 
       <p class="smalltitle">
       <div class="college_search_button">
-        <span class="red">Nou</span>:
+        <span class="red" style="font-weight: bold">Nou</span>:
         <a href="/?cid=cauta_colegiu">Caută colegiul din care faci parte</a>
       </div>
       </p>
