@@ -78,6 +78,7 @@ function getCollegeSearch($query) {
           highlightWords(correctDiacritics($r['description']), $words);
 
       $result[$key]['name'] = $r['name'];
+      $result[$key]['id'] = $r['id'];
 
       $result[$key]['matched_words'] = array();
 

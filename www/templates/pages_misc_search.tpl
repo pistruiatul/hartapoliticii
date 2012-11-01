@@ -78,7 +78,7 @@
     {foreach from=$colleges item=result}
       <div class=searchresult>
         <div class=name>
-          <a href="/?cid=23&colegiul={$result.name|replace:' ':'+'}">
+          <a href="/?cid=23&colegiul={$result.name|replace:' ':'+'}&ssid={$ssid}&ssp={$result.id}">
             {$result.name|ucwords}</a>
         </div>
         <div style="margin-left:10px">
