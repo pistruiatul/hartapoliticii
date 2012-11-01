@@ -78,8 +78,10 @@
     {foreach from=$colleges item=result}
       <div class=searchresult>
         <div class=name>
-          <a href="/?cid=23&colegiul={$result.name|replace:' ':'+'}&ssid={$ssid}&ssp={$result.id}">
-            {$result.name|ucwords}</a>
+          <a href="/?cid=23&colegiul={$result.name_cdep|replace:' ':'+'}&ssid={$ssid}&ssp={$result.id}">
+            {$result.name_cdep|ucwords}</a> -
+          <a href="/?cid=23&colegiul={$result.name_senat|replace:' ':'+'}&ssid={$ssid}&ssp={$result.id}">
+            {$result.name_senat|ucwords}</a>
         </div>
         <div style="margin-left:10px">
           {section name=d loop=$result.description}

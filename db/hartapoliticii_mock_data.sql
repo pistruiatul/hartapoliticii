@@ -12222,15 +12222,16 @@ CREATE TABLE IF NOT EXISTS `yt_videos` (
 -- Table structure for table `electoral_colleges`
 --
 
-DROP TABLE IF EXISTS `electoral_colleges`;
 CREATE TABLE IF NOT EXISTS `electoral_colleges` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
+  `name_cdep` varchar(50) NOT NULL,
+  `name_senat` varchar(50) NOT NULL DEFAULT '',
   `description` text NOT NULL,
   `year` int(11) NOT NULL DEFAULT '2012',
   `source` varchar(250) NOT NULL,
+  `source_senat` varchar(120) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32168 ;
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

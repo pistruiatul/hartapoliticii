@@ -81,25 +81,41 @@ function getDescription2008ForCollege($college) {
  * @return
  */
 function getDescriptionsForCollege($college_name) {
-  $sql =
-    "SELECT description ".
-    "FROM electoral_colleges ".
-    "WHERE name = '{$college_name}'";
-  $s = mysql_query($sql);
+  if (startsWith($college_name, 'D')) {
+    $sql =
+      "SELECT description AS d ".
+      "FROM electoral_colleges ".
+      "WHERE name_cdep = '{$college_name}'";
+  } else {
+    $sql =
+      "SELECT name_cdep AS d ".
+      "FROM electoral_colleges ".
+      "WHERE name_senat='{$college_name}' ".
+      "GROUP BY name_cdep";
+  }
 
+  $s = mysql_query($sql);
   $descriptions = array();
   while ($r = mysql_fetch_array($s)) {
-    $descriptions[] = $r['description'];
+    $descriptions[] = $r['d'];
   }
   return $descriptions;
 }
 
 
 function getDescriptionSourceForCollege($college_name) {
-  $sql =
-    "SELECT distinct(source) ".
-    "FROM electoral_colleges ".
-    "WHERE name = '{$college_name}'";
+  if (startsWith($college_name, 'D')) {
+    $sql =
+      "SELECT distinct(source) ".
+      "FROM electoral_colleges ".
+      "WHERE name_cdep='{$college_name}'";
+  } else {
+    $sql =
+      "SELECT distinct(source_senat) AS source ".
+      "FROM electoral_colleges ".
+      "WHERE name_senat='{$college_name}'";
+  }
+
   $s = mysql_query($sql);
 
   $r = mysql_fetch_array($s);

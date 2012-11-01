@@ -51,7 +51,7 @@ function getCollegeSearch($query) {
   $likes = array();
   foreach($words as $word) {
     if (strlen($word) > 1 && $word != "str" && $word != "ale" &&
-        $word != "din" && $word != "bld") {
+        $word != "din" && $word != "bld" && $word != "strada") {
       $likes[] = "description LIKE '%{$word}%'";
     }
   }
@@ -64,7 +64,7 @@ function getCollegeSearch($query) {
 
   $result = array();
   while ($r = mysql_fetch_array($s)) {
-    $key = $r['name'];
+    $key = $r['name_cdep'];
 
     if (array_key_exists($key, $result)) {
       $result[$key]['description'][] =
@@ -80,7 +80,9 @@ function getCollegeSearch($query) {
       $result[$key]['description'][] =
           highlightWords(correctDiacritics($r['description']), $words);
 
-      $result[$key]['name'] = $r['name'];
+      $result[$key]['name_cdep'] = $r['name_cdep'];
+      $result[$key]['name_senat'] = $r['name_senat'];
+
       $result[$key]['id'] = $r['id'];
 
       $result[$key]['matched_words'] = array();

@@ -33,7 +33,12 @@
 
     <div class="ec_description">
       {section loop=$descriptions name=d}
-        <div>{$descriptions[d]}</div>
+        {if $pc_id==15}
+          <div>{$descriptions[d]}</div>
+        {else}
+          <div>
+            <a href="/?cid=search&q={$descriptions[d]}">{$descriptions[d]}</a></div>
+        {/if}
       {/section}
     </div>
 

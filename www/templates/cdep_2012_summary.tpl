@@ -7,12 +7,19 @@
       <div class="college_search">
         Caută colegiul din care faci parte după stradă, comună sau oraș.
 
+        <div class="small gray" style="line-height: 1.4em;margin: 10px 0 10px 0;">
+          Notă: pentru orașe mici, de multe ori strada nu e listată.<br>
+          Pentru acestea încearcă să cauți în forma "&lt;oraș&gt; &lt;județ&gt;".
+        </div>
+
         <form action="/">
           <input type=hidden name=cid value="search">
           <input type=hidden name=r value="cs">
           <input type=text name=q class=q size=30>
           <input type=submit class=submit value="Caută">
         </form>
+        <br>
+
       </div>
 
       <p>
