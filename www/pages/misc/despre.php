@@ -25,7 +25,7 @@ function getCountPeopleBeingFollowed() {
 function getRecentSearches() {
   $searches = array();
   $s = mysql_query(
-    "SELECT * FROM log_searches ORDER BY time DESC LIMIT 0, 15");
+    "SELECT * FROM log_searches ORDER BY time DESC LIMIT 0, 20");
   while ($r = mysql_fetch_array($s)) {
     $searches[] = $r;
   }

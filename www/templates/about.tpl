@@ -18,7 +18,8 @@
       <span class="small gray">
       {$recent_searches[i].time|date_format:"%b %d %l%p"|replace:"PM":"pm"|replace:"AM":"am"}
       </span>
-      - <a href="?cid=search&q={$recent_searches[i].query|htmlspecialchars}">{$recent_searches[i].query|htmlspecialchars}</a><br>
+      <span class="small">
+      - <a href="?cid=search&q={$recent_searches[i].query|htmlspecialchars}">{$recent_searches[i].query|htmlspecialchars}</a></span><br>
 
     {/section}
 
