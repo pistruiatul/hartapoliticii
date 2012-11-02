@@ -713,3 +713,10 @@ a.new_link:hover {
 .college_search .submit {
   font-size: 25px;
 }
+
+.college_search_button {
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #ffcc33;
+  background-color: #ffffEE;
+}
