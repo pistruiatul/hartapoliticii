@@ -46,12 +46,16 @@ function setMatchedWords($array, $description, $words) {
 
 
 function getCollegeSearch($query) {
+  $ignore_words = array("str", "strada", "ale", "aleea", "din", "bld",
+                        "bulevardul", "nr", "numarul");
+
   $words = explode(" ", $query);
 
   $likes = array();
   foreach($words as $word) {
-    if (strlen($word) > 1 && $word != "str" && $word != "ale" &&
-        $word != "din" && $word != "bld" && $word != "strada") {
+    // Ignore one and two letter words, stopwords, and numbers;
+    if (strlen($word) > 2 && !in_array($word, $ignore_words) &&
+        (int)$word == 0) {
       $likes[] = "description LIKE '%{$word}%'";
     }
   }
@@ -66,30 +70,28 @@ function getCollegeSearch($query) {
   while ($r = mysql_fetch_array($s)) {
     $key = $r['name_cdep'];
 
-    if (array_key_exists($key, $result)) {
-      $result[$key]['description'][] =
-          highlightWords(correctDiacritics($r['description']), $words);
+    $description = highlightWords(correctDiacritics($r['description']), $words);
 
-      $result[$key]['matched_words'] = setMatchedWords(
-        $result[$key]['matched_words'], $r['description'], $words);
-      $result[$key]['score'] = count($result[$key]['matched_words']);
-
-    } else {
+    if (!array_key_exists($key, $result)) {
       $result[$key] = array();
+
+      $result[$key]['score'] = 0;
       $result[$key]['description'] = array();
-      $result[$key]['description'][] =
-          highlightWords(correctDiacritics($r['description']), $words);
+      $result[$key]['matched_words'] = array();
 
       $result[$key]['name_cdep'] = $r['name_cdep'];
       $result[$key]['name_senat'] = $r['name_senat'];
 
       $result[$key]['id'] = $r['id'];
+    }
 
-      $result[$key]['matched_words'] = array();
-
-      $result[$key]['matched_words'] = setMatchedWords(
+    $result[$key]['description'][] = $description;
+    $result[$key]['matched_words'] = setMatchedWords(
         $result[$key]['matched_words'], $r['description'], $words);
-      $result[$key]['score'] = count($result[$key]['matched_words']);
+
+    if (startsWith($description, "Municipiul")) $result[$key]['score'] += 2;
+    if (startsWith($description, "Localitate componentă")) {
+      $result[$key]['score'] += 1;
     }
   }
 
@@ -104,6 +106,7 @@ function getCollegeSearch($query) {
         $result[$key]['score'] += 2;
       }
     }
+    $result[$key]['score'] += count($result[$key]['matched_words']);
   }
 
   usort($result, "collegeResultCompare");
