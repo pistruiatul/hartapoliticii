@@ -3,7 +3,7 @@
 if (!$DB_USER) {
   header('Location: /');
 }
-$title = "Camera Deputaților - Alegeri 2012";
+$title = "Căutare colegiu uninominal / Alegeri 2012";
 
 include('header.php');
 include('hp-includes/news.php');
