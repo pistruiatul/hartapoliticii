@@ -2,6 +2,9 @@
 
 <table width=970 cellspacing=15>
   <td>
+    <div style="float:right">
+      <a href="/?cid=cauta_colegiu">Caută alt colegiu uninominal</a>
+    </div>
     <div class="big">Colegiul electoral <b>{$college_name}</b></div>
     <br>
     <iframe seamless="seamless"
