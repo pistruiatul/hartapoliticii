@@ -9,7 +9,7 @@
 
         <div class="small gray" style="line-height: 1.4em;margin: 10px 0 10px 0;">
           Notă: pentru orașe mici, de multe ori strada nu e listată.<br>
-          Pentru acestea încearcă să cauți în forma "&lt;oraș&gt; &lt;județ&gt;".
+          Pentru acestea încearcă să cauți în forma "oraș județ".
         </div>
 
         <form action="/">
