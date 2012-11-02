@@ -90,7 +90,8 @@ function getCollegeSearch($query) {
         $result[$key]['matched_words'], $r['description'], $words);
 
     if (startsWith($description, "Municipiul")) $result[$key]['score'] += 2;
-    if (startsWith($description, "Localitate componentă")) {
+    if (startsWith($description, "Localitate componentă") ||
+        startsWith($description, "Orașul")) {
       $result[$key]['score'] += 1;
     }
   }
