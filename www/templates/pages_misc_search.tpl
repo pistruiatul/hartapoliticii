@@ -70,6 +70,10 @@
     {* ---------------------------------------------- *}
     {* People search *}
     {if sizeof($colleges) > 0}
+      <div style="float:right; width: 400px; padding: 10px; margin-top:20px;border: 1px solid #ffcc00; background: #fff6c3">
+      <b>Notă</b>: orașele mai mici sunt incluse cu totul și străzile individuale nu apar în căutări.
+    </div>
+
       <p>
         Colegii electorale care se potrivesc cu "<b>{$query}</b>"
       </p>

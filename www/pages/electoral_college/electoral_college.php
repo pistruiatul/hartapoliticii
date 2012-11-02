@@ -19,12 +19,17 @@ $t->assign("pc_county_short", getCollegeCountyShort($college_name));
 $t->assign("pc_number", getCollegeNumber($college_name));
 $t->assign("pc_id", startsWith($college_name, "D") ? 15 : 14);
 
+$t->assign("descriptions", getDescriptionsForCollege($college_name));
+$t->assign("description_source", getDescriptionSourceForCollege($college_name));
+
+$college_name = str_ireplace("Bistrita Nasaud", "Bistrita-Nasaud",
+                             $college_name);
+$college_name = str_ireplace("Caras Severin", "Caras-Severin",
+                             $college_name);
+
 $t->assign("candidates_2008", getResults2008ForCollege($college_name));
 $t->assign("id_winner_2008", getWinner2008ForCollege($college_name));
 $t->assign("show_minorities_link", strpos($college_name, "D") === 0);
-
-$t->assign("descriptions", getDescriptionsForCollege($college_name));
-$t->assign("description_source", getDescriptionSourceForCollege($college_name));
 
 $t->display("electoral_college.tpl");
 
