@@ -5,10 +5,12 @@
     <td width=970 valign="top">
 
       <div class="college_search">
+        <img src="/images/cautare_colegiu.png">
+        <br>
         Caută colegiul din care faci parte după stradă, comună sau oraș.
 
         <div class="small gray" style="line-height: 1.4em;margin: 10px 0 10px 0;">
-          Notă: pentru orașe mici, de multe ori strada nu e listată.<br>
+          Notă: pentru orașe mici, de multe ori strada nu e listată.
           Pentru acestea încearcă să cauți în forma "oraș județ".
         </div>
 
