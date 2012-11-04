@@ -125,6 +125,7 @@ $startWith = (int)$_GET['startWith'];
 deleteAllContentFirst();
 
 importFile('candidates_2012_senat.json', 'S');
+$startWith = 0;
 importFile('candidates_2012_cdep.json', 'D');
 
 include("../_bottom.php");
