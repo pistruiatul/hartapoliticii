@@ -64,19 +64,24 @@ function addCandidateToCollege($college, $candidate, $party) {
 }
 
 
-function importFile($file_name) {
+function importFile($file_name, $college_letter_code) {
   global $startWith;
 
   $data = file_get_contents($file_name);
   $json = json_decode($data, true);
 
-  info("[---------------- starting with {$startWith} --------------------");
+  info("[---------------- starting with {$startWith} ----------------]");
 
   for ($i = $startWith; $i < count($json); $i++) {
     $college = $json[$i];
 
-    $college_name = ucwords(strtolower("D" . (float)$college["coldep"] . " " .
-                                       $college["jud_lbl"]));
+    $num = (float)$college["coldep"] > 0 ?
+        (float)$college["coldep"] : (float)$college["colsen"];
+
+    $college_name =
+        ucwords(strtolower(
+                  "{$college_letter_code}{$num} {$college["jud_lbl"]}"));
+
     info("[---------------------------------------------------]");
     info("[{$i}. {$college_name}]");
 
@@ -119,7 +124,8 @@ $startWith = (int)$_GET['startWith'];
 
 deleteAllContentFirst();
 
-importFile('candidates_2012_cdep.json');
+importFile('candidates_2012_senat.json', 'S');
+importFile('candidates_2012_cdep.json', 'D');
 
 include("../_bottom.php");
 ?>
