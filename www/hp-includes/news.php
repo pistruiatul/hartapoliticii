@@ -288,7 +288,9 @@ function getPeopleForNewsId($id, $highlight_ids=NULL) {
     $r['name'] = str_replace(' ', '+', $r['name']);
 
     $r['following'] = array_key_exists($r['idperson'], $followPeopleHashById);
-    $r['highlight'] = in_array($r['idperson'], $highlight_ids);
+    if ($highlight_ids) {
+      $r['highlight'] = in_array($r['idperson'], $highlight_ids);
+    }
 
     $res[] = $r;
   }
