@@ -120,6 +120,19 @@ hpol.showMinorities = function() {
 };
 
 
+/**
+ * Shows all the people that are mentioned for a particular news item. They are
+ * by default hidden when there are more than 7.
+ * @param newsId
+ * @param totalMentions
+ */
+hpol.showAllNewsMentions = function(newsId, totalMentions) {
+  for (var i = 0; i < totalMentions; i++) {
+    $("#mention_" + newsId + "_" + i).css('display', '');
+  }
+};
+
+
 
 /* ------------------------------------------------------ */
 /* Some util functions */

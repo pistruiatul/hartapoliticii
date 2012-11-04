@@ -461,7 +461,8 @@ class Person {
         $r['title'] = highlightStr($r['title'], $n);
       }
 
-      $r['people'] = getPeopleForNewsId($r['id']);
+      $r['people'] = getPeopleForNewsId($r['id'], array($this->id));
+      $r['above_seven'] = count($r['people']) - 7;
 
       $news[] = $r;
     }

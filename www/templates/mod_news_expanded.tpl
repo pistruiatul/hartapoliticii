@@ -83,16 +83,10 @@
            </span>
            <br>
 
-           <div class="small">
-             {section name=x loop=$news[n].people}
-             {strip}
-               <div class="news_list_mention green_link {if $news[n].people[x].following}following{/if}">
-                 <a href="?name={$news[n].people[x].name}">
-                   {$news[n].people[x].display_name}
-                 </a>
-               </div>
-             {/strip}
-             {/section}
+           <div class="recent_news_block">
+             {include file="news_list_mentions_block.tpl" people=$news[n].people
+                news_id=$news[n].id
+                above_seven=$news[n].above_seven}
            </div>
          </div>
         </td>

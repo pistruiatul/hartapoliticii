@@ -248,6 +248,7 @@ function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax',
   $news = array();
   while ($r = mysql_fetch_array($s)) {
     $r['people'] = getPeopleForNewsId($r['id'], $restrict_to_ids);
+    $r['above_seven'] = count($r['people']) - 7;
     $news[] = $r;
   }
   return $news;
@@ -292,7 +293,13 @@ function getPeopleForNewsId($id, $highlight_ids=NULL) {
       $r['highlight'] = in_array($r['idperson'], $highlight_ids);
     }
 
-    $res[] = $r;
+    // Stuff that we are following or is highlighted should be pused at the
+    // beginning of the array.
+    if ($r['following'] || $r['highlight']) {
+      array_unshift($res, $r);
+    } else {
+      $res[] = $r;
+    }
   }
   return $res;
 }
