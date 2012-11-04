@@ -1,9 +1,15 @@
 <table width=970 cellspacing=15>
   <tr>
     <td width=950 valign="top" align="center">
+    {if $restrict}
+      <div class="college_search_button"
+           style="width:680px; text-align: left; margin-bottom: 20px">
+        {$restrict}
+      </div>
+    {/if}
+
     {* ------------------------------------------------------------------*}
     {* The main news section from the front page. *}
-    <div class="medium">
     <table cellspacing=2 cellpadding=2 class="recent_news" width="700">
       {section name=n loop=$news}
         <tr>
@@ -35,7 +41,7 @@
             <div class="mentions_block">
               {section name=x loop=$news[n].people}
               {strip}
-                <div class="news_list_mention green_link {if $news[n].people[x].following}following{/if}">
+                <div class="news_list_mention green_link{if $news[n].people[x].following} following{/if}{if $news[n].people[x].highlight} highlight{/if}">
                   <a href="?name={$news[n].people[x].name}">
                     {$news[n].people[x].display_name}
                   </a>

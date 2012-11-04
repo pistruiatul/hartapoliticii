@@ -27,8 +27,7 @@ $id = $_GET['id'];
 // If the person is specified through a name, just search for it.
 if ($_GET['name']) {
   $query = $_GET['name'];
-  $persons = search($query);
-  $id = $persons[0]->id;
+  $id = getPersonIdFromExactName(mysql_real_escape_string($query));
 }
 
 // Given the ID of a person, go through it's history and load all

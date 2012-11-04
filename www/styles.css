@@ -241,6 +241,18 @@ body {
 .othersrow a:hover {
 	text-decoration: underline;
 }
+.candidaterow a {
+  color: #0033cc;
+  text-decoration: none;
+}
+.candidaterow a:hover {
+	text-decoration: underline;
+}
+.candidaterow .history_snippet {
+  font-size: 13px;
+  color: #AAA;
+}
+
 .minoritati {
   display: none;
 }
@@ -330,6 +342,9 @@ body {
 }
 .news_list_mention.following {
   background: #ffffcc;
+}
+.news_list_mention.highlight {
+  background: #ccffcc;
 }
 
 .invisible_link a {

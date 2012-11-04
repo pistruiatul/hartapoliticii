@@ -114,6 +114,14 @@ function getPersonsByName($name,
   return $matches;
 }
 
+function getPersonIdFromExactName($name) {
+  $s = mysql_query("SELECT id FROM people WHERE name='$name'");
+  if ($r = mysql_fetch_array($s)) {
+    return $r['id'];
+  }
+  return -1;
+}
+
 
 /**
  * Returns a list of persons from the people database that could potentially
@@ -222,7 +230,7 @@ function getNonAmbiguousPerson($name) {
       $p->addToDatabaseIfNobody();
 
     } else {
-      info("Should add {{$p->displayName}}");
+      info("Ambiguity solver says add new {{$p->displayName}}");
       if (function_exists("shouldAddDetailsFunction")) {
         info(shouldAddDetailsFunction($name));
       }
@@ -251,7 +259,11 @@ function printMatchDecision($name, $person) {
 function getResolveString($oldName,
                           $newName,
                           $opt_anchorText = "pick") {
+
+  global $startWith;
+
   return "<a href=?ambig=" . urlencode("$oldName,$newName") .
+         "&startWith=" . $startWith .
          ">$opt_anchorText</a>";
 }
 
@@ -270,7 +282,7 @@ function getHistoryString($person) {
 
     $arr[] = "<a href=$url>$what</a> $detailsString";
   }
-  return "<a href=/?cid=9&id={$person->id}>page</a> / ".
+  return "<a href=/?cid=9&id={$person->id} target=_blank>page</a> / ".
          implode(", ", $arr);
 }
 
@@ -331,10 +343,13 @@ function getHistoryDetailsString($person, $what) {
  * @param {string} name The name of the person to resolve to himself.
  */
 function printResolveAmbiguityToHimself($name) {
+  global $startWith;
+
   info('');
-  info("or <a href=?ambig=" .
+  info("<a href=?ambig=" .
        urlencode("$name," . strtolower($name)) .
-       ">himself</a>, as a new person.");
+       "&startWith=" . $startWith .
+       ">new person</a>");
   info('');
 }
 

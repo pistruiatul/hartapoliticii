@@ -5,7 +5,7 @@
     <div style="float:right">
       <a href="/?cid=cauta_colegiu">Caută alt colegiu uninominal</a>
     </div>
-    <div class="big">Colegiul electoral <b>{$college_name}</b></div>
+    <div class="big"><b>Colegiul uninominal {$college_name}</b></div>
     <br>
     <iframe seamless="seamless"
             scrolling="no" frameboder="0"
@@ -15,15 +15,37 @@
       hartă oferită de
       <a href="http://politicalcolours.ro/" target="_blank">politicalcolours.ro</a>
     </div>
-    <br>
-    În curând vom afișa aici mai multe informații despre acest colegiu. <br>
-    Până atunci, iată rezultatele de la alegerile din 2008.
+    <table width="970">
+      <td width="400" valign="top">
+        <span class="big"><b>Candidați 2012</b> - alfabetic</span>
+        <br><br>
+        {include file="electoral_college_candidates.tpl"
+            candidates=$candidates_2012}
 
-    <br><br><br>
-    <span class="smalltitle">
+        <div class="medium gray">
+          Sursa <a href="http://goo.gl/64gsf" target="_blank">aici</a>.</div>
+      </td>
+      <td width="570" valign="top">
+        <div style="margin-left:30px">
+        {if count($news)>0}
+          <span class="big"><b>Știri recente cu candidații din acest colegiu</b></span>
+          <br><br>
+          {include file="news_list_wide.tpl" news=$news}
+          <a href="/?cid=14&sid=0&college_restrict={$college_name|lower|replace:' ':'+'}&year=2012">Vezi toate știrile...</a>
+        {else}
+          <br><br>
+          <center>Încă nu avem știri despre candidații din acest colegiu.</center>
+        {/if}
+        </div>
+      </td>
+    </table>
+
+
+    <br><br>
+    <span class="big">
       <b>Rezultate alegeri 2008</b>
     </span>
-    <br>
+    <br><br>
     {include file="electoral_college_results.tpl"
         candidates=$candidates_2008
         id_winner=$id_winner_2008

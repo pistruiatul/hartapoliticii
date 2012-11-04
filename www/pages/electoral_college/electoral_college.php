@@ -3,8 +3,8 @@
 if (!$DB_USER) header('Location: http://hartapoliticii.ro');
 
 include_once('hp-includes/electoral_colleges.php');
-include_once('hp-includes/string_utils.php');
 
+include_once('hp-includes/news.php');
 
 $college_name = mysql_real_escape_string(ucwords($_GET['colegiul']));
 
@@ -31,6 +31,11 @@ $t->assign("candidates_2008", getResults2008ForCollege($college_name));
 $t->assign("id_winner_2008", getWinner2008ForCollege($college_name));
 $t->assign("show_minorities_link", strpos($college_name, "D") === 0);
 
+$t->assign("compact", false);
+$t->assign("candidates_2012", getCollegeCandidates($college_name, "2012"));
+$t->assign("news", getMostRecentNewsArticles(
+                       NULL, NULL, 5, '%',
+                       getCollegePeopleIds($college_name, "2012")));
 $t->display("electoral_college.tpl");
 
 ?>

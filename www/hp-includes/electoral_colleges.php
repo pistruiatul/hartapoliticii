@@ -57,6 +57,63 @@ function getResults2008ForCollege($college) {
 }
 
 
+
+/**
+ * Returns the list of candidates and their results for this college. For now
+ * this method is not generic at all, hence the very specific name.
+ *
+ * TODO(vivi): Refactor and generalize this.
+ *
+ * @param {string} $college The college name needs to be in the form of
+ *     "S1 Alba" or "D3 Prahova". Capitalization is important.
+ */
+function getCollegeCandidates($college, $year) {
+  $sql =
+    "SELECT people.id, people.display_name, people.name, ".
+        "parties.name AS party " .
+    "FROM results_{$year} AS results ".
+    "LEFT JOIN people ON people.id = results.idperson ".
+    "LEFT JOIN parties ".
+        "ON parties.id = results.idpartid ".
+    "WHERE colegiu = '{$college}' " .
+    "ORDER BY people.display_name ASC";
+
+  $s = mysql_query($sql);
+
+  $candidates = array();
+
+  while ($r = mysql_fetch_array($s)) {
+    $person = new Person();
+    $person->id = $r['id'];
+
+    $person_object = $r;
+    $person_object['tiny_img_url'] = getTinyImgUrl($r['id']);
+    $person_object['history_snippet'] =
+        $person->getHistorySnippet(array('results/2012'));
+
+    $candidates[] = $person_object;
+  }
+  return $candidates;
+}
+
+
+function getCollegePeopleIds($college, $year) {
+  $sql =
+    "SELECT idperson " .
+    "FROM results_{$year} ".
+    "WHERE colegiu = '{$college}'";
+
+  $s = mysql_query($sql);
+
+  $candidates = array();
+
+  while ($r = mysql_fetch_array($s)) {
+    $candidates[] = $r['idperson'];
+  }
+  return $candidates;
+}
+
+
 /**
  * @param {string} $college The college name needs to be in the form of
  *     "S1 Alba" or "D3 Prahova". Capitalization is important.

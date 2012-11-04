@@ -367,7 +367,7 @@ class Person {
   /**
    * Returns the string used to identify a person by what they did.
    */
-  public function getHistorySnippet() {
+  public function getHistorySnippet($except=NULL) {
     $arr = array();
     // Fetch info from the history file.
     $s = mysql_query(
@@ -376,6 +376,7 @@ class Person {
        ORDER BY id DESC");
     while ($r = mysql_fetch_array($s)) {
       if ($r['what'] == 'alegeri/2008') continue;
+      if (in_array($r['what'], $except)) continue;
 
       $moduleTitle = $this->getShortTitleForWhat($r['what']);
       $arr[] = "<div class=what>$moduleTitle</div>";
@@ -389,8 +390,8 @@ class Person {
     switch($what) {
       case "cdep/2004":    $moduleTitle = "Deputat 2004-2008"; break;
       case "senat/2004":   $moduleTitle = "Senator 2004-2008"; break;
-      case "results/2008": $moduleTitle = "Rezultate alegeri 2008"; break;
-      case "alegeri/2008": $moduleTitle = "Alegeri parlamentare 2008"; break;
+      case "results/2008": $moduleTitle = "Candidat parlamentare 2008"; break;
+      case "results/2012": $moduleTitle = "Candidat 2012"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare 2009"; break;
       case "catavencu/2008": $moduleTitle = "Candidații pătați Cațavencu 2008"; break;
       case "euro_parliament/2007": $moduleTitle = "Europarlamentar 2007-2009"; break;
@@ -412,6 +413,7 @@ class Person {
       case "cdep/2008":    $moduleTitle = "Camera deputaților, 2008-2012"; break;
       case "senat/2004":   $moduleTitle = "Senat, 2004-2008"; break;
       case "results/2008": $moduleTitle = "Rezultate alegeri, Noiembrie 2008"; break;
+      case "results/2012": $moduleTitle = "Candidat parlamentare 2012"; break;
       case "alegeri/2008": $moduleTitle = "Candidat Parlamentare 2008"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare, 7 Iunie 2009"; break;
       case "catavencu/2008": $moduleTitle = "Candidații pătați, Academia Cațavencu, 2008"; break;

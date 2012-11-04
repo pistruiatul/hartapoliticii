@@ -244,9 +244,10 @@ function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax',
     GROUP BY a.id
     ORDER BY a.time DESC
     LIMIT 0, $count");
+
   $news = array();
   while ($r = mysql_fetch_array($s)) {
-    $r['people'] = getPeopleForNewsId($r['id']);
+    $r['people'] = getPeopleForNewsId($r['id'], $restrict_to_ids);
     $news[] = $r;
   }
   return $news;
@@ -273,18 +274,21 @@ function countAllMostRecentNews($days, $source = 'mediafax') {
  * @param {number} id The id of the news item.
  * @return Array The array of persons ids.
  */
-function getPeopleForNewsId($id) {
+function getPeopleForNewsId($id, $highlight_ids=NULL) {
   global $followPeopleHashById;
 
   $s = mysql_query("
     SELECT idperson, name, display_name
     FROM news_people AS p
     LEFT JOIN people ON people.id = p.idperson
-    WHERE idarticle=$id");
+    WHERE idarticle={$id}");
+
   $res = array();
   while($r = mysql_fetch_array($s)) {
     $r['name'] = str_replace(' ', '+', $r['name']);
+
     $r['following'] = array_key_exists($r['idperson'], $followPeopleHashById);
+    $r['highlight'] = in_array($r['idperson'], $highlight_ids);
 
     $res[] = $r;
   }

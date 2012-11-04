@@ -32,7 +32,7 @@
         <div class="mentions_block">
           {section name=x loop=$news[n].people}
           {strip}
-            <div class="news_list_mention green_link {if $news[n].people[x].following}following{/if}">
+            <div class="news_list_mention green_link {if $news[n].people[x].following}following{/if}{if $news[n].people[x].highlight} highlight{/if}">
               <a href="?name={$news[n].people[x].name}">
                 {$news[n].people[x].display_name}
               </a>
