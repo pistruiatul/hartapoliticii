@@ -1,6 +1,54 @@
 <?php
 
 include_once('pages/functions_common.php');
+include_once('hp-includes/string_utils.php');
+
+
+$COUNTY_LIST = array(
+    "București",
+    "Alba",
+    "Arad",
+    "Argeș",
+    "Bacău",
+    "Bihor",
+    "Bistrița Năsăud",
+    "Botoșani",
+    "Brasov",
+    "Brăila",
+    "Buzău",
+    "Călărași",
+    "Caraș Severin",
+    "Cluj",
+    "Constanța",
+    "Covasna",
+    "Dâmbovița",
+    "Dolj",
+    "Galați",
+    "Giurgiu",
+    "Gorj",
+    "Harghita",
+    "Hunedoara",
+    "Ialomița",
+    "Iași",
+    "Ilfov",
+    "Maramureș",
+    "Mehedinți",
+    "Mureș",
+    "Neamț",
+    "Olt",
+    "Prahova",
+    "Satu Mare",
+    "Salaj",
+    "Sibiu",
+    "Suceava",
+    "Teleorman",
+    "Timiș",
+    "Tulcea",
+    "Vaslui",
+    "Valcea",
+    "Vrancea",
+    "Străinătate"
+  );
 
 /**
  * Returns the id of the winner of the 2008 elections.
@@ -244,5 +292,24 @@ function getCollegeNumber($college_name) {
   return $matches[2];
 }
 
+
+function getElectoralCollegeHashByCounty($chamber) {
+  $hash = array();
+  $s = mysql_query("
+      SELECT * FROM electoral_colleges
+      GROUP BY name_{$chamber}
+  ");
+
+  while ($r = mysql_fetch_array($s)) {
+    $parts = explode(" ", $r["name_{$chamber}"], 2);
+    $key = $parts[1];
+
+    if (!array_key_exists($key, $hash)) $hash[$key] = array();
+
+    $hash[$key][] = $parts[0];
+  }
+
+  return $hash;
+}
 
 ?>

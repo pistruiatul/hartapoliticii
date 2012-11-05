@@ -94,7 +94,12 @@ function importFile($file_name, $college_letter_code) {
     addCandidateToCollege($college_name, $college["PP_DD"], "PP_DD");
     addCandidateToCollege($college_name, $college["UDMR"], "UDMR");
 
-    $others = explode(", ", $college["Alti_Candi"]);
+    if ($college_letter_code == "D") {
+      $others = explode(", ", $college["Alti_Candi"]);
+    } else {
+      $others = explode(", ", $college["Alti_candi"]);
+    }
+
     foreach ($others as $other_candidate) {
       $other_candidate = trim($other_candidate);
       if ($other_candidate == "") continue;

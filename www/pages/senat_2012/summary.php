@@ -1,16 +1,11 @@
 <?php
 include_once('pages/functions_common.php');
 include_once('pages/cdep_2008/functions.php');
+include_once('hp-includes/electoral_colleges.php');
 
 $t = new Smarty();
 
-// Show the guys that show up most in the news.
-$list = getMostPresentInNews(10, 'alegeri/senat/2012');
-$list = newsAddPreviousWeekToList($list, 'alegeri/senat/2012');
-$t->assign('newsPeople', $list);
-
-$t->assign('news', getMostRecentNewsArticles('alegeri/senat', '2012', 6));
-$t->assign('MOST_RECENT_NEWS_ABOUT', 'Cele mai recente stiri cu candidați');
+$t->assign("colleges", getElectoralCollegeHashByCounty('senat'));
 
 $t->display('cdep_2012_summary.tpl');
 ?>

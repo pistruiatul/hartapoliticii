@@ -3,13 +3,10 @@
 if (!$DB_USER) {
   header('Location: /');
 }
-$title = "Căutare colegiu uninominal / Alegeri 2012";
+$title = "Alegeri 2012 Camera Deputaților";
 
 include('header.php');
 include('hp-includes/news.php');
-
-// And now here I should put some content, like something about the elections,
-// some stats, some news, something like that.
 
 $page = 'cdep/2012';
 $c = 'camera+deputatilor+2012';
