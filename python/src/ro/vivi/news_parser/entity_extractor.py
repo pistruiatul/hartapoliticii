@@ -65,7 +65,7 @@ def get_names_from_text(data):
   data = strip_tags_and_new_lines(data)
   # Transforms all the punctuation into dots so I can catch them as being
   # between capitalized names.
-  data = re.sub("[!*#='|.,;\"\\(\\):\\?]", " . ", data)
+  data = re.sub("[!*#='|.,;\"\\(\\):\\?}{]", " . ", data)
 
   # Delete the 'read also' links.
   if data.find('Citeşte şi') > 0:
@@ -78,10 +78,14 @@ def get_names_from_text(data):
   for word in words:
     # when you meet a separator, delete the name
     if re.search("[.,;\]\[]", word) or \
-       re.search("^[0-9a-zşșî/(\\-]", word) or \
+       (re.search("^[0-9a-zşșî/(\\-]", word) and
+        not word.startswith("Ş") and
+        not word.startswith("Ș") and
+        not word.startswith("Ț")) or \
        re.search("[A-ZŢ]{2,}", word) or \
        word == "" or \
-       word in common_capitalized_words:
+       word in common_capitalized_words or \
+       len(word) <= 2:
       if len(name) > 1:
         names.append(name)
       name = []
