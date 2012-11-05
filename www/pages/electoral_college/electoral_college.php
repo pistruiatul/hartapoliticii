@@ -3,7 +3,6 @@
 if (!$DB_USER) header('Location: http://hartapoliticii.ro');
 
 include_once('hp-includes/electoral_colleges.php');
-
 include_once('hp-includes/news.php');
 
 $college_name = mysql_real_escape_string(ucwords($_GET['colegiul']));

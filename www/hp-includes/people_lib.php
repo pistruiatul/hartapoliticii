@@ -1,5 +1,5 @@
 <?php
-require("person_class.php");
+require_once("person_class.php");
 
 /**
  * @fileoverview This is a file with libraries related to people. It handles

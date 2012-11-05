@@ -1,5 +1,5 @@
 <?php
-require('string_utils.php');
+include_once('string_utils.php');
 include_once('url_functions.php');
 
 /**
