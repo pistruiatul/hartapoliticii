@@ -182,7 +182,11 @@ if ($expandedModule = isExpandedModule($_GET['exp'])) {
   foreach ($history as $moduleName) {
     // Display the wrapper for the module, with a title.
     // TODO(vivi): Move this stuff into a template.
-    echo "<div class=module>";
+    if ($moduleName == "resume") {
+      echo "<div class='module module_red'>";
+    } else {
+      echo "<div class='module'>";
+    }
     $moduleTitle = $person->getLongTitleForWhat($moduleName);
     echo "<div class=moduletitle>$moduleTitle</div><div class=modulecontent>";
 
@@ -206,8 +210,10 @@ if ($expandedModule = isExpandedModule($_GET['exp'])) {
 ?>
 
 <?php
+echo "<div class='module' style='padding:20px'>";
 // The hook into WordPress comments, displayed for each person at the bottom.
-include('person_comments.php')
+include('person_comments.php');
+echo "</div>";
 ?>
 
 <?php

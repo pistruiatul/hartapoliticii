@@ -421,7 +421,7 @@ class Person {
       case "alegeri/2008": $moduleTitle = "Candidat Parlamentare 2008"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare, 7 Iunie 2009"; break;
       case "catavencu/2008": $moduleTitle = "Candidații pătați, Academia Cațavencu, 2008"; break;
-      case "resume":       $moduleTitle = "Curriculum vitae"; break;
+      case "resume":       $moduleTitle = "Material primit de la candidat"; break;
       case "euro_parliament/2007": $moduleTitle = "Parlamentul European 2007-2009"; break;
       case "qvorum/2009":  $moduleTitle = "Studiul Qvorum despre europarlamentari"; break;
       case "senat/2008":   $moduleTitle = "Senator 2008 - 2012"; break;

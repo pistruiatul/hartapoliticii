@@ -23,7 +23,6 @@ wp(array('p' => $postid, 'name' => $person->name, 's' => '',
 ?>
 
 <!-- You can start editing here. -->
-<hr size=1 color="#DDDDDD">
 <?php if ( true || have_comments() ) : ?>
   <p id="comments"><?php comments_number('Nici un comentariu', 'Un comentariu', '% comentarii' );?> pentru &#8220;<?php the_title(); ?>&#8221;
   </p>

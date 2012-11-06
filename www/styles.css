@@ -181,6 +181,12 @@ body {
   background: url(/images/follow_button_stop.png);
 }
 
+.module_red {
+  border: solid 3px #ffeeee !important;
+}
+.module_red .moduletitle {
+  border-bottom-color: #ff9999 !important;
+}
 .module {
   font-size: 1.0em;
   background: #FFF;
