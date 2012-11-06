@@ -176,7 +176,9 @@ function getStringWithoutDiacritics($str) {
     'Ţ' => 'T',
     'É' => 'E',
     'Ő' => 'O',
-    'Ö' => 'O'
+    'Ö' => 'O',
+    'ú' => 'u',
+    'ü' => 'u'
   );
   return strtr($str, $repl);
 }

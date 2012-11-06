@@ -46,7 +46,7 @@ function addCandidateToCollege($college, $candidate, $party) {
   }
 
   $partyId = getPartyId($party);
-  if (!$partyId > 0) {
+  if ($partyId <= 0) {
     die('party id gone wrong');
   }
   // Now that I have the person, let's populate the database with it.
