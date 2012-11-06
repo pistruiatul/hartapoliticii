@@ -1,10 +1,15 @@
 {* Smarty *}
+<div class="college_search_button">
+  <span class="red" style="font-weight: bold">Nou</span>:
+  <a href="/?cid=cauta_colegiu">Caută colegiul din care faci parte</a>
+</div>
 
 <table width=970 cellspacing=10>
   <tr>
     <td width=210 valign="top">
       {* ------------------------------------------------------------------*}
       {* Show the politicians that are most present in the news. *}
+
       <p class="smalltitle">
         <strong>Cei mai mediatizați</strong><br>
       </p>
@@ -210,14 +215,6 @@
     </td>
 
     <td valign="top" width="250" style="padding-left:10px">
-
-      <p class="smalltitle">
-      <div class="college_search_button">
-        <span class="red" style="font-weight: bold">Nou</span>:
-        <a href="/?cid=cauta_colegiu">Caută colegiul din care faci parte</a>
-      </div>
-      </p>
-
      <p class="smalltitle">
        <strong>
          Blog
