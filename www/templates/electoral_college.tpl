@@ -23,7 +23,7 @@
     {/if}
     <table width="970">
       <td width="400" valign="top">
-        <span class="big"><b>Candidați 2012</b> - alfabetic</span>
+        <span class="medium"><b>Candidați 2012</b> - alfabetic</span>
         <br><br>
         {include file="electoral_college_candidates.tpl"
             candidates=$candidates_2012}
@@ -34,7 +34,7 @@
       <td width="570" valign="top">
         <div style="margin-left:30px">
         {if count($news)>0}
-          <span class="big"><b>Știri recente cu candidații din acest colegiu</b></span>
+          <span class="medium"><b>Știri recente cu candidații din acest colegiu</b></span>
           <br><br>
           {include file="news_list_wide.tpl" news=$news}
           <a href="/?cid=14&sid=0&college_restrict={$college_name|lower|replace:' ':'+'}&year=2012">Vezi toate știrile...</a>
