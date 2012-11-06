@@ -163,10 +163,9 @@ body {
 }
 
 .follow_button {
+  margin: 5px auto 0 auto;
   width: 118px;
   height: 31px;
-  float: right;
-  margin-top: -5px;
   cursor: hand;
   cursor: pointer;
 }

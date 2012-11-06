@@ -76,9 +76,7 @@ if ($exp = isExpandedModule($_GET['exp'])) {
 $uid = is_user_logged_in() ? $current_user->ID : 0;
 
 $t->assign('crumbs', $crumbs);
-$t->assign('following', $person->isFollowedByUserId($uid));
 $t->assign('person_id', $person->id);
-
 $t->display('person_top_bar.tpl');
 
 
@@ -111,7 +109,10 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 // ----------------------------------------------------------
 // -------------- The left hand side section ----------------
 
-// Display the most recent news stuff.
+$t = new Smarty();
+$t->assign('following', $person->isFollowedByUserId($uid));
+$t->assign('person_id', $person->id);
+$t->display("person_sidebar_follow_button.tpl");
 
 $t = new Smarty();
 $t->assign('qualifiers', $person->getNewsQualifiers(10));
