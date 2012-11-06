@@ -7,14 +7,20 @@
     </div>
     <div class="big"><b>Colegiul uninominal {$college_name}</b></div>
     <br>
-    <iframe seamless="seamless"
-            scrolling="no" frameboder="0"
-            style="width: 960px; height: 150px; border: 5px solid #eee;"
-            src="http://www.politicalcolours.ro/integrate.html?id={$pc_id}&p1={$pc_county_short}&p2={$pc_number}"></iframe>
-    <div class="powered_by">
-      hartă oferită de
-      <a href="http://politicalcolours.ro/" target="_blank">politicalcolours.ro</a>
-    </div>
+    {if $college_image}
+        <img src="{$college_image|lower|replace:' ':'_'}"
+        style=" border: 5px solid #eee;" width="960" height="150">
+        <br><br>
+    {else}
+      <iframe seamless="seamless"
+              scrolling="no" frameboder="0"
+              style="width: 960px; height: 150px; border: 5px solid #eee;"
+              src="http://www.politicalcolours.ro/integrate.html?id={$pc_id}&p1={$pc_county_short}&p2={$pc_number}"></iframe>
+      <div class="powered_by">
+        hartă oferită de
+        <a href="http://politicalcolours.ro/" target="_blank">politicalcolours.ro</a>
+      </div>
+    {/if}
     <table width="970">
       <td width="400" valign="top">
         <span class="big"><b>Candidați 2012</b> - alfabetic</span>

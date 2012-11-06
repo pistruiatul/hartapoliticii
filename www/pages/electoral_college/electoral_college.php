@@ -35,6 +35,11 @@ $t->assign("candidates_2012", getCollegeCandidates($college_name, "2012"));
 $t->assign("news", getMostRecentNewsArticles(
                        NULL, NULL, 5, '%',
                        getCollegePeopleIds($college_name, "2012")));
+
+if (endsWith(strtolower($college_name), "strainatate")) {
+  $t->assign("college_image", "/images/{$college_name}.jpg");
+}
+
 $t->display("electoral_college.tpl");
 
 ?>
