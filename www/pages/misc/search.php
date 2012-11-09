@@ -66,6 +66,7 @@ function getCollegeSearch($query) {
                         "comuna", "satul", "sat");
 
   $query = getStringWithoutDiacritics($query);
+  $query = mysql_real_escape_string($query);
   $words = explode(" ", $query);
 
   $likes = array();
@@ -78,6 +79,8 @@ function getCollegeSearch($query) {
       $likes[] = "description LIKE '%{$word}'";
     }
   }
+
+  if (count($likes) == 0) return array();
 
   $where = implode(" OR ", $likes);
   $s = mysql_query("
