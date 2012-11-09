@@ -62,7 +62,8 @@ function countMatches($words, $description, $ignore_words) {
 
 function getCollegeSearch($query) {
   $ignore_words = array("str", "strada", "ale", "aleea", "din", "bld",
-                        "bulevardul", "nr", "numarul");
+                        "bulevardul", "nr", "numarul", "piata", "pta", "orasul",
+                        "comuna", "satul", "sat");
 
   $query = getStringWithoutDiacritics($query);
   $words = explode(" ", $query);
@@ -70,7 +71,7 @@ function getCollegeSearch($query) {
   $likes = array();
   foreach($words as $word) {
     // Ignore one and two letter words, stopwords, and numbers;
-    if (strlen($word) > 2 && !in_array($word, $ignore_words) &&
+    if (strlen($word) > 2 && !in_array(strtolower($word), $ignore_words) &&
         (int)$word == 0) {
       $likes[] = "description LIKE '%{$word}%'";
       $likes[] = "description LIKE '{$word}%'";
