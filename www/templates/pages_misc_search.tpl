@@ -70,8 +70,9 @@
     {* ---------------------------------------------- *}
     {* People search *}
     {if sizeof($colleges) > 0}
-      <div style="float:right; width: 400px; padding: 10px; margin-top:20px;border: 1px solid #ffcc00; background: #fff6c3">
-      <b>Notă</b>: orașele mai mici sunt incluse cu totul și străzile individuale nu apar în căutări.
+      <div style="float:right; width: 440px; padding: 10px; margin-top:20px;border: 1px solid #ffcc00; background: #fff6c3">
+      <b>Notă</b>: pentru orașele mai mici care sunt incluse cu totul,
+        străzile individuale nu apar în căutări.
     </div>
 
       <p>

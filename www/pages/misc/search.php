@@ -45,10 +45,26 @@ function setMatchedWords($array, $description, $words) {
 }
 
 
+function countMatches($words, $description, $ignore_words) {
+  $matches = 0;
+  foreach($words as $word) {
+    // Ignore one and two letter words, stopwords, and numbers;
+    if (strlen($word) > 2 && !in_array($word, $ignore_words) &&
+        (int)$word == 0 &&
+        preg_match("/(?:^|[ .,-]+){$word}(?:[ .,-]+|$)/i", $description)) {
+      $matches += 1;
+    }
+  }
+  return $matches;
+}
+
+
+
 function getCollegeSearch($query) {
   $ignore_words = array("str", "strada", "ale", "aleea", "din", "bld",
                         "bulevardul", "nr", "numarul");
 
+  $query = getStringWithoutDiacritics($query);
   $words = explode(" ", $query);
 
   $likes = array();
@@ -57,6 +73,8 @@ function getCollegeSearch($query) {
     if (strlen($word) > 2 && !in_array($word, $ignore_words) &&
         (int)$word == 0) {
       $likes[] = "description LIKE '%{$word}%'";
+      $likes[] = "description LIKE '{$word}%'";
+      $likes[] = "description LIKE '%{$word}'";
     }
   }
 
@@ -68,6 +86,18 @@ function getCollegeSearch($query) {
 
   $result = array();
   while ($r = mysql_fetch_array($s)) {
+    // We drop the descriptions where the match is not a full word, but instead
+    // only a subset of a word. So for example... if the search was "ion" and
+    // the description was "ionescu", we drop it.
+    //
+    // We have to do it this way because MYSQL native regexp matching does not
+    // handle diacritics well, whereas LIKE works perfectly.
+    $clean_description = strtolower(
+        getStringWithoutDiacritics($r['description']));
+    if (countMatches($words, $clean_description, $ignore_words) == 0) {
+      continue;
+    }
+
     $key = $r['name_cdep'];
 
     $description = highlightWords(correctDiacritics($r['description']), $words);
@@ -94,6 +124,8 @@ function getCollegeSearch($query) {
         startsWith($description, "Orașul")) {
       $result[$key]['score'] += 1;
     }
+    $result[$key]['score'] +=
+        (countMatches($words, $clean_description, $ignore_words) - 1) * 2;
   }
 
   foreach ($result as $key => $value) {
