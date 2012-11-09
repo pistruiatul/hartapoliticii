@@ -27,7 +27,19 @@ $id = $_GET['id'];
 // If the person is specified through a name, just search for it.
 if ($_GET['name']) {
   $query = $_GET['name'];
-  $id = getPersonIdFromExactName(mysql_real_escape_string($query));
+
+  // HACK HACK HACK
+  // The 'force' parameter is for politicalcolours.ro that used improper links
+  // and was taking advantage of this old behaviour where any name would just
+  // work as search. Because I broke that behaviour by restricting to exact
+  // names, it broke their links.
+  // This hack should be removed when nobody will link here anymore.
+  if (isSet($_GET['force'])) {
+    $persons = search($query);
+    $id = $persons[0]->id;
+  } else {
+    $id = getPersonIdFromExactName(mysql_real_escape_string($query));
+  }
 }
 
 // Given the ID of a person, go through it's history and load all
