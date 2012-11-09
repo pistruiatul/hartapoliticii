@@ -332,6 +332,18 @@ function getHistoryDetailsString($person, $what) {
                  $parts[1] . '-' . $parts[0] . '</a>';
         }
         break;
+
+    case 'results/2012':
+        $s = mysql_query("
+            SELECT colegiu
+            FROM results_2012
+            WHERE idperson = {$person->id}");
+        if ($r = mysql_fetch_array($s)) {
+          return '<a href="http://www.becparlamentare2008.ro/'.
+                    'rezul/colegii_rezultate_ora10.htm">' .
+                 $r['colegiu'] . '</a>';
+        }
+        break;
   }
 }
 
