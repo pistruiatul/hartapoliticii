@@ -740,3 +740,6 @@ a.new_link:hover {
   border: 1px solid #ffcc33;
   background-color: #ffffEE;
 }
+.party_cell {
+  font-size: 13px;
+}

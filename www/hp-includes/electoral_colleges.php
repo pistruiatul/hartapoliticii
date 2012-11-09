@@ -139,6 +139,21 @@ function getCollegeCandidates($college, $year) {
     $person_object['history_snippet'] =
         $person->getHistorySnippet(array('results/2012'));
 
+    // HACK to show the USL/ARD alliance for parties.
+    $displayed_party_name = $r["party"];
+    if ($year == "2012") {
+      switch($r["party"]) {
+        case "PSD": $displayed_party_name = "PSD (USL)"; break;
+        case "PNL": $displayed_party_name = "PNL (USL)"; break;
+        case "PC": $displayed_party_name = "PC (USL)"; break;
+
+        case "PD-L": $displayed_party_name = "PD-L (ARD)"; break;
+        case "FC": $displayed_party_name = "FC (ARD)"; break;
+        case "PNTCD": $displayed_party_name = "PNTCD (ARD)"; break;
+      }
+    }
+    $person_object["displayed_party_name"] = $displayed_party_name;
+
     $candidates[] = $person_object;
   }
   return $candidates;

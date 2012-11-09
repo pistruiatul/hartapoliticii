@@ -70,6 +70,7 @@ function importFile($file_name) {
 
   for ($i = $startWith; $i < count($json); $i++) {
     $candidate = $json[$i];
+    if ($candidate["EXPLICATIE"]) continue;
 
     $num = (float)$candidate["college"];
     $college_name = "{$candidate["room"]}{$num} {$candidate["county"]}";

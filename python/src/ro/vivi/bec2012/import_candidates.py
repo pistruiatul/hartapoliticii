@@ -104,6 +104,7 @@ def get_candidates_list(party, county, suffix, room):
       college_number = string.atoi(text)
 
     if 'Termeni' in text or "CAMERA DEPUTA" in text or "Nr crt" in text or \
+        'Nr' in text or 'crt' in text or \
         'Colegiul uninominal' in text or 'Numele ' in text or \
         "SENAT" in text or re.match("[0-9]+", text):
       continue

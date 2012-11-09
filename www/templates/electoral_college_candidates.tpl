@@ -17,11 +17,11 @@
       {/if}
       </div>
     </td>
-    <td width="100" valign="top">
+    <td width="130" valign="top" class="party_cell">
       <img src="/images/parties/sigla_{$candidates[c].party|lower}50x50.png"
            width="30" height="30" valign="middle">
 
-      {$candidates[c].party}</td>
+      {$candidates[c].displayed_party_name}</td>
   </tr>
   {/section}
 </table>
