@@ -18,7 +18,7 @@
       </div>
     </td>
     <td width="130" valign="top" class="party_cell">
-      <img src="/images/parties/sigla_{$candidates[c].party|lower}50x50.png"
+      <img src="/images/parties/sigla_{$candidates[c].party_logo|lower}50x50.png"
            width="30" height="30" valign="middle">
 
       {$candidates[c].displayed_party_name}</td>
