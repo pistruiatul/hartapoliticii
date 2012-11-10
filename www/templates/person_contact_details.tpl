@@ -81,5 +81,5 @@
 </div>
 
 <div class="module_expand_link">
-  <a href="http://agenda.grep.ro/" target="_blank">modifică...</a>
+  <a href="http://agenda.grep.ro/by_hpol_id/{$id}" target="_blank">modifică sau adaugă date de contact...</a>
 </div>

@@ -26,7 +26,5 @@ foreach ($details_hash as $key => $value) {
   }
 }
 
-if ($has_details) {
-  $t->display('person_contact_details.tpl');
-}
+$t->display('person_contact_details.tpl');
 ?>
