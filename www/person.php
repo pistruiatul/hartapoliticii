@@ -142,6 +142,7 @@ if ($college_name) {
   $t->display('person_sidebar_electoral_college.tpl');
 }
 
+
 // Display all contact details of the person
 include('mods/contact_details.php');
 

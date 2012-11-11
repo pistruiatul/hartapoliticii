@@ -29,7 +29,7 @@
             candidates=$candidates_2012}
 
         <div class="medium gray">
-          Sursa <a href="http://goo.gl/64gsf" target="_blank">aici</a>.</div>
+          Sursa <a href="http://www.becparlamentare2012.ro/candidati.html" target="_blank">aici</a>.</div>
       </td>
       <td width="570" valign="top">
         <div style="margin-left:30px">
