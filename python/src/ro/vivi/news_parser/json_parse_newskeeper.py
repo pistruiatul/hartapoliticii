@@ -50,7 +50,7 @@ for i in items:
 
   # we don't care about libertatea, right?!
   # we already get hotnews articles
-  if i['newspaper'] == 'LIBERTATEA' or i['newskeeper'] == 'HOTNEWS':
+  if i['newspaper'] == 'LIBERTATEA' or i['newspaper'] == 'HOTNEWS':
     continue
 
   cache_file = "%s/nk_%s.json" % (WORK_DIR, i['md5'])

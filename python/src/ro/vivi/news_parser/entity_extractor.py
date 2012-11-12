@@ -104,7 +104,7 @@ link_to_article_id_hash = {}
 tagged_people_hash = {}
 
 
-def add_article_to_db(id, time, place, link, title, photo, source):
+def add_article_to_db(id, time, place, link, title, photo, source=None):
   """ Given all the information about an article plus the person associated with
   it, insert this association in the database. The script naively calls the api
   to add it entirely, assuming that the API will insert the article if it does
