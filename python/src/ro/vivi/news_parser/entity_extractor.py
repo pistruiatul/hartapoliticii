@@ -104,7 +104,7 @@ link_to_article_id_hash = {}
 tagged_people_hash = {}
 
 
-def add_article_to_db(id, time, place, link, title, photo):
+def add_article_to_db(id, time, place, link, title, photo, source):
   """ Given all the information about an article plus the person associated with
   it, insert this association in the database. The script naively calls the api
   to add it entirely, assuming that the API will insert the article if it does
@@ -120,7 +120,7 @@ def add_article_to_db(id, time, place, link, title, photo):
     'place': place,
     'link': link,
     'title': title,
-    'source': SOURCE_NAME,
+    'source': source,
     'photo': photo
   }
 
@@ -255,14 +255,21 @@ for fname in files[-NUMBER_OF_DAYS_TO_PARSE : ]:
 
     news_content = urllib.unquote(item.findtext('news_content'))
     names = get_names_from_text(news_content)
+    source = item.findtext('news_source')
+    if not source:
+      source = SOURCE_NAME
 
     for name in names:
       plain = ' '.join(name)
-      id = get_person_id_for_name(plain)
+      try:
+        id = get_person_id_for_name(plain)
+      except ValueError:
+        id = 0
+        continue
 
       if id > 0:
         add_article_to_db(id, time.mktime(d.timetuple()), place, link, title,
-                          photo)
+                          photo, source)
 
       if link in link_to_article_id_hash:
         add_person_qualifier(link, id, plain,
