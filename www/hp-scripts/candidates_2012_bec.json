@@ -1,5 +1,5 @@
 [
-{ 
+{
 "EXPLICATIE": [
 "                                                                                     ",
 "Acest set de date este importat cu ajutorul unui script automat a cărui              ",
@@ -603,6 +603,8 @@
 {"county": "CARAS SEVERIN", "party": "UDMR", "room": "D", "college": "3", "name": "TOTH IOAN",  "source": "http://www.becparlamentare2012.ro/UDMR%20CARAS SEVERIN-CD.html"},
 {"county": "CARAS SEVERIN", "party": "UDMR", "room": "D", "college": "4", "name": "KUN LADISLAU",  "source": "http://www.becparlamentare2012.ro/UDMR%20CARAS SEVERIN-CD.html"},
 {"county": "CARAS SEVERIN", "party": "UDMR", "room": "D", "college": "5", "name": "VIGH IRINA",  "source": "http://www.becparlamentare2012.ro/UDMR%20CARAS SEVERIN-CD.html"},
+{"county": "CARAS SEVERIN", "party": "UDMR", "room": "S", "college": "1", "name": "PÉNZES TŰNDE",  "source": "http://www.becparlamentare2012.ro/UDMR%20CARAS-SEVERIN-S.html"},
+{"county": "CARAS SEVERIN", "party": "UDMR", "room": "S", "college": "2", "name": "MAKAY BOTOND-CAROL",  "source": "http://www.becparlamentare2012.ro/UDMR%20CARAS-SEVERIN-S.html"},
 
 
 {"county": "CALARASI", "party": "USL", "room": "D", "college": "1", "name": "FLOREA DANIEL",  "source": "http://www.becparlamentare2012.ro/USL%20CALARASI-CD.html"},
@@ -633,6 +635,11 @@
 {"county": "CALARASI", "party": "UDMR", "room": "D", "college": "5", "name": "KERESTÉLY CSABA",  "source": "http://www.becparlamentare2012.ro/UDMR%20CALARASI-CD.html"},
 {"county": "CALARASI", "party": "UDMR", "room": "S", "college": "1", "name": "SZLÁVITS ERIKA-ROZÁLIA",  "source": "http://www.becparlamentare2012.ro/UDMR%20CALARASI-S.html"},
 {"county": "CALARASI", "party": "UDMR", "room": "S", "college": "2", "name": "SZABÓ ANNAMARIA",  "source": "http://www.becparlamentare2012.ro/UDMR%20CALARASI-S.html"},
+{"county": "CALARASI", "party": "PRM", "room": "D", "college": "1", "name": "SIN VALENTIN",  "source": "http://www.becparlamentare2012.ro/PRM%20CALARSI-CD.html"},
+{"county": "CALARASI", "party": "PRM", "room": "D", "college": "2", "name": "GROZEA DAN",  "source": "http://www.becparlamentare2012.ro/PRM%20CALARSI-CD.html"},
+{"county": "CALARASI", "party": "PRM", "room": "D", "college": "3", "name": "UNTARU ROBERT-CRISTIAN",  "source": "http://www.becparlamentare2012.ro/PRM%20CALARSI-CD.html"},
+{"county": "CALARASI", "party": "PRM", "room": "D", "college": "4", "name": "LAZĂR MARIUS-ADRIAN",  "source": "http://www.becparlamentare2012.ro/PRM%20CALARSI-CD.html"},
+{"county": "CALARASI", "party": "PRM", "room": "D", "college": "5", "name": "FLOREA FLORICA",  "source": "http://www.becparlamentare2012.ro/PRM%20CALARSI-CD.html"},
 {"county": "CALARASI", "party": "PRM", "room": "S", "college": "1", "name": "NOVAC ŞTEFAN",  "source": "http://www.becparlamentare2012.ro/PRM%20CALARASI-S.html"},
 {"county": "CALARASI", "party": "PRM", "room": "S", "college": "2", "name": "CODREA ION-EMIL",  "source": "http://www.becparlamentare2012.ro/PRM%20CALARASI-S.html"},
 
@@ -651,6 +658,16 @@
 {"county": "CLUJ", "party": "USL", "room": "S", "college": "2", "name": "RĂDULESCU ŞERBAN",  "source": "http://www.becparlamentare2012.ro/USL%20CLUJ-S.html"},
 {"county": "CLUJ", "party": "USL", "room": "S", "college": "3", "name": "NICOARĂ MARIUS-PETRE",  "source": "http://www.becparlamentare2012.ro/USL%20CLUJ-S.html"},
 {"county": "CLUJ", "party": "USL", "room": "S", "college": "4", "name": "CORDOS ALEXANDRU",  "source": "http://www.becparlamentare2012.ro/USL%20CLUJ-S.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "1", "name": "PAPAHAGI RĂZVAN-ADRIAN",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "2", "name": "BUDA DANIEL",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "3", "name": "CĂLIAN PETRU",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "4", "name": "GURZĂU ADRIAN",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "5", "name": "GHEORGHIU FELICIA",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "6", "name": "SUCIU MIHAELA-RODICA",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "7", "name": "RUSU RAREŞ STELIAN",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "8", "name": "IRIMIE VICENŢIU-MIRCEA",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "9", "name": "COROIAN ALEXANDRU",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
+{"county": "CLUJ", "party": "ARD", "room": "D", "college": "10", "name": "RĂDOIU LEŞ GABRIELA ANGELA",  "source": "http://www.becparlamentare2012.ro/ARD%20BCLUJ-CD.html"},
 {"county": "CLUJ", "party": "ARD", "room": "S", "college": "1", "name": "TIŞE ALIN-PĂUNEL",  "source": "http://www.becparlamentare2012.ro/ARD%20CLUJ-S.html"},
 {"county": "CLUJ", "party": "ARD", "room": "S", "college": "2", "name": "CĂLIN OVIDIU VASILE",  "source": "http://www.becparlamentare2012.ro/ARD%20CLUJ-S.html"},
 {"county": "CLUJ", "party": "ARD", "room": "S", "college": "3", "name": "MOLDOVEANU RAMON",  "source": "http://www.becparlamentare2012.ro/ARD%20CLUJ-S.html"},
@@ -1186,6 +1203,8 @@
 {"county": "IALOMITA", "party": "USL", "room": "D", "college": "2", "name": "NEACŞU MARIAN",  "source": "http://www.becparlamentare2012.ro/USL%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "USL", "room": "D", "college": "3", "name": "GĂINĂ MIHĂIŢĂ",  "source": "http://www.becparlamentare2012.ro/USL%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "USL", "room": "D", "college": "4", "name": "IONESCU AURELIAN",  "source": "http://www.becparlamentare2012.ro/USL%20IALOMITA-CD.html"},
+{"county": "IALOMITA", "party": "USL", "room": "S", "college": "1", "name": "PAVEL MARIAN",  "source": "http://www.becparlamentare2012.ro/USL%20IAOMITA-S.html"},
+{"county": "IALOMITA", "party": "USL", "room": "S", "college": "2", "name": "TOMA ION",  "source": "http://www.becparlamentare2012.ro/USL%20IAOMITA-S.html"},
 {"county": "IALOMITA", "party": "ARD", "room": "D", "college": "1", "name": "BARCARI RODICA - LUMINIŢA",  "source": "http://www.becparlamentare2012.ro/ARD%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "ARD", "room": "D", "college": "2", "name": "MALAMA DANIEL - DUMITRU",  "source": "http://www.becparlamentare2012.ro/ARD%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "ARD", "room": "D", "college": "3", "name": "BEGAN NICULAE",  "source": "http://www.becparlamentare2012.ro/ARD%20IALOMITA-CD.html"},
@@ -1203,6 +1222,8 @@
 {"county": "IALOMITA", "party": "UDMR", "room": "D", "college": "2", "name": "FUGEL EDINA",  "source": "http://www.becparlamentare2012.ro/UDMR%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "UDMR", "room": "D", "college": "3", "name": "GYENGE ZOLTÁN BALÁZS",  "source": "http://www.becparlamentare2012.ro/UDMR%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "UDMR", "room": "D", "college": "4", "name": "SZALMA GYÖNGYVÉR - TÜNDE",  "source": "http://www.becparlamentare2012.ro/UDMR%20IALOMITA-CD.html"},
+{"county": "IALOMITA", "party": "UDMR", "room": "S", "college": "1", "name": "ERDŐS ILDIKÓ",  "source": "http://www.becparlamentare2012.ro/UDMR%20IALOITA-S.html"},
+{"county": "IALOMITA", "party": "UDMR", "room": "S", "college": "2", "name": "ELEKES - KÖLLŐ MÁRTA",  "source": "http://www.becparlamentare2012.ro/UDMR%20IALOITA-S.html"},
 {"county": "IALOMITA", "party": "PP", "room": "D", "college": "2", "name": "ANGHEL CORNELIA",  "source": "http://www.becparlamentare2012.ro/PP%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "PP", "room": "D", "college": "3", "name": "VLĂDESCU GEORGE-DENIS",  "source": "http://www.becparlamentare2012.ro/PP%20IALOMITA-CD.html"},
 {"county": "IALOMITA", "party": "PER", "room": "D", "college": "1", "name": "MIHĂILĂ MIHAELA LOREDANA",  "source": "http://www.becparlamentare2012.ro/PER%20IALOMITA-CD.html"},
@@ -2119,6 +2140,12 @@
 {"county": "VALCEA", "party": "PAS", "room": "S", "college": "3", "name": "STANCIU DUMITRU PAS",  "source": "http://www.becparlamentare2012.ro/PAS%20VALCEA-S.html"},
 
 
+{"county": "VRANCEA", "party": "USL", "room": "D", "college": "1", "name": "NICA NICOLAE-CIPRIAN",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEACD.html"},
+{"county": "VRANCEA", "party": "USL", "room": "D", "college": "2", "name": "TÎLVĂR ANGEL",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEACD.html"},
+{"county": "VRANCEA", "party": "USL", "room": "D", "college": "3", "name": "SĂPUNARU NINI",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEACD.html"},
+{"county": "VRANCEA", "party": "USL", "room": "D", "college": "4", "name": "MITREA MIRON-TUDOR",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEACD.html"},
+{"county": "VRANCEA", "party": "USL", "room": "D", "college": "5", "name": "ŢIGĂERU ROŞCA LAURENŢIU",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEACD.html"},
+{"county": "VRANCEA", "party": "USL", "room": "D", "college": "6", "name": "ROMAN VICTOR",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEACD.html"},
 {"county": "VRANCEA", "party": "USL", "room": "S", "college": "1", "name": "FILIP PETRU",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEA-S.html"},
 {"county": "VRANCEA", "party": "USL", "room": "S", "college": "2", "name": "DUMITRESCU CRISTIAN-SORIN",  "source": "http://www.becparlamentare2012.ro/USL%20VRANCEA-S.html"},
 {"county": "VRANCEA", "party": "ARD", "room": "D", "college": "1", "name": "IOAN RALUCA GABRIELA",  "source": "http://www.becparlamentare2012.ro/ARD%20VRANCEA-CD.html"},
@@ -2300,7 +2327,7 @@
 {"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "22", "name": "DUŢU ALEXANDRU",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},
 {"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "23", "name": "STRĂUNEANU-GĂNGUȚ SORIN",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},
 {"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "24", "name": "POPESCU ADRIAN PRM",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},
-{"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "25", "name": "CHIȚU ANCA- ALEXANDRA-PARASCHIVA",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},
+{"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "25", "name": "CHIȚU ANCA-ALEXANDRA-PARASCHIVA",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},
 {"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "26", "name": "CÎMPAN CRISTINA- DORIANA",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},
 {"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "27", "name": "BÂLDEA IOAN",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},
 {"county": "BUCURESTI", "party": "PRM", "room": "D", "college": "28", "name": "CIOBANU VASILE-DĂNUȚ",  "source": "http://www.becparlamentare2012.ro/PRM%20BUCURESTI-CD.html"},

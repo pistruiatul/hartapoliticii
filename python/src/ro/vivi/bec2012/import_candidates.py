@@ -76,8 +76,34 @@ COUNTY_LIST = [
 #
 def get_candidates_list(party, county, suffix, room):
   url = "http://www.becparlamentare2012.ro/" + party + "%20" + county + suffix
+
+  # And now, catch the exceptions that don't respect the rules and parse
+  # these ones too.
+  if county == "VRANCEA" and party == "USL" and room == "D":
+    url = "http://www.becparlamentare2012.ro/" + party + "%20VRANCEACD.html"
+
+  if county == "CARAS SEVERIN" and party == "UDMR" and room == "S":
+    url = "http://www.becparlamentare2012.ro/" + party + "%20CARAS-SEVERIN-S.html"
+
+  if county == "CALARASI" and party == "PRM" and room == "D":
+    url = "http://www.becparlamentare2012.ro/" + party + "%20CALARSI-CD.html"
+
+  if county == "CLUJ" and party == "ARD" and room == "D":
+    url = "http://www.becparlamentare2012.ro/" + party + "%20BCLUJ-CD.html"
+
+  if county == "IALOMITA" and party == "USL" and room == "S":
+    url = "http://www.becparlamentare2012.ro/" + party + "%20IAOMITA-S.html"
+
+  if county == "IALOMITA" and party == "UDMR" and room == "S":
+    url = "http://www.becparlamentare2012.ro/" + party + "%20IALOITA-S.html"
+
+  if county == "IALOMITA" and party == "PP" and room == "S":
+    url = "http://www.becparlamentare2012.ro/" + party + "%20IAOMITA-S.html"
+
   data = urllib.urlopen(url)
   if data.getcode() == 404:
+    print "---------------------------------------------------"
+    print "-- Nothing found at %s " % url
     return None
 
   try:
@@ -110,6 +136,15 @@ def get_candidates_list(party, county, suffix, room):
       continue
 
     text.replace("'", "\'")
+
+    if county == "CARAS-SEVERIN":
+      county = "CARAS SEVERIN"
+
+    if county == "CALARSI":
+      county = "CALARASI"
+
+    if county == "BCLUJ":
+      county = "CLUJ"
 
     print ('{"county": "%s",'
            ' "party": "%s",'
