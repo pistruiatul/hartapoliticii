@@ -7,6 +7,11 @@
            {if !$compact}height="40"{/if}>
     </td>
     <td width="300" valign="top">
+      <div style="float:right; margin:13px 10px 0 0;">
+        <a href="{$candidates[c].source}">
+          <img src="/images/popout_icon_light.gif"></a>
+      </div>
+
       <div style="margin-top:10px;{if !$compact}font-size: 18px;{/if}">
       <a href="?name={$candidates[c].name|replace:' ':'+'}">
         {$candidates[c].display_name}</a>
@@ -18,10 +23,10 @@
       </div>
     </td>
     <td width="130" valign="top" class="party_cell">
+      <div style="margin:5px 10px 0 0;">
       <img src="/images/parties/sigla_{$candidates[c].party_logo|lower}50x50.png"
            width="30" height="30" valign="middle">
-
-      {$candidates[c].displayed_party_name}</td>
+      <nobr>{$candidates[c].displayed_party_name}</nobr></div></td>
   </tr>
   {/section}
 </table>

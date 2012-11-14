@@ -27,9 +27,6 @@
         <br><br>
         {include file="electoral_college_candidates.tpl"
             candidates=$candidates_2012}
-
-        <div class="medium gray">
-          Sursa <a href="http://www.becparlamentare2012.ro/candidati.html" target="_blank">aici</a>.</div>
       </td>
       <td width="570" valign="top">
         <div style="margin-left:30px">

@@ -180,11 +180,12 @@ def get_parties_from_county_page(url, county):
     county = "Ilfov"
 
   if county == "TIMIS":
-    county = "Timis"
+    return ["USL", "ARD", "PPDD", "PRM", "UDMR", "EMNP-PPMT",
+            "Candidat independent"]
 
   content = "".join(data.readlines())
 
-  regexp = ("CD si S ([A-Z]+) " + county + ".ht").replace(" ", "%20")
+  regexp = ("CD si S ([-A-Za-z ]+) " + county + ".ht").replace(" ", "%20")
   results = re.findall(regexp, content, re.MULTILINE)
 
   #print ", ".join(results)

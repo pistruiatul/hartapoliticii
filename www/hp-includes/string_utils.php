@@ -178,7 +178,9 @@ function getStringWithoutDiacritics($str) {
     'Ő' => 'O',
     'Ö' => 'O',
     'ú' => 'u',
-    'ü' => 'u'
+    'ü' => 'u',
+    'Ü' => 'U',
+    'Ű' => 'U'
   );
   return strtr($str, $repl);
 }
@@ -201,7 +203,9 @@ function strtolower_ro($str) {
     'Ö' => 'o',
     'Ő' => 'o',
     'Ó' => 'o',
-    'É' => 'e'
+    'É' => 'e',
+    'Ü' => 'u',
+    'Ű' => 'U'
   );
   return strtr(strtolower($str), $repl);
 }
