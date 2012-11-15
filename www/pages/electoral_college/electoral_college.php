@@ -7,7 +7,7 @@ include_once('hp-includes/news.php');
 
 $college_name = mysql_real_escape_string(ucwords($_GET['colegiul']));
 
-$title = "Colegiul electoral " . $college_name;
+$title = "Colegiul uninominal " . $college_name;
 include('header.php');
 
 $t = new Smarty();
