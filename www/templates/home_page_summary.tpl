@@ -235,7 +235,7 @@
             <img src="i/comments_icon.png" align="absmiddle" alt="Comments"
                  title="Comments">
             {$blogposts[b].comment_count}
-          </spam>
+          </span>
         </div>
       {/section}
       <span class="small">
@@ -307,24 +307,6 @@
       </table>
 
       {* ------------------------------------------------------------------ *}
-      {* An explanatory text about this website. *}
-      <p class="smalltitle">
-        <strong>
-          Despre acest site
-        </strong>
-      </p>
-      <div class="small">
-      <span itemprop="description">
-      Cea mai mare colecție de date despre
-      politicieni români care oferă cât mai mult context despre viața lor
-      politică.</span>
-      <p>
-      Cu aceste date am tras concluzii utile cum ar fi câte voturi au
-      contat la alegerile parlamentare sau simulatorul de alegeri
-      europarlamentare.
-      </div>
-
-      {* ------------------------------------------------------------------ *}
       {* The partners section *}
 
       <p class="smalltitle">
@@ -356,6 +338,25 @@
              class="banner-partners"
              alt="Cine Ce-a Promis">
       </a>
+
+
+      {* ------------------------------------------------------------------ *}
+      {* An explanatory text about this website. *}
+      <p class="smalltitle">
+        <strong>
+          Despre acest site
+        </strong>
+      </p>
+      <div class="small">
+      <span itemprop="description">
+      Cea mai mare colecție de date despre
+      politicieni români care oferă cât mai mult context despre viața lor
+      politică.</span>
+      <p>
+      Cu aceste date am tras concluzii utile cum ar fi câte voturi au
+      contat la alegerile parlamentare sau simulatorul de alegeri
+      europarlamentare.
+      </div>
 
     </td>
   </tr>
