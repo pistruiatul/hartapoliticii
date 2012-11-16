@@ -84,9 +84,9 @@
     <td valign="top" width="510">
       {* ------------------------------------------------------------------*}
       {* The main news section from the front page. *}
-      <div style="float:right;margin-top:12px;">
-        <a href="/?cid=14&sid=0">toate știrile</a> |
-        <a href="/?cid=14&sid=1">doar cei ce-i urmărești</a>
+      <div style="float:right;margin-top:12px;font-size:85%">
+        <a href="/?cid=14&sid=0">toate știrile...</a> |
+        <a href="/?cid=14&sid=1">doar cei ce-i urmărești...</a>
       </div>
 
       <div class="news_type_menu">
@@ -319,6 +319,12 @@
           Parteneri
         </strong>
       </p>
+
+      <a href="http://www.votulmeu.com/" target="_blank">
+        <img src="/images/parteneri-votulmeu.png"
+             class="banner-partners"
+             alt="Votul Meu">
+      </a>
 
       <a href="http://www.fspub.unibuc.ro/" target="_blank">
         <img src="/images/parteneri-fbpub.jpg"
