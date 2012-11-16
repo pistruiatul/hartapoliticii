@@ -79,6 +79,40 @@
       {include file="home_page_summary_presence_list.tpl" people=$bottom_cdep}
       </table>
 
+      {* ------------------------------------------------------------------*}
+      {* A list of active parties. *}
+      <p class="smalltitle">
+        <strong>
+          Partide active în parlament
+        </strong>
+      </p>
+      <table >
+      <tr>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=1">
+            <img src="/images/parties/1.gif" height="50" border="0">
+          </a>
+        </td>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=2">
+            <img src="/images/parties/2.jpg" width="50" border="0">
+          </a>
+        </td>
+        <tr>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=7">
+            <img src="/images/parties/7.jpg" width="50" border="0">
+          </a>
+        </td>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=14">
+            <img src="/images/parties/14.jpg" width="50" border="0">
+          </a>
+        </td>
+      </tr>
+      </table>
+      Lista de partide este încă în dezvoltare.
+
     </td>
 
     <td valign="top" width="510">
@@ -278,39 +312,6 @@
      </div>
 
 
-
-      {* ------------------------------------------------------------------*}
-      {* A list of active parties. *}
-      <p class="smalltitle">
-        <strong>
-          Partide active
-        </strong>
-      </p>
-      <table width="240">
-      <tr>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=1">
-            <img src="/images/parties/1.gif" height="50" border="0">
-          </a>
-        </td>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=2">
-            <img src="/images/parties/2.jpg" width="50" border="0">
-          </a>
-        </td>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=7">
-            <img src="/images/parties/7.jpg" width="50" border="0">
-          </a>
-        </td>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=14">
-            <img src="/images/parties/14.jpg" width="50" border="0">
-          </a>
-        </td>
-      </tr>
-      </table>
-
       {* ------------------------------------------------------------------ *}
       {* The partners section *}
 
@@ -349,7 +350,6 @@
              class="banner-partners"
              alt="Cine Ce-a Promis">
       </a>
-
 
       {* ------------------------------------------------------------------ *}
       {* An explanatory text about this website. *}
