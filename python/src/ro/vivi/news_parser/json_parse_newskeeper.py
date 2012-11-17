@@ -91,7 +91,7 @@ for i in items:
     news_source = i['newspaper'].lower()
   
   new_item = {
-        'news_source' : news_source,
+        'news_source' : urllib.quote( news_source.encode("UTF-8") ),
         'news_link' : i['originalUrl'],
         'news_title': urllib.quote( news_title.encode("UTF-8") ),
         'news_time':   time.strftime("%H %M %d %m %Y", time.localtime(int(i['insertDate']/1000) )),
