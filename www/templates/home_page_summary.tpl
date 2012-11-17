@@ -5,7 +5,7 @@
     <a href="/?cid=cauta_colegiu">Caută colegiul din care faci parte</a>
   </div>
   <div style="float:right;display:inline;">
-    <b>{$days_until_election}</b> de zile până pe 9 Decembrie
+    <b>{$days_until_election}</b> zile până pe 9 Decembrie
   </div>
 </div>
 

@@ -18,6 +18,10 @@ var profile = profile || {};
 // A namespace for the functions related to declarations.
 var declarations = declarations || {};
 
+// A namespace for the electoral college pages.
+var ec = ec || {};
+
+
 /**
  * Global initializer for whatever listeners we might need on pages.
  */
@@ -952,4 +956,35 @@ declarations.getCurrentSelection = function() {
     return document.selection;
   }
   return null;
+};
+
+
+// -----------------------------------------------------
+// Functions for javascript stuff on the Electoral District pages.
+
+/**
+ * Handles the submission of the form for adding a person from the admin
+ * interface.
+ */
+ec.addLink = function() {
+  // First of all, find the data on the page.
+  var link = $('#link_input').val();
+  var origin = document.location.href;
+
+  if (link == '') {
+    // The user didn't enter a full name and a compact name, warn.
+    alert('Nu ai specificat nici un link. :-)');
+    return;
+  }
+
+  // Now call the server hook to add the person to the db.
+  var url = '/hooks/add_new_link.php?' +
+      'link=' + encodeURIComponent(link) +
+      '&origin=' + encodeURIComponent(origin);
+
+  $('#link_add_message').html(
+      'Așteatpă... <img src=/images/activity_indicator.gif>');
+  sendPayload_(url, function(response) {
+    $('#link_add_message').html(response);
+  });
 };

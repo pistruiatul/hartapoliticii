@@ -31,6 +31,8 @@ $t->assign("news", getMostRecentNewsArticles(
                        NULL, NULL, 5, '%',
                        getCollegePeopleIds($college_name, "2012")));
 
+$t->assign("links", array());
+
 if (endsWith(strtolower($college_name), "strainatate")) {
   $t->assign("college_image", "/images/{$college_name}.jpg");
 }

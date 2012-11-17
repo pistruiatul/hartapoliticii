@@ -22,10 +22,11 @@ NO_CACHE = False
 
 SOURCES = {
       'ZF' : 'ziarul financiar',
-      'RL' : 'romania libera',
-      'JURNALUL' : 'jurnalul national',
+      'RL' : 'românia liberă',
+      'JURNALUL' : 'jurnalul național',
       'WS' : 'wall-street.ro',
-      'GANDUL' : 'gandul.info'
+      'GANDUL' : 'gândul',
+      'ADEVARUL': 'adevărul'
     }
 
 WORK_DIR = 'python/src/ro/vivi/news_parser/newskeeper'
@@ -50,7 +51,7 @@ for i in items:
 
   # we don't care about libertatea, right?!
   # we already get hotnews articles
-  if i['newspaper'] == 'LIBERTATEA' or i['newspaper'] == 'HOTNEWS':
+  if i['newspaper'] in ['LIBERTATEA', 'HOTNEWS', 'MEDIAFAX'] :
     continue
 
   cache_file = "%s/nk_%s.json" % (WORK_DIR, i['md5'])
@@ -101,7 +102,7 @@ for i in items:
   xml = dict2xml.dict2xml(new_item)
   xml = re.sub(' type="\w+"','', xml.replace('<?xml version="1.0" encoding="UTF-8" ?>', ''))
   xml = xml.replace('root>', 'item>')
-  all_xml += xml + "\n"
+  all_xml += "<item>\n" + xml + "</item>\n\n"
 
   # making sure we don't get this resource again
   f = open(cache_file, 'w')
