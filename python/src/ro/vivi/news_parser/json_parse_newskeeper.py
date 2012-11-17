@@ -22,11 +22,11 @@ NO_CACHE = False
 
 SOURCES = {
       'ZF' : 'ziarul financiar',
-      'RL' : 'românia liberă',
-      'JURNALUL' : 'jurnalul național',
+      'RL' : 'romania libera',
+      'JURNALUL' : 'jurnalul national',
       'WS' : 'wall-street.ro',
-      'GANDUL' : 'gândul',
-      'ADEVARUL': 'adevărul'
+      'GANDUL' : 'gandul',
+      'ADEVARUL': 'adevarul'
     }
 
 WORK_DIR = 'python/src/ro/vivi/news_parser/newskeeper'
@@ -91,7 +91,7 @@ for i in items:
     news_source = i['newspaper'].lower()
   
   new_item = {
-        'news_source' : urllib.quote( news_source.encode("UTF-8") ),
+        'news_source' : news_source,
         'news_link' : i['originalUrl'],
         'news_title': urllib.quote( news_title.encode("UTF-8") ),
         'news_time':   time.strftime("%H %M %d %m %Y", time.localtime(int(i['insertDate']/1000) )),
