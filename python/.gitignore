@@ -22,6 +22,7 @@ src/ro/vivi/news_parser/people_small/
 src/ro/vivi/news_parser/people_tiny/
 src/ro/vivi/news_parser/cotidianul/
 src/ro/vivi/news_parser/newskeeper/
+src/ro/vivi/news_parser/news_queue/
 
 # The people images
 src/ro/vivi/thumb_generator/people/
