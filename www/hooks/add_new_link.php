@@ -54,7 +54,7 @@ $origin = mysql_real_escape_string($_GET['origin']);
 // happening.
 mysql_query(
   "INSERT INTO moderation_queue(type, idperson, value, ip, time)
-   VALUES('add_link', 0, 'by {$userLogin} for {$origin}', '$ip', ". time() . ")");
+   VALUES('add_link', 0, '{$link} by {$userLogin} for {$origin}', '$ip', ". time() . ")");
 
 
 if (addLinkToNewsQueue($link, $uid, $userDisplayName, $origin)) {

@@ -34,7 +34,7 @@
       <div class="recent_news_block">
         <div class="recent_news_title black_link">
           <a href="{$news[n].link}" target="_blank">
-            {$news[n].title}
+            {$news[n].title|stripslashes}
           </a>
         </div>&nbsp;
         <nobr>
