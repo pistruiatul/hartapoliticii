@@ -22,6 +22,7 @@ from bs4 import BeautifulSoup
 from HTMLParser import HTMLParseError
 
 from ro.vivi.news_parser.crawler import *
+from ro.vivi.hplib import *
 
 NO_CACHE = False
 
@@ -50,7 +51,8 @@ if len(sys.argv) > 1:
   WORK_DIR = sys.argv[1]
 
 try:
-  f = urllib2.urlopen('http://zen.dev/api/get_unmoderated_news_queue.php')
+  f = urllib2.urlopen(
+    BASE_URL + '/api/get_unmoderated_news_queue.php?api_key=' + API_KEY)
 except IOError, e:
   print "Error: ", e
   sys.exit(1)
