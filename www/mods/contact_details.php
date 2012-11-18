@@ -13,6 +13,7 @@ $details_titles = array(
 $t = new Smarty();
 
 $t->assign('id', $person->id);
+$t->assign('person_id', $person->id);
 $t->assign('title', $title);
 $t->assign('details_titles', $details_titles);
 

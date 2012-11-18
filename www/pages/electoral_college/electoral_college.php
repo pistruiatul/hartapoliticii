@@ -7,7 +7,7 @@ include_once('hp-includes/news.php');
 
 $college_name = mysql_real_escape_string(ucwords($_GET['colegiul']));
 
-$title = "Colegiul electoral " . $college_name;
+$title = "Colegiul uninominal " . $college_name;
 include('header.php');
 
 $t = new Smarty();
@@ -21,11 +21,6 @@ $t->assign("pc_id", startsWith($college_name, "D") ? 15 : 14);
 $t->assign("descriptions", getDescriptionsForCollege($college_name));
 $t->assign("description_source", getDescriptionSourceForCollege($college_name));
 
-$college_name = str_ireplace("Bistrita Nasaud", "Bistrita-Nasaud",
-                             $college_name);
-$college_name = str_ireplace("Caras Severin", "Caras-Severin",
-                             $college_name);
-
 $t->assign("candidates_2008", getResults2008ForCollege($college_name));
 $t->assign("id_winner_2008", getWinner2008ForCollege($college_name));
 $t->assign("show_minorities_link", strpos($college_name, "D") === 0);
@@ -35,6 +30,8 @@ $t->assign("candidates_2012", getCollegeCandidates($college_name, "2012"));
 $t->assign("news", getMostRecentNewsArticles(
                        NULL, NULL, 5, '%',
                        getCollegePeopleIds($college_name, "2012")));
+
+$t->assign("links", array());
 
 if (endsWith(strtolower($college_name), "strainatate")) {
   $t->assign("college_image", "/images/{$college_name}.jpg");

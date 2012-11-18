@@ -33,6 +33,14 @@ $parties = array(
 );
 $t->assign('parties', $parties);
 
+$diff = abs(strtotime("2012-12-09") - time());
+
+$years = floor($diff / (365*60*60*24));
+$months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+$days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+
+$t->assign('days_until_election', $days + 1);
+
 $t->assign('declarations', getMostRecentDeclarations());
 
 $t->display('home_page_summary.tpl');

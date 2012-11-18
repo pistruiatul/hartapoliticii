@@ -27,12 +27,20 @@
         <br><br>
         {include file="electoral_college_candidates.tpl"
             candidates=$candidates_2012}
-
-        <div class="medium gray">
-          Sursa <a href="http://goo.gl/64gsf" target="_blank">aici</a>.</div>
       </td>
       <td width="570" valign="top">
         <div style="margin-left:30px">
+        {if count($links)>0}
+          <span class="medium"><b>Resurse adăugate de utilizatori</b></span>
+          <br><br>
+        {else}
+          <div style="float:right;display:none">
+            Adaugă și tu un link
+          </div>
+        {/if}
+
+        {include file="electoral_college_add_link_form.tpl"}
+
         {if count($news)>0}
           <span class="medium"><b>Știri recente cu candidații din acest colegiu</b></span>
           <br><br>

@@ -117,9 +117,11 @@ body {
   padding: 3px;
 }
 .title {
+  font-family: Georgia;
   font-weight: bold;
-  font-size: 23px;
-  padding: 10px;
+  font-size: 20px;
+  padding-left: 10px;
+  line-height: 1.2em;
 }
 .info {
   font-size: 1.1em;
@@ -424,7 +426,7 @@ a.new_link:hover {
 
 .home_blog_post {
 	line-height:normal;
-	padding-bottom: 5px;
+	padding-bottom: 8px;
 }
 
 .home_blog_post_comments {
@@ -697,7 +699,8 @@ a.new_link:hover {
 }
 
 #search_form {
-  font-size: 16px;
+  padding:0.2em 0 0.2em 0.2em;
+  font-size: 15px;
   width: 220px;
 }
 .news_type_menu {
@@ -710,6 +713,7 @@ a.new_link:hover {
   text-align: right;
   color: #AAA;
   font-size: 83%;
+  margin: -30px 15px 30px 0;
 }
 
 .ec_description {
@@ -742,4 +746,25 @@ a.new_link:hover {
 }
 .party_cell {
   font-size: 13px;
+}
+
+/* ----------------------- electoral college stuff -------------------*/
+
+.add_link_form {
+  margin: 5px 0 30px 0;
+}
+
+.add_link_form #link_input {
+  width: 350px;
+  font-size: 16px;
+  padding:0.2em 0 0.2em 0.2em;
+}
+
+.add_link_form #submit_button {
+  font-size: 20px;
+}
+
+.add_link_form #link_add_message {
+  text-align: center;
+  margin: 10px;
 }

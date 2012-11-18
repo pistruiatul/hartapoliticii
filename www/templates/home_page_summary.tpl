@@ -1,7 +1,12 @@
 {* Smarty *}
 <div class="college_search_button">
-  <span class="red" style="font-weight: bold">Nou</span>:
-  <a href="/?cid=cauta_colegiu">Caută colegiul din care faci parte</a>
+  <div style="margin-left:220px;display:inline;">
+    <span class="red" style="font-weight: bold;">Nou</span>:
+    <a href="/?cid=cauta_colegiu">Caută colegiul din care faci parte</a>
+  </div>
+  <div style="float:right;display:inline;">
+    <b>{$days_until_election}</b> zile până pe 9 Decembrie
+  </div>
 </div>
 
 <table width=970 cellspacing=10>
@@ -74,14 +79,48 @@
       {include file="home_page_summary_presence_list.tpl" people=$bottom_cdep}
       </table>
 
+      {* ------------------------------------------------------------------*}
+      {* A list of active parties. *}
+      <p class="smalltitle">
+        <strong>
+          Partide active în parlament
+        </strong>
+      </p>
+      <table >
+      <tr>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=1">
+            <img src="/images/parties/1.gif" height="50" border="0">
+          </a>
+        </td>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=2">
+            <img src="/images/parties/2.jpg" width="50" border="0">
+          </a>
+        </td>
+        <tr>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=7">
+            <img src="/images/parties/7.jpg" width="50" border="0">
+          </a>
+        </td>
+        <td valign="center" align="center" width="60">
+          <a href="/?cid=17&id=14">
+            <img src="/images/parties/14.jpg" width="50" border="0">
+          </a>
+        </td>
+      </tr>
+      </table>
+      Lista de partide este încă în dezvoltare.
+
     </td>
 
     <td valign="top" width="510">
       {* ------------------------------------------------------------------*}
       {* The main news section from the front page. *}
-      <div style="float:right;margin-top:12px;">
-        <a href="/?cid=14&sid=0">toate știrile</a> |
-        <a href="/?cid=14&sid=1">doar cei ce-i urmărești</a>
+      <div style="float:right;margin-top:12px;font-size:85%">
+        <a href="/?cid=14&sid=0">toate știrile...</a> |
+        <a href="/?cid=14&sid=1">doar cei ce-i urmărești...</a>
       </div>
 
       <div class="news_type_menu">
@@ -235,7 +274,7 @@
             <img src="i/comments_icon.png" align="absmiddle" alt="Comments"
                  title="Comments">
             {$blogposts[b].comment_count}
-          </spam>
+          </span>
         </div>
       {/section}
       <span class="small">
@@ -273,57 +312,6 @@
      </div>
 
 
-
-      {* ------------------------------------------------------------------*}
-      {* A list of active parties. *}
-      <p class="smalltitle">
-        <strong>
-          Partide active
-        </strong>
-      </p>
-      <table width="240">
-      <tr>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=1">
-            <img src="/images/parties/1.gif" height="50" border="0">
-          </a>
-        </td>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=2">
-            <img src="/images/parties/2.jpg" width="50" border="0">
-          </a>
-        </td>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=7">
-            <img src="/images/parties/7.jpg" width="50" border="0">
-          </a>
-        </td>
-        <td valign="center" align="center" width="70">
-          <a href="/?cid=17&id=14">
-            <img src="/images/parties/14.jpg" width="50" border="0">
-          </a>
-        </td>
-      </tr>
-      </table>
-
-      {* ------------------------------------------------------------------ *}
-      {* An explanatory text about this website. *}
-      <p class="smalltitle">
-        <strong>
-          Despre acest site
-        </strong>
-      </p>
-      <div class="small">
-      <span itemprop="description">
-      Cea mai mare colecție de date despre
-      politicieni români care oferă cât mai mult context despre viața lor
-      politică.</span>
-      <p>
-      Cu aceste date am tras concluzii utile cum ar fi câte voturi au
-      contat la alegerile parlamentare sau simulatorul de alegeri
-      europarlamentare.
-      </div>
-
       {* ------------------------------------------------------------------ *}
       {* The partners section *}
 
@@ -332,6 +320,12 @@
           Parteneri
         </strong>
       </p>
+
+      <a href="http://www.votulmeu.com/" target="_blank">
+        <img src="/images/parteneri-votulmeu.png"
+             class="banner-partners"
+             alt="Votul Meu">
+      </a>
 
       <a href="http://www.fspub.unibuc.ro/" target="_blank">
         <img src="/images/parteneri-fbpub.jpg"
@@ -356,6 +350,24 @@
              class="banner-partners"
              alt="Cine Ce-a Promis">
       </a>
+
+      {* ------------------------------------------------------------------ *}
+      {* An explanatory text about this website. *}
+      <p class="smalltitle">
+        <strong>
+          Despre acest site
+        </strong>
+      </p>
+      <div class="small">
+      <span itemprop="description">
+      Cea mai mare colecție de date despre
+      politicieni români care oferă cât mai mult context despre viața lor
+      politică.</span>
+      <p>
+      Cu aceste date am tras concluzii utile cum ar fi câte voturi au
+      contat la alegerile parlamentare sau simulatorul de alegeri
+      europarlamentare.
+      </div>
 
     </td>
   </tr>

@@ -56,7 +56,8 @@ function addCandidateToCollege($college, $candidate, $party, $source) {
       $exclude_ids = array(1134, 77, 777, 4646, 1676, 3957, 3961, 4512, 2285,
                            2213, 277, 2220, 2228, 4411, 4407, 4401, 4403, 4750,
                            4744, 2344, 4409, 1208, 4405, 4405, 2341, 3145,
-                           4473, 4464,
+                           4473, 4464, 125, 3655, 3658, 3793, 4074, 4415, 4609,
+                           2134,
                            176, 2207, 4398, 2244, 3888, 4541, 3897, 3901, 3905);
 
       if ($current_college != "" && $current_college != $college &&
@@ -84,7 +85,7 @@ function addCandidateToCollege($college, $candidate, $party, $source) {
 
   mysql_query("
       INSERT INTO people_history(idperson, what, url, time)
-      values({$person->id}, 'results/2012', '${$source}', 1355032800)
+      values({$person->id}, 'results/2012', '{$source}', 1355032800)
   ");
 }
 

@@ -2,8 +2,9 @@
 
 <table width="970">
   <td width="250">
-    <a href="/">
-      <img  itemprop="image" src="images/top_title.png" border=0>
+    <a href="/" title="Informații obiective despre politicieni și alegeri - Harta Politicii Din România">
+      <img itemprop="image" src="images/top_title.png" border=0
+           alt="Informații obiective despre politicieni și alegeri - Harta Politicii Din România">
     </a>
   </td>
 
@@ -15,7 +16,7 @@
     <input type="submit" value="Caută" id="cauta" />
   </form>
   <div class="small gray">
-    ex: "basescu", "d1 prahova", "strada plopilor ploiesti", etc
+    ex: "basescu", "d1 prahova", "magheru bucuresti", etc
   </div>
   </td>
 

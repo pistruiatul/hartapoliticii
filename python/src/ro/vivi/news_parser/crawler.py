@@ -45,7 +45,7 @@ def get_news_html(source, link):
   fname = get_file_name_for_link(source, link)
   if not os.path.exists(fname) or NO_CACHE:
     # Check if somehow maybe I have this day id parse already.
-    f = urllib.urlopen(link)
+    f = urllib2.urlopen(link, None, 20)
     data = f.read()
     f = open(fname, 'w')
     f.write(data)
