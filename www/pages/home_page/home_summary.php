@@ -3,6 +3,7 @@ include_once('pages/functions_common.php');
 include_once('pages/cdep_2008/functions.php');
 include_once('pages/senat_2008/functions.php');
 
+include_once('hp-includes/follow_graph.php');
 include_once('hp-includes/declarations.php');
 
 include_once('hp-includes/news.php');
@@ -13,6 +14,16 @@ $t = new Smarty();
 $list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, NULL);
 $list = newsAddPreviousWeekToList($list, NULL, '%');
 $t->assign('topPeople', $list);
+
+if ($uid > 0) {
+  // Show the guys that show up most in the news.
+  $followList = getMostPresentInNews(10, NULL, NULL, NULL,
+                                     followedPeopleIdsAsArray(), NULL);
+  $followList = newsAddPreviousWeekToList($followList, NULL, '%');
+} else {
+  $followList = array();
+}
+$t->assign('followedPeople', $followList);
 
 $t->assign('news', getMostRecentNewsArticles(NULL, NULL, 7, '%'));
 $t->assign('blogposts', getMostRecentBlogPosts(7));

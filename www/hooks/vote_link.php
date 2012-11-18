@@ -49,7 +49,7 @@ mysql_query("
 ");
 
 // Update the number of votes on the article itself.
-$countVotes = getCountVotesForArticle($linkId);
+$countVotes = getCountVotesForArticle($linkId) + 1;
 mysql_query("
   UPDATE news_articles SET votes = {$countVotes}
   WHERE id = {$linkId}
