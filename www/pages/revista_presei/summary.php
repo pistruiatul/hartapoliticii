@@ -21,11 +21,16 @@ if (isSet($_GET['college_restrict'])) {
                "<b>{$college_name}</b>");
 
     $news = getMostRecentUgcLinks(30, NULL, 0);
-    $t->assign('source' == 'ugc');
   }
 
 } else {
-  $news = getMostRecentNewsArticles(NULL, NULL, 10, '%');
+  if ($_GET['source'] == 'ugc') {
+    $t->assign('restrict', "Toate resursele trimise de utilizatori");
+
+    $news = getMostRecentUgcLinks(30, NULL, 0, time() - 3 * 86400);
+  } else {
+    $news = getMostRecentNewsArticles(NULL, NULL, 10, '%');
+  }
 }
 
 $t->assign('news', $news);

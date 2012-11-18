@@ -19,6 +19,9 @@
         <strong>Pentru cei ce-i urmărești</strong><br>
       </p>
       {include file="home_page_most_mentioned_list.tpl" people=$followedPeople}
+      <div class="small">
+        <a href="/?cid=14&sid=1">Vezi toată lista...</a>
+      </div>
       {/if}
 
       <p class="smalltitle">
@@ -108,6 +111,20 @@
       </div>
 
       {include file="news_list_wide.tpl" news=$news}
+
+      <div class="news_type_menu">
+        <div class="add_link_button" onclick="ec.showAddLinkForm()">
+          adaugă și tu un link
+        </div>
+        Resurse trimise de utilizatori
+      </div>
+
+      {include file="electoral_college_add_link_form.tpl"}
+
+      {include file="news_list_ugc.tpl" news=$links}
+      <div style="margin-bottom:12px;font-size:85%">
+        <a href="/?cid=14&sid=0&source=ugc">toate...</a>
+      </div>
 
       {*
       For now the score cards are going to be hard coded because:

@@ -281,7 +281,8 @@ function extractDomainFromLink($link) {
  *     well.
  * @return unknown_type
  */
-function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0) {
+function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
+                               $since=0) {
   $where_clause = '';
   if ($restrict_to_ids) {
     $ids = implode(",", $restrict_to_ids);
@@ -300,7 +301,7 @@ function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0) {
     FROM news_people AS p
     LEFT JOIN news_articles AS a ON p.idarticle = a.id
     LEFT JOIN news_queue AS nq ON nq.link = a.link
-    WHERE a.source = 'ugc'
+    WHERE a.source = 'ugc' AND a.time > $since
       {$where_clause}
       {$user_restrict}
     GROUP BY a.id

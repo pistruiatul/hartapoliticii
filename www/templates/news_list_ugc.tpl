@@ -43,14 +43,15 @@
           <span class="gray medium">{$news[n].source}</span>
         </nobr>
 
-        {include file="news_list_mentions_block.tpl" people=$news[n].people
+        {include file="news_list_mentions_block.tpl"
+            people=$news[n].people
             news_id=$news[n].id
             above_seven=$news[n].above_seven}
 
         <div class="ugc_link_status">
           {$news[n].time|date_format:"%e %b %Y, "}
           {$news[n].time|date_format:"%l%p"|replace:"PM":"pm"|replace:"AM":"am"}
-           · link adăugat de {$news[n].user_name}
+           · link adăugat de <span style="color:blueviolet">{$news[n].user_name}</span>
         </div>
       </div>
     </td>

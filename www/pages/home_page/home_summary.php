@@ -28,6 +28,8 @@ $t->assign('followedPeople', $followList);
 $t->assign('news', getMostRecentNewsArticles(NULL, NULL, 7, '%'));
 $t->assign('blogposts', getMostRecentBlogPosts(7));
 
+$t->assign("links", getMostRecentUgcLinks(3, NULL, 0, time() - 3 * 86400));
+
 // Get the top three senators.
 $t->assign('top_senators', getSenatSorted(3, 'DESC', 3));
 $t->assign('bottom_senators',array_reverse(getSenatSorted(3, 'ASC', 3)));
