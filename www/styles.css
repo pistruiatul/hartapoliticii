@@ -750,8 +750,18 @@ a.new_link:hover {
 
 /* ----------------------- electoral college stuff -------------------*/
 
+.add_link_button {
+  font-size: 77%;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #000066;
+  float:right;
+}
+
 .add_link_form {
-  margin: 5px 0 30px 0;
+  margin: 5px 0 10px 0;
+  background-color: #ffffd7;
+  padding: 15px;
 }
 
 .add_link_form #link_input {
@@ -767,4 +777,15 @@ a.new_link:hover {
 .add_link_form #link_add_message {
   text-align: center;
   margin: 10px;
+}
+
+.ugc_link_status {
+  margin: 4px 0 0 0;
+  font-family: Helvetica, sans-serif;
+  color: #cccccc;
+}
+
+.ugc_score {
+  font-size: 15px;
+  margin: -7px 0 -4px 0;
 }

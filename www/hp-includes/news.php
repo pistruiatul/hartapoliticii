@@ -42,7 +42,8 @@ function getMostPresentInNews($count, $what = NULL, $tstart = NULL,
     LEFT JOIN news_articles AS a ON a.id = p.idarticle
     {$history_join}
     WHERE a.time > {$tstart} AND
-          a.time < {$tend}
+          a.time < {$tend} AND
+          a.source != 'ugc'
           {$where_source}
           {$restrict_to_ids}
           {$what_filter}
@@ -141,7 +142,9 @@ function extractMostRecentArticle($ids, $source = 'mediafax') {
     SELECT a.title, a.link, a.time, p.idperson
     FROM news_people AS p
     LEFT JOIN news_articles AS a ON p.idarticle = a.id
-    WHERE p.idperson IN ($set) AND a.source = '$source'
+    WHERE p.idperson IN ($set) AND
+          a.source = '$source' AND
+          a.source != 'ugc'
     ORDER BY a.time ASC
   ";
   $hash = array();
@@ -233,6 +236,10 @@ function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax',
     $where_clause .= " AND p.idperson in ($ids)";
   }
 
+  if ($source != 'ugc') {
+    $where_clause .= " AND a.source != 'ugc'";
+  }
+
   $s = mysql_query("
     SELECT a.id, a.title, a.link, a.time, a.place, a.photo, p.idperson, a.source
     FROM news_people AS p
@@ -255,6 +262,64 @@ function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax',
 }
 
 
+function extractDomainFromLink($link) {
+  $domain = parse_url($link, PHP_URL_HOST);
+  if (startsWith($domain, "www.")) {
+    $domain = substr($domain, 4);
+  }
+  return $domain;
+}
+
+
+/**
+ * Returns a list of most recent articles from the news tables.
+ * @param $count
+ * @param {Array.<Number>} $restrict_to_ids The list of person ids that I
+ *     should restrict this search for news to. Only get news for this list
+ *     of people. Usually used for passing in the list of people one user
+ *     choses to follow, but could be used for other lists in the future as
+ *     well.
+ * @return unknown_type
+ */
+function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0) {
+  $where_clause = '';
+  if ($restrict_to_ids) {
+    $ids = implode(",", $restrict_to_ids);
+    $where_clause .= " AND p.idperson in ($ids)";
+  }
+
+  $user_restrict = '';
+  if ($uid > 0) {
+    $user_restrict = " AND nq.user_id = {$uid}";
+  }
+
+  $s = mysql_query("
+    SELECT
+        a.id, a.title, a.link, a.time, a.place, a.photo, p.idperson,
+        a.source, a.votes, nq.user_name
+    FROM news_people AS p
+    LEFT JOIN news_articles AS a ON p.idarticle = a.id
+    LEFT JOIN news_queue AS nq ON nq.link = a.link
+    WHERE a.source = 'ugc'
+      {$where_clause}
+      {$user_restrict}
+    GROUP BY a.id
+    ORDER BY a.score DESC, a.votes DESC, a.time DESC
+    LIMIT 0, $count");
+
+  $news = array();
+  while ($r = mysql_fetch_array($s)) {
+    $r['people'] = getPeopleForNewsId($r['id'], $restrict_to_ids);
+    $r['above_seven'] = count($r['people']) - 7;
+
+    $r['source'] = extractDomainFromLink($r['link']);
+
+    $news[] = $r;
+  }
+  return $news;
+}
+
+
 /**
  * Counts the number of news in the past N days.
  * @param $days
@@ -265,7 +330,7 @@ function countAllMostRecentNews($days, $source = 'mediafax') {
   $s = mysql_query("
     SELECT a.title
     FROM news_articles AS a
-    WHERE a.time > {$from} AND a.source = '$source'");
+    WHERE a.time > {$from} AND a.source = '$source' AND a.source != 'ugc'");
   return mysql_num_rows($s);
 }
 

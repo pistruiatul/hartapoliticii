@@ -1,6 +1,5 @@
 {* Smarty *}
 
-
 <div class="add_link_form" style="display:none">
   <b>Adaugă o resursă informativă utilă:</b><br><br>
   <input type="text" size="20" name="link" id="link_input"

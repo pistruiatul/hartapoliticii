@@ -13,8 +13,7 @@ include_once('../hp-includes/user_utils.php');
  * @param $link {String} Already mysql-escaped link.
  * @return Boolean
  */
-function addLinkToNewsQueue($link, $uid, $origin) {
-
+function addLinkToNewsQueue($link, $uid, $userDisplayName, $origin) {
   $s = mysql_query("
     SELECT * FROM news_queue WHERE link = '{$link}'
   ");
@@ -23,8 +22,8 @@ function addLinkToNewsQueue($link, $uid, $origin) {
   }
 
   mysql_query("
-    INSERT INTO news_queue(user_id, link, origin, time_ms)
-    values($uid, '{$link}', '{$origin}', " . time() . ")
+    INSERT INTO news_queue(user_id, user_name, link, origin, time_ms)
+    values($uid, '{$userDisplayName}', '{$link}', '{$origin}', " . time() . ")
   ");
 
   return true;
@@ -42,6 +41,7 @@ if ($uid == 0) {
 // Also record this in the moderation queue so we can see who added what.
 $ip = $_SERVER['REMOTE_ADDR'];
 $userLogin = getUserLogin($uid);
+$userDisplayName = getUserDisplayName($uid);
 
 
 // Sanitize the inputs a little bit.
@@ -57,7 +57,7 @@ mysql_query(
    VALUES('add_link', 0, 'by {$userLogin} for {$origin}', '$ip', ". time() . ")");
 
 
-if (addLinkToNewsQueue($link, $uid, $origin)) {
+if (addLinkToNewsQueue($link, $uid, $userDisplayName, $origin)) {
   echo "Link-ul este acum în coada de moderare. <br>Poți verifica statusul " .
        "resurselor trimise de tine pe " .
        "<a href='/?cid=profile'>pagina ta de profil</a>";

@@ -15,11 +15,25 @@ if (isSet($_GET['college_restrict'])) {
              "Doar știrile pentru candidați în colegiul " .
              "<b>{$college_name}</b>");
 
+  if ($_GET['source'] == 'ugc') {
+    $t->assign('restrict',
+               "Resursele trimise de utilizatori pentru candidați în colegiul " .
+               "<b>{$college_name}</b>");
+
+    $news = getMostRecentUgcLinks(30, NULL, 0);
+    $t->assign('source' == 'ugc');
+  }
+
 } else {
   $news = getMostRecentNewsArticles(NULL, NULL, 10, '%');
 }
 
 $t->assign('news', $news);
-$t->display('revista_presei_news_list.tpl');
+
+if ($_GET['source'] == 'ugc') {
+  $t->display('news_list_ugc.tpl');
+} else {
+  $t->display('revista_presei_news_list.tpl');
+}
 
 ?>

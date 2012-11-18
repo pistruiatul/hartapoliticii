@@ -25,6 +25,15 @@
     </div>
 
     <div class="section">
+      <div class="title">Resurse pe care le-ai adăugat și au fost aprobate</div>
+      <div class="content">
+        {include
+            file="news_list_ugc.tpl"
+            news=$links}
+      </div>
+    </div>
+
+    <div class="section">
       <div class="title">Anotații legi</div>
       <div class="content">
         Mai multe detalii despre anotarea de legi

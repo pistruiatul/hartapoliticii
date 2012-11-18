@@ -36,6 +36,22 @@ function getUserLogin($uid) {
 }
 
 
+
+/**
+ * Returns the username of the user with the ID passed in as a parameter.
+ *
+ * @param {Number} $uid The id of the user we are interested in.
+ * @return {String} The user's login handle as a string.
+ */
+function getUserDisplayName($uid) {
+  $s = mysql_query("SELECT display_name FROM wp_users WHERE ID={$uid}");
+  if ($r = mysql_fetch_array($s)) {
+    return $r['display_name'];
+  }
+  return '';
+}
+
+
 /**
  * Returns the user level of the user with the ID passed in as a parameter. The
  * default user level for plain users is 0, and the number increases as the

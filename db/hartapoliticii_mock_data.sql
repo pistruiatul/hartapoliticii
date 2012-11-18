@@ -711,6 +711,7 @@ CREATE TABLE IF NOT EXISTS `moderation_queue` (
 --
 
 DROP TABLE IF EXISTS `news_articles`;
+
 CREATE TABLE IF NOT EXISTS `news_articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` bigint(20) NOT NULL,
@@ -719,11 +720,13 @@ CREATE TABLE IF NOT EXISTS `news_articles` (
   `title` text NOT NULL,
   `photo` text NOT NULL,
   `source` varchar(40) NOT NULL,
+  `score` float NOT NULL DEFAULT '0',
+  `votes` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `time` (`time`),
   KEY `link` (`link`),
   KEY `source` (`source`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17363 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23564 ;
 
 --
 -- Dumping data for table `news_articles`
@@ -12233,6 +12236,41 @@ CREATE TABLE IF NOT EXISTS `electoral_colleges` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32168 ;
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news_queue`
+--
+
+CREATE TABLE IF NOT EXISTS `news_queue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `link` varchar(200) NOT NULL,
+  `time_ms` int(11) NOT NULL,
+  `origin` varchar(200) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `link` (`link`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news_votes`
+--
+
+CREATE TABLE IF NOT EXISTS `news_votes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `vote` int(11) NOT NULL,
+  `ip` varchar(30) NOT NULL,
+  `time_ms` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `article_id` (`article_id`,`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -25,13 +25,14 @@ $t->assign("candidates_2008", getResults2008ForCollege($college_name));
 $t->assign("id_winner_2008", getWinner2008ForCollege($college_name));
 $t->assign("show_minorities_link", strpos($college_name, "D") === 0);
 
+$collegePeopleIds = getCollegePeopleIds($college_name, "2012");
+
 $t->assign("compact", false);
 $t->assign("candidates_2012", getCollegeCandidates($college_name, "2012"));
 $t->assign("news", getMostRecentNewsArticles(
-                       NULL, NULL, 5, '%',
-                       getCollegePeopleIds($college_name, "2012")));
+                       NULL, NULL, 5, '%', $collegePeopleIds));
 
-$t->assign("links", array());
+$t->assign("links", getMostRecentUgcLinks(5, $collegePeopleIds));
 
 if (endsWith(strtolower($college_name), "strainatate")) {
   $t->assign("college_image", "/images/{$college_name}.jpg");
