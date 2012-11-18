@@ -114,7 +114,7 @@
 
       <div class="news_type_menu">
         <div class="add_link_button" onclick="ec.showAddLinkForm()">
-          adaugă și tu un link
+          adaugă link <img src="/images/plus.png" align="absmiddle">
         </div>
         Resurse trimise de utilizatori
       </div>

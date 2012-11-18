@@ -26,7 +26,7 @@
 
 
         <div class="add_link_button" onclick="ec.showAddLinkForm()">
-          Adaugă și tu un link >>
+          Adaugă link <img src="/images/plus.png" align="absmiddle">
         </div>
 
         <span class="medium"><b>Candidați 2012</b> - alfabetic</span>
