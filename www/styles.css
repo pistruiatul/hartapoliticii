@@ -699,7 +699,8 @@ a.new_link:hover {
 }
 
 #search_form {
-  font-size: 16px;
+  padding:0.2em 0 0.2em 0.2em;
+  font-size: 15px;
   width: 220px;
 }
 .news_type_menu {
@@ -755,7 +756,8 @@ a.new_link:hover {
 
 .add_link_form #link_input {
   width: 350px;
-  font-size: 18px;
+  font-size: 16px;
+  padding:0.2em 0 0.2em 0.2em;
 }
 
 .add_link_form #submit_button {

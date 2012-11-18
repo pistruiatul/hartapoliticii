@@ -10,5 +10,5 @@ around.
 
 *}
 {section loop=$links name=l}
-{$links[l].link}
+{$links[l].time_ms} {$links[l].link}
 {/section}

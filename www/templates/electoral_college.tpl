@@ -34,7 +34,7 @@
           <span class="medium"><b>Resurse adăugate de utilizatori</b></span>
           <br><br>
         {else}
-          <div style="float:right; display:none">
+          <div style="float:right;display:none">
             Adaugă și tu un link
           </div>
         {/if}

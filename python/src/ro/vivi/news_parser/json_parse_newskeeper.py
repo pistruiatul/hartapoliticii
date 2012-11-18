@@ -89,20 +89,26 @@ for i in items:
     news_source = SOURCES[ i['newspaper'] ]
   else:
     news_source = i['newspaper'].lower()
-  
-  new_item = {
-        'news_source' : news_source,
-        'news_link' : i['originalUrl'],
-        'news_title': urllib.quote( news_title.encode("UTF-8") ),
-        'news_time':   time.strftime("%H %M %d %m %Y", time.localtime(int(i['insertDate']/1000) )),
-        'news_content': urllib.quote( content.encode("UTF-8") ),
-        'news_status' : 'fresh',
-        'news_place' : '',
-      }
-  xml = dict2xml.dict2xml(new_item)
-  xml = re.sub(' type="\w+"','', xml.replace('<?xml version="1.0" encoding="UTF-8" ?>', ''))
-  xml = xml.replace('root>', 'item>')
-  all_xml += "<item>\n" + xml + "</item>\n\n"
+
+  category = item['optionalArticle']['category'].lower()
+  # Only look at articles that are in the Political category
+  if "polit" in category:
+    print '     we got politics as a category [' + category + ']'
+    new_item = {
+          'news_source' : news_source,
+          'news_link' : i['originalUrl'],
+          'news_title': urllib.quote( news_title.encode("UTF-8") ),
+          'news_time':   time.strftime("%H %M %d %m %Y", time.localtime(int(i['insertDate']/1000) )),
+          'news_content': urllib.quote( content.encode("UTF-8") ),
+          'news_status' : 'fresh',
+          'news_place' : '',
+        }
+    xml = dict2xml.dict2xml(new_item)
+    xml = re.sub(' type="\w+"','', xml.replace('<?xml version="1.0" encoding="UTF-8" ?>', ''))
+    xml = xml.replace('root>', 'item>')
+    all_xml += "<item>\n" + xml + "</item>\n\n"
+  else:
+    print '     ... skipped, category was [' + category + ']'
 
   # making sure we don't get this resource again
   f = open(cache_file, 'w')
