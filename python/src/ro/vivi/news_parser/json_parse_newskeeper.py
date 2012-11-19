@@ -93,7 +93,7 @@ for i in items:
   category = item['optionalArticle']['category'].lower()
   # Only look at articles that are in the Political category
   if "polit" in category:
-    print '     we got politics as a category [' + category + ']'
+    print '     we got politics as a category [' + category.encode('UTF-8') + ']'
     new_item = {
           'news_source' : news_source,
           'news_link' : i['originalUrl'],
@@ -108,11 +108,11 @@ for i in items:
     xml = xml.replace('root>', 'item>')
     all_xml += "<item>\n" + xml + "</item>\n\n"
   else:
-    print '     ... skipped, category was [' + category + ']'
+    print '     ... skipped, category was [' + category.encode('UTF-8') + ']'
 
   # making sure we don't get this resource again
   f = open(cache_file, 'w')
-  f.close
+  f.close()
 
   parsed += 1
   if parsed >= 50:
