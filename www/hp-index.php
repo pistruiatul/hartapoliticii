@@ -121,6 +121,7 @@ switch ($cid) {
   case 22: include('pages/senat_2012/senat_2012_page.php'); break;
 
   case 'cauta_colegiu': include('pages/electoral_college/search.php'); break;
+  case 'comunitate': include('pages/misc/community.php'); break;
 
   // Alegeri prezidentiale 2009.
   case 13: include('pages/pres_2009/page.php'); break;

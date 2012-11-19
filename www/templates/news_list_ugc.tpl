@@ -3,16 +3,13 @@
 <div class="medium">
 
 {if $restrict}
-  <center>
   <div class="college_search_button"
        style="width:680px; text-align: left; margin-bottom: 20px">
     {$restrict}
   </div>
-  </center>
 {/if}
 
-<table cellspacing=2 cellpadding=2 class="recent_news"
-        style="max-width: 700px; margin: auto">
+<table cellspacing=2 cellpadding=2 class="recent_news" style="width: 100%;">
   {section name=n loop=$news}
     <tr>
     <td valign="top" align="center" width="37">

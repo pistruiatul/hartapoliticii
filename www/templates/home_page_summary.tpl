@@ -123,7 +123,7 @@
 
       {include file="news_list_ugc.tpl" news=$links}
       <div style="margin-bottom:12px;font-size:85%">
-        <a href="/?cid=14&sid=0&source=ugc">toate...</a>
+        <a href="/?cid=comunitate">toate...</a>
       </div>
 
       {*

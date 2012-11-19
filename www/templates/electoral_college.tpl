@@ -47,7 +47,7 @@
           {include file="news_list_ugc.tpl" news=$links}
 
           <div class="small" style="text-align:right">
-          <a href="/?cid=14&sid=0&college_restrict={$college_name|lower|replace:' ':'+'}&year=2012&source=ugc">Vezi toate resursele...</a>
+          <a href="/?cid=comunitate&college_restrict={$college_name|lower|replace:' ':'+'}">Vezi toate resursele...</a>
           </div>
 
           </div>
