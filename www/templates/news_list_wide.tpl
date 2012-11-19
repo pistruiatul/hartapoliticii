@@ -41,7 +41,7 @@
       <td width="100" valign="top">
         <div class="container">
           <div class="photo">
-            <img src="{$news[n].photo}?width=100">
+            <img src="{$news[n].photo}{if ($news[n].source == 'hotnews' || $news[n].source == 'mediafax') }?width=100{/if}">
           </div>
         </div>
       </td>
