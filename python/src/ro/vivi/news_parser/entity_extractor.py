@@ -77,7 +77,7 @@ def get_names_from_text(data):
   name = []
   for word in words:
     # when you meet a separator, delete the name
-    if re.search("[.,;\]\[]", word) or \
+    if re.search("[\\.,;\]\[]", word) or \
        (re.search("^[0-9a-zşșî/(\\-]", word) and
         not word.startswith("Ş") and
         not word.startswith("Ș") and

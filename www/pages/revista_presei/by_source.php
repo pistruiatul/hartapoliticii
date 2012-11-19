@@ -14,6 +14,7 @@ function showIndividualNewspaper($code, $title, $homepage) {
   // Show the guys that show up most in the news.
   $list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, $code);
   $list = newsAddPreviousWeekToList($list, NULL, $code);
+
   $t->assign('numArticles', countAllMostRecentNews(7, $code));
   $t->assign('topPeople', $list);
   $t->assign('SHOW_LATEST_ARTICLE', false);
@@ -25,7 +26,7 @@ function showIndividualNewspaper($code, $title, $homepage) {
 
 showIndividualNewspaper('mediafax', NULL, 'mediafax.ro');
 showIndividualNewspaper('hotnews', NULL, 'hotnews.ro');
-showIndividualNewspaper('gandul', NULL, 'gandul.ro');
+showIndividualNewspaper('gandul', NULL, 'gandul.info');
 showIndividualNewspaper('ziarul financiar', NULL, 'zf.ro');
 showIndividualNewspaper('romania libera', NULL, 'romanialibera.ro');
 showIndividualNewspaper('adevarul', NULL, 'adevarul.ro');
