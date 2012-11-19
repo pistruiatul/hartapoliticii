@@ -77,7 +77,7 @@ def get_names_from_text(data):
   name = []
   for word in words:
     # when you meet a separator, delete the name
-    if re.search("[\\.,;\]\[]", word) or \
+    if re.search("[.,;\]\[]", word) or \
        (re.search("^[0-9a-zşșî/(\\-]", word) and
         not word.startswith("Ş") and
         not word.startswith("Ș") and
@@ -185,6 +185,9 @@ def get_qualifiers(name, data):
     - Extract: "first premier"
   """
   data = strip_tags_and_new_lines(data)
+  # Eliminate slashes and backslashes.
+  name = re.sub(r"\\", " ", name)
+  name = re.sub("/", " ", name)
 
   post_qualifiers = re.findall(name + ', ([^,.]+)[.|,]', data)
   # TODO(vivi): Add the
