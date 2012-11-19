@@ -315,6 +315,10 @@ body {
   font-size: 16px;
 }
 
+.recent_news img {
+  max-width: 100px;
+}
+
 .recent_news_block {
   font-size: 12px;
   margin-bottom: 10px;
