@@ -17,7 +17,7 @@
     </div>
       <p class="smalltitle"><strong>{$MOST_RECENT_NEWS_ABOUT}</strong></p>
       <div class="medium">
-      {include file="news_buzz_latest_news.tpl"}
+      {include file="news_list_wide.tpl" news=$news}
     </td>
   </tr>
 </table>

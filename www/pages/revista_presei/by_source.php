@@ -8,8 +8,8 @@ function showIndividualNewspaper($code, $title, $homepage) {
   }
   $t->assign('NEWS_CODE', $code);
   $t->assign('MOST_RECENT_NEWS_ABOUT',
-             "Cele mai recente știri (via <a href=".
-             "\"http://{$homepage}\">{$homepage}</a>)");
+             "Cele mai recente știri de pe <a href=".
+             "\"http://{$homepage}\">{$homepage}</a>");
 
   // Show the guys that show up most in the news.
   $list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, $code);
@@ -18,7 +18,7 @@ function showIndividualNewspaper($code, $title, $homepage) {
   $t->assign('topPeople', $list);
   $t->assign('SHOW_LATEST_ARTICLE', false);
 
-  $t->assign('news', getMostRecentNewsArticles(NULL, NULL, 7, $code));
+  $t->assign('news', getMostRecentNewsArticles(NULL, NULL, 4, $code));
 
   $t->display('revista_presei_one_newspaper.tpl');
 }
