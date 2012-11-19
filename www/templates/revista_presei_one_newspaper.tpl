@@ -6,7 +6,7 @@
     <td width=350 valign="top">
     
       <p class="smalltitle">
-        <img src="images/logo_news_{$NEWS_CODE}.jpg" align="absmiddle">
+        <img src="images/logo_news_{$NEWS_CODE|replace:' ':'_'}.jpg" align="absmiddle">
         <strong>{$NEWSPAPER_TITLE}</strong>
       </p>
         {* This section is almost identical to news_buzz_top_people. *}

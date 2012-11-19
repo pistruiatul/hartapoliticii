@@ -18,12 +18,17 @@ function showIndividualNewspaper($code, $title, $homepage) {
   $t->assign('topPeople', $list);
   $t->assign('SHOW_LATEST_ARTICLE', false);
 
-  $t->assign('news', getMostRecentNewsArticles(NULL, NULL, 12, $code));
+  $t->assign('news', getMostRecentNewsArticles(NULL, NULL, 7, $code));
 
   $t->display('revista_presei_one_newspaper.tpl');
 }
 
 showIndividualNewspaper('mediafax', NULL, 'mediafax.ro');
 showIndividualNewspaper('hotnews', NULL, 'hotnews.ro');
+showIndividualNewspaper('gandul', NULL, 'gandul.ro');
+showIndividualNewspaper('ziarul financiar', NULL, 'zf.ro');
+showIndividualNewspaper('romania libera', NULL, 'romanialibera.ro');
+showIndividualNewspaper('adevarul', NULL, 'adevarul.ro');
+showIndividualNewspaper('evz', NULL, 'evz.ro');
 
 ?>
