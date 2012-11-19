@@ -185,6 +185,9 @@ def get_qualifiers(name, data):
     - Extract: "first premier"
   """
   data = strip_tags_and_new_lines(data)
+  # Eliminate slashes and backslashes.
+  name = re.sub(r"\\", " ", name)
+  name = re.sub("/", " ", name)
 
   post_qualifiers = re.findall(name + ', ([^,.]+)[.|,]', data)
   # TODO(vivi): Add the
@@ -215,18 +218,11 @@ def add_person_qualifier(link, idperson, name, qualifiers):
         urllib.urlencode(data))
 
 
-# ===========================
-# The main method for now, do not rely on it.
-print "\n\n\n--!! STEP 2"
-
 # Get the last five daily news files.
 files = filter(is_not_a_daily, os.listdir(os.getcwd() + '/' + SOURCE + '/'))
 files.sort()
 
 for fname in files[-NUMBER_OF_DAYS_TO_PARSE : ]:
-  print "--"
-  print "-- ++ working on " + SOURCE + "/" + fname
-
   tree = parse(SOURCE + '/' + fname)
   for item in tree.findall('item'):
     link = item.findtext('news_link').encode('UTF-8')

@@ -155,9 +155,6 @@ for i in items:
     news_source = i['newspaper'].lower()
 
   category = item['optionalArticle']['category'].lower()
-  #img_url = extract_article_image(i['newspaper'], item['rawHtml'])
-  #print i['newspaper'], " -> ", img_url
-  #continue
 
   # Only look at articles that are in categories potentially related to Politics
   cat_ok_re = "politic|parlamentare|alegeri|justi|news"
@@ -182,7 +179,7 @@ for i in items:
     xml = re.sub(' type="\w+"','', xml)
     all_xml += "<item>\n" + xml + "</item>\n\n"
   else:
-    print '     ... skipped, category was [' + category + ']'
+    print '     ... skipped, category was [' + category.encode('UTF-8') + ']'
 
   # making sure we don't get this resource again
   f = open(cache_file, 'w')

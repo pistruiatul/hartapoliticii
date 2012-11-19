@@ -754,8 +754,39 @@ a.new_link:hover {
 
 /* ----------------------- electoral college stuff -------------------*/
 
+.add_link_button {
+  font-size: 77%;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #000066;
+  float:right;
+
+  font: bold 11px "Helvetica Neue", Helvetica, Arial, clean, sans-serif !important;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+	display: inline-block;
+	color: #000000;
+	padding: 5px 10px 5px;
+	white-space: nowrap;
+	text-decoration: none;
+	cursor: pointer;
+	background: #d4e4f1 url(button_overlay.png) repeat-x scroll 0 0;
+	border-style: none;
+	text-align: center;
+	overflow: visible;
+}
+
+.add_link_button:hover,
+.add_link_button:focus {
+	text-decoration: underline;
+}
+
 .add_link_form {
-  margin: 5px 0 30px 0;
+  margin: 5px 0 10px 0;
+  background-color: #ffffd7;
+  padding: 15px;
 }
 
 .add_link_form #link_input {
@@ -772,3 +803,15 @@ a.new_link:hover {
   text-align: center;
   margin: 10px;
 }
+
+.ugc_link_status {
+  margin: 4px 0 0 0;
+  font-family: Helvetica, sans-serif;
+  color: #cccccc;
+}
+
+.ugc_score {
+  font-size: 15px;
+  margin: -7px 0 -4px 0;
+}
+

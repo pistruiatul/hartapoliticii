@@ -449,7 +449,7 @@ class Person {
       SELECT a.id, a.title, a.link, a.time, a.place, a.source, a.photo
       FROM news_people AS p
       LEFT JOIN news_articles AS a ON p.idarticle = a.id
-      WHERE p.idperson = {$this->id}
+      WHERE p.idperson = {$this->id} AND a.source != 'ugc'
       ORDER BY a.time DESC
       LIMIT $start, $count");
 
@@ -567,7 +567,7 @@ class Person {
       LEFT JOIN news_people AS assoc ON assoc.idarticle = p.idarticle
       LEFT JOIN news_articles AS a ON a.id = p.idarticle
       LEFT JOIN people ON people.id = assoc.idperson
-      WHERE p.idperson = {$this->id} AND time > {$tstart}
+      WHERE p.idperson = {$this->id} AND time > {$tstart} AND a.source != 'ugc'
       GROUP BY assoc.idperson
       ORDER BY cnt DESC
       LIMIT 0, {$count}");
@@ -595,7 +595,7 @@ class Person {
              a.link
       FROM news_qualifiers AS q
       LEFT JOIN news_articles AS a ON a.id = q.idarticle
-      WHERE q.approved = 1 AND idperson = {$this->id}
+      WHERE q.approved = 1 AND idperson = {$this->id} AND a.source != 'ugc'
       GROUP BY concat(q.idperson, q.qualifier)
       ORDER BY num DESC
       LIMIT 0, $count";

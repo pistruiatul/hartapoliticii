@@ -14,38 +14,21 @@
     <td width=210 valign="top">
       {* ------------------------------------------------------------------*}
       {* Show the politicians that are most present in the news. *}
+      {if count($followedPeople)>0}
+      <p class="smalltitle">
+        <strong>Pentru cei ce-i urmărești</strong><br>
+      </p>
+      {include file="home_page_most_mentioned_list.tpl" people=$followedPeople}
+      <div class="small">
+        <a href="/?cid=14&sid=1">Vezi toată lista...</a>
+      </div>
+      {/if}
 
       <p class="smalltitle">
         <strong>Cei mai mediatizați</strong><br>
       </p>
-      <table width=100% cellspacing=4 cellpadding=0>
-      {section name=c loop=$topPeople}
-      {strip}
-        <tr>
-          <td valign="top" width=25>
-            <img src="{$topPeople[c].tiny_photo}" width="22" height="30">
-          </td>
-          <td width=205 style="white-space:nowrap" class="medium">
-            <a href="?name={$topPeople[c].name}">
-              {$topPeople[c].display_name}
-            </a>
-            &nbsp;
-            <img valign="absmiddle" src="images/transparent.png"
-            {if ($topPeople[c].mentions_dif > 0)}
-               class="up_arrow"
-               title="{$topPeople[c].mentions_dif}
-                      articole în plus față de săptămâna anterioară"
-            {else}
-              class="down_arrow"
-              title="{$topPeople[c].mentions_dif*-1}
-                     articole în minus față de săptămâna anterioară"
-            {/if}
-            >&nbsp;{$topPeople[c].mentions}
-          </td>
-        </tr>
-      {/strip}
-      {/section}
-      </table>
+      {include file="home_page_most_mentioned_list.tpl" people=$topPeople}
+
       <div class="small">
         <a href="/?cid=14&sid=3">Vezi toată lista...</a>
       </div>
@@ -128,6 +111,20 @@
       </div>
 
       {include file="news_list_wide.tpl" news=$news}
+
+      <div class="news_type_menu">
+        <div class="add_link_button" onclick="ec.showAddLinkForm()">
+          adaugă link <img src="/images/plus.png" align="absmiddle">
+        </div>
+        Resurse trimise de utilizatori
+      </div>
+
+      {include file="electoral_college_add_link_form.tpl"}
+
+      {include file="news_list_ugc.tpl" news=$links}
+      <div style="margin-bottom:12px;font-size:85%">
+        <a href="/?cid=comunitate">toate...</a>
+      </div>
 
       {*
       For now the score cards are going to be hard coded because:

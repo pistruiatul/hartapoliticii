@@ -6,24 +6,29 @@ include ('../functions.php');
 include_once('../hp-includes/people_lib.php');
 
 function getArticleId($time, $place, $link, $title, $photo, $source) {
+  $time = (int)$time;
+
   $s = mysql_query("SELECT id FROM news_articles WHERE link='$link'");
   if ($r = mysql_fetch_array($s)) {
     return $r['id'];
   } else {
-    mysql_query(
-      "INSERT INTO news_articles(time, place, link, title, photo, source)
-      VALUES($time, '$place', '$link', '$title', '$photo', '$source')");
+    $votes = $source == 'ugc' ? 1 : 0;
+
+    mysql_query("
+      INSERT INTO news_articles(time, place, link, title, photo, source, votes)
+      VALUES($time, '$place', '$link', '$title', '$photo', '$source', $votes)");
+
     return mysql_insert_id();
   }
 }
 
-$idperson = trim($_POST['id']);
-$time = trim($_POST['time']);
-$place = trim($_POST['place']);
-$link = trim($_POST['link']);
-$title = trim($_POST['title']);
-$source = trim($_POST['source']);
-$photo = trim($_POST['photo']);
+$idperson = trim(mysql_real_escape_string($_POST['id']));
+$time = trim(mysql_real_escape_string($_POST['time']));
+$place = trim(mysql_real_escape_string($_POST['place']));
+$link = trim(mysql_real_escape_string($_POST['link']));
+$title = trim(mysql_real_escape_string($_POST['title']));
+$source = trim(mysql_real_escape_string($_POST['source']));
+$photo = trim(mysql_real_escape_string($_POST['photo']));
 
 $idarticle = trim($_POST['idarticle']);
 if (!$idarticle) {
@@ -36,4 +41,5 @@ if ($idperson > 0) {
 }
 echo $idarticle;
 
+include ('../_bottom.php');
 ?>

@@ -77,7 +77,7 @@
     Utile
     <div class=submenu>
       <a href="{$site_path}?cid=14" class="{if $cid==14}black_link{/if}">Presă</a> |
-      <a href="{$site_path}?cid=16" class="{if !$cid}black_link{/if}">Actualizări</a>
+      <a href="{$site_path}?cid=comunitate" class="new_link{if $cid=='comunitate'}_sel{/if}">Comunitate</a>
 
   </td>
 </table>

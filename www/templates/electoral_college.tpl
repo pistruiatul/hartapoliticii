@@ -22,34 +22,52 @@
       </div>
     {/if}
     <table width="970">
-      <td width="400" valign="top">
+      <td width="350" valign="top">
+
+
+        <div class="add_link_button" onclick="ec.showAddLinkForm()">
+          Adaugă link <img src="/images/plus.png" align="absmiddle">
+        </div>
+
         <span class="medium"><b>Candidați 2012</b> - alfabetic</span>
         <br><br>
         {include file="electoral_college_candidates.tpl"
             candidates=$candidates_2012}
       </td>
-      <td width="570" valign="top">
-        <div style="margin-left:30px">
-        {if count($links)>0}
-          <span class="medium"><b>Resurse adăugate de utilizatori</b></span>
-          <br><br>
-        {else}
-          <div style="float:right;display:none">
-            Adaugă și tu un link
-          </div>
-        {/if}
+      <td width="620" valign="top">
+        <div style="margin: 5px 0 0 0;">
 
         {include file="electoral_college_add_link_form.tpl"}
 
+        {if count($links)>0}
+          <div class="module" style="padding: 10px;">
+          <div class="big" style="margin-bottom:10px">
+            <b>Resurse adăugate de utilizatori</b></div>
+
+          {include file="news_list_ugc.tpl" news=$links}
+
+          <div class="small" style="text-align:right">
+          <a href="/?cid=comunitate&college_restrict={$college_name|lower|replace:' ':'+'}">Vezi toate resursele...</a>
+          </div>
+
+          </div>
+        {/if}
+
+        <div class="module" style="padding: 10px;">
         {if count($news)>0}
-          <span class="medium"><b>Știri recente cu candidații din acest colegiu</b></span>
-          <br><br>
+          <div class="big" style="margin-bottom:10px">
+            <b>Știri recente cu candidații din acest colegiu</b></div>
+
           {include file="news_list_wide.tpl" news=$news}
+
+          <div class="small" style="text-align:right">
           <a href="/?cid=14&sid=0&college_restrict={$college_name|lower|replace:' ':'+'}&year=2012">Vezi toate știrile...</a>
+          </div>
         {else}
           <br><br>
           <center>Încă nu avem știri despre candidații din acest colegiu.</center>
         {/if}
+        </div>
         </div>
       </td>
     </table>

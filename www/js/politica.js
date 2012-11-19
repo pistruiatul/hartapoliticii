@@ -988,3 +988,21 @@ ec.addLink = function() {
     $('#link_add_message').html(response);
   });
 };
+
+
+ec.showAddLinkForm = function() {
+  $(".add_link_form").toggle();
+};
+
+ec.voteArticle = function(articleId, vote) {
+  // Now call the server hook to add the person to the db.
+  var url = '/hooks/vote_link.php?' +
+      'articleId=' + articleId +
+      '&vote=' + vote;
+
+  $('#article_score_' + articleId).html(
+      '<img src=/images/activity_indicator.gif>');
+  sendPayload_(url, function(response) {
+    $('#article_score_' + articleId).html(response);
+  });
+};

@@ -3,8 +3,8 @@
 if (!$DB_USER) header('Location: http://hartapoliticii.ro');
 
 include_once('hp-includes/follow_graph.php');
+include_once('hp-includes/news.php');
 include_once('mods/functions_common.php');
-
 
 /**
  * Returns a list with the most recently added people and the users that added
@@ -51,6 +51,8 @@ if (getUserLevel($uid) > 0) {
 }
 
 $t->assign('followed_people', followedPeopleAsArray());
+
+$t->assign('links', getMostRecentUgcLinks(100, NULL, $uid));
 
 $t->display('my_account_summary.tpl');
 
