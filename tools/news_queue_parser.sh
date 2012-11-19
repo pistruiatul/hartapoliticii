@@ -30,5 +30,3 @@ curl http://hartapoliticii.ro/api/news_queue_purge.php\?api_key\=`cat secret/api
 
 end=`date +%s`
 t5=`expr $end - $start`
-
-echo -e "news_queue:\t$t1 sec"

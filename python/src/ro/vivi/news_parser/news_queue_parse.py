@@ -85,10 +85,7 @@ for line in lines:
   all_xml += "<item>\n" + xml + "</item>\n\n"
 
 
-time.strftime("%Y%m%d-%H")
-all_xml_fname = WORK_DIR + '/daily_%s.txt' % time.strftime("%Y%m%d-%H")
+all_xml_fname = WORK_DIR + '/daily_anytime.txt'
 f = codecs.open(all_xml_fname, "w", "utf-8")
 f.write("<all>\n" + all_xml + "\n</all>")
-f.close
-
-print "\ndone."
+f.close()
