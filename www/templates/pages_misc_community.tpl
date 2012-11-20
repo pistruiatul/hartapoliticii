@@ -11,6 +11,7 @@
     <b>Resurse adăugate și votate de comunitatea Hărții Politicii</b>
   </div>
   <br>
-{include file="news_list_ugc.tpl" news=$news}
-
+  <div class="bigger_news_list">
+    {include file="news_list_ugc.tpl" news=$news}
+  </div>
 </div>

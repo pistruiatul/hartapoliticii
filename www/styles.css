@@ -330,6 +330,10 @@ body {
   display: inline;
 }
 
+.bigger_news_list .recent_news_title {
+  font-size: 15px;
+}
+
 .recent_news_block .mentions_block {
   margin-top: 2px;
 }
