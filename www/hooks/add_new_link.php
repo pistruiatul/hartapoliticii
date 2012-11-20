@@ -58,7 +58,9 @@ mysql_query(
 
 
 if (addLinkToNewsQueue($link, $uid, $userDisplayName, $origin)) {
-  echo "Link-ul este acum în coada de moderare. <br>Poți verifica statusul " .
+  echo "Link-ul este acum în coada de moderare. ".
+       "Aprobarea durează <b>maxim 5 minute</b>.".
+       "<br>Poți verifica statusul " .
        "resurselor trimise de tine pe " .
        "<a href='/?cid=profile'>pagina ta de profil</a>";
 } else {

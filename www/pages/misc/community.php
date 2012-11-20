@@ -29,7 +29,15 @@ if (isSet($_GET['id'])) {
     $people_restrict = NULL;
   }
 
-  $t->assign('news', getMostRecentUgcLinks(30, $people_restrict, 0));
+  if (isSet($_GET["sort"])) {
+    $t->assign('news', getMostRecentUgcLinks(30, $people_restrict, 0,
+                                             0, NULL, "a.time DESC"));
+    $t->assign('sort', 'time');
+  } else {
+    $t->assign('news', getMostRecentUgcLinks(30, $people_restrict, 0));
+  }
+
+
 
   $t->display('pages_misc_community.tpl');
 }

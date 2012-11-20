@@ -282,7 +282,7 @@ function extractDomainFromLink($link) {
  * @return unknown_type
  */
 function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
-                               $since=0, $linkId=NULL) {
+                               $since=0, $linkId=NULL, $order_by=NULL) {
   $where_clause = '';
   if ($restrict_to_ids) {
     $ids = implode(",", $restrict_to_ids);
@@ -298,6 +298,10 @@ function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
     $where_clause = "AND a.id = {$linkId}";
   }
 
+  if (!$order_by) {
+    $order_by = "a.score DESC, a.votes DESC, a.time DESC";
+  }
+
   $s = mysql_query("
     SELECT
         a.id, a.title, a.link, a.time, a.place, a.photo, p.idperson,
@@ -309,7 +313,7 @@ function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
       {$where_clause}
       {$user_restrict}
     GROUP BY a.id
-    ORDER BY a.score DESC, a.votes DESC, a.time DESC
+    ORDER BY {$order_by}
     LIMIT 0, $count");
 
   $news = array();

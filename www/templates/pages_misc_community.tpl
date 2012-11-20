@@ -10,7 +10,16 @@
   <div class="big">
     <b>Resurse adăugate și votate de comunitatea Hărții Politicii</b>
   </div>
-  <br>
+
+  <span class="gray">Ordonează după</span>:
+    {if $sort=='time'}
+      <a href="/?cid=comunitate">număr voturi</a> |
+      recență
+    {else}
+      număr voturi |
+      <a href="/?cid=comunitate&sort=1">recență</a>
+    {/if}
+  <br><br>
   <div class="bigger_news_list">
     {include file="news_list_ugc.tpl" news=$news}
   </div>

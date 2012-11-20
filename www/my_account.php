@@ -52,7 +52,8 @@ if (getUserLevel($uid) > 0) {
 
 $t->assign('followed_people', followedPeopleAsArray());
 
-$t->assign('links', getMostRecentUgcLinks(100, NULL, $uid));
+$t->assign('links', getMostRecentUgcLinks(30, NULL, $uid, 0, NULL,
+                                          "a.time DESC"));
 
 $t->display('my_account_summary.tpl');
 
