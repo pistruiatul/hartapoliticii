@@ -176,7 +176,7 @@ for i in items:
           'news_photo' : image_url,
         }
 
-    xml = dict2xml.dict2xml(new_item, root=False)
+    xml = dict2xml.dict2xml(new_item)
     xml = re.sub(' type="\w+"','', xml)
     all_xml += "<item>\n" + xml + "</item>\n\n"
   else:
