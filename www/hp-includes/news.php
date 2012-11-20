@@ -282,7 +282,7 @@ function extractDomainFromLink($link) {
  * @return unknown_type
  */
 function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
-                               $since=0) {
+                               $since=0, $linkId=NULL) {
   $where_clause = '';
   if ($restrict_to_ids) {
     $ids = implode(",", $restrict_to_ids);
@@ -292,6 +292,10 @@ function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
   $user_restrict = '';
   if ($uid > 0) {
     $user_restrict = " AND nq.user_id = {$uid}";
+  }
+
+  if ($linkId != NULL) {
+    $where_clause = "AND a.id = {$linkId}";
   }
 
   $s = mysql_query("

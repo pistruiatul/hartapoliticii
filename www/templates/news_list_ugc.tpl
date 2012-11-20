@@ -49,6 +49,7 @@
           {$news[n].time|date_format:"%e %b %Y, "}
           {$news[n].time|date_format:"%l%p"|replace:"PM":"pm"|replace:"AM":"am"}
            · link adăugat de <span style="color:blueviolet">{$news[n].user_name}</span>
+           · <a href="/?cid=comunitate&id={$news[n].id}#disqus_thread" class="comments">comentarii</a>
         </div>
       </div>
     </td>
@@ -68,3 +69,19 @@
   {/section}
 </table>
 </div>
+
+
+{literal}
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'hartapoliticii'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{/literal}

@@ -829,3 +829,7 @@ a.new_link:hover {
   color: #990099;
   font-size: 13px;
 }
+
+.ugc_link_status .comments {
+  color: #9999ff;
+}
