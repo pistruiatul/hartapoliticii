@@ -73,7 +73,7 @@
          <div class="medium recent_news_title">
            <span class="black_link">
              <a href="{$news[n].link}">
-               {$news[n].title}&nbsp;
+               {$news[n].title|stripslashes}&nbsp;
                <nobr>
                  <img src="images/popout_icon.gif" border="0" width="12" height="12"
                       hspace="5">
@@ -96,7 +96,7 @@
           <td width="100" valign="top">
             <div class="container">
               <div class="photo">
-				<img src="{$news[n].photo}{if ($news[n].source == 'hotnews' || $news[n].source == 'mediafax') }?width=100{/if}">
+				<img src="{$news[n].photo}{if ($news[n].source == 'hotnews' || $news[n].source == 'mediafax') }?width=100{/if}" width=100>
               </div>
             </div>
           </td>
