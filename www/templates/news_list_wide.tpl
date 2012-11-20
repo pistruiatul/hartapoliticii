@@ -29,9 +29,10 @@
           <span class="gray medium">{$news[n].source}</span>
         </nobr>
 
-        {include file="news_list_mentions_block.tpl" people=$news[n].people
+        {include file="news_list_mentions_block.tpl"
+            people=$news[n].people
             news_id=$news[n].id
-            above_seven=$news[n].above_seven}
+            above_six=$news[n].above_six}
 
       </div>
     </td>
@@ -41,7 +42,7 @@
       <td width="100" valign="top">
         <div class="container">
           <div class="photo">
-            <img src="{$news[n].photo}{if ($news[n].source == 'hotnews' || $news[n].source == 'mediafax') }?width=100{/if}">
+            <img src="{$news[n].photo}{if ($news[n].source == 'hotnews' || $news[n].source == 'mediafax') }?width=100{/if}" width="100">
           </div>
         </div>
       </td>

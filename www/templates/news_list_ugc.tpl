@@ -37,13 +37,13 @@
         <nobr>
         <img src="images/popout_icon.gif" border="0" width="12"
              height="12" hspace="5">
-          <span class="gray medium">{$news[n].source}</span>
+          <span class="ugc_source">{$news[n].source}</span>
         </nobr>
 
         {include file="news_list_mentions_block.tpl"
             people=$news[n].people
             news_id=$news[n].id
-            above_seven=$news[n].above_seven}
+            above_six=$news[n].above_six}
 
         <div class="ugc_link_status">
           {$news[n].time|date_format:"%e %b %Y, "}

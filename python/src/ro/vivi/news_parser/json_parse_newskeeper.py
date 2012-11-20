@@ -118,7 +118,7 @@ for i in items:
   cache_file = "%s/nk_%s.json" % (WORK_DIR, i['md5'])
   if os.path.exists(cache_file):
     print 'skipping: ', i['nkUrl']
-    skipped = skipped + 1
+    skipped += 1
     if skipped >= 10:
       break
     else:
@@ -157,9 +157,10 @@ for i in items:
   category = item['optionalArticle']['category'].lower()
 
   # Only look at articles that are in categories potentially related to Politics
-  cat_ok_re = "politic|parlamentare|alegeri|justi|news"
+  cat_ok_re = "politic|parlament|alegeri|justi"
   if re.search(cat_ok_re, category):
-    print '     we got politics as a category [' + category + ']'
+    print '     we got politics as a category [' + \
+          category.encode('UTF-8') + ']'
 
     # extract image
     image_url = extract_article_image(i['newspaper'], item['rawHtml'])
@@ -175,7 +176,7 @@ for i in items:
           'news_photo' : image_url,
         }
 
-    xml = dict2xml.dict2xml(new_item, root=False)
+    xml = dict2xml.dict2xml(new_item)
     xml = re.sub(' type="\w+"','', xml)
     all_xml += "<item>\n" + xml + "</item>\n\n"
   else:
@@ -183,7 +184,7 @@ for i in items:
 
   # making sure we don't get this resource again
   f = open(cache_file, 'w')
-  f.close
+  f.close()
 
   # be nice to this server..
   time.sleep(0.5)
@@ -193,7 +194,7 @@ time.strftime("%Y%m%d-%H")
 all_xml_fname = WORK_DIR + '/daily_%s.txt' % time.strftime("%Y%m%d-%H")
 f = codecs.open(all_xml_fname, "w", "utf-8")
 f.write("<all>\n" + all_xml + "\n</all>")
-f.close
+f.close()
 
 print "\ndone."
 
