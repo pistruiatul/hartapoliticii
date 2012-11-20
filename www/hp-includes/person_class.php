@@ -463,7 +463,7 @@ class Person {
       }
 
       $r['people'] = getPeopleForNewsId($r['id'], array($this->id));
-      $r['above_seven'] = count($r['people']) - 7;
+      $r['above_six'] = count($r['people']) - 6;
 
       $news[] = $r;
     }

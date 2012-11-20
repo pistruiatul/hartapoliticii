@@ -43,7 +43,7 @@
         {include file="news_list_mentions_block.tpl"
             people=$news[n].people
             news_id=$news[n].id
-            above_seven=$news[n].above_seven}
+            above_six=$news[n].above_six}
 
         <div class="ugc_link_status">
           {$news[n].time|date_format:"%e %b %Y, "}

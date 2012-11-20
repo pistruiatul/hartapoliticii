@@ -255,7 +255,7 @@ function getMostRecentNewsArticles($mod, $year, $count, $source = 'mediafax',
   $news = array();
   while ($r = mysql_fetch_array($s)) {
     $r['people'] = getPeopleForNewsId($r['id'], $restrict_to_ids);
-    $r['above_seven'] = count($r['people']) - 7;
+    $r['above_six'] = count($r['people']) - 6;
     $news[] = $r;
   }
   return $news;
@@ -311,7 +311,7 @@ function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
   $news = array();
   while ($r = mysql_fetch_array($s)) {
     $r['people'] = getPeopleForNewsId($r['id'], $restrict_to_ids);
-    $r['above_seven'] = count($r['people']) - 7;
+    $r['above_six'] = count($r['people']) - 6;
 
     $r['source'] = extractDomainFromLink($r['link']);
 

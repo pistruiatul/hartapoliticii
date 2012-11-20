@@ -29,9 +29,10 @@
           <span class="gray medium">{$news[n].source}</span>
         </nobr>
 
-        {include file="news_list_mentions_block.tpl" people=$news[n].people
+        {include file="news_list_mentions_block.tpl"
+            people=$news[n].people
             news_id=$news[n].id
-            above_seven=$news[n].above_seven}
+            above_six=$news[n].above_six}
 
       </div>
     </td>
