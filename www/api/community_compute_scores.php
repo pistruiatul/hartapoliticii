@@ -29,7 +29,7 @@ function calculateArticleScore($id, $submitTime) {
     $score = $votes * (1.0 - $hours_since_submit / 72.0);
   }
 
-  echo $id . ' new score ' . $score . '<br>';
+  echo $id . ' new score ' . $score . '\n';
 
   mysql_query("
     UPDATE news_articles SET score = {$score}

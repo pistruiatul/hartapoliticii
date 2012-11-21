@@ -57,15 +57,18 @@ mysql_query(
    VALUES('add_link', 0, '{$link} by {$userLogin} for {$origin}', '$ip', ". time() . ")");
 
 
-if (addLinkToNewsQueue($link, $uid, $userDisplayName, $origin)) {
-  echo "Link-ul este acum în coada de moderare. ".
-       "Aprobarea durează <b>maxim 5 minute</b>.".
-       "<br>Poți verifica statusul " .
-       "resurselor trimise de tine pe " .
-       "<a href='/?cid=profile'>pagina ta de profil</a>";
+if (strpos($link, "facebook.com") === false) {
+  if (addLinkToNewsQueue($link, $uid, $userDisplayName, $origin)) {
+    echo "Link-ul este acum în coada de moderare. ".
+         "Aprobarea durează <b>maxim 5 minute</b>.".
+         "<br>Poți verifica statusul " .
+         "resurselor trimise de tine pe " .
+         "<a href='/?cid=profile'>pagina ta de profil</a>";
+  } else {
+    echo "Altcineva a adăugat deja acest link!";
+  }
 } else {
-  echo "Altcineva a adăugat deja acest link!";
+  echo "Din motive tehnice nu putem adăuga link-uri către facebook în acest moment. Sorry. :-(";
 }
-
 require_once('../_bottom.php');
 ?>
