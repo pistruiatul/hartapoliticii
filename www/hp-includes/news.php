@@ -1,5 +1,6 @@
 <?php
 include_once('hp-includes/follow_graph.php');
+include_once('wp-includes/formatting.php');
 
 /**
  * Returns an array of people given an SQL query. This is a private helper
@@ -322,6 +323,8 @@ function getMostRecentUgcLinks($count, $restrict_to_ids=NULL, $uid=0,
     $r['above_six'] = count($r['people']) - 6;
 
     $r['source'] = extractDomainFromLink($r['link']);
+    $r['human_time_diff'] =
+        human_time_diff((int)$r['time'], time());
 
     $news[] = $r;
   }

@@ -46,8 +46,7 @@
             above_six=$news[n].above_six}
 
         <div class="ugc_link_status">
-          {$news[n].time|date_format:"%e %b %Y, "}
-          {$news[n].time|date_format:"%l%p"|replace:"PM":"pm"|replace:"AM":"am"}
+          {$news[n].human_time_diff} ago
            · link adăugat de <span style="color:blueviolet">{$news[n].user_name}</span>
            · <a href="/?cid=comunitate&id={$news[n].id}#disqus_thread" class="comments">comentarii</a>
         </div>

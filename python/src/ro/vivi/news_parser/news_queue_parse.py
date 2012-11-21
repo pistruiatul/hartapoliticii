@@ -38,6 +38,9 @@ def get_content_for_url(link):
   except HTMLParseError:
     return 'error'
 
+  if soup.html.head.title is None:
+    print "Could not find a title."
+    return "", ""
   title = soup.html.head.title.contents
 
   print "--"

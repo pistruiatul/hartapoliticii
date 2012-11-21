@@ -7,18 +7,7 @@ require_once('../wp-config.php');
 
 include_once('../hp-includes/people_lib.php');
 include_once('../hp-includes/user_utils.php');
-
-
-function getCountVotesForArticle($articleId) {
-  $s = mysql_query("
-    SELECT sum(vote) as cnt
-    FROM news_votes
-    WHERE article_id = {$articleId}
-  ");
-
-  $r = mysql_fetch_array($s);
-  return $r['cnt'];
-}
+include_once('../hp-includes/ugc_utils.php');
 
 
 // current_user is a variable set by Wordpress.
