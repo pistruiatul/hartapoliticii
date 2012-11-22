@@ -26,7 +26,7 @@ $PYBIN python/src/ro/vivi/news_parser/entity_extractor.py \
 # the web, now go over the queue and clean up the articles that have not had
 # any tags. This is a PY script only because we want it to read the API key
 # and call a PHP that does this job.
-#curl http://hartapoliticii.ro/api/news_queue_purge.php\?api_key\=`cat secret/api_key`
+curl http://hartapoliticii.ro/api/news_queue_purge.php\?api_key\=`cat secret/api_key`
 
 end=`date +%s`
 t5=`expr $end - $start`
