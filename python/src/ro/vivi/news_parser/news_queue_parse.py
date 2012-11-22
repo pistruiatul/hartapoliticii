@@ -30,6 +30,16 @@ NO_CACHE = False
 def get_content_for_url(link):
   data = get_news_html('./python/src/ro/vivi/news_parser/news_queue', link)
 
+  # Check to see if there are links to names from hartapoliticii.ro
+  links = re.findall("hartapoliticii.ro/\\?name=([a-z+]+)", data)
+  names = []
+  for link in links:
+    list = link.split("+")
+    list = map(capitalize, list)
+    names.append(" ".join(list))
+
+  print names
+
   data = replace_circ_diacritics(data)
   data = replace_html_comments(data)
 
@@ -46,7 +56,7 @@ def get_content_for_url(link):
   print "--"
   print title
 
-  return str(soup.html.body.contents), ''.join(title[0])
+  return str(soup.html.body.contents) + ", " + ", ".join(names), ''.join(title[0])
 
 
 WORK_DIR = 'python/src/ro/vivi/news_parser/news_queue'
