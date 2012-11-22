@@ -117,7 +117,9 @@
 
   <p>
     După ce proiectul a devenit open source în Martie 2012, au început să
-    contribuie activ și <a href="https://github.com/pistruiatul/hartapoliticii/blob/master/AUTHORS">alți dezvoltatori</a>.
+    contribuie activ și <a href="https://github.com/pistruiatul/hartapoliticii/blob/master/AUTHORS">alți dezvoltatori</a>
+    și să fie ajutat cu eforturi independente de dezvoltare de
+    <a href="https://github.com/pistruiatul/hartapoliticii/blob/master/THANKS">oameni și organizații cărora le mulțumim</a>.
   </p>
 </blockquote>
 
