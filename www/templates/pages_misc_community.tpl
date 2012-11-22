@@ -2,9 +2,11 @@
 
 
 <div style="padding: 15px; width: 940px;">
-  <div class="add_link_button" onclick="ec.showAddLinkForm()">
-          adaugă link <img src="/images/plus.png" align="absmiddle">
-        </div>
+  <div style="float:right;">
+  <a class="button small green" onclick="ec.showAddLinkForm()">
+          <span>adaugă link &nbsp;<img src="/images/plus.png"></span>
+        </a>
+    </div>
 {include file="electoral_college_add_link_form.tpl"}
 
   <div class="big">
