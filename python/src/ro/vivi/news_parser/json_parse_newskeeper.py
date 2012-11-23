@@ -157,7 +157,7 @@ for i in items:
   category = item['optionalArticle']['category'].lower()
 
   # Only look at articles that are in categories potentially related to Politics
-  cat_ok_re = "politic|parlament|alegeri|justi"
+  cat_ok_re = "politic|parlament|alegeri"
   if re.search(cat_ok_re, category):
     print '     we got politics as a category [' + \
           category.encode('UTF-8') + ']'

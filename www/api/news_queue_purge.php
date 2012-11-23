@@ -25,6 +25,10 @@ while ($r = mysql_fetch_array($s)) {
   $new_status = $r2 = mysql_fetch_array($s2) ? 1 : -1;
 
   mysql_query("
+    UPDATE news_articles SET score = 1
+    WHERE link = '{$r["link"]}'
+  ");
+  mysql_query("
     UPDATE news_queue SET status = {$new_status}
     WHERE link = '{$r["link"]}'
   ");
