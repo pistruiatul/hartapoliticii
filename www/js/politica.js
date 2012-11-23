@@ -136,6 +136,25 @@ hpol.showAllNewsMentions = function(newsId, totalMentions) {
   }
 };
 
+/* ------------------------------------------------------ */
+/* Some functions for moderators */
+
+/**
+ * Tries to remove a person tag from a certain article.
+ * @param articleId
+ * @param personId
+ * @param index
+ */
+hpol.removeArticleTag = function(articleId, personId, index) {
+  // Now call the server hook to add the person to the db.
+  var url = '/hooks/remove_tag_from_article.php?' +
+      'article_id=' + articleId +
+      '&person_id=' + personId;
+
+  sendPayload_(url, function(response) {
+    $('#mention_' + articleId + "_" + index).html(response);
+  });
+};
 
 
 /* ------------------------------------------------------ */
