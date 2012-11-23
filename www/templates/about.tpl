@@ -136,5 +136,29 @@
   </p>
 </blockquote>
 
+<p>
+  <strong>Ajută-ne să promovăm harta politicii</strong>
+</p>
+
+<blockquote>
+  <p>
+    Câteva bannere. Nu arată senzațional, dar asta avem. Dacă faci unele mai
+    bune trimite-ni-le și nouă!
+
+    <br><br>
+    250x100:<br>
+    <img src="images/partener-harta-politicii.jpg">
+
+    <br>
+    300x250:<br>
+    <img src="images/hartapoliticii_banner_300x250.jpg">
+
+    <br>
+    728x90:<br>
+    <img src="images/hartapoliticii_banner_728x90.jpg">
+  </p>
+</blockquote>
+
+
 
 </div>
