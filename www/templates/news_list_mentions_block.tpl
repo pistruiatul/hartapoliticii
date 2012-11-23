@@ -12,7 +12,7 @@
         {$people[x].display_name}
       </a>
       {if $is_moderator}
-        <span style="margin-left: 5px; cursor:pointer;"
+        <span style="margin-left: 5px; cursor:pointer; color:lightgray"
               onclick="hpol.removeArticleTag({$news_id}, {$people[x].idperson}, {$smarty.section.x.index})">x</span>
       {/if}
     </div>
