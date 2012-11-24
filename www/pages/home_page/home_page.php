@@ -2,7 +2,7 @@
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) header('Location: http://hartapoliticii.ro/');
 
-$title = "Informații obiective despre politicieni și alegeri";
+$title = "Alegeri 2012, informații obiective despre politicieni";
 
 ?>
 <meta property='og:site_name' content='Informații obiective despre politicieni și alegeri - Harta Politicii din România' />

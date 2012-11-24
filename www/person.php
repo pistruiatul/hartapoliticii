@@ -52,6 +52,12 @@ $person->loadFromDb();
 // we keep the names as "LastName FirstName".
 $title = $person->displayName;
 
+$history = $person->getHistory();
+if (in_array("results/2012", $history)) {
+  $college = $person->get2012College();
+  $title .= ", candidat {$college}";
+}
+
 ?>
 <!-- For facebook sharing -->
 <meta property='og:site_name' content='Harta Politicii' />
@@ -69,7 +75,7 @@ include('header.php');
 // ----------------------------------------------------------------
 // -- Render the top bar, with the person name and bread crumbs. --
 $t = new Smarty();
-$t->assign('name', $title);
+$t->assign('name', $person->displayName);
 
 $crumbs = array();
 $crumbs[] = array(

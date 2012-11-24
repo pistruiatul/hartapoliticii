@@ -337,6 +337,14 @@ class Person {
   }
 
 
+  public function get2012College() {
+    // We know that the person we are talking about is $person.
+    $sql = "SELECT colegiu FROM results_2012 WHERE idperson = {$this->id}";
+    $r = mysql_fetch_array(mysql_query($sql));
+    return $r['colegiu'];
+  }
+
+
   /**
    * Returns a list of strings with the history of this person.
    * @return {Array} A list of history strings.
