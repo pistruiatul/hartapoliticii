@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<div class="plaintext" style="width:650px">
+<div class="plaintext" style="width:800px">
 
 <p>
   <strong>Ce face de fapt site-ul ăsta?</strong>
@@ -150,12 +150,18 @@
     <img src="images/partener-harta-politicii.jpg">
 
     <br>
-    300x250:<br>
-    <img src="images/hartapoliticii_banner_300x250.jpg">
+    300x250 (scaled down here, but original images are 300x250):<br>
+    <a href="/images/hartapoliticii_banner_300x250.jpg"><img src="/images/hartapoliticii_banner_300x250.jpg" width=200></a>
+    <a href="/images/hartapoliticii_banner_300x250_2.jpg"><img src="/images/hartapoliticii_banner_300x250_2.jpg" width=200></a>
+    <a href="/images/hartapoliticii_banner_300x250_3.jpg"><img src="/images/hartapoliticii_banner_300x250_3.jpg" width=200></a>
 
     <br>
     728x90:<br>
-    <img src="images/hartapoliticii_banner_728x90.jpg">
+    <a href="/images/hartapoliticii_banner_728x90.jpg"><img src="/images/hartapoliticii_banner_728x90.jpg"><a>
+    <br><br>
+    <a href="/images/hartapoliticii_banner_728x90_2.jpg"><img src="/images/hartapoliticii_banner_728x90_2.jpg"><a>
+    <br><br>
+    <a href="/images/hartapoliticii_banner_728x90_3.jpg"><img src="/images/hartapoliticii_banner_728x90_3.jpg"><a>
   </p>
 </blockquote>
 
