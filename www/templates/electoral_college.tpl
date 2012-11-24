@@ -43,10 +43,10 @@
           <td width="30"></td>
 
           <td width=200>
-            <div class="fb-like" data-href="http://hartapoliticii.ro/?cid=23&colegiul={$college_image|lower|replace:' ':'+'}" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true" data-action="recommend"></div>
+            <div class="fb-like" data-href="http://hartapoliticii.ro/?cid=23&colegiul={$college_name|lower|replace:' ':'+'}" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true" data-action="recommend"></div>
           </td>
           <td>
-            <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://hartapoliticii.ro/?cid=23&colegiul={$college_image|lower|replace:' ':'+'}" data-text="Eu votez la colegiul uninominal {$college_name}" data-via="hartapoliticii" data-hashtags="alegeri2012">Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://hartapoliticii.ro/?cid=23&colegiul={$college_name|lower|replace:' ':'+'}" data-text="Eu votez la colegiul uninominal {$college_name}" data-via="hartapoliticii" data-hashtags="alegeri2012">Tweet</a>
             {literal}
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             {/literal}
