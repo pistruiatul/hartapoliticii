@@ -7,7 +7,7 @@
 <ul class="identity_ul">
   <li class="identity_li small">
     <a href="http://www.google.ro/search?hl=ro&q={$title}&meta=lr%3Dlang_ro">
-      Caută pe google "{$title}"
+      Caută pe google "{$name}"
     </a>
   </li>
 

@@ -1025,3 +1025,108 @@ ec.voteArticle = function(articleId, vote) {
     $('#article_score_' + articleId).html(response);
   });
 };
+
+
+// ---------------------------------------------------------------
+// Open graph functions
+
+window.fbAsyncInit = function() {
+  // init the FB JS SDK
+  FB.init({
+    appId      : '205183855930', // App ID from the App Dashboard
+    channelUrl : '//hartapoliticii.ro/channel.html', // Channel File for x-domain communication
+    status     : true, // check the login status upon init?
+    cookie     : true, // set sessions cookies to allow your server to access the session?
+    xfbml      : true  // parse XFBML tags on this page?
+  });
+
+  hpol.checkFbLoginStatus();
+
+  // Additional initialization code such as adding Event Listeners goes here
+  console.log('fb initialized');
+};
+
+
+(function(d){
+  var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement('script'); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  ref.parentNode.insertBefore(js, ref);
+}(document));
+
+
+hpol.fbPermissionsReponse = null;
+
+
+/**
+ * Called when a user clicks on the Support On Facebook button on a politician's
+ * page.
+ * @param personUrl
+ */
+hpol.supportOnFacebook = function(personUrl) {
+  console.log('trying to get status');
+  if (!hpol.fbPermissionsReponse ||
+      !hpol.fbPermissionsReponse.data[0].publish_actions) {
+    hpol.loginWithFacebook(function() {
+      hpol.postSupportAction(personUrl);
+    });
+
+  } else {
+    console.log("I have permission to publish this!");
+
+    hpol.postSupportAction(personUrl);
+  }
+};
+
+hpol.postSupportAction = function(personUrl) {
+  FB.api("/me/ro_hartapoliticii:support", 'post', {
+    'politician': personUrl
+
+  }, function(response) {
+    console.log("Support response: ");
+    console.log(response);
+
+  });
+};
+
+
+hpol.loginWithFacebook = function(successCallback) {
+  FB.login(function(response) {
+    if (response.authResponse) {
+      console.log(response);
+
+      successCallback();
+
+      // Check the status so that if the user clicks again we see that we have
+      // it.
+      hpol.checkFbLoginStatus();
+
+    } else {
+      // cancelled
+    }
+  }, {scope: 'publish_actions'});
+};
+
+
+hpol.checkFbLoginStatus = function() {
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      //
+      // Check permissions here.
+      //
+      console.log(response);
+
+      FB.api('/me/permissions', function(response) {
+        console.log('Permissions:');
+        console.log(response);
+        hpol.fbPermissionsReponse = response;
+      });
+
+    } else if (response.status === 'not_authorized') {
+      //hpol.loginWithFacebook();
+    } else {
+      //hpol.loginWithFacebook();
+    }
+  });
+};
