@@ -164,7 +164,12 @@
     <a href="/images/hartapoliticii_banner_728x90_3.jpg"><img src="/images/hartapoliticii_banner_728x90_3.jpg"><a>
   </p>
 </blockquote>
-
-
+<br><br>
+<p>
+  <strong>Trafic harta politicii</strong>
+</p>
+  Pentru a fi complet deschiși, iată traficul actual al site-ului, măsurat
+  de Google Analytics.
+<iframe src="http://www.seethestats.com/stats/7802/Visits_77cd1ccc2_ifr.html" style="width:700px;height:300px;border:none;" scrolling="no" frameborder="0"></iframe>
 
 </div>
