@@ -15,11 +15,11 @@
 
   <span class="gray">Ordonează după</span>:
     {if $sort=='time'}
-      <a href="/?cid=comunitate">număr voturi</a> |
-      recență
+      <a href="/?cid=comunitate">relevanță</a> |
+      frăgezime
     {else}
-      număr voturi |
-      <a href="/?cid=comunitate&sort=1">recență</a>
+      relevanță |
+      <a href="/?cid=comunitate&sort=1">frăgezime</a>
     {/if}
   <br><br>
   <div class="bigger_news_list">

@@ -337,6 +337,56 @@ class Person {
   }
 
 
+  public function get2012College() {
+    // We know that the person we are talking about is $person.
+    $sql = "SELECT colegiu FROM results_2012 WHERE idperson = {$this->id}";
+    $r = mysql_fetch_array(mysql_query($sql));
+    return $r['colegiu'];
+  }
+
+
+  public function get2012Party() {
+    // We know that the person we are talking about is $person.
+    $sql = "SELECT partid FROM results_2012 WHERE idperson = {$this->id}";
+    $r = mysql_fetch_array(mysql_query($sql));
+
+    $displayed_party_name = $r["partid"];
+    switch($r["partid"]) {
+      case "PSD": $displayed_party_name = "PSD (USL)"; break;
+      case "PNL": $displayed_party_name = "PNL (USL)"; break;
+      case "PC": $displayed_party_name = "PC (USL)"; break;
+
+      case "PD-L": $displayed_party_name = "PD-L (ARD)"; break;
+      case "FC": $displayed_party_name = "FC (ARD)"; break;
+      case "PNTCD": $displayed_party_name = "PNTCD (ARD)"; break;
+    }
+
+    return $displayed_party_name;
+  }
+
+
+  public function getNumberOfSupporters() {
+    $s = mysql_query("
+      SELECT count(*) as cnt
+      FROM people_support
+      WHERE person_id = {$this->id}
+    ");
+    $r = mysql_fetch_array($s);
+    return $r['cnt'];
+  }
+
+
+  public function isSupportedBy($uid) {
+    $s = mysql_query("
+      SELECT fb_action_id
+      FROM people_support
+      WHERE person_id = {$this->id} AND user_id = {$uid}
+    ");
+    $r = mysql_fetch_array($s);
+    if (!$r) return 0;
+    return $r['fb_action_id'];
+  }
+
   /**
    * Returns a list of strings with the history of this person.
    * @return {Array} A list of history strings.
@@ -666,6 +716,42 @@ class Person {
   }
 
 
+  public function getImageUrl() {
+    $img = $this->getFact('image');
+    if (is_file("images/people/{$this->id}.jpg")) {
+      $fname = "images/people/{$this->id}.jpg";
+      $count = 1;
+      // Get the most recent file we have for this person.
+      while (is_file($fname)) {
+        $img = $fname;
+        $fname = "images/people/{$this->id}_$count.jpg";
+        $count++;
+      }
+    }
+    if (!$img) { $img = 'images/face2.jpg'; }
+
+    return $img;
+  }
+
+
+  public function getMediumImageUrl() {
+    $img = $this->getFact('image');
+    if (is_file("images/people_medium/{$this->id}.jpg")) {
+      $fname = "images/people_medium/{$this->id}.jpg";
+      $count = 1;
+      // Get the most recent file we have for this person.
+      while (is_file($fname)) {
+        $img = $fname;
+        $fname = "images/people_medium/{$this->id}_$count.jpg";
+        $count++;
+      }
+    }
+    if (!$img) { $img = 'images/face_medium.jpg'; }
+
+    return $img;
+  }
+
+
   /**
    * Returns the name of the college that this person was a candidate in, if
    * indeed they were a candidate. Returns NULL otherwise.
@@ -759,7 +845,7 @@ class Person {
     	'exp' => 'person_declarations',
     	'decl_id' => $declarationId
   	));
-	return $declarationUrl;
+	  return $declarationUrl;
   }
 
   /**

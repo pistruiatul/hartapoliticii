@@ -9,10 +9,22 @@ From all the images of people, make tiny images.
 import os
 import sys
 import Image
+import ImageOps
+
+
+def resize_image_fit(img, target_width, target_height, dir):
+  img = ImageOps.fit(img, (target_width, target_height), Image.ANTIALIAS)
+
+  if not os.path.exists(dir + fname):
+    print " + generated new image", dir + fname
+    img.save(dir + fname)
+
+
 
 if not os.path.exists(os.getcwd() + '/www/images/people/'):
   print "Please run this from the repository root"
   sys.exit(1)
+
 
 # Get the last five daily news files.
 files = os.listdir(os.getcwd() + '/www/images/people/')
@@ -27,16 +39,5 @@ for fname in files:
   except IOError:
     continue
 
-  width, height = img.size
-
-  new_width = width * target_height / height
-  new_height = target_height
-
-  extra = (new_width - target_width) / 2
-
-  img = img.resize((new_width, new_height), Image.ANTIALIAS)
-  img = img.crop((extra, 0, new_width - extra, new_height))
-
-  if not os.path.exists('www/images/people_tiny/' + fname):
-    print " + generated new image", 'www/images/people_tiny/' + fname
-    img.save('www/images/people_tiny/' + fname)
+  resize_image_fit(img, target_width, target_height, 'www/images/people_tiny/')
+  resize_image_fit(img, 100, 100, 'www/images/people_medium/')

@@ -14,6 +14,7 @@ python python/src/ro/vivi/thumb_generator/make_tiny_images.py
 
 lftp -u hartapoliticii,$PASS hartapoliticii.ro <<EOF
 mirror -v -R --ignore-time www/images/people_tiny images/people_tiny
+mirror -v -R --ignore-time www/images/people_medium images/people_medium
 quit 0
 EOF
 

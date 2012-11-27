@@ -8,6 +8,15 @@ include('header.php');
 
 $t = new Smarty();
 
+// current_user is a variable set by Wordpress.
+$uid = is_user_logged_in() ? $current_user->ID : 0;
+if (getUserLevel($uid) > 0) {
+  $t->assign('is_moderator', true);
+} else {
+  $t->assign('is_moderator', false);
+}
+
+
 if (isSet($_GET['id'])) {
   $linkId = (int)$_GET['id'];
 

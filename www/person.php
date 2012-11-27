@@ -47,29 +47,48 @@ if ($_GET['name']) {
 $person = new Person();
 $person->setId($id);
 $person->loadFromDb();
+$img = $person->getImageUrl();
 
 // The title of the page is the person's name, reversed (because in the db
 // we keep the names as "LastName FirstName".
 $title = $person->displayName;
 
 ?>
-<!-- For facebook sharing -->
-<meta property='og:site_name' content='Harta Politicii' />
-<meta property='og:website' content='http://hartapoliticii.ro' />
-<meta property='og:title' content='<?php echo $person->displayName ?> - Harta politicii din România' />
-<meta property='fb:app_id' content='205183855930' />
-<!-- Update your html tag to include the itemscope and itemtype attributes -->
-<html itemscope itemtype="http://schema.org/Person">
 <!-- Add the following three tags inside head -->
 <meta itemprop="name" content="<?php echo $person->displayName ?> - Harta Politicii din România">
 
+<!-- the facebook OpenGraph Politician object -->
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# ro_hartapoliticii: http://ogp.me/ns/fb/ro_hartapoliticii#">
+<meta property="fb:app_id" content="205183855930" />
+<meta property="og:type"   content="ro_hartapoliticii:politician" />
+<meta property="og:url"    content="http://hartapoliticii.ro/?name=<?php echo $person->getNameForUrl(); ?>" />
+<meta property="og:title"  content="<?php echo $person->displayName ?>" />
+<meta property="og:image"  content="http://hartapoliticii.ro/<?php echo $person->getMediumImageUrl(); ?>" />
+
+
 <?php
+
+$history = $person->getHistory();
+if (in_array("results/2012", $history)) {
+  $college = $person->get2012College();
+  $title .= ", candidat {$college}";
+
+  $party = $person->get2012Party();
+
+  echo '<meta property="og:description" content="Candidat ' . $college . ', alegeri 2012" />';
+  echo "\n";
+  echo '<meta property="ro_hartapoliticii:party" content="Membru ' . $party . '" />';
+}
+
+// current_user is a variable set by Wordpress.
+$uid = is_user_logged_in() ? $current_user->ID : 0;
+
 include('header.php');
 
 // ----------------------------------------------------------------
 // -- Render the top bar, with the person name and bread crumbs. --
 $t = new Smarty();
-$t->assign('name', $title);
+$t->assign('name', $person->displayName);
 
 $crumbs = array();
 $crumbs[] = array(
@@ -84,9 +103,6 @@ if ($exp = isExpandedModule($_GET['exp'])) {
   );
 }
 
-// current_user is a variable set by Wordpress.
-$uid = is_user_logged_in() ? $current_user->ID : 0;
-
 $t->assign('crumbs', $crumbs);
 $t->assign('person_id', $person->id);
 $t->display('person_top_bar.tpl');
@@ -97,19 +113,6 @@ $t->display('person_top_bar.tpl');
 echo "<table width=970 cellpadding=0 cellspacing=0>".
      "<td valign=top width=340>";
 echo "<div class=identity>";
-
-$img = $person->getFact('image');
-if (is_file("images/people/{$person->id}.jpg")) {
-  $fname = "images/people/{$person->id}.jpg";
-  $count = 1;
-  // Get the most recent file we have for this person.
-  while (is_file($fname)) {
-    $img = $fname;
-    $fname = "images/people/{$person->id}_$count.jpg";
-    $count++;
-  }
-}
-if (!$img) { $img = 'images/face2.jpg'; }
 
 list($width, $height, $type, $attr) = getimagesize($img);
 
@@ -124,6 +127,11 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 $t = new Smarty();
 $t->assign('following', $person->isFollowedByUserId($uid));
 $t->assign('person_id', $person->id);
+$t->assign('uid', $uid);
+$t->assign('num_supporters', $person->getNumberOfSupporters());
+$t->assign('supported_by_logged_in_user', $person->isSupportedBy($uid));
+$t->assign('person_url', "http://hartapoliticii.ro/?name=" .
+                         $person->getNameForUrl());
 $t->display("person_sidebar_follow_button.tpl");
 
 $t = new Smarty();
@@ -152,7 +160,7 @@ include('mods/contact_details.php');
 include('mods/person_declarations_compact.php');
 
 $t = new Smarty();
-$t->assign('title', $title);
+$t->assign('name', $person->displayName);
 $t->assign('idperson', $person->id);
 $t->display('person_sidebar_extra_links.tpl');
 

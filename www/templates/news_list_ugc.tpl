@@ -43,7 +43,8 @@
         {include file="news_list_mentions_block.tpl"
             people=$news[n].people
             news_id=$news[n].id
-            above_six=$news[n].above_six}
+            above_six=$news[n].above_six
+            is_moderator=$is_moderator}
 
         <div class="ugc_link_status">
           {$news[n].human_time_diff} ago

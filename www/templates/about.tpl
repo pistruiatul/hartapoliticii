@@ -11,7 +11,8 @@
   <b>{$count_users}</b> utilizatori înregistrați.
   <br>
   <b>{$follow_users}</b> utilizatori urmăresc <b>{$following_people}</b> politicieni.
-
+  <br>
+  <b>{$supporting_people}</b> utilizatori susțin <b>{$supported_people}</b> politicieni.
   <br><br>
     <b>Căutări recente</b><br>
     {section name=i loop=$recent_searches}
@@ -26,7 +27,7 @@
   </div>
 </div>
 
-<div class="plaintext" style="width:650px">
+<div class="plaintext" style="width:800px">
 
 <p>
   <strong>Ce face de fapt site-ul ăsta?</strong>
@@ -136,5 +137,44 @@
   </p>
 </blockquote>
 
+<p>
+  <strong>Ajută-ne să promovăm harta politicii</strong>
+</p>
+
+<blockquote>
+  <p>
+    Câteva bannere. Nu arată senzațional, dar asta avem. Dacă faci unele mai
+    bune trimite-ni-le și nouă!
+
+    <br><br>
+    250x100:<br>
+    <img src="images/partener-harta-politicii.jpg">
+
+    <br>
+    200x150:<br>
+    <a href="/images/hartapoliticii_banner_200x150.jpg"><img src="/images/hartapoliticii_banner_200x150.jpg" width=200></a>
+
+    <br>
+    300x250 (scaled down here, but original images are 300x250):<br>
+    <a href="/images/hartapoliticii_banner_300x250.jpg"><img src="/images/hartapoliticii_banner_300x250.jpg" width=200></a>
+    <a href="/images/hartapoliticii_banner_300x250_2.jpg"><img src="/images/hartapoliticii_banner_300x250_2.jpg" width=200></a>
+    <a href="/images/hartapoliticii_banner_300x250_3.jpg"><img src="/images/hartapoliticii_banner_300x250_3.jpg" width=200></a>
+
+    <br>
+    728x90:<br>
+    <a href="/images/hartapoliticii_banner_728x90.jpg"><img src="/images/hartapoliticii_banner_728x90.jpg"><a>
+    <br><br>
+    <a href="/images/hartapoliticii_banner_728x90_2.jpg"><img src="/images/hartapoliticii_banner_728x90_2.jpg"><a>
+    <br><br>
+    <a href="/images/hartapoliticii_banner_728x90_3.jpg"><img src="/images/hartapoliticii_banner_728x90_3.jpg"><a>
+  </p>
+</blockquote>
+<br><br>
+<p>
+  <strong>Trafic harta politicii</strong>
+</p>
+  Pentru a fi complet deschiși, iată traficul actual al site-ului, măsurat
+  de Google Analytics.
+<iframe src="http://www.seethestats.com/stats/7802/Visits_77cd1ccc2_ifr.html" style="width:700px;height:300px;border:none;" scrolling="no" frameborder="0"></iframe>
 
 </div>
