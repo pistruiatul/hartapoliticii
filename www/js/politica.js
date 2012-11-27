@@ -1057,35 +1057,94 @@ window.fbAsyncInit = function() {
 
 
 hpol.fbPermissionsReponse = null;
-
+hpol.fbUserId = null;
+hpol.supportActionId = hpol.supportActionId || null;
 
 /**
  * Called when a user clicks on the Support On Facebook button on a politician's
  * page.
  * @param personUrl
  */
-hpol.supportOnFacebook = function(personUrl) {
-  console.log('trying to get status');
-  if (!hpol.fbPermissionsReponse ||
-      !hpol.fbPermissionsReponse.data[0].publish_actions) {
-    hpol.loginWithFacebook(function() {
-      hpol.postSupportAction(personUrl);
-    });
+hpol.supportOnFacebook = function(personUrl, support) {
+  // First of all, check to see if this person is logged in.
+  if (uid == 0) {
+    // Tell the user that he/she needs to be authenticated first.
+    $('#under_image_log').html(
+        'Mai întâi trebuie să te ' +
+        '<a href="/wp-login.php?action=login">autentifici</a>.');
+    return;
+  }
+
+  // Test to see if the user has already allowed HP to write actions on their
+  // profile.
+  if (hpol.fbPermissionsReponse &&
+      hpol.fbPermissionsReponse.data[0].publish_actions) {
+    hpol.postSupportAction(personUrl, support);
 
   } else {
-    console.log("I have permission to publish this!");
-
-    hpol.postSupportAction(personUrl);
+    hpol.loginWithFacebook(function() {
+      hpol.postSupportAction(personUrl, support);
+    });
   }
 };
 
-hpol.postSupportAction = function(personUrl) {
-  FB.api("/me/ro_hartapoliticii:support", 'post', {
+
+/**
+ * Posts the support action to HP and to facebook. At this point we assume that
+ * the current user is already logged in, and the facebook permissions are also
+ * all checked.
+ * @param personUrl
+ * @param support {Boolean} whether to support or delete the support for this
+ *     person.
+ */
+hpol.postSupportAction = function(personUrl, support) {
+  if (!support) {
+    // Delete the support action.
+    FB.api(hpol.supportActionId, 'delete', function(response) {
+      console.log(response);
+    });
+    // Now post the action id to hp.
+    var url = "/hooks/post_support.php" +
+        "?person_id=" + personId +
+        "&fb_user_id=" + hpol.fbUserId +
+        "&fb_action_id=" + hpol.supportActionId +
+        "&delete=1";
+
+    $('#under_image_log').html('<img src=/images/activity_indicator.gif>');
+    sendPayload_(url, function(response) {
+      $('#under_image_log').html(response);
+
+      $('#support_person').show();
+      $('#un_support_person').hide();
+    });
+
+    return;
+  }
+
+  // Now also post the action to facebook.
+  FB.api("/me/ro_hartapoliticii:support", 'post' , {
     'politician': personUrl
 
   }, function(response) {
     console.log("Support response: ");
     console.log(response);
+
+    hpol.supportActionId = response.id;
+
+    // Now post the action id to hp.
+    var url = "/hooks/post_support.php" +
+        "?person_id=" + personId +
+        "&fb_user_id=" + hpol.fbUserId +
+        "&fb_action_id=" + response.id;
+
+    if (!support) url += "&delete=true";
+    $('#under_image_log').html('<img src=/images/activity_indicator.gif>');
+    sendPayload_(url, function(response) {
+      $('#under_image_log').html(response);
+
+      $('#support_person').hide();
+      $('#un_support_person').show();
+    });
 
   });
 };
@@ -1116,6 +1175,7 @@ hpol.checkFbLoginStatus = function() {
       // Check permissions here.
       //
       console.log(response);
+      hpol.fbUserId = response.authResponse.userID;
 
       FB.api('/me/permissions', function(response) {
         console.log('Permissions:');

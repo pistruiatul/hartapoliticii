@@ -19,6 +19,7 @@ f/
 # The heads of people.
 images/people/
 images/people_tiny/
+images/people_medium/
 
 # Ignore .htaccess and .htpassword files
 *.htaccess

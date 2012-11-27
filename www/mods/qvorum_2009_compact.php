@@ -26,7 +26,7 @@ echo "<blockquote>
      citește întreg textul despre {$person->displayName}... 
      </a>)</blockquote>";
 
-echo "<div class=>Acesta este concluzia Raportului Qvorum asupra ".
+echo "Acesta este concluzia Raportului Qvorum asupra ".
      "activitatii individuale a europarlamentarilor (2008-2009). ".
      "Mai multe detalii despre acest studiu <a href=\"http://qvorum.ro/".
      "ViewAnalyse.aspx?analyseID=13\">pe site-ul Qvorum</a>."

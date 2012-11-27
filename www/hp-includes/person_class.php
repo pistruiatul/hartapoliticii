@@ -364,6 +364,29 @@ class Person {
     return $displayed_party_name;
   }
 
+
+  public function getNumberOfSupporters() {
+    $s = mysql_query("
+      SELECT count(*) as cnt
+      FROM people_support
+      WHERE person_id = {$this->id}
+    ");
+    $r = mysql_fetch_array($s);
+    return $r['cnt'];
+  }
+
+
+  public function isSupportedBy($uid) {
+    $s = mysql_query("
+      SELECT fb_action_id
+      FROM people_support
+      WHERE person_id = {$this->id} AND user_id = {$uid}
+    ");
+    $r = mysql_fetch_array($s);
+    if (!$r) return 0;
+    return $r['fb_action_id'];
+  }
+
   /**
    * Returns a list of strings with the history of this person.
    * @return {Array} A list of history strings.
@@ -706,6 +729,24 @@ class Person {
       }
     }
     if (!$img) { $img = 'images/face2.jpg'; }
+
+    return $img;
+  }
+
+
+  public function getMediumImageUrl() {
+    $img = $this->getFact('image');
+    if (is_file("images/people_medium/{$this->id}.jpg")) {
+      $fname = "images/people_medium/{$this->id}.jpg";
+      $count = 1;
+      // Get the most recent file we have for this person.
+      while (is_file($fname)) {
+        $img = $fname;
+        $fname = "images/people_medium/{$this->id}_$count.jpg";
+        $count++;
+      }
+    }
+    if (!$img) { $img = 'images/face_medium.jpg'; }
 
     return $img;
   }

@@ -916,3 +916,10 @@ a.new_link:hover {
 .button.green {
 	background-color: #91bd09;
 }
+
+.supporters {
+  text-align: center;
+}
+.supporters .number {
+  font-weight: bold;
+}

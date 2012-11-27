@@ -63,7 +63,7 @@ $title = $person->displayName;
 <meta property="og:type"   content="ro_hartapoliticii:politician" />
 <meta property="og:url"    content="http://hartapoliticii.ro/?name=<?php echo $person->getNameForUrl(); ?>" />
 <meta property="og:title"  content="<?php echo $person->displayName ?>" />
-<meta property="og:image"  content="http://hartapoliticii.ro/<? echo $img ?>" />
+<meta property="og:image"  content="http://hartapoliticii.ro/<?php echo $person->getMediumImageUrl(); ?>" />
 
 
 <?php
@@ -79,6 +79,9 @@ if (in_array("results/2012", $history)) {
   echo "\n";
   echo '<meta property="ro_hartapoliticii:party" content="Membru ' . $party . '" />';
 }
+
+// current_user is a variable set by Wordpress.
+$uid = is_user_logged_in() ? $current_user->ID : 0;
 
 include('header.php');
 
@@ -99,9 +102,6 @@ if ($exp = isExpandedModule($_GET['exp'])) {
     'href' => ''
   );
 }
-
-// current_user is a variable set by Wordpress.
-$uid = is_user_logged_in() ? $current_user->ID : 0;
 
 $t->assign('crumbs', $crumbs);
 $t->assign('person_id', $person->id);
@@ -128,6 +128,8 @@ $t = new Smarty();
 $t->assign('following', $person->isFollowedByUserId($uid));
 $t->assign('person_id', $person->id);
 $t->assign('uid', $uid);
+$t->assign('num_supporters', $person->getNumberOfSupporters());
+$t->assign('supported_by_logged_in_user', $person->isSupportedBy($uid));
 $t->assign('person_url', "http://hartapoliticii.ro/?name=" .
                          $person->getNameForUrl());
 $t->display("person_sidebar_follow_button.tpl");
