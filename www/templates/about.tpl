@@ -151,6 +151,10 @@
     <img src="images/partener-harta-politicii.jpg">
 
     <br>
+    200x150:<br>
+    <a href="/images/hartapoliticii_banner_200x150.jpg"><img src="/images/hartapoliticii_banner_200x150.jpg" width=200></a>
+
+    <br>
     300x250 (scaled down here, but original images are 300x250):<br>
     <a href="/images/hartapoliticii_banner_300x250.jpg"><img src="/images/hartapoliticii_banner_300x250.jpg" width=200></a>
     <a href="/images/hartapoliticii_banner_300x250_2.jpg"><img src="/images/hartapoliticii_banner_300x250_2.jpg" width=200></a>
