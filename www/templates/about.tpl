@@ -11,7 +11,8 @@
   <b>{$count_users}</b> utilizatori înregistrați.
   <br>
   <b>{$follow_users}</b> utilizatori urmăresc <b>{$following_people}</b> politicieni.
-
+  <br>
+  <b>{$supporting_people}</b> utilizatori susțin <b>{$supported_people}</b> politicieni.
   <br><br>
     <b>Căutări recente</b><br>
     {section name=i loop=$recent_searches}

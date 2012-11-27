@@ -11,6 +11,11 @@ function getCountUsersFollowingOthers() {
   return mysql_num_rows($s);
 }
 
+function getCountUsersSupportingOthers() {
+  $s = mysql_query("SELECT distinct(user_id) FROM people_support");
+  return mysql_num_rows($s);
+}
+
 function getCountUsers() {
   $s = mysql_query("SELECT distinct(ID) FROM wp_users");
   return mysql_num_rows($s);
@@ -21,6 +26,10 @@ function getCountPeopleBeingFollowed() {
   return mysql_num_rows($s);
 }
 
+function getCountPeopleBeingSupported() {
+  $s = mysql_query("SELECT distinct(person_id) FROM people_support");
+  return mysql_num_rows($s);
+}
 
 function getRecentSearches() {
   $searches = array();
@@ -41,6 +50,10 @@ $t = new Smarty();
 
 $t->assign('follow_users', getCountUsersFollowingOthers());
 $t->assign('following_people', getCountPeopleBeingFollowed());
+
+$t->assign('supporting_people', getCountUsersSupportingOthers());
+$t->assign('supported_people', getCountPeopleBeingSupported());
+
 $t->assign('total_people', sizeof($people));
 $t->assign('count_users', getCountUsers());
 
