@@ -14,15 +14,26 @@
   <br>
   <b>{$supporting_people}</b> utilizatori susțin <b>{$supported_people}</b> politicieni.
   <br><br>
-    <b>Căutări recente</b><br>
-    {section name=i loop=$recent_searches}
-      <span class="small gray">
-      {$recent_searches[i].time|date_format:"%b %d %l%p"|replace:"PM":"pm"|replace:"AM":"am"}
+
+  <b>Cei mai susținuți</b><br>
+    {section name=i loop=$supported_politicians}
+      <span class="medium">
+      <a href="/?name={$supported_politicians[i].name|replace:' ':'+'}">
+        {$supported_politicians[i].display_name}</a>
       </span>
       <span class="small">
-      - <a href="?cid=search&q={$recent_searches[i].query|htmlspecialchars}">{$recent_searches[i].query|htmlspecialchars}</a></span><br>
-
+      - {$supported_politicians[i].cnt}</span><br>
     {/section}
+
+  <br>
+  <b>Căutări recente</b><br>
+  {section name=i loop=$recent_searches}
+    <span class="small gray">
+    {$recent_searches[i].time|date_format:"%b %d %l%p"|replace:"PM":"pm"|replace:"AM":"am"}
+    </span>
+    <span class="small">
+    - <a href="?cid=search&q={$recent_searches[i].query|htmlspecialchars}">{$recent_searches[i].query|htmlspecialchars}</a></span><br>
+  {/section}
 
   </div>
 </div>

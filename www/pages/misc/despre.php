@@ -41,6 +41,22 @@ function getRecentSearches() {
   return $searches;
 }
 
+function getSupportedPoliticians() {
+  $results = array();
+  $s = mysql_query(
+    "SELECT count(*) AS cnt, people.display_name, people.name
+    FROM people_support AS ps
+    LEFT JOIN people ON people.id = ps.person_id
+    GROUP BY ps.person_id
+    ORDER BY cnt DESC
+    LIMIT 0, 20
+  ");
+  while ($r = mysql_fetch_array($s)) {
+    $results[] = $r;
+  }
+  return $results;
+}
+
 
 $title = "Despre acest site / Contact";
 
@@ -58,6 +74,8 @@ $t->assign('total_people', sizeof($people));
 $t->assign('count_users', getCountUsers());
 
 $t->assign('recent_searches', getRecentSearches());
+
+$t->assign('supported_politicians', getSupportedPoliticians());
 
 $t->display('about.tpl');
 
