@@ -106,7 +106,11 @@
         <br><br>
         36 de locuri înseamnă 10% din Camera Deputaților.
         <br><a href="/?cid=cauta_colegiu">Caută-ți colegiul</a>. Informează-te
-        despre candidați. Susține-i pe cei care vrei să câștige. Votează!
+        despre candidați.
+        <div style="float:right; width=200">
+          <div class="fb-like" data-href="http://hartapoliticii.ro/" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true"></div>
+        </div><a href="http://hartapoliticii.ro/?p=7646">Susține-i</a>
+        pe cei care vrei să câștige. Votează!
      </div>
     </td>
 
