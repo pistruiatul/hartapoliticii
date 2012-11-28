@@ -6,13 +6,13 @@
 
 <ul class="identity_ul">
   <li class="identity_li small">
-    <a href="http://www.google.ro/search?hl=ro&q={$title}&meta=lr%3Dlang_ro">
+    <a href="http://www.google.ro/search?hl=ro&q={$name}&meta=lr%3Dlang_ro">
       Caută pe google "{$name}"
     </a>
   </li>
 
   <li class="identity_li small">
-    <a href="http://www.google.ro/search?hl=ro&q={$title}+site:wikipedia.org&btnI=Mă Simt Norocos&meta=lr%3Dlang_ro">
+    <a href="http://www.google.ro/search?hl=ro&q={$name}+site:wikipedia.org&btnI=Mă Simt Norocos&meta=lr%3Dlang_ro">
       Caută pe Wikipedia
     </a>
   </li>
