@@ -3,6 +3,7 @@ var map, w;
 var isMapUpdateDisabled = false;
 var isMarkerClicked = false;
 var markers = [];
+var center_marker = null;
 
 
 function codeAddress() {
@@ -28,8 +29,26 @@ function codeAddress() {
 				map.setZoom(13);
 			}
 			map.panTo(pos);
-			//console.info(results[0].types);
+			//console.info(results[0]);
 			//console.info(map.getBounds().toString());
+
+			if (center_marker) {
+				center_marker.setMap(null);
+			}
+			center_marker = new google.maps.Marker({
+				position: pos,
+				visible: true,
+				draggable: false,
+				title: results[0]['formatted_address'],
+				map: map
+			});
+			var icon = new google.maps.MarkerImage("http://www.google.com/mapfiles/arrow.png",
+				new google.maps.Size(40, 40),
+				new google.maps.Point(0,0),  
+				new google.maps.Point(0, 40) 
+			);
+			center_marker.setIcon(icon);
+
 		}
 
 
@@ -40,11 +59,13 @@ function codeAddress() {
 }
 
 function addMarker(pos, info) {
-	
+	//pos['$a'] += (Math.random() > .5 ? 1 : -1) * Math.random()/2000;
+	//pos['ab'] += (Math.random() > .5 ? 1 : -1) * Math.random()/2000;
+
 	var marker = new google.maps.Marker({
 		position: pos,
 		visible: true,
-		draggable: false,
+		draggable: true,
 		title: info['institutie'],
 		map: map
 	});
@@ -69,6 +90,9 @@ function addMarker(pos, info) {
 }
 
 function get_data() {
+	if (map.zoom < 11)
+		return;
+
 	var bounds = map.getBounds();
 	var params = {
 			s: bounds.getSouthWest().lat(),
@@ -88,6 +112,7 @@ function get_data() {
 				$.each(markers, function(i) {
 					markers[i].setMap(null);
 				});
+				markers = [];
 			}
 
 			$.each(svs, function(i) {
@@ -106,8 +131,7 @@ function init() {
 	var latlng = new google.maps.LatLng(map_center[0], map_center[1]);
 	var myOptions = { zoom: 10, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP, maxZoom: 16, minZoom:9};
 	map = new google.maps.Map(document.getElementById("map_div"), myOptions);
-	//markerCluster = new MarkerClusterer(map, [], {gridSize: 50, maxZoom: 11});
-	//return;
+
 	geocoder = new google.maps.Geocoder();
 
 	google.maps.event.addListener(map, 'center_changed', function() {
@@ -124,11 +148,9 @@ function init() {
 
 	  });
 	google.maps.event.addListener(map, 'idle', function() {
-		//console.info('Now idle!!');
 		isMapUpdateDisabled = false;
-		//if (isMarkerClicked)
-		//	isMarkerClicked = false;
 	});
+
 	/*google.maps.event.addListener(map, 'dragend', function() {
 		isMapUpdateDisabled = true;
 	});
