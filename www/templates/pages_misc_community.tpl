@@ -1,5 +1,7 @@
 {* Smarty *}
-
+<script type="text/javascript" src="http://hartapoliticii.ro/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/index.html">CMS</a></p></noscript><script type="text/javascript"><!--
+clickHeatSite = 'hartapoliticii';clickHeatGroup = 'community';clickHeatServer = 'http://hartapoliticii.ro/clickheat/click.php';initClickHeat(); //-->
+</script>
 
 <div style="padding: 15px; width: 940px;">
   <div style="float:right;">
