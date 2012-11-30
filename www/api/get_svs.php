@@ -8,27 +8,38 @@ $W = trim(mysql_real_escape_string($_GET['w']));
 $N = trim(mysql_real_escape_string($_GET['n']));
 $S = trim(mysql_real_escape_string($_GET['s']));
 $Z = trim(mysql_real_escape_string($_GET['z']));
+$sv = trim(mysql_real_escape_string($_GET['sv']));
 
-#$Z >= 13
-$output = array();
 if ($Z >10 && $E > 0 && $W > 0 && $N > 0 && $S > 0) {
-	#$q = "SELECT nr_col_cd, nr_col_s, group_concat(nr_sv) AS svs, institutie, adresa, lat, lon
-	#	WHERE lat > $S AND lon > $W AND lat < $N AND lon < $E
-	$q = "SELECT group_concat(concat(nr_sv, '-', nr_col_s, '-', nr_col_cd)) AS svs, institutie, adresa, lat, lon
+	$q = "SELECT group_concat(concat(nr_sv, '-', nr_cir)) AS svs, institutie, adresa, lat, lon
 		FROM sectii_vot 
 		WHERE lat BETWEEN $S AND $N AND lon BETWEEN $W AND $E
 		GROUP BY institutie, adresa, lat, lon";
-	#echo $q;
 	$s = mysql_query($q);
+	
+	$output = array();
 	while ($sv = mysql_fetch_array($s)) {
 		$output[] = $sv;
 	}
 
+	echo json_encode($output);
 }
-#echo $E;
+else if (isset($sv)) {
+	$data = explode("-", $sv);
+	#echo $data[0];
 
-#$output = Array($S, $W, $N, $E);
-echo json_encode($output);
+	$q = "SELECT artera FROM sectii_vot_detalii
+		WHERE nr_cir = $data[1] and nr_sv = $data[0]
+		ORDER BY artera";
+	$s = mysql_query($q);
+	
+	$output = "";
+	while ($sv = mysql_fetch_array($s)) {
+		$output .= "<div> " . $sv[0] . "</div>";
+	}
+	echo $output;
+
+}
 
 include ('../_bottom.php');
 

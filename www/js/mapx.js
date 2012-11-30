@@ -74,10 +74,17 @@ function addMarker(pos, info) {
 		isMarkerClicked = true;
 		if (w)
 			w.close();
+		var links = '';
+		var svs = info['svs'].split(',');
+		$.each(svs, function(i){
+				links += '<a href="#" onclick="javascript:load_sv_det(\'' + svs[i]+ '\')">';
+				var text = svs[i].replace(/-\d+/, '');
+				links += text + '</a>&nbsp;';
+			});
 		w = new google.maps.InfoWindow({
 			content: '<h3>' + info['institutie'] + '</h3>'
 				+ '<div><em> ' + info['adresa'] + '</em></div>'
-				+ '<div>Secții de votare: ' + info['svs'] + '</div>'
+				+ '<div>Secții de votare: ' + links + '</div>'
 		});
 
 		google.maps.event.addListener(w, 'closeclick', function() {
@@ -125,6 +132,17 @@ function get_data() {
 
 		}
 	});
+}
+
+function load_sv_det(sv) {
+	$.ajax({
+		url: '/api/get_svs.php',
+		data: {sv: sv},
+		success: function(data) {
+			$('#sv').html(data);
+		}
+	});
+
 }
 
 function init() {
