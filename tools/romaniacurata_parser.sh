@@ -7,4 +7,4 @@ PYBIN='/usr/bin/python'
 PYTHONPATH="`pwd`/python/src"
 export PYTHONPATH
 
-$PYBIN python/src/ro/vivi/romaniacurata/crawl.py
+$PYBIN python/src/ro/vivi/romaniacurata/crawl.py www/hp-scripts/romania_curata_integritate.txt

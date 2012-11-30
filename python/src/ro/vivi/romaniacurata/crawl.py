@@ -12,6 +12,7 @@ and extract the definition for each of the colleges.
 import urllib
 import string
 import re
+import sys
 
 from datetime import datetime
 from dateutil import parser
@@ -22,6 +23,7 @@ from xml.etree.ElementTree import parse
 
 from ro.vivi.hplib import *
 
+import codecs
 
 accepted_categories = [
   6,  # Colaborarea cu fosta Securitate
@@ -39,6 +41,8 @@ accepted_categories = [
 ]
 
 def main():
+  file = codecs.open(sys.argv[1], "w", "utf-8")
+
   for i in range(1, 9999):
     url = "http://verificaintegritatea.romaniacurata.ro/?p=%s" % i
     data = get_page(url, "/work/tmp/romaniacurata", "UTF-8", True)
@@ -51,14 +55,14 @@ def main():
 
     name = soup.find('h1', {'class': 'entry-title entry-title-single'})
     if name is None:
-      print url, "-- no name found!"
+      # print url, "-- no name found!"
       continue
 
     category = soup.find('span', {'class': 'cat-links'})
     category_name = ""
 
     if category is None:
-      print url, "--", "no category found"
+      # print url, "--", "no category found"
       continue
 
     if category:
@@ -70,7 +74,7 @@ def main():
           skip = False
 
       if skip:
-        print url, "--", link['href'], link.contents, "Not an accepted category"
+        # print url, "--", link['href'], link.contents, "Not an accepted category"
         continue
 
       category_name = link.contents
@@ -86,15 +90,27 @@ def main():
         start_index = index + 1
 
     if not start_index:
-      print url, "--", "We could not find the index where the content starts!"
-      print "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      # print url, "--", "We could not find the index where the content starts!"
+      # print "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
       sys.exit()
 
-    content = ""
+    content = []
     for p in paragraphs[start_index:]:
-      content += p.text
+      if p.text.strip() != "":
+        content.append(p.text.strip())
 
-    print url, name.text, category_name, len(data)
-    print " -- ", content
+    context = []
+    for p in paragraphs[0:start_index]:
+      if p.text.strip() != "":
+        context.append(p.text.strip().replace("\n", " "))
+
+    file.write("name=   %s\n" % name.text)
+    file.write("context=%s\n" % ", ".join(context))
+    file.write("source= %s\n" % url)
+    file.write("cat=    %s\n" % category_name[0])
+    file.write("\n".join(content) + "\n")
+
+    print url, name.text
+  file.close()
 
 main()
