@@ -446,7 +446,11 @@ class Person {
       case "results/2008": $moduleTitle = "Candidat parlamentare 2008"; break;
       case "results/2012": $moduleTitle = "Candidat 2012"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare 2009"; break;
-      case "catavencu/2008": $moduleTitle = "Candidații pătați Cațavencu 2008"; break;
+      case "catavencu/2008":
+        $moduleTitle =
+            "<img src=/images/icon_warning_small.png style='margin:0 3px -2px 0'>" .
+            "Candidații pătați Cațavencu 2008";
+        break;
       case "euro_parliament/2007": $moduleTitle = "Europarlamentar 2007-2009"; break;
       case "qvorum/2009":  $moduleTitle = "Studiul Qvorum despre europarlamentari"; break;
       case "cdep/2008":    $moduleTitle = "Deputat 2008-2012"; break;
@@ -454,8 +458,16 @@ class Person {
       case "pres/2009":    $moduleTitle = "Candidat Președenție 2009"; break;
       case "gov/ro":       $moduleTitle = "Membru al guvernului"; break;
       case "video":        $moduleTitle = "Video"; break;
-      case "romaniacurata/2011": $moduleTitle = "Listele România Curată 2011"; break;
-      case "romaniacurata/2012": $moduleTitle = "Listele România Curată 2012"; break;
+      case "romaniacurata/2011":
+        $moduleTitle =
+            "<img src=/images/icon_warning_small.png style='margin:0 3px -2px 0'>" .
+            "România Curată 2011";
+        break;
+      case "romaniacurata/2012":
+        $moduleTitle =
+            "<img src=/images/icon_warning_small.png style='margin:0 3px -2px 0'>" .
+            "România Curată 2012";
+        break;
       case "resume":       $moduleTitle = "Resume candidat"; break;
     }
     return $moduleTitle;
@@ -472,7 +484,12 @@ class Person {
       case "results/2012": $moduleTitle = "Candidat parlamentare 2012"; break;
       case "alegeri/2008": $moduleTitle = "Candidat Parlamentare 2008"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare, 7 Iunie 2009"; break;
-      case "catavencu/2008": $moduleTitle = "Candidații pătați, Academia Cațavencu, 2008"; break;
+      case "catavencu/2008":
+        $moduleTitle =
+            "<img src=/images/icon_warning_large.png style='margin:0 3px -10px 0'>" .
+            "Candidații pătați, Academia Cațavencu, 2008";
+        break;
+
       case "resume":       $moduleTitle = "Material primit de la candidat"; break;
       case "euro_parliament/2007": $moduleTitle = "Parlamentul European 2007-2009"; break;
       case "qvorum/2009":  $moduleTitle = "Studiul Qvorum despre europarlamentari"; break;
@@ -484,8 +501,17 @@ class Person {
       case "news/expanded":$moduleTitle = "Știri pe larg"; break;
       case "news/main":    $moduleTitle = "Știri recente"; break;
       case "person_declarations":$moduleTitle = "Declarații"; break;
-      case "romaniacurata/2011": $moduleTitle = "Listele România Curată, 2011"; break;
-      case "romaniacurata/2012": $moduleTitle = "Listele România Curată, 2012"; break;
+      case "romaniacurata/2011":
+        $moduleTitle =
+            "<img src=/images/icon_warning_large.png style='margin:0 3px -10px 0'>" .
+            "Listele România Curată 2011";
+        break;
+
+      case "romaniacurata/2012":
+                $moduleTitle =
+            "<img src=/images/icon_warning_large.png style='margin:0 3px -10px 0'>" .
+            "Listele România Curată 2012";
+        break;
 
     }
     return $moduleTitle;
