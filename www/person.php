@@ -65,10 +65,6 @@ $title = $person->displayName;
 <meta property="og:title"  content="<?php echo $person->displayName ?>" />
 <meta property="og:image"  content="http://hartapoliticii.ro/<?php echo $person->getMediumImageUrl(); ?>" />
 
-<script type="text/javascript" src="http://hartapoliticii.ro/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/index.html">CMS</a></p></noscript><script type="text/javascript"><!--
-clickHeatSite = 'hartapoliticii';clickHeatGroup = '<?php echo $person->getNameForUrl(); ?>';clickHeatServer = 'http://hartapoliticii.ro/clickheat/click.php';initClickHeat(); //-->
-</script>
-
 <?php
 
 $history = $person->getHistory();
