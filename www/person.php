@@ -65,7 +65,6 @@ $title = $person->displayName;
 <meta property="og:title"  content="<?php echo $person->displayName ?>" />
 <meta property="og:image"  content="http://hartapoliticii.ro/<?php echo $person->getMediumImageUrl(); ?>" />
 
-
 <?php
 
 $history = $person->getHistory();

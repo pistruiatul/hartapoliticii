@@ -923,3 +923,13 @@ a.new_link:hover {
 .supporters .number {
   font-weight: bold;
 }
+
+.rc_2012_cat {
+  font-weight: bold;
+  display: inline;
+}
+
+.rc_2012_src {
+  display:inline;
+  margin-left: 10px;
+}

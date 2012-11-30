@@ -1,8 +1,11 @@
 {* Smarty *}
+<script type="text/javascript" src="http://hartapoliticii.ro/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/index.html">CMS</a></p></noscript><script type="text/javascript"><!--
+clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = 'http://hartapoliticii.ro/clickheat/click.php';initClickHeat(); //-->
+</script>
 
 <table width=970 cellspacing=10>
   <tr>
-    <td width=210 valign="top">
+    <td width=210 valign="top" rowspan=2>
       <a class="button big green" href="/?cid=cauta_colegiu"><span>Caută colegiul<br>din care faci parte</span></a>
       <br>
       <b>{$days_until_election}</b> zile până pe 9 Decembrie
@@ -92,7 +95,29 @@
       Lista de partide este încă în dezvoltare.
 
     </td>
+    <td colspan=2>
+      <div class="module" style="padding: 10px; background-color: #f9f9FF">
+        <img src="http://hartapoliticii.ro/i/elections_decidingvotes.png"
+           align="right" height=140 hspace="10">
+        <span class="big"><b>Votul tău contează!</b></span>
 
+        <br>În 2008, zece deputați au câștigat cu
+        <a href="http://hartapoliticii.ro/?p=18">sub 100 de voturi</a> diferență.
+
+        <br><br>Încă 26 au câștigat cu sub 500 de voturi diferență. Probabil ai mai mulți prieteni decât atât pe Facebook.
+
+        <br><br>
+        36 de locuri înseamnă 10% din Camera Deputaților.
+        <br><a href="/?cid=cauta_colegiu">Caută-ți colegiul</a>. Informează-te
+        despre candidați.
+        <div style="float:right; width=200">
+          <div class="fb-like" data-href="http://hartapoliticii.ro/" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true"></div>
+        </div><a href="http://hartapoliticii.ro/?p=7646">Susține-i</a>
+        pe cei care vrei să câștige. Votează!
+     </div>
+    </td>
+
+    <tr>
     <td valign="top" width="510">
       {* ------------------------------------------------------------------*}
       {* The main news section from the front page. *}

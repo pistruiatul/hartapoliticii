@@ -73,7 +73,7 @@ def get_file_data(fname):
 
 
 
-def get_page(link, tmp_dir=None):
+def get_page(link, tmp_dir=None, encoding='ISO-8859-2', skip_404=False):
   """ Fetches the page at the provided link. Checks whether this is indeed the
   page of a vote. If that is true it returns the page as a string, otherwise
   returns None.
@@ -91,19 +91,25 @@ def get_page(link, tmp_dir=None):
       return get_file_data(fname)
 
   success = False
+  data = ""
   while not success:
     try:
       f = urllib2.urlopen(link, None, 20)
-      data = unicode(f.read(), 'ISO-8859-2')
+      data = unicode(f.read(), encoding)
       f.close()
+      success = True
 
-      # Write this page into a cached file, with a more common charset.
-      if fname:
-        cache_file = codecs.open(fname, 'w', 'utf-8')
-        cache_file.write(data)
-        cache_file.close()
+    except urllib2.URLError, e:
+      if e.code == 404 and skip_404:
+        success = True
+      else:
+        print "Timed out, retrying ", link
+        success = False
 
-      return data
-    except URLError:
-      print "Timed out, retrying ", link
-      success = False
+  # Write this page into a cached file, with a more common charset.
+  if fname:
+    cache_file = codecs.open(fname, 'w', 'utf-8')
+    cache_file.write(data)
+    cache_file.close()
+
+  return data

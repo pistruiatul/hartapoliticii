@@ -1,8 +1,9 @@
-<table width=400 cellpadding=2>
+<table width=585 cellpadding=2>
   {section name=c loop=$candidates}
-
-  <tr class="candidaterow" {if !$compact}height=50{/if}>
-    <td valign="top">
+  {if $smarty.section.c.index % 2 == 0}
+    <tr class="candidaterow">
+  {/if}
+    <td valign="top" width=60 align="right">
       <img src="{$candidates[c].tiny_img_url}"
            {if !$compact}height="40"{/if}>
     </td>
@@ -22,12 +23,14 @@
       {/if}
       </div>
     </td>
-    <td width="130" valign="top" class="party_cell">
-      <div style="margin:5px 10px 0 0;">
+    <td width="60" valign="top" class="party_cell"
+            {if $smarty.section.c.index % 2 != 1}
+          style="border-right: 1px solid #DDD;"
+        {/if}>
+      <div style="margin:5px 5px 0 0;">
       <img src="/images/parties/sigla_{$candidates[c].party_logo|lower}50x50.png"
            width="30" height="30" valign="middle">
-      <nobr>{$candidates[c].displayed_party_name}</nobr></div></td>
-  </tr>
+      </div></td>
   {/section}
 </table>
 
