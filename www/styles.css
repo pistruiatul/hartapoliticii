@@ -982,3 +982,12 @@ a.new_link:hover {
   color: #999;
   margin-bottom: 5px;
 }
+#polling_stations_source a {
+  padding: 5px;
+  color: #AAA;
+}
+
+#polling_stations_source a:hover {
+  padding: 5px;
+  color: blue;
+}
