@@ -965,10 +965,11 @@ a.new_link:hover {
 
 #permalink {
   color: #999;
-  width: 700px;
+  width: 500px;
   margin-top: 20px;
   outline: none;
 }
+
 .sv_description {
   margin-bottom: 15px;
 }

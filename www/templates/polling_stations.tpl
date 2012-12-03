@@ -31,7 +31,9 @@
     <div>
       <div id="map_div" style="height:450px; width:700px;"></div>
     </div>
-
+    <div style="float:right;padding-top:17px;">
+            <div class="fb-like" data-href="http://hartapoliticii.ro/?cid=sectii_votare" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false"></div>
+    </div>
     <input type="text" id="permalink">
     <br><br>
     Sursa pentru aceste secții de votare:
