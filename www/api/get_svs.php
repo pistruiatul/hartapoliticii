@@ -2,6 +2,9 @@
 
 include ('../_top.php');
 include ('../functions.php');
+require_once('../wp-config.php');
+
+$uid = is_user_logged_in() ? $current_user->ID : 0;
 
 $E = trim(mysql_real_escape_string($_GET['e']));
 $W = trim(mysql_real_escape_string($_GET['w']));
@@ -19,6 +22,9 @@ if ($Z >10 && $E > 0 && $W > 0 && $N > 0 && $S > 0) {
 	
 	$output = array();
 	while ($sv = mysql_fetch_array($s)) {
+    if ($uid == 1) {
+      $sv['can_edit'] = true;
+    }
 		$output[] = $sv;
 	}
 
@@ -32,12 +38,13 @@ else if (isset($sv)) {
 		WHERE nr_cir = $data[1] and nr_sv = $data[0]
 		ORDER BY artera";
 	$s = mysql_query($q);
-	
-	$output = "";
+
+  $output = "<div class=sv_description>";
+	$output .= "<span class=big><b>Secția de votare {$data[0]}</b></span><br>";
 	while ($sv = mysql_fetch_array($s)) {
 		$output .= "<div> " . $sv[0] . "</div>";
 	}
-	echo $output;
+	echo $output . "</div>";
 
 }
 

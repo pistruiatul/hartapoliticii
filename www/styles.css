@@ -916,6 +916,9 @@ a.new_link:hover {
 .button.green {
 	background-color: #91bd09;
 }
+.button.blue {
+	background-color: #4595c2;
+}
 
 .supporters {
   text-align: center;
@@ -932,4 +935,50 @@ a.new_link:hover {
 .rc_2012_src {
   display:inline;
   margin-left: 10px;
+}
+
+.polling_search_form {
+  margin: 10px 0 15px 0;
+  font-size: 18px;
+  background-color: #ffffcc;
+  padding: 10px;
+}
+
+.polling_search_form #q {
+  width: 250px;
+}
+
+.polling_search_form #cauta {
+  font-size: 20px;
+}
+
+#sv {
+  margin-top: 10px;
+}
+
+#map_message {
+  width: 680px;
+  height: 20px;
+  font-size: 14px;
+  color: #666666;
+}
+
+#permalink {
+  color: #999;
+  width: 700px;
+  margin-top: 20px;
+  outline: none;
+}
+.sv_description {
+  margin-bottom: 15px;
+}
+.infowindow_title {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.infowindow_addr {
+  font-style: italic;
+  color: #999;
+  margin-bottom: 5px;
 }

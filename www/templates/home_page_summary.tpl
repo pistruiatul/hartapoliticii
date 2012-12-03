@@ -6,7 +6,11 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = '
 <table width=970 cellspacing=10>
   <tr>
     <td width=210 valign="top" rowspan=2>
-      <a class="button big green" href="/?cid=cauta_colegiu"><span>Caută colegiul<br>din care faci parte</span></a>
+      <a class="button big green" href="/?cid=cauta_colegiu">
+        <span style="width:160px">Caută colegiul<br>din care faci parte</span></a>
+      <br>
+      <a class="button big blue" href="/?cid=sectii_votare">
+        <span style="width:160px">Caută secția ta<br>de votare</span></a>
       <br>
       <b>{$days_until_election}</b> zile până pe 9 Decembrie
 
