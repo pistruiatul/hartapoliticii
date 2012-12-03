@@ -16,10 +16,17 @@
         <input type="text" id="q" placeholder="introdu adresa aici...">
         <input type="submit" id="cauta" value="  Caută  ">
       </form>
+      <div class="small" style="float:right"> <div class="small">
+        <a href="#" onclick="$('#raporteaza').show()">Raportează o problemă</a></div></div>
       <div id="map_message">Caută o adresă anume sau un oraș.
       Markere nu
       sunt afișate dacă harta e prea de ansamblu.</div>
     </div>
+
+      <div id=raporteaza style="display:none" class="brightred">
+        Te rog trimite un email la vivi@hartapoliticii.ro cu link-ul
+        de sub hartă și cu o explicație a care este problema.<br><br>
+      </div>
 
     <div>
       <div id="map_div" style="height:450px; width:700px;"></div>
@@ -83,8 +90,12 @@
         Dă click pe numărul unei secții de votare pentru a vedea ce străzi
         aparțin de fiecare.
         <br><br>
-        <div class="red">Deși majoritatea secțiilor de votare sunt pe hartă,
-          unele pot fi poziționate eronat.</div>
+        <div class="brightred">Deși majoritatea secțiilor de votare sunt pe hartă,
+          unele pot fi poziționate eronat.<br><br>
+          Dacă găsești probleme te rog
+          <a href="#" onclick="$('#raporteaza').show()">raportează-le</a> și în felul ăsta vom
+          îmbunătăți harta pentru toată lumea.
+          </div>
 
       </div>
 
