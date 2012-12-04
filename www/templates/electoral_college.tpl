@@ -28,6 +28,9 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
     <table width="970" style="margin-top:12px">
       <tr>
       <td width="970" valign="top" colspan=2>
+        <div style="float:right">
+          <a href="/?cid=sectii_votare">Caută-ți secția de votare</a>
+        </div>
         <div class="big" style="margin-bottom:12px"><b>Candidați 2012</b> - alfabetic</div>
 
         <div class="module" style="background-color: #F3F6FF">
