@@ -992,3 +992,19 @@ a.new_link:hover {
   padding: 5px;
   color: blue;
 }
+.search_hl {
+  color: darkred;
+}
+
+.institution, .address {
+  color: #999999;
+  font-size: 77%;
+}
+.polling_title {
+  font-size: 105%;
+  color: blue;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  cursor: hand;
+}

@@ -10,6 +10,7 @@ var markers = [];
 var center_marker = null;
 var zoom_level = 13;
 
+var svsToMarkerHash = {};
 
 var permalinkMarkerSvs;
 
@@ -22,6 +23,11 @@ function codeAddress() {
   }
   if (!adrs)
     return;
+
+  if (openedInfowindow) {
+    openedInfowindow.close();
+  }
+
   geocoder.geocode( { 'address': adrs}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
 
@@ -89,6 +95,15 @@ function addMarker(pos, markerData) {
     openInfoWindow(marker, markerData);
     permalinkMarkerSvs = null;
   }
+
+  if (markerData['is_match']) {
+    loadPollingStationDetails(markerData['is_match'].split(','));
+  }
+
+  var svs = markerData['svs'].split(',');
+  $.each(svs, function(i) {
+    svsToMarkerHash[svs[i]] = [marker, markerData];
+  })
 }
 
 function sendEdit(markerCode) {
@@ -174,12 +189,16 @@ function get_data() {
 
   var bounds = map.getBounds();
   var params = {
-      s: bounds.getSouthWest().lat(),
-      w: bounds.getSouthWest().lng(),
-      n: bounds.getNorthEast().lat(),
-      e: bounds.getNorthEast().lng(),
-      z: map.zoom
-    };
+    s: bounds.getSouthWest().lat() - 0.02,
+    w: bounds.getSouthWest().lng() - 0.02,
+    n: bounds.getNorthEast().lat() + 0.02,
+    e: bounds.getNorthEast().lng() + 0.02,
+    z: map.zoom
+  };
+
+  if (!openedInfowindow) {
+    params.q = $('#q').val();
+  }
 
   updatePermalink();
 
@@ -210,11 +229,13 @@ function get_data() {
 function updatePermalink() {
   var value = 'http://hartapoliticii.ro/?cid=sectii_votare#' +
       'z=' + map.zoom +
-      '&c=' + map.getCenter().lat() + ',' + map.getCenter().lng();
+      '&c=' + map.getCenter().lat() + ',' + map.getCenter().lng() +
+      '&q=' + $('#q').val();
 
   if (openedMarkerData) {
     value += '&m=' + openedMarkerData['svs'];
   }
+
   $("#permalink").val(value);
 
 }
@@ -238,11 +259,20 @@ function removeMarkersFromMap() {
 function load_sv_det(sv, opt_append) {
   $.ajax({
     url: '/api/get_svs.php',
-    data: {sv: sv},
+    data: {
+      sv: sv,
+      q: $('#q').val()
+    },
     success: function(data) {
       var currentHtml = opt_append ? $('#sv').html() : '';
 
       $('#sv').html(currentHtml + data);
+      $('.polling_title').click(function() {
+        // Go through all the markers that are on the map and open the
+        // infowindow for the one that matches.
+        var data = svsToMarkerHash[this.getAttribute('code')];
+        openInfoWindow(data[0], data[1]);
+      });
     }
   });
 }
@@ -273,6 +303,9 @@ function init() {
     isMapUpdateDisabled = false;
   });
 
+  $('.polling_title').click(function() {
+    console.log('oh hi');
+  });
 
   /*google.maps.event.addListener(map, 'dragend', function() {
     isMapUpdateDisabled = true;
@@ -300,6 +333,9 @@ function maybeReadAnchor() {
     }
     if (pair[0] == 'm') {
       permalinkMarkerSvs = pair[1];
+    }
+    if (pair[0] == 'q') {
+      $("#q").val(pair[1]);
     }
   }
 }

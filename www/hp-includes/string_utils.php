@@ -248,7 +248,7 @@ function highlightStr($haystack, $needle) {
   preg_match_all("/$needle+/i", $haystack, $matches);
   if (is_array($matches[0]) && count($matches[0]) >= 1) {
     foreach ($matches[0] as $match) {
-      $haystack = str_replace($match, '<b>'.$match.'</b>', $haystack);
+      $haystack = str_replace($match, '<span class=search_hl><b>'.$match.'</b></span>', $haystack);
     }
   }
   return $haystack;
