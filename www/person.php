@@ -209,6 +209,7 @@ if ($expandedModule = isExpandedModule($_GET['exp'])) {
       echo "<div class='module'>";
     }
     $moduleTitle = $person->getLongTitleForWhat($moduleName);
+    echo "<a name='{$moduleName}'>";
     echo "<div class=moduletitle>$moduleTitle</div><div class=modulecontent>";
 
     // Based on the module name, load the 'module_compact.php' file.

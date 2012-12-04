@@ -417,7 +417,7 @@ class Person {
   /**
    * Returns the string used to identify a person by what they did.
    */
-  public function getHistorySnippet($except=NULL) {
+  public function getHistorySnippet($except=NULL, $linkify=false) {
     $arr = array();
     // Fetch info from the history file.
     $s = mysql_query(
@@ -432,7 +432,14 @@ class Person {
       }
 
       $moduleTitle = $this->getShortTitleForWhat($r['what']);
-      $arr[] = "<div class=what>$moduleTitle</div>";
+
+      if ($linkify) {
+        $arr[] = "<div class=what><a href='/?name=" .
+            $this->getNameForUrl() . "#{$r['what']}'>$moduleTitle</a></div>";
+
+      } else {
+        $arr[] = "<div class=what>$moduleTitle</div>";
+      }
     }
     return implode(", ", $arr);
   }

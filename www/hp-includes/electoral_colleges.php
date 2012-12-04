@@ -134,12 +134,13 @@ function getCollegeCandidates($college, $year) {
 
   while ($r = mysql_fetch_array($s)) {
     $person = new Person();
+    $person->name = $r['name'];
     $person->id = $r['id'];
 
     $person_object = $r;
     $person_object['tiny_img_url'] = getTinyImgUrl($r['id']);
     $person_object['history_snippet'] =
-        $person->getHistorySnippet(array('results/2012'));
+        $person->getHistorySnippet(array('results/2012'), true);
 
     // HACK to show the USL/ARD alliance for parties.
     $displayed_party_name = $r["party"];

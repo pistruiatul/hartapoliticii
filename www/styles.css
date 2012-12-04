@@ -278,7 +278,14 @@ body {
   font-size:1.2em;
 }
 .what {
-  display:inline;
+  display: inline-block;
+}
+.what a {
+  color: #AAAAAA;
+  text-decoration: none;
+}
+.what a:hover {
+  color: #666666;
 }
 .searchresult .snippet {
   color:#333;
@@ -992,7 +999,8 @@ a.new_link:hover {
   padding: 5px;
   color: blue;
 }
-.search_hl {
+
+.sv_description .search_hl {
   color: darkred;
 }
 

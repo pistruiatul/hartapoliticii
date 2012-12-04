@@ -55,14 +55,14 @@ def main():
 
     name = soup.find('h1', {'class': 'entry-title entry-title-single'})
     if name is None:
-      # print url, "-- no name found!"
+      print url, "-- no name found!"
       continue
 
     category = soup.find('span', {'class': 'cat-links'})
     category_name = ""
 
     if category is None:
-      # print url, "--", "no category found"
+      print url, "--", "no category found"
       continue
 
     if category:
@@ -74,7 +74,7 @@ def main():
           skip = False
 
       if skip:
-        # print url, "--", link['href'], link.contents, "Not an accepted category"
+        print url, "--", link['href'], link.contents, "Not an accepted category"
         continue
 
       category_name = link.contents
