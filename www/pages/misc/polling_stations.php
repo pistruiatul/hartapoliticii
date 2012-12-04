@@ -2,7 +2,8 @@
 // If you are accessing this page directly, redirect to the front page
 if (!$DB_USER) header('Location: /');
 
-$title = "Căutare secții de votare";
+$title = "Hartă cu secțiile de votare, Alegeri 2012";
+
 
 include('header.php');
 

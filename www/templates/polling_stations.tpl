@@ -36,6 +36,11 @@
     </div>
     <input type="text" id="permalink">
     <br><br>
+
+    Pentru secțiile de votare din străinătate, vezi
+      <a href="http://www.mae.ro/sectii-de-votare-referendum">harta de pe site-ul MAE</a>.
+      <br><br>
+
     Sursa pentru aceste secții de votare:
 
       <div id="polling_stations_source">
