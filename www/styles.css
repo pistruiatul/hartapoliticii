@@ -57,9 +57,8 @@ body {
   font-size: 1.2em;
 }
 .menu {
-  padding: 8px;
-  background-color: #F6F6F6;
-  margin: 0;
+  background-color: #e7f3ff;
+  margin: 0 0 3px 0;
   font-size: 1.1em;
 }
 .menu td {
@@ -76,8 +75,19 @@ body {
   font-size: 14px;
   margin-bottom: 3px;
 }
-.menu a {
-  color: #213f9a;
+
+.menu_top_row {
+  font-size: 15px;
+  background-color: #cce6ff;
+}
+.menu_bottom_row {
+  background-color: #e7f3ff;
+}
+.menu_top_row td {
+  padding: 8px 0 2px 8px;
+}
+.menu_bottom_row td {
+  padding: 2px 0 8px 8px;
 }
 .noprint {
 }

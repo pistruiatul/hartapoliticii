@@ -26,58 +26,62 @@
   </td>
 </table>
 
-<table class=menu width=970>
+<table class=menu width=970 cellpadding=0 cellspacing=1>
+  <tr class="menu_top_row">
   <td>
     Camera Deputaților
+  </td>
+  <td>
+    Senat
+  </td>
+  <td>
+    Euro-parlamentare
+  </td>
+  <td>
+    Prezidențiale
+  </td>
+  <td>
+    Utile
+  </td>
+  </tr>
+  <tr class="menu_bottom_row">
+  <td>
     <div class=submenu>
       <a href="{$site_path}?cid=1&room=camera_deputatilor" class="{if $cid==1}black_link{/if}">
-        2004-2008
-      </a> |
+        2004-2008</a> |
       <a href="{$site_path}?cid=11&room=camera_deputatilor" class="{if $cid==11}black_link{/if}">
-        2008-2012
-      </a> |
+        2008-2012</a> |
       <a href="{$site_path}?cid=21&room=camera_deputatilor" class="new_link{if $cid==21}_sel{/if}">
-        Alegeri 2012
-      </a>
+        Alegeri 2012</a>
     </div>
   </td>
 
   <td>
-    Senat
     <div class=submenu>
       <a href="{$site_path}?cid=3&room=senat" class="{if $cid==3}black_link{/if}">
-        2004-2008
-      </a> |
+        2004-2008</a> |
       <a href="{$site_path}?cid=12&room=senat" class="{if $cid==12}black_link{/if}">
-        2008-2012
-      </a> |
+        2008-2012</a> |
       <a href="{$site_path}?cid=22&room=senat" class="new_link{if $cid==22}_sel{/if}">
-        Alegeri 2012
-      </a>
+        Alegeri 2012</a>
       </div>
   </td>
 
   <td>
-    Euro
     <div class=submenu>
       <a href="{$site_path}?c=alegeri+europarlamentare+2009&cid=10" class="{if $cid==10}black_link{/if}">
-        Alegeri 2009
-      </a></div>
-  </td>
-
- <td>
-    Prezidențiale
-    <div class=submenu>
-      <a href="{$site_path}?c=alegeri+prezidentiale+2009&cid=13" class="{if $cid==13}black_link{/if}">
-        Alegeri 2009
-      </a></div>
+        Alegeri 2009</a></div>
   </td>
 
   <td>
-    Utile
+    <div class=submenu>
+      <a href="{$site_path}?c=alegeri+prezidentiale+2009&cid=13" class="{if $cid==13}black_link{/if}">
+        Alegeri 2009</a></div>
+  </td>
+
+  <td>
     <div class=submenu>
       <a href="{$site_path}?cid=14" class="{if $cid==14}black_link{/if}">Presă</a> |
       <a href="{$site_path}?cid=comunitate" class="new_link{if $cid=='comunitate'}_sel{/if}">Comunitate</a>
-
   </td>
 </table>
