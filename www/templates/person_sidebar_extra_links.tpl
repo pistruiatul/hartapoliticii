@@ -12,7 +12,7 @@
   </li>
 
   <li class="identity_li small">
-    <a href="http://www.google.ro/search?hl=ro&q={$name}+site:wikipedia.org&btnI=Mă Simt Norocos&meta=lr%3Dlang_ro">
+    <a href="https://ro.wikipedia.org/w/index.php?search={$name}&title=Special%3AC%C4%83utare">
       Caută pe Wikipedia
     </a>
   </li>
