@@ -9,6 +9,7 @@
 	  <a href="wp-login.php?action=login">Autentificare</a>
 	{/if}
   /
-    <a href="{$site_path}?cid=6" class="{if $cid==6}black_link{/if}">Despre site</a></div>
+    <a href="{$site_path}?cid=6" class="{if $cid==6}black_link{/if}">Despre site</a> /
+    <a href="https://docs.google.com/spreadsheet/viewform?formkey=dEU3RW10Ukd3VG9GWUc5VEo1blFZdVE6MQ" target="_blank">Raportează o problemă</a> </div>
 	</div>
 </div>
