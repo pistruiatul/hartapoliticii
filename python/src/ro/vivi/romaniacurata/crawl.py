@@ -43,7 +43,7 @@ accepted_categories = [
 def main():
   file = codecs.open(sys.argv[1], "w", "utf-8")
 
-  for i in range(1, 12000):
+  for i in range(1, 11353):
     url = "http://verificaintegritatea.romaniacurata.ro/?p=%s" % i
     data = get_page(url, "/work/tmp/romaniacurata", "UTF-8", True)
 
