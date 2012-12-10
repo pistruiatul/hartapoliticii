@@ -8452,3 +8452,302 @@ context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 16: 
 source= http://verificaintegritatea.romaniacurata.ro/?p=11059
 cat=    Datorii catre stat
 Firma Rovet Copy Srl are datorii de 48 337 lei pentru care s-a inceput procedura de executare silita.
+name=   Alexandru Cristian Magherescu
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 28: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11074
+cat=    Averea candidatilor
+Detine un teren forestier in Dambovita, doua apartamente si o casa de vacanta, doua autoturisme Mercedes. Are datorii de 40 000 euro la banci.
+si a vandut un apartament cu 148 000 euro. Este asociat la Doris Turism si la Siluten Doris Company, firma la care este manager, post pentru care a incasat un salariu de 24 000 lei.
+name=   Alexandru Cristian Magherescu
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 28: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11077
+cat=    Condamnari si arestari
+Curtea de Apel Bucuresti l-a condamnat pe Alexandru Magherescu la 7 ani de inchisoare cu executare pentru ca a fraudat o companie de asigurari. El a vandut un autoturism Audi unui fotbalist dupa care l-a declarat furat.
+name=   Damian Florea
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 27: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PC
+source= http://verificaintegritatea.romaniacurata.ro/?p=11090
+cat=    Traseism
+PSD, PC.
+name=   Damian Florea
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 27: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PC
+source= http://verificaintegritatea.romaniacurata.ro/?p=11092
+cat=    Averea candidatilor
+Detine trei terenuri intravilane si un teren agricol, doua apartamente, o casa de lemn,un spatiu comercial,obiecte de arta in valoare de 205 800 lei.Are 12 100 euro, actiuni la Fondul Proprietatea in valoare de 3 237 330 lei. A cumparat drepturi litigiooase si de reconstituire a dreptului de proprietate de la doua persoane fizice. Are o datorie 50 000 euro la o banca.
+A castigat 50 784 lei din indemnizatia de deputat, 24 000 euro din inchirieri si 104803 lei din dividende.
+name=   Florin Daniel Geanta
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 24: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11104
+cat=    Averea candidatilor
+Detine, impreuna cu sotia Geanta Mirela,trei terenuri intravilane, un apartament si o casa in constructie. Are in conturi si depozite 157 000 lei si 4523 USD. A contractata credite in valoare de 60 000 euro si 60 000 lei.
+A castigat din inde,mnizatia de deputat 50 784 lei, iar sotia din salariul de la FC Urban SA 207 214 lei. Din inchirierea unui teren intravilan in Otopeni, familia Geanta a mai castigat 72 000 lei.
+name=   Florin Daniel Geanta
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 24: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11106
+cat=    Afaceri si contractele cu statul
+Florin Daniel Geanta a fost director la firma SC Urban SA la care este si sotia sa salariata. Potrivit Monitorului Oficial Partea a IV-a nr. 872/13 II 2008 Geanta a fost si imputernicit pana in 1.11.2011 al SC Urban SA filiala Calarasi.
+Infiintata in 1995, prin desprinderea serviciului de Salubritate din cadrul Regiei de Gospodarie Comunala din Ramnicu Valcea, compania privata URBAN SA se ocupa in prezent de salubrizare in noua judete din tara, principalele localitati in care activeaza fiind: Ramnicu Valcea, Brasov, Bucuresti (sectorul 6), Otopeni, Calimanesti, Olanesti, Baile Govora, Bragadiru, Ocnele Mari, Sinaia, Azuga, Calarasi, Dragasani si Horezu. Totodata, detine statii de sortare si valorificare a deseurilor reciclabile in Bucuresti, Brasogv si Ramnicu Valcea. (Gazeta de Sud, citata de ziare.com)
+Sc Urban SA a primit in concesiune serviciile de salibritate de la Consiliul Local Brasov, din 2005 pe o perioada de 8 ani (IPP)
+Pe langa aceste contracte, SC Urban SA a derulat si altele potrivit SEAP:
+SERVICII SALUBRITATE (14.09.2012) U.M. 02544/B1 SC URBAN SA SUCURSALA BRASOV Valoare castigatoare: 1440.00 (RON)
+Acord-cadru pentru atribuirea de contracte subsecvente pentru prestarea de servicii de salubritate 2012-2013 (29.05.2012) Penitenciarul Bucuresti Rahova SC URBAN SA Valoare castigatoare: 99820.00 (RON)
+Colectarea, transportul si depozitarea rezidurilor menajere pentru urmatoarele puncte de lucru: CHEMP SINAIA 0, CHEMP SINAIA 1, CHEMP SINAIA 2, CHEMP SINAIA3, BARAJ SINAIA 0, MHC PELES (13.01.2011) HIDROELECTRICA SA SC URBAN SA BUCURESTI Valoare castigatoare: 4530.00 (RON)
+Servicii de colectare deseu menajer (10.05.2010) M 01924SC URBAN SA Valoare castigatoare: 7000.00 (RON)
+Salubritate (10.09.2009) Unitatea Militara 02576 Bucuresti SC URBAN SA Valoare castigatoare: 5474.00 (RON)
+CONTRACT PRESTARI SERVICII DE SALUBRITATE (05.06.2009) U.M. 02544/B1 SC URBAN SA – Sucursala Brasov Valoare castigatoare: 960.00 (RON)
+Servicii de colectare deseu menajer (13.05.2009) UM 01924 SC URBAN SA
+Valoare castigatoare: 8400.00 (RON)
+Servicii de colectare a deseurilor menajere (26.02.2009)Spitalul Universitar C.F. Witing SC URBAN SA 50756.30
+SPITALUL CLINIC DE URGENTA SF.IOAN – Servicii Salubrizare (07.10.2008)            SC URBAN SA Valoare castigatoare: 43000.00 (RON)
+Contract de salubritate (30.09.2008) U.M. 02544/B1 SC URBAN SA Valoare castigatoare: 384.00 (RON)
+Servicii de salubritate (29.09.2008) CASA NATIONALA DE ASIGURARI DE SANATATE SC URBAN SA Valoare castigatoare: 24.50 (RON)
+Achizitie – SERVICII DE COLECTARE A DESEURILOR MENAJERE (19.09.2008) UNITATEA MILITARA 02301 SC URBAN SA RM. VALCEA – Sucursala Bucuresti Valoare castigatoare: 42336.00 (RON)
+Achizitie servicii de salubrizare pentru ICMB (07.07.2008) INSPECTORATUL DE STAT IN CONSTRUCTII SC URBAN SA Valoare castigatoare: 30.00 (RON)
+Servicii de colectare a deseurilor menajere (01.07.2008)UNIVERSITATEA DUNAREA DE JOS SC URBAN SA Valoare castigatoare: 143503.50 (RON)  |  Judet: Galati
+Servicii de colectare, transport si depozitare la rampa a deseurilor (04.06.2008) OFICIUL NATIONAL AL REGISTRULUI COMERTULUI SC URBAN SA Valoare castigatoare: 640.00 (RON)
+Servicii de salubrizare la CHE Maneciu si CHE Izvoare – UHE Campina (02.06.2008)HIDROELECTRICA SA SC URBAN SA RAMNICU VALCEA – SUCURSALA BRASOV Valoare castigatoare: 1210.08 (RON)
+Servicii publice de salubritate pentru IJC Bistrita-Nasaud (27.05.2008) INSPECTORATUL DE STAT IN CONSTRUCTII SC URBANA SA Valoare castigatoare: 27.54 (RON)
+Servicii de colectare deseu menajer (01.04.2008) UM 01924
+SC URBAN SA Valoare castigatoare: 7752.00 (RON)
+Materiale pentru gradinarit (15.01.2008) Municipiul Piatra Neamt SC URBAN SA
+Valoare castigatoare: 6875.00 (RON)
+Achizitie publica de lucrari – ,,Extindere retea de distributie a apei pe casa scarii” (19.12.2007) Municipiul Slobozia SC URBAN SA SLOBOZIA Valoare castigatoare: 154980.92 (RON)
+Furnizare solutie ecologica pentru deszapezire (18.12.2007) ADMINISTRATIA DOMENIULUI PUBLIC SECTOR 6 SC URBAN SA valoare castigatoare: 197,850 lei
+Servicii de colectare, transport si depozitare deseuri menajere si industriale (17.02.2008) Universitatea din Bucuresti SC URBAN SA Valoare castigatoare: 252288.00 (RON)
+Prestari servicii de colectare a deseurilor menajere si industriale (25.03.2008) UM 02210 BucurestiSC URBAN SA Valoare castigatoare: 108,602.00 (RON)
+name=   Gheorghe Udriste
+context=udriste.jpg”>Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 25: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11118
+cat=    Averea candidatilor
+Detine un teren intravilan, un apartament, bijuterii si ceasuri in valoare de 40 000 euro. Are in depozite bancare 1,199,000 lei si 43 170 euro. A imprumutat o persoana fizica cu 90 000 lei si este dator unei persoane fizice cu 75 000 euro.
+A castigat ca director Metrorex 49 000 lei si de la Complexul Energetic Turceni 15 315. Sotia a castigat pentru functia de administrator la doua firme 41 670 lei. A mai castigat din dobanzi bancare 40 000 lei.
+name=   Ion Bogdan Mihailescu
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 28: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11131
+cat=    Averea candidatilor
+Detine un teren intravilan si unul extravilan, trei apartamente in Bucuresti. Are datorii la Banci in valoare de 22 000 lei si 51 000 euro. A castigat 45,456 lei din salariul de director general la SC Amenajare Edilitara si Salubrizare Bucuresti.
+name=   Mihai Sturzu
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 24: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11150
+cat=    Averea candidatilor
+Detine trei terenuri agricole, o faneata in Brasov si doua in Giurgiu, doua apartamente in Bucuresti. A imprumutat persoane fizice cu 14000USD si 5000 euro si are un credit de 100 000 franci elvetieni. A castigat ca muzician la trupa Hi-Q 32 132 lei.
+name=   Oana Niculescu Mizil
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 23: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11163
+cat=    Nepotism
+Nepoata lui Paul Niculescu-Mizil, fost Ministru al Educaţiei şi Învăţământului (1972 – 1976) şi Ministru de Finanţe (1978 – 1981)
+name=   Oana Niculescu Mizil
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 23: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11165
+cat=    Averea candidatilor
+Detine un teren in Ilfov, trei apartamente, unul fiind al lui Samil Tohme,  bijuterii in valoare de 850 000 euro. A imprumutat persoane fizice cu 176 000 lei si 680 000 euro. A contractat credite in valoare de  1,520,000 euro, 178 000 franci elvetieni.A castigat din indemnizatia de deputat 50 784 lei si din chirii 21 261 lei.
+Este asociat la STo Food SRL si Effect Prod SRL, precum si la Solagra Prod SRL.
+name=   Razvan Horia Mironescu
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 26: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11179
+cat=    Averea candidatilor
+Detine un teren agricol si trei terenuri intravilane, trei apartamente, o casa de locuit si spatii de birouri,ceasuri in valoare de 30 000 de euro. Are 72000 lei intr-un cont, doua asigurari de viata in valoare de 501 989 lei si 254 270lei intr-un fond de acumulare. Are datorii in valoare de 309 000 lei. A castigat din salarii 12 175 lei si din dividende 50 300 lei
+Este asociat la SC Rav Birotics, Total Advertising, Display Solutions, Rav Contractor.
+name=   Razvan Horia Mironescu
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 26: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11181
+cat=    Afaceri si contractele cu statul
+Potrivit SEAP  RAV Contractor SRL a incheiat doua contracte cu statul in 2008:
+ACHIZITIE PRODUSE INFORMATIVE SI DE PROMOVARE (24.11.2008) Agentia pentru Sprijinirea Initiativelor Tinerilor-ANSIT RAV CONTRACTOR S.R.L.Valoare castigatoare: 120445.00 (RON)
+Achizitie materiale promotionale (24.11.2008) Agentia pentru Sprijinirea Initiativelor Tinerilor-ANSIT RAV CONTRACTOR S.R.L.Valoare castigatoare: 136916.00 (RON)
+SC DISPLAY SOLUTIONS SRL a incheiat trei contracte cu statul:
+Contracte de furnizare avand ca obiect furnizarea de produse informative si de promovare pentru anul 2012 Autoritate contractanta: Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii 4327 lei 2012-06-20
+Furnizare produse informative si de promovare Autoritate contractanta Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii 31 868 lei 04-10-2011
+Furnizare produse informative si de promovare pentru anul 2011 Autoritate contractanta Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii 1184 lei 2011-04-20
+name=   Razvan Horia Mironescu
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 26: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11183
+cat=    Datorii catre stat
+Rav Birotics are datorii in valoare de 67165 lei executare silita
+TOTAL ADVERTISING S.R.L. are datorii in valoare de  3394 lei  executare silita.
+name=   Silviu Vaduva
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 28: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11195
+cat=    Averea candidatilor
+Detine trei terenuri intravilane, 55000 euro in conturi. A imprumutat firma Urban media Solutions cu 400 000 euro si a acordat si alte imprumutur in valoare de 1650000 euro. A castigat de la Vami si ca membru al Radet 36628 lei. Are un imprumut de la o banca in valoare de 1,150000 euro.
+name=   Silviu Vaduva
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 28: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11197
+cat=    Sponsori ai partidelor police
+Potrivit CURS DE GUVERNARE, Silviu Văduva apare pe lista celor care au făcut donaţii către PDL în perioada când ocupa funcţia de consilier local Primăria Sector 6. Potrivit CURS DE GUVERNARE a avut în 2009 venituri de 37.305 lei, iar donaţia făcută a fost de 199.500 lei.
+name=   Teodor Dragan
+context=Camera Deputatilor, Judetul in care candideaza: Bucuresti, Colegiul 23: http://www.becparlamentare2008.ro/coleguni/bucuresti.pdf, Alianta/Partidul pentru care candideaza: ARD-PDL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11205
+cat=    Averea candidatilor
+Detine doua terenuri intravilane si unul agricol, un apartament in Bucuresti si Bijuterii in valoare de 15 000 euro. A castigat ca manager la SC Millenium Intermed, firma la care este si actionar, 8200 lei.
+name=   Alexandri Nicolae
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 7: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11225
+cat=    Averea candidatilor
+1 teren intravilan si 1 casa in Ploiesti; 1 autoturism Audi A4, 1 autoturism Volkswagen Polo.
+name=   Alexandru Mihai Stefanescu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 9: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PC
+source= http://verificaintegritatea.romaniacurata.ro/?p=11235
+cat=    Averea candidatilor
+Este asociat in urmatoarele societati comerciale: SHINOBI SISTEMA SRL (100%), CLIPPERTON SRL (50% – 50% pe numele surorii), SOIMII GRAND SECURITY SRL (50% – 50% pe numele surorii).
+name=   Alexandru Mihai Stefanescu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 9: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PC
+source= http://verificaintegritatea.romaniacurata.ro/?p=11237
+cat=    Datorii catre stat
+CLIPPERTON SRL – 11.228 RON – s-a inceput procedura de executare silita.
+name=   Andrei Valentin Sava
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 12: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11249
+cat=    Traseism
+In perioada 2004 – 2005 a fost membru al Partidului Umanist Roman (devenit ulterior Partidul Conservator). El a trecut apoi in PDL pe listele caruia a fost ales in 2008 deputat de Prahova. In mai 2012 a demisionat din PDL si s-a inscris in PSD.
+name=   Andrei Valentin Sava
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 12: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11251
+cat=    Averea candidatilor
+1 teren extravilan in judetul Prahova; bijuterii in valoare de 12.500 EUR.
+A incasat suma de 29.103 RON de la societatea comerciala MAXIGEL SRL, reprezentand contravaloarea unui curs de management. (sursa:declaratia de interese din 15.10.2012). Andrei Valentin Sava a fost asociat si administrator al acestei firme pana in 2008, cand si-a cesionat partile sociale detinute.
+Este asociat in societatea comerciala ADVERT MARKETING SRL (95%).
+name=   Georgica Severin
+context=Senat, Judetul in care candideaza: Prahova, Colegiul 1: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11263
+cat=    Averea candidatilor
+2 terenuri agricole, 2 terenuri forestiere, 7 terenuri intravilane si 2 terenuri extravilane; 3 apartamente si 3 case.
+Are in conturi 530 EUR, 1.020 USD si 1.875 RON.
+A acordat imprumuturi in nume personal catre toate cele 5 firme in care este asociat, in valoare totala de 385.659 RON si 8.150 EUR. De asemenea, si-a imprumutat fiica cu 10.000 EUR si 64.000 RON.
+Datorii – 2 credite bancare in valoare de 14.000 RON si 5.300 RON; 1 scrisoare de garantie bancara in valoare de 40.000 EUR; 1 credit catre o persoana fizica in valoare de 50.000 RON.
+Este asociat in urmatoarele societati comerciale:
+QED MEDIA HOLDING SRL (55% – 45% pe numele sotiei;intrerupere temporara de activitate), QED RADIO PRESS SRL (55% – 45% pe numele sotiei;intrerupere temporara de activitate), QED TV – PRIMA SRL (55% – 45% pe numele sotiei), SEV MANAGEMENT GROUP SRL (75% – 25% pe numele sotiei; intrerupere temporara de activitate), SEV OIL MANAGEMENT SRL (45% – 55% pe numele sotiei).
+name=   Georgica Severin
+context=Senat, Judetul in care candideaza: Prahova, Colegiul 1: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11265
+cat=    Datorii catre stat
+QED MEDIA HOLDING SRL – 56.480 RON – cereri de compensare in curs de solutionare.
+name=   Gratiela – Leocadia Gavrilescu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 3: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11277
+cat=    Traseism
+A trecut prin doua partide: PUR – PDL
+In perioada 2003-2004 a fost presedinta filialei Ploiesti a Partidului Umanist Roman (PUR, partidul lui Dan Voiculescu – si-a schimbat ulterior titulatura in Partidul Conservator). La alegerile locale din 2004, a intrat in Consiliul Local Ploiesti pe listele PSD + PUR, dar la scurt timp a migrat la liberali si a candidat la alegerile parlamentare din acelasi an pe listele PNL. In urma scrutinului, a castigat un post de supleant si a devenit deputat in 2007, dupa moartea predecesrului ei, Ioan Preda.
+name=   Gratiela – Leocadia Gavrilescu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 3: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11279
+cat=    Averea candidatilor
+2 terenuri agricole, 1 teren forestier si 4 terenuri intravilane in judetele Prahova, Neamt si Vrancea; 2 apartamente si 2 case; 2 autoturisme KIA; bijuterii si obiecte de arta in valoare de aprox. 5.000 EUR.
+In 2012 a vandut un apartament cu 3 camere in Bucuresti contra sumei de 72.000 EUR.
+Este actionar la societatea comerciala ARPACOR SA (6,52%).
+name=   Ion Eparu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 10: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11292
+cat=    Averea candidatilor
+1 teren agricol si 2 terenuri intravilane; 1 apartament si 1 casa; 1 autoturism Cielo Executive.
+Are in conturi 5.000 EUR si 11.000 RON.
+name=   Mircea Rosca
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 1: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11305
+cat=    Averea candidatilor
+2 terenuri agricole si 1 casa in Comarnic; 1 autoturism Audi A6, 1 autoturism Chevrolet Spark.
+Datorii – un credit bancar in valoare de 57.000 EUR, scadent in 2040.
+name=   Paul Dumbravanu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 11: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11317
+cat=    Averea candidatilor
+Este asociat in urmatoarele societati comerciale: GLOBAL NETWORKING EVENTS SRL (33,34%), STRATUS CONSULTING SRL (90% – 10% pe numele fratelui), STRATUS REAL ESTATE SRL (90% – 10% pe numele fratelui).
+name=   Sorin Chivu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 6: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-UNPR
+source= http://verificaintegritatea.romaniacurata.ro/?p=11330
+cat=    Traseism
+A trecut prin doua partide: PSD – UNPR
+A fost ales deputat in actuala legislature pe listele PSD dar un an mai tarziu, in decembrie 2009, a demisionat din partid si ulterior s-a alaturat UNPR.
+name=   Sorin Chivu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 6: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-UNPR
+source= http://verificaintegritatea.romaniacurata.ro/?p=11332
+cat=    Averea candidatilor
+1 teren intravilan si 1 casa in Bucov, jud Ploiesti, 1 spatiu comercial in Ploiesti; 1 autoturism Hyundai; lingouri de aur in valoare de 100.000 RON.
+In decembrie 2011 a vandut o vila in localitatea Bucov contra sumei de 528.820 RON.
+Are in conturi 453.403 RON.
+A acordat un imprumut in nume personal in valoare de 300.000 RON firmei MECCA PLAST SERVICE SA in care este actionar majoritar.
+Datorii – 2 credite bancare in valoare de 455.400 CHF (scadent in 2024) si 200.000 RON (scadent in 2014).
+Este actionar in societatea comerciala MECCA PLAST SERVICE SA (71,42%).
+Sotia este asociat in societatea comerciala SORNICO IMPEX SRL (100% – intrerupere temporara de activitate).
+Fiul si sotia candidatului detin impreuna societatea comerciala ELA INTER CONSULTING SRL (50% – 50%).
+name=   Sorin Chivu
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 6: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-UNPR
+source= http://verificaintegritatea.romaniacurata.ro/?p=11334
+cat=    Afaceri si contractele cu statul
+- Firma controlata de Sorin Chivu, MECCA PLAST SERVICE SA, isi desfasoara afacerile pe doua terenuri inchiriate de la Consiliul Local Ploiesti in baza unui contract incheiat in 2003 si reinnoit anual. Scoietatea comerciala plateste o chirie de 12.700 RON pe luna iar in prezent contractul este obiectul unui litigiu in instanta. Contractul a fost incheiat cu Consiliul Local Ploiesti in 2003, cand Sorin Chivu era consilier local si este urmarea a 2 contracte de asociere intre Consiliul Local Ploiesti si SC Mecca Plast Service SA, datand din 1995 si 2001, prin care firma primea in administrare cele 2 terenuri pe o perioada de 15 ani, respectiv 5 ani. In 2007, Consiliul Local Ploiesti a discutat si un proiect de hotarare prin care se propunea vanzarea celor 2 terenuri catre firma lui Chivu, insa in cele din urma afacerea nu s-a mai incheiat.
+- MECCA PLAST SERVICE SA  a incheiat in perioada 1997 – 2012 un numar de 15 contracte cu institutii de stat de la nivel local sau central. Declaratia de interese a candidatului mentioneaza doar 4 dintre aceste contracte iar la unul dintre ele mentioneaza o valoare mai mica decat cea indicata de SEAP.
+2007 – Institutul de Cercetare si Dezvoltare pentru Viticultura si Vinificatie – Contract de furnizare – Licitatie deschisa – 181 RON
+2007 – Consiliul judetean Prahova – Furnizare 3 autoturisme de teren 4×4 – Licitatie deschisa – 272.200 RON
+2008 – Inspectia de Stat pentru Controlul Cazanelor – Servicii de reparatii si intretinere auto – 42.000 RON
+2008 – APIA Centrul judetean Dambovita – Servicii de reparatii si intretinere auto – Cerere de oferta – 8.823,53 RON
+2009 – Penitenciarul Targsor – Achizitie carburanti -  Negociere fara anunt de participare – 31.958,64 RON
+2009 – Penitenciarul Targsor – Achizitie carburanti -  Cerere de oferta – 208,14 RON
+2010 – Inspectoratul de Stat in Constructii – Servicii de reparatii si intretinere auto – Licitatie deschisa – 90 RON
+2010 – Inspectia de Stat pentru Controlul Cazanelor – Service auto 2010 – Cerere de oferta – 9.500 RON
+2010 – Inspectoratul de Stat in Constructii – Servicii de reparatii si intretinere auto – Licitatie deschisa – 50 RON
+2010 -  Inspectoratul Teritorial de Regim Silvic si de Vanatoare Ploiesti – Prestari servicii – Cerere de oferta – 9.896 RON
+2011 – Servicii de Gospodarire Urbana Ploiesti – Achizitie materiale de constructii – Cerere de oferta – 177.419 RON
+2012 – Regia Autonoma de Transport Public Ploiesti – Furnizare uleiuri si unsoare – Cerere de oferta – 23.416,80 RON
+2012 – Servicii de Gospodarire Urbana Ploiesti – Achizitie materiale de constructii – Cerere de oferta – 90.200 RON
+2012 – Politia Locala Ploiesti – Prestari servicii – Cerere de oferta – 64.500 RON
+2012 – APIA Buzau – Prestari servicii – Cerere de oferta – 18.655 RON
+- Firma sotiei si fiului, ELA INTER CONSULTING SRL, a incheiat in 2012 un contract de prestari servicii cu Sanatoriul Balnear Techirghiol, in valoare de 40.195,80 RON.
+name=   Sorin Teju
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 5: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11344
+cat=    Averea candidatilor
+11 terenuri intravilane si 1 teren extravilan in jud. Prahova; 1 apartament, 1 casa si 3 spatii comerciale; bijuterii de aur in valoare de 15.000 EUR.
+Are in conturi 40.000 RON.
+A acordat 2 imprumuturi in nume personal catre firmele in care este actionar, in valoare totala de 530.000 RON.
+Datorii – 1 credit in valoare de 220.000 RON la o societate comerciala din Slanic Prahova. Suma a fost imprumutata in 2012 si urmeaza sa fie inapoiata pana in 2014.
+Este asociat in societatile comerciale CRIS RUX SRL (90,19%), TEJU SRL (50% – 50% pe numele sotiei), TEJU & CBA CONTAB SRL (48%).
+name=   Sorin Teju
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 5: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11347
+cat=    Afaceri si contractele cu statul
+6 contracte incheiate de TEJU SRL (brutarie) cu institutii si unitati de stat din judetul Prahova:
+2008 – Scoala de Subofiteri de Pompieri si Protectie Civila Pavel Zaganescu Boldesti jud. Prahova – Furnizare paine alba – Cerere de oferta – 52.082 RON
+2008 – Liceul Constantin Brancoveanu al MAI, Ploiesti – Achizitie paine a 0.300kg – Cerere de oferta – 43.899,10 RON
+2012 – Directia Generala de Asistenta Sociala si Protectia Copilului Prahova – Achizitie paine alba pentru 30 zile – Negociere fara anunt de participare – 16.272 RON
+2012 – Directia Generala de Asistenta Sociala si Protectia Copilului Prahova – Contract de furnizare paine alba – Cerere de oferta – 12.456 RON
+2012 – Directia Generala de Asistenta Sociala si Protectia Copilului Prahova – Achizitie paine alba pentru 30 zile – Negociere fara anunt de participare – 6.372 RON
+2012 – Directia Generala de Asistenta Sociala si Protectia Copilului Prahova – Achizitie paine alba pentru 30 zile – Cerere de oferta – 35.435,40 RON
+name=   Sorin Teju
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 5: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11349
+cat=    Datorii catre stat
+TEJU & CBA CONTAB SRL – 742 RON – s-a inceput procedura de executare silita
+name=   Virgil Guran
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 2: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11357
+cat=    Averea candidatilor
+1 teren agricol si 3 terenuri intravilane; 1 apartament, 1 casa si 2 case de vacanta.
+Datorii – 1 credit bancar in valoare de 120.830 CHF, scadent in 2022.
+- Virgil Guran a imprumutat si suma de 70.000 RON de la firma de creditare VITALCO EURO IFN SA, la care este actionar majoritar (57,57%) si detine functia de director general. Creditul trebuie inapoiat pana in 2020.
+Este asociat si actionar la urmatoarele societati comerciale: VITAL ASIST BROKERAJ ASIGURĂRI SRL (90% – 10% pe numele sotiei), GENECO ’92 CONSULTING SRL (5% – 95% pe numele sotiei), APA TALEA SRL (1% – 99% pe numele sotiei), QUICK NET SERV SRL (60% – intrerupere temporara de activitate), VITALCO EURO IFN SA (57,57%), ELADEA CONT SRL (50%), DEALERINVEST SRL (50%), PROCEDO CONT EXPERT SRL (45%), CISRO SA (18% – in lichidare), IDENTITY SRL (11,11%).
+name=   Virgil Guran
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 2: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PNL
+source= http://verificaintegritatea.romaniacurata.ro/?p=11360
+cat=    Condamnari si arestari
+Virgil Guran a fost retinut de procurorii din Cluj in iulie 2000 intr-un dosar de evaziune fiscala. Judecatoria Turda l-a condamnat in acest dosar in 2005 la o pedeapsa de doi ani de închisoare pentru fals în înscrisuri sub semnătură privată, patru ani de închisoare pentru fals intelectual și trei ani de închisoare pentru evaziune fiscală. Virgil Guran a contestat sentinta cu apel, iar procesul a continuat pentru inca doi ani la Tribunalul Cluj pana cand faptele pentru care fusese initial condamnat s-au prescris. Astfel, instanta a decis incetarea procesului penal iar cazierul lui Virgil Guran a ramas curat.
+name=   Vlad Alexandru Cosma
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 8: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11374
+cat=    Nepotism
+Vlad Alexandru Cosma este fiul actualului presedinte al Consiliului Judetean Prahova si lider PSD Mircea Cosma. Si-a inceput cariera politica in 2008 imiplicandu-se in campania electorala a tatalui sau, ales ulterior in fruntea  Consiliului Judetean Prahova. Apoi, el a devenit consilier la cabinetul parlamentar al deputatului Adrian Nastase, de la care a mostenit colegiul in care a devenit astazi candidat, dupa condamnarea la inchisoare pentru coruptie a fostului presedinte PSD.
+name=   Vlad Alexandru Cosma
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 8: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11376
+cat=    Averea candidatilor
+2 terenuri intravilane; 2 apartamente si 1 spatiu comercial in Ploiesti; bijuterii in valoare de 10.000 EUR.
+In 2012 a vandut cota de 19% pe care o detinea intr-un imobil din Ploiesti catre SC CONTI SA cu suma de 134.000 EUR. In 2011 a vandut un imobil in comuna Blejoi (jud Prahova) cu suma de 196.000 EUR.
+Are in conturi 5.220 RON si 100 USD.
+A acordat doua imprumuturi in nume personal: 90.000 EUR catre propria firma, OZNET SRL si 30.000 EUR catre o persoana fizica.
+Datorii – 1 credit bancar in valoare de 283 EUR (scadent in 2013) si 1 credit catre o societate comerciala, UNITRANS SA, in valoare de 49.000 EUR (scadent in 2014).
+UNITEHNICA SA (15,8% in nume propriu + 34,2% prin firma OZNET SRL – 34,2% pe numele mamei).
+Mircea Cosma (tatal) si Elena Cosma (mama) detin impreuna 100% din societatea comerciala EOL – SOL ENERGY SRL (10% – 90%).
+Mama Elena Cosma este asociat in societatea comerciala GRUPPO PAVIA SRL (12,54% – actionari majoritari sunt 2 cetateni italieni).
+name=   Vlad Alexandru Cosma
+context=Camera Deputatilor, Judetul in care candideaza: Prahova, Colegiul 8: http://www.becparlamentare2008.ro/coleguni/prahova.pdf, Alianta/Partidul pentru care candideaza: USL-PSD
+source= http://verificaintegritatea.romaniacurata.ro/?p=11379
+cat=    Afaceri si contractele cu statul
+In februarie 2012 Coniliul Local Bucuresti a aprobat comasarea unor imobile si a terenurilor aferente pe care sa le exploateze in comun Municipiul Ploiesti (cota de 22,86%) si SC Unitehnica SRL, SC Conti SRL si Cosma Vlad Alexandru (cota de 77,14). Unul dintre terenuri de 91 mp din str Paris din Ploiesti se afla in proprietatea municipiului Ploiesti. Pe terenurile respective  a fiost constuita o cladire de birouri.
