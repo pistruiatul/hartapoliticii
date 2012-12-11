@@ -324,12 +324,6 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = '
         </strong>
       </p>
 
-      <a href="http://www.votulmeu.com/" target="_blank">
-        <img src="/images/parteneri-votulmeu.png"
-             class="banner-partners"
-             alt="Votul Meu">
-      </a>
-
       <a href="http://www.fspub.unibuc.ro/" target="_blank">
         <img src="/images/parteneri-fbpub.jpg"
              class="banner-partners"
