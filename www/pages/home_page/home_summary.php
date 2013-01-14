@@ -10,7 +10,7 @@ include_once('hp-includes/news.php');
 
 $t = new Smarty();
 $t->caching = 1;
-if (!$t->is_cached('home_page_summary.tpl')) {
+if ($uid > 0 || !$t->is_cached('home_page_summary.tpl')) {
   // Show the guys that show up most in the news.
   $list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, NULL);
   $list = newsAddPreviousWeekToList($list, NULL, '%');
@@ -49,6 +49,6 @@ if (!$t->is_cached('home_page_summary.tpl')) {
 
   $t->assign('declarations', getMostRecentDeclarations());
 }
-$t->display('home_page_summary.tpl');
+$t->display('home_page_summary.tpl', $uid);
 
 ?>

@@ -3,7 +3,7 @@
 $t = new Smarty();
 $t->caching = 1;
 
-if (!$t->is_cached('mod_news_expanded.tpl', $person->id)) {
+if ($uid > 0 || !$t->is_cached('mod_news_expanded.tpl', $person->id)) {
   // The list of news is here.
   $start = (int)$_GET['start'];
 
@@ -19,6 +19,6 @@ if (!$t->is_cached('mod_news_expanded.tpl', $person->id)) {
   $t->assign('assoc', $associates);
   $t->assign('total_news', $associates[0]['cnt']);
 }
-$t->display('mod_news_expanded.tpl', $person->id);
+$t->display('mod_news_expanded.tpl',  $uid . "-" . $person->id);
 
 ?>
