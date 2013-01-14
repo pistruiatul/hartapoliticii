@@ -9,13 +9,7 @@ include_once('hp-includes/declarations.php');
 include_once('hp-includes/news.php');
 
 $t = new Smarty();
-
-// Enable custom caching times.
-$t->caching = 2;
-
-// Cache this for 20 minutes.
-$t->cache_lifetime = 1200;
-
+$t->caching = 1;
 if (!$t->is_cached('home_page_summary.tpl')) {
   // Show the guys that show up most in the news.
   $list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, NULL);
