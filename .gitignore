@@ -20,6 +20,9 @@ secret
 tmp
 *.sw?
 
+# Ignore smarty cache files
+www/cache/*
+
 # Ignore vagrant status file
 .vagrant
 

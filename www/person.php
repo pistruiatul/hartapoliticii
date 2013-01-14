@@ -134,8 +134,11 @@ $t->assign('person_url', "http://hartapoliticii.ro/?name=" .
 $t->display("person_sidebar_follow_button.tpl");
 
 $t = new Smarty();
-$t->assign('qualifiers', $person->getNewsQualifiers(10));
-$t->display('person_qualifiers.tpl');
+$t->caching = 1;
+if (!$t->is_cached('person_qualifiers.tpl', $person->id)) {
+  $t->assign('qualifiers', $person->getNewsQualifiers(10));
+}
+$t->display('person_qualifiers.tpl', $person->id);
 
 $college_name = $person->getActiveParliamentElectoralCollege();
 if ($college_name) {

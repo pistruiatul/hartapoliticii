@@ -17,6 +17,7 @@ mirror -v -R --ignore-time \
     -X '.git/*' \
     -X '*.DS_Store' \
     -X 'secret/db_user.php' \
+    -X 'cache/*' \
     ./ /www/www
 quit 0
 EOF
