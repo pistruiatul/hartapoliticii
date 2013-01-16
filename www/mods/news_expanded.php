@@ -3,7 +3,8 @@
 $t = new Smarty();
 $t->caching = 1;
 
-if ($uid > 0 || !$t->is_cached('mod_news_expanded.tpl', $person->id)) {
+if ($uid > 0 || !$t->is_cached('mod_news_expanded.tpl',
+                               $uid . "-" . $person->id)) {
   // The list of news is here.
   $start = (int)$_GET['start'];
 

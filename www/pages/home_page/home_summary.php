@@ -10,7 +10,7 @@ include_once('hp-includes/news.php');
 
 $t = new Smarty();
 $t->caching = 1;
-if ($uid > 0 || !$t->is_cached('home_page_summary.tpl')) {
+if ($uid > 0 || !$t->is_cached('home_page_summary.tpl', $uid)) {
   // Show the guys that show up most in the news.
   $list = getMostPresentInNews(10, NULL, NULL, NULL, NULL, NULL);
   $list = newsAddPreviousWeekToList($list, NULL, '%');
