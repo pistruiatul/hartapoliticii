@@ -3,7 +3,9 @@ include_once('pages/functions_common.php');
 include_once('pages/cdep_2008/functions.php');
 include_once('pages/senat_2008/functions.php');
 
-include_once('hp-includes/follow_graph.php');
+if ($uid > 0) {
+  include_once('hp-includes/follow_graph.php');
+}
 include_once('hp-includes/declarations.php');
 
 include_once('hp-includes/news.php');

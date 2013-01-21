@@ -1,5 +1,4 @@
 <?php
-include_once('hp-includes/follow_graph.php');
 include_once('wp-includes/formatting.php');
 
 /**

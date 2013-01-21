@@ -37,6 +37,10 @@ if (isSet($_GET['q'])) {
   }
 }
 
+// HACK HACK HACK
+// This is a global variable that is usually declared in follow_graph, but that
+// was wrong. Should be refactored and put somewhere nice.
+$followPeopleHashById = array();
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

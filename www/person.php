@@ -3,13 +3,27 @@
 if (!$DB_USER) header('Location: http://www.hartapoliticii.ro');
 
 include_once('hp-includes/wiki_edits.php');
-include_once('hp-includes/people_lib.php');
+include_once('hp-includes/person_class.php');
 include_once('hp-includes/people_util.php');
 
 include_once('hp-includes/electoral_colleges.php');
 
-include_once('hp-includes/follow_graph.php');
+if ($uid > 0) {
+  include_once('hp-includes/follow_graph.php');
+}
 include_once('hp-includes/news.php');
+
+// A method to look up the name of the person in the DB. I moved this method
+// here from people_lib because I think people_lib is built incorrectly right
+// now, every time we include it it loads the entire table of People in
+// memory, which I suspect heavily affects our CPU time.
+function getPersonIdFromExactName($name) {
+  $s = mysql_query("SELECT id FROM people WHERE name='$name'");
+  if ($r = mysql_fetch_array($s)) {
+    return $r['id'];
+  }
+  return -1;
+}
 
 // Checks that the string passed as a parameter represets and expanded module
 // indeed. This method is for security reasons so that we don't load random

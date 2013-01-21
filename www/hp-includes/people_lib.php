@@ -114,15 +114,6 @@ function getPersonsByName($name,
   return $matches;
 }
 
-function getPersonIdFromExactName($name) {
-  $s = mysql_query("SELECT id FROM people WHERE name='$name'");
-  if ($r = mysql_fetch_array($s)) {
-    return $r['id'];
-  }
-  return -1;
-}
-
-
 /**
  * Returns a list of persons from the people database that could potentially
  * be the persons for this name.

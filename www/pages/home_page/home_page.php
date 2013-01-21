@@ -21,7 +21,7 @@ $title = "Informații obiective despre politicieni și alegeri";
 <?php
 
 include('header.php');
-include('hp-includes/people_lib.php');
+//include('hp-includes/people_lib.php');
 
 // And now here I should put some content, like something about the elections,
 // some stats, some news, something like that.
