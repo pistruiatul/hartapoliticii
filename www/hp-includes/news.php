@@ -1,4 +1,5 @@
 <?php
+include_once('hp-includes/string_utils.php');
 include_once('wp-includes/formatting.php');
 
 /**
