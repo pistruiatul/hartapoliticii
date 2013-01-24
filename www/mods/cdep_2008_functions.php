@@ -10,6 +10,11 @@ function mod_cdep_2008_summary() {
   global $cid;
 
   $t = new Smarty();
+  $t->caching = 1;
+  if ($t->is_cached('mod_cdep_2008_summary.tpl', $person->id)) {
+    $t->display('mod_cdep_2008_summary.tpl', $person->id);
+    return;
+  }
 
   $sql =
     "SELECT dep.idperson, dep.id, dep.name, dep.idm, dep.timein, dep.timeout,
@@ -26,8 +31,6 @@ function mod_cdep_2008_summary() {
 
   $sdep = mysql_query($sql);
   $rdep = mysql_fetch_array($sdep);
-
-  $numVotes = getNumberOfVotes();
 
   // Vote percentages
   $timein = $rdep['timein'] / 1000;
@@ -63,10 +66,6 @@ function mod_cdep_2008_summary() {
   $candidateVotes = $rdep['possible'];
   $percent = $rdep['percent'];
 
-  $class = "blacktext";
-  if ($percent < 0.5) { $class = "red"; }
-  if ($percent < 0.3) { $class = "brightred";}
-
   $maverick = $rdep['maverick'];
 
   $t->assign('dep_percent', 100 * $percent);
@@ -83,7 +82,7 @@ function mod_cdep_2008_summary() {
   $t->assign('chd2', 100 * ($percent * $maverick));
   $t->assign('chd3', 100 * (1 - $percent));
 
-  $t->display('mod_cdep_2008_summary.tpl');
+  $t->display('mod_cdep_2008_summary.tpl', $person->id);
 };
 
 /**

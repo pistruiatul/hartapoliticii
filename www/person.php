@@ -153,6 +153,7 @@ $t->display("person_sidebar_follow_button.tpl", $person->id);
 
 $t = new Smarty();
 $t->caching = 1;
+
 if (!$t->is_cached('person_qualifiers.tpl', $person->id)) {
   $t->assign('qualifiers', $person->getNewsQualifiers(10));
 }

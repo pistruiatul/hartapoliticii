@@ -11,21 +11,23 @@ $details_titles = array(
 );
 
 $t = new Smarty();
+$t->caching = 1;
 
-$t->assign('id', $person->id);
-$t->assign('person_id', $person->id);
-$t->assign('title', $title);
-$t->assign('details_titles', $details_titles);
+if (!$t->is_cached('person_contact_details.tpl', $person->id)) {
+  $t->assign('id', $person->id);
+  $t->assign('person_id', $person->id);
+  $t->assign('title', $title);
+  $t->assign('details_titles', $details_titles);
 
-$details_hash = $person->getContactDetails();
+  $details_hash = $person->getContactDetails();
 
-$has_details = false;
-foreach ($details_hash as $key => $value) {
-  $t->assign($key, $value);
-  if (count($value) > 0) {
-    $has_details = true;
+  $has_details = false;
+  foreach ($details_hash as $key => $value) {
+    $t->assign($key, $value);
+    if (count($value) > 0) {
+      $has_details = true;
+    }
   }
 }
-
-$t->display('person_contact_details.tpl');
+$t->display('person_contact_details.tpl', $person->id);
 ?>

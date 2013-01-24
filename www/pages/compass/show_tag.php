@@ -53,59 +53,62 @@ $tagid = (int)$_GET['tagid'];
 $room = $_GET['room'] == 'cdep' ? 'cdep' : 'senat';
 $csum = $_GET['csum'];
 
-$uid = getTagAuthorUid($tagid);
-
 // HACK?
 $year = '2008';
-
 $title = 'Tag "' . getTagNameForId($tagid) . '"';
 
 if (!$_GET['iframe']) include('header.php');
 
 $t = new Smarty();
+$t->caching = 2;
+$t->cache_lifetime = 86400;
 
-$t->assign('tag', getTagNameForId($tagid));
-$t->assign('description', getTagDescriptionForId($tagid));
+if (!$t->is_cached('compass_show_tag.tpl', $tagid)) {
 
-$votes = getVotesForTag($room, $year, $tagid, $uid);
-$possible = sizeof($votes);
-$t->assign('votes', $votes);
+  $t->assign('tag', getTagNameForId($tagid));
+  $t->assign('description', getTagDescriptionForId($tagid));
 
-$people = getPeopleList($room, $year);
+  $authorUid = getTagAuthorUid($tagid);
 
-$non_zero_people = array();
-$zero_people = array();
+  $votes = getVotesForTag($room, $year, $tagid, $authorUid);
+  $possible = sizeof($votes);
+  $t->assign('votes', $votes);
 
-for ($i = 0; $i < sizeof($people); $i++) {
-  $context = getBeliefContext($room, $year, $uid, $people[$i]['id'], $tagid,
-                              $possible, 200);
+  $people = getPeopleList($room, $year);
 
-  foreach ($context as $key => $value) {
-    $people[$i][$key] = $value;
+  $non_zero_people = array();
+  $zero_people = array();
+
+  for ($i = 0; $i < sizeof($people); $i++) {
+    $context = getBeliefContext($room, $year, $authorUid, $people[$i]['id'], $tagid,
+                                $possible, 200);
+
+    foreach ($context as $key => $value) {
+      $people[$i][$key] = $value;
+    }
+
+    // Since I'm here, fix a few things. A little hacky.
+    $people[$i]['link'] = "?cid=9&id=" . $people[$i]['id'];
+    $people[$i]['tiny_photo'] = getTinyImgUrl($people[$i]['id']);
+
+    if ($context['yes_cnt'] + $context['no_cnt'] > 0) {
+      array_push($non_zero_people, $people[$i]);
+    } else {
+      array_push($zero_people, $people[$i]);
+    }
   }
 
-  // Since I'm here, fix a few things. A little hacky.
-  $people[$i]['link'] = "?cid=9&id=" . $people[$i]['id'];
-  $people[$i]['tiny_photo'] = getTinyImgUrl($people[$i]['id']);
+  usort($non_zero_people, "beliefCmp");
 
-  if ($context['yes_cnt'] + $context['no_cnt'] > 0) {
-    array_push($non_zero_people, $people[$i]);
-  } else {
-    array_push($zero_people, $people[$i]);
-  }
+  $t->assign('people', $non_zero_people);
+  $t->assign('absentees', $zero_people);
+
+  $t->assign('room', $room);
+  $t->assign('year', $year);
+  $t->assign('tagid', $tagid);
+
+  $t->assign('user_login', getUserLogin($authorUid));
 }
-
-usort($non_zero_people, "beliefCmp");
-
-$t->assign('people', $non_zero_people);
-$t->assign('absentees', $zero_people);
-
-$t->assign('room', $room);
-$t->assign('year', $year);
-$t->assign('tagid', $tagid);
-
-$t->assign('user_login', getUserLogin($uid));
-
-$t->display('compass_show_tag.tpl');
+$t->display('compass_show_tag.tpl', $tagid);
 
 ?>
