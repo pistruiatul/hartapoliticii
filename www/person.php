@@ -138,14 +138,18 @@ echo "<div class=identity_img><img src=\"$img\" $t></div>";
 // -------------- The left hand side section ----------------
 
 $t = new Smarty();
-$t->assign('following', $person->isFollowedByUserId($uid));
-$t->assign('person_id', $person->id);
-$t->assign('uid', $uid);
-$t->assign('num_supporters', $person->getNumberOfSupporters());
-$t->assign('supported_by_logged_in_user', $person->isSupportedBy($uid));
-$t->assign('person_url', "http://hartapoliticii.ro/?name=" .
-                         $person->getNameForUrl());
-$t->display("person_sidebar_follow_button.tpl");
+$t->caching = 1;
+
+if ($uid > 0 || !$t->is_cached("person_sidebar_follow_button.tpl", $person->id)) {
+  $t->assign('following', $person->isFollowedByUserId($uid));
+  $t->assign('person_id', $person->id);
+  $t->assign('uid', $uid);
+  $t->assign('num_supporters', $person->getNumberOfSupporters());
+  $t->assign('supported_by_logged_in_user', $person->isSupportedBy($uid));
+  $t->assign('person_url', "http://hartapoliticii.ro/?name=" .
+                           $person->getNameForUrl());
+}
+$t->display("person_sidebar_follow_button.tpl", $person->id);
 
 $t = new Smarty();
 $t->caching = 1;

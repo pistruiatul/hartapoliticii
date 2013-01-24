@@ -7,7 +7,7 @@ if (!is_user_logged_in() && $_GET['cid'] == 'profile') {
   header('Location: /wp-login.php');
 }
 
-$uid = is_user_logged_in() ? $current_user->id : 0;
+$uid = is_user_logged_in() ? $current_user->ID : 0;
 
 if ($_GET['cid'] && $_GET['cid'] == 9) {
   $s = mysql_query("SELECT name FROM people WHERE id = {$_GET['id']}");

@@ -574,11 +574,15 @@ class Person {
         $justDeclarationId ? "AND d.id={$justDeclarationId}" : "";
 
     if ($restrict == 'all') {
+
+      $queryRestrict =
+          ($query != '') ? "AND d.declaration LIKE '%{$query}%'" : "";
+
       $s = mysql_query("
         SELECT d.id, d.source, d.declaration, d.time
         FROM people_declarations AS d
-        WHERE d.idperson = {$this->id} AND
-            d.declaration LIKE '%{$query}%'
+        WHERE d.idperson = {$this->id}
+            {$queryRestrict}
             {$navigationalRestrict}
         ORDER BY d.time DESC
         LIMIT {$start}, {$count}

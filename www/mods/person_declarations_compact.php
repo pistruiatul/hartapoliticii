@@ -2,7 +2,7 @@
 
 $declarations = $person->searchDeclarations('', 0, 5, false, 'all');
 
-if (sizeof($declarations) > 0) {
+if (count($declarations) > 0) {
   $t = new Smarty();
   $t->caching = 1;
 
@@ -14,4 +14,5 @@ if (sizeof($declarations) > 0) {
   }
   $t->display('mod_person_declarations_compact.tpl', $person->id);
 }
+
 ?>
