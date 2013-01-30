@@ -9,6 +9,8 @@ include_once('../hp-includes/people_lib.php');
 include_once('../hp-includes/user_utils.php');
 include_once('../hp-includes/declarations.php');
 
+include_once('../smarty/Smarty.class.php');
+
 /**
  * Insert the highilight in the database.
  */
@@ -68,6 +70,10 @@ if ($action == 'add') {
 } else {
   deleteHighlight($uid, $declarationId, $startWord, $endWord, $content);
 }
+
+$t = new Smarty();
+$t->clear_cache('mod_person_declarations_expanded.tpl');
+
 // Also record this in the moderation queue so we can see who added what.
 $ip = $_SERVER['REMOTE_ADDR'];
 $userLogin = getUserLogin($uid);

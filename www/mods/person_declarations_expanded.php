@@ -114,93 +114,106 @@ define('FULL_TEXT', true);
 // NOTE(vivi): Take the type of declarations I am interested in into
 // consideration.
 
-$declarations = $person->searchDeclarations($dq, $start, $pageSize, FULL_TEXT,
-                                            $decl_type, $decl_id);
 $t = new Smarty();
+$t->caching = 2;
+$t->cache_lifetime = 5;
 
-$t->assign('id', $person->id);
-$t->assign('name', $person->name);
-$t->assign('dq', $dq);
-
-$t->assign('logged_in', is_user_logged_in());
-
-$t->assign('start', $start);
-
-$t->assign('last_page', sizeof($declarations) < $pageSize);
-$t->assign('first_page', $start == 0);
-
-$t->assign('text_mode', $text_mode);
-$t->assign('decl_type', $decl_type);
-$t->assign('decl_id', $decl_id);
-
-$currentParams = array(
-  'name' => $person->getNameForUrl(),
-  'exp' => 'person_declarations',
-  'dq' => $dq,
-  'start' => $start,
-  'text_mode' => $text_mode,
-  'decl_type' => $decl_type
-);
-
-$prevStart = $start - $pageSize;
-$t->assign('prev_page_link', constructUrl('/', $currentParams,
-                                          array('start' => $prevStart)));
-
-$nextStart = $start + $pageSize;
-$t->assign('next_page_link', constructUrl('/', $currentParams,
-                                          array('start' => $nextStart)));
-
-
-$t->assign('full_text_link', constructUrl('/', $currentParams));
-$t->assign('snippets_link', constructUrl('/', $currentParams));
-
-$t->assign('all_declarations_link', constructUrl('/', $currentParams, array(
-  'decl_type' => 'all',
-  'start' => 0
-)));
-$t->assign('important_declarations_link',
-           constructUrl('/', $currentParams, array(
-  'decl_type' => 'important',
-  'start' => 0
-)));
-$t->assign('my_declarations_link', constructUrl('/', $currentParams, array(
-  'decl_type' => 'mine',
-  'start' => 0
-)));
-
-$ranges = getHighlights($declarations);
-$myRanges = array();
-
-if (is_user_logged_in()) {
-  $ranges = getHighlights($declarations, 0, $uid);
-
-  $uid = is_user_logged_in() ? $current_user->ID : 0;
-  $myRanges = getHighlights($declarations, $uid, 0);
+if ($dq == "" && $decl_type == "all" && $decl_id == 0) {
+  $cache_key = "{$start}-{$pageSize}";
+} else {
+  $cache_key = NULL;
 }
 
-$newDeclarations = array();
+// If cache_key is null it means we don't want to cache this page at all
+// and we'll go fetch whatever we need to fetch.
+if ($cache_key == NULL ||
+    !$t->is_cached('mod_person_declarations_expanded.tpl', $cache_key)) {
+  $declarations = $person->searchDeclarations($dq, $start, $pageSize, FULL_TEXT,
+                                              $decl_type, $decl_id);
 
-foreach ($declarations as $declaration) {
-  if ($decl_type == 'important' || $decl_type == 'mine') {
-    $declaration['class'] = 'light_gray';
-  } else {
-    if ($highlightsPerDeclaration['declaration-' . $declaration['id']]) {
-      $declaration['class'] = 'dark_gray';
-    }
-  }
-  $declaration['link_to'] = constructUrl('/', array(), array(
+  $t->assign('id', $person->id);
+  $t->assign('name', $person->name);
+  $t->assign('dq', $dq);
+
+  $t->assign('logged_in', is_user_logged_in());
+
+  $t->assign('start', $start);
+
+  $t->assign('last_page', sizeof($declarations) < $pageSize);
+  $t->assign('first_page', $start == 0);
+
+  $t->assign('text_mode', $text_mode);
+  $t->assign('decl_type', $decl_type);
+  $t->assign('decl_id', $decl_id);
+
+  $currentParams = array(
     'name' => $person->getNameForUrl(),
     'exp' => 'person_declarations',
-    'decl_id' => $declaration['id']
-  ));
-  array_push($newDeclarations, $declaration);
+    'dq' => $dq,
+    'start' => $start,
+    'text_mode' => $text_mode,
+    'decl_type' => $decl_type
+  );
+
+  $prevStart = $start - $pageSize;
+  $t->assign('prev_page_link', constructUrl('/', $currentParams,
+                                            array('start' => $prevStart)));
+
+  $nextStart = $start + $pageSize;
+  $t->assign('next_page_link', constructUrl('/', $currentParams,
+                                            array('start' => $nextStart)));
+
+
+  $t->assign('full_text_link', constructUrl('/', $currentParams));
+  $t->assign('snippets_link', constructUrl('/', $currentParams));
+
+  $t->assign('all_declarations_link', constructUrl('/', $currentParams, array(
+    'decl_type' => 'all',
+    'start' => 0
+  )));
+  $t->assign('important_declarations_link',
+             constructUrl('/', $currentParams, array(
+    'decl_type' => 'important',
+    'start' => 0
+  )));
+  $t->assign('my_declarations_link', constructUrl('/', $currentParams, array(
+    'decl_type' => 'mine',
+    'start' => 0
+  )));
+
+  $ranges = getHighlights($declarations);
+  $myRanges = array();
+
+  if (is_user_logged_in()) {
+    $ranges = getHighlights($declarations, 0, $uid);
+
+    $uid = is_user_logged_in() ? $current_user->ID : 0;
+    $myRanges = getHighlights($declarations, $uid, 0);
+  }
+
+  $newDeclarations = array();
+
+  foreach ($declarations as $declaration) {
+    if ($decl_type == 'important' || $decl_type == 'mine') {
+      $declaration['class'] = 'light_gray';
+    } else {
+      if ($highlightsPerDeclaration['declaration-' . $declaration['id']]) {
+        $declaration['class'] = 'dark_gray';
+      }
+    }
+    $declaration['link_to'] = constructUrl('/', array(), array(
+      'name' => $person->getNameForUrl(),
+      'exp' => 'person_declarations',
+      'decl_id' => $declaration['id']
+    ));
+    array_push($newDeclarations, $declaration);
+  }
+  $t->assign('declarations', $newDeclarations);
+  $t->assign('person', $person);
+
+  $t->assign('highlights_global_ranges', $ranges);
+  $t->assign('highlights_my_ranges', $myRanges);
 }
-$t->assign('declarations', $newDeclarations);
-$t->assign('person', $person);
-
-$t->assign('highlights_global_ranges', $ranges);
-$t->assign('highlights_my_ranges', $myRanges);
-
-$t->display('mod_person_declarations_expanded.tpl');
+$t->display('mod_person_declarations_expanded.tpl', $cache_key);
 
 ?>

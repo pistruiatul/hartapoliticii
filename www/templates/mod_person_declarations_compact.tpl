@@ -2,11 +2,10 @@
 
 <div class="sidemoduletitle">
 	  <a href="{$person->getRssDeclarationUrl()}">
-		<img src="wp-includes/images/rss.png" alt="Flux RSS">
-	  </a>
+		<img src="wp-includes/images/rss.png" alt="Flux RSS"></a> &nbsp;
 	  Declarații
 	</div>
-	<div style="padding-left:0px">
+	<div style="padding-left:0">
 		<table width=290 cellspacing=2 cellpadding=2 class="recent_news">
 		  {section name=n loop=$declarations}
 		  {strip}

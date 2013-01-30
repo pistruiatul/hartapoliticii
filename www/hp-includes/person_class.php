@@ -578,7 +578,7 @@ class Person {
       $queryRestrict =
           ($query != '') ? "AND d.declaration LIKE '%{$query}%'" : "";
 
-      $s = mysql_query("
+      $sql = "
         SELECT d.id, d.source, d.declaration, d.time
         FROM people_declarations AS d
         WHERE d.idperson = {$this->id}
@@ -586,7 +586,9 @@ class Person {
             {$navigationalRestrict}
         ORDER BY d.time DESC
         LIMIT {$start}, {$count}
-      ");
+      ";
+      $s = mysql_query($sql);
+
     } else if ($restrict == 'important') {
       $sql = "
         SELECT d.id, h.source, d.declaration, d.time
