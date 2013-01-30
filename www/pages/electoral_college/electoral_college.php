@@ -12,8 +12,14 @@ $title = "Colegiul uninominal " . $college_name;
 include('header.php');
 
 $t = new Smarty();
-$t->caching = 1;
-if ($uid > 0 || !$t->is_cached("electoral_college.tpl", $uid)) {
+
+if ($uid == 0) {
+  // Enable caching only for logged out users.
+  $t->caching = 1;
+}
+
+if (!$t->is_cached("electoral_college.tpl", $college_name)) {
+
   $t->assign("college_name", $college_name);
 
   $t->assign("pc_county_short", getCollegeCountyShort($college_name));
@@ -40,6 +46,7 @@ if ($uid > 0 || !$t->is_cached("electoral_college.tpl", $uid)) {
     $t->assign("college_image", "/images/{$college_name}.jpg");
   }
 }
-$t->display("electoral_college.tpl", $uid);
+
+$t->display("electoral_college.tpl", $college_name);
 
 ?>
