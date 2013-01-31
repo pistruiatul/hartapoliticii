@@ -115,10 +115,13 @@ define('FULL_TEXT', true);
 // consideration.
 
 $t = new Smarty();
-$t->caching = 2;
-$t->cache_lifetime = 5;
 
 if ($dq == "" && $decl_type == "all" && $decl_id == 0) {
+  // Only enable caching when we're showing all declarations, and not a
+  // specific one.
+  $t->caching = 2;
+  $t->cache_lifetime = 86400;
+
   $cache_key = "{$start}-{$pageSize}";
 } else {
   $cache_key = NULL;
@@ -126,8 +129,7 @@ if ($dq == "" && $decl_type == "all" && $decl_id == 0) {
 
 // If cache_key is null it means we don't want to cache this page at all
 // and we'll go fetch whatever we need to fetch.
-if ($cache_key == NULL ||
-    !$t->is_cached('mod_person_declarations_expanded.tpl', $cache_key)) {
+if (!$t->is_cached('mod_person_declarations_expanded.tpl', $cache_key)) {
   $declarations = $person->searchDeclarations($dq, $start, $pageSize, FULL_TEXT,
                                               $decl_type, $decl_id);
 
