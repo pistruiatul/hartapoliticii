@@ -37,6 +37,11 @@ $(document).ready(function() {
 
   hpol.initFollowButtons();
 
+  // loading the map with electoral colleges
+  if ($('#cartoDb').length) {
+    ec.loadCartoDb();
+  }
+
   // Give focus to the search box;
   $('#search_form').focus();
 });
@@ -1025,6 +1030,38 @@ ec.voteArticle = function(articleId, vote) {
     $('#article_score_' + articleId).html(response);
   });
 };
+
+ec.loadCartoDb = function () {
+  "use strict";
+  var college = $('#cartoDb').data();
+  college.type = college.name.charAt(0) === 'S' ? 'senat' : 'deputati';
+  var vizIds = {'senat' : '2267', 'deputati': '2266' };
+  var vis = cartodb.createVis('cartoDb', 'http://hartapoliticii.cartodb.com/api/v1/viz/' + vizIds[college.type] + '/viz.json')
+    .done(function (vis, layers) {
+      var sql = new cartodb.SQL({ user: 'hartapoliticii' });
+      var query = 'select * from ' + college.type + '_2008 where jud_id = ' + college.county + ' AND col_nr = ' + college.number;
+      sql.getBounds(query).done(function(bounds) {
+        var bounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(bounds[1][0], bounds[1][1]),
+            new google.maps.LatLng(bounds[0][0], bounds[0][1]));
+        var gmap = vis.getNativeMap();
+        gmap.setZoom(7);
+        gmap.setCenter(bounds.getCenter());
+        var cartoCSS = $('#cartoCSS').html();
+        $.each(['type', 'county', 'number'], function () {
+          cartoCSS = cartoCSS.replace('##' + this + '##', college[this]);
+        });
+        var pollLayer = setInterval(function () {
+          try {
+            layers[1].setCartoCSS(cartoCSS);
+            clearInterval(pollLayer);
+          } catch (e) {
+            // the layer is not yet available
+          }
+        }, 200);
+      });
+  });
+}
 
 
 // ---------------------------------------------------------------

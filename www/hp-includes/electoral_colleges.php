@@ -247,6 +247,10 @@ function getDescriptionSourceForCollege($college_name) {
   return $r['source'];
 }
 
+function extractCountyNameFromCollegeName($college_name) {
+  preg_match("/(d|s|D|S)(\\d+) (.*)/", $college_name, $matches);
+  return $matches[3];
+}
 
 /**
  * Extracts the county short name from a give full college name. So for example
@@ -302,8 +306,20 @@ function getCollegeCountyShort($college_name) {
     "bucuresti" => "B"
   );
 
-  preg_match("/(d|s)(\\d+) (.*)/", $name, $matches);
-  return $county_hash[$matches[3]];
+  return $county_hash[extractCountyNameFromCollegeName($name)];
+}
+
+$ALPHABETICAL_COUNTY_LIST = array_diff($COUNTY_LIST, array("București", "Străinătate"));
+sort($ALPHABETICAL_COUNTY_LIST);
+array_push($ALPHABETICAL_COUNTY_LIST, "București");
+/**
+ * This function is needed because of https://github.com/CartoDB/cartodb.js/issues/10.
+ * We need to get a county's alphabetical index because we can't query by name.
+ */
+function getCollegeCountyId($college_name) {  
+  global $ALPHABETICAL_COUNTY_LIST;  
+  $county_name = extractCountyNameFromCollegeName($college_name);  
+  return array_search($county_name, $ALPHABETICAL_COUNTY_LIST) + 1;
 }
 
 
