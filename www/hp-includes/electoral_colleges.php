@@ -38,7 +38,7 @@ $COUNTY_LIST = array(
     "Olt",
     "Prahova",
     "Satu Mare",
-    "Salaj",
+    "Sălaj",
     "Sibiu",
     "Suceava",
     "Teleorman",
@@ -247,6 +247,17 @@ function getDescriptionSourceForCollege($college_name) {
   return $r['source'];
 }
 
+function extractCountyNameFromCollegeName($college_name) {
+  preg_match("/(d|s|D|S)(\\d+) (.*)/", $college_name, $matches);
+  return $matches[3];
+}
+
+/**
+ * Normalizes Romanian strings to aid in comparison
+ */
+function normalizeString($str) {
+  return getStringWithoutDiacritics(strtolower_ro($str));
+}
 
 /**
  * Extracts the county short name from a give full college name. So for example
@@ -302,8 +313,39 @@ function getCollegeCountyShort($college_name) {
     "bucuresti" => "B"
   );
 
-  preg_match("/(d|s)(\\d+) (.*)/", $name, $matches);
-  return $county_hash[$matches[3]];
+  return $county_hash[extractCountyNameFromCollegeName($name)];
+}
+
+/**
+ * The default php sort orders elements with Romanian characters
+ * at the end (e.g. Satu Mare, Suceava, Sălaj), while the map
+ * tables have them indexed like Satu Mare, Sălaj, Suceava.
+ *
+ * We use this function to reorder the pairs that need it.
+ * Once cartodb supports searches by name, this can be removed.
+ */
+function array_swap(&$array, $idx1, $idx2) {
+  $tmp = $array[$idx1];
+  $array[$idx1] = $array[$idx2];
+  $array[$idx2] = $tmp;
+}
+$ALPHABETICAL_COUNTY_LIST = array_diff($COUNTY_LIST, array("București", "Străinătate"));
+$ALPHABETICAL_COUNTY_LIST = array_map("normalizeString", $ALPHABETICAL_COUNTY_LIST);
+sort($ALPHABETICAL_COUNTY_LIST);
+array_swap($ALPHABETICAL_COUNTY_LIST, 7, 8);   // Brasov <-> Braila
+array_swap($ALPHABETICAL_COUNTY_LIST, 10, 11); // Caras Severin <-> Calarasi
+array_swap($ALPHABETICAL_COUNTY_LIST, 31, 32); // Salaj <-> Satu Mare
+array_swap($ALPHABETICAL_COUNTY_LIST, 38, 39); // Valcea <-> Vaslui
+array_push($ALPHABETICAL_COUNTY_LIST, "bucuresti");
+
+/**
+ * This function is needed because of https://github.com/CartoDB/cartodb.js/issues/10.
+ * We need to get a county's alphabetical index because we can't query by name.
+ */
+function getCollegeCountyId($college_name) {
+  global $ALPHABETICAL_COUNTY_LIST;
+  $county_name = extractCountyNameFromCollegeName($college_name);
+  return array_search(normalizeString($county_name), $ALPHABETICAL_COUNTY_LIST) + 1;
 }
 
 
