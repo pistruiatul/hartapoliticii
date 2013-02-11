@@ -1045,8 +1045,7 @@ ec.loadCartoDb = function () {
             new google.maps.LatLng(bounds[1][0], bounds[1][1]),
             new google.maps.LatLng(bounds[0][0], bounds[0][1]));
         var gmap = vis.getNativeMap();
-        gmap.setZoom(7);
-        gmap.setCenter(bounds.getCenter());
+        gmap.fitBounds(bounds);
         var cartoCSS = $('#cartoCSS').html();
         $.each(['type', 'county', 'number'], function () {
           cartoCSS = cartoCSS.replace('##' + this + '##', college[this]);
