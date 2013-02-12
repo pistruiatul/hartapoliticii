@@ -15,16 +15,26 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
         style=" border: 5px solid #eee;" width="960" height="150">
         <br>
     {else}
-      <iframe seamless="seamless"
-              scrolling="no" frameboder="0"
-              style="width: 960px; height: 150px; border: 5px solid #eee;"
-              src="http://www.politicalcolours.ro/integrate.html?id={$pc_id}&p1={$pc_county_short}&p2={$pc_number}"></iframe>
-      <div class="powered_by">
-        hartă oferită de
-        <a href="http://politicalcolours.ro/" target="_blank">politicalcolours.ro</a>
-      </div>
+        <div id="cartoDb" data-name="{$college_name}" data-county="{$pc_county_id}" data-number="{$pc_number}"></div>
+        {literal}
+        <script id="cartoCSS" type="text/html">
+          ###type##_2008 {
+            polygon-fill: #3E7BB6;
+            polygon-opacity: 0.1;
+            line-width: 0.5;
+            line-color: #FFF;
+            line-opacity: 1;
+            polygon-comp-op: src-over;
+            [jud_id = ##county## ] {
+              [col_nr = ##number##] {
+                polygon-opacity: 0.6; 
+                line-width: 1
+              }
+            }
+          }
+          {/literal}
+        </script>
     {/if}
-
     <table width="970" style="margin-top:12px">
       <tr>
       <td width="970" valign="top" colspan=2>
@@ -133,3 +143,6 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
     </div>
   </td>
 </table>
+<link rel="stylesheet" href="//libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.css" />
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="//libs.cartocdn.com/cartodb.js/v2/cartodb.js"></script>
