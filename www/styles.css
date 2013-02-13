@@ -857,6 +857,11 @@ a.new_link:hover {
   width: 960px;
 }
 
+.identity #cartoDb {
+  width: 290px;
+  height: 150px;
+}
+
 
 /* --------------------------- pretty button ---------------*/
 .button, .button span {

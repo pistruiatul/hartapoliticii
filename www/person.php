@@ -164,6 +164,7 @@ if ($college_name) {
   $t->assign('college_name', $college_name);
 
   $t->assign("pc_county_short", getCollegeCountyShort($college_name));
+  $t->assign("pc_county_id", getCollegeCountyId($college_name));
   $t->assign("pc_number", getCollegeNumber($college_name));
   $t->assign("pc_id", startsWith($college_name, "D") ? 15 : 14);
 

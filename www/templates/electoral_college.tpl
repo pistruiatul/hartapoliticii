@@ -28,12 +28,12 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
             [jud_id = ##county## ] {
               [col_nr = ##number##] {
                 polygon-opacity: 0.6; 
-                line-width: 1
+                line-width: 2;
               }
             }
           }
-          {/literal}
         </script>
+        {/literal}
     {/if}
     <table width="970" style="margin-top:12px">
       <tr>
