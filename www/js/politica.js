@@ -1053,6 +1053,7 @@ ec.loadCartoDb = function () {
         var pollLayer = setInterval(function () {
           try {
             layers[1].setCartoCSS(cartoCSS);
+            gmap.setZoom(gmap.getZoom() + 1);
             clearInterval(pollLayer);
           } catch (e) {
             // the layer is not yet available
