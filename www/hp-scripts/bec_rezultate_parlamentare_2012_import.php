@@ -5,7 +5,7 @@ require("../hp-includes/people_lib.php");
 $MAX_QUERIES_BEFORE_COMMIT = 10000;
 $FLAG_CAN_CHANGE_DB = true;
 
-function get_college_name($county, $senate_college, $cdep_college) {
+function getCollegeName($county, $senate_college, $cdep_college) {
   if ($senate_college != "") {
     return ucwords("S{$senate_college} {$county}");
   } else {
@@ -14,23 +14,61 @@ function get_college_name($county, $senate_college, $cdep_college) {
 }
 
 
-function addVotesInResultsTable($person_id, $college_name, $votes) {
+function getPartyId($party_name) {
+  $party_name = str_replace("\"", "", $party_name);
+
+  switch($party_name) {
+    case 'UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA':
+      $party_name = 'UNIUNEA BULGARĂ DIN BANAT-ROMÂNIA';
+      break;
+
+    case 'PARTIDUL POPORULUI - DAN DIACONESCU':
+      $party_name = 'PARTIDUL POPORULUI DAN DIACONESCU';
+      break;
+
+    case 'INDEPENDENT':
+      $party_name = 'candidat independent';
+      break;
+  }
+
+  $s = mysql_query("
+      SELECT * FROM parties
+      WHERE long_name = '{$party_name}'
+  ");
+
+  if ($r = mysql_fetch_array($s)) {
+    return $r['id'];
+  } else {
+    info("We failed to find [{$party_name}]");
+    exit(1);
+  }
+}
+
+
+function addVotesInResultsTable($person, $party_name, $college_name, $votes) {
   // If we don't have a row for $person_id + $college_name, add one, it means
   // we're dealing with a minority candidate that has gathered votes all
   // over the place.
-
   $s = mysql_query("
       SELECT * FROM results_2012
-      WHERE idperson = {$person_id} AND colegiu = '{$college_name}'");
+      WHERE idperson = {$person->id} AND colegiu = '{$college_name}'");
   if (mysql_num_rows($s) == 0) {
-
     // TODO(vivi): Find the ID of the party we are looking for here, and
     // insert a new row in the table.
+    $partyId = getPartyId($party_name);
 
+    mysql_query("
+        INSERT INTO results_2012(nume, idperson, partid, idpartid, colegiu, voturi)
+        values('{$person->displayName}', {$person->id}, '{$party_name}',
+               {$partyId}, '{$college_name}', $votes)
+    ");
   }
 
-  // TODO(vivi): Then here, actually set the votes in the table.
-  //
+  mysql_query("
+      UPDATE results_2012
+      SET voturi = {$votes}
+      WHERE idperson = {$person->id} AND colegiu = '{$college_name}'
+  ");
 }
 
 
@@ -62,7 +100,7 @@ function importFile($file_name) {
         $cdep_college, $all_votes, $all_present, $votes,
         $is_winner, $percent) = explode(",", $line);
 
-    $college_name = get_college_name($county, $senate_college, $cdep_college);
+    $college_name = getCollegeName($county, $senate_college, $cdep_college);
 
     $results = getPersonsByName($name, trim($line) .
                                        " [{$college_name}]", infoFunction);
@@ -79,9 +117,9 @@ function importFile($file_name) {
 
     info("person->id = {$person->id} ({$person->name}) has {$votes} votes");
 
-    addVotesInResultsTable($person->id, $college_name, $votes);
+    addVotesInResultsTable($person, $party, $college_name, $votes);
 
-    info(" ");
+    info("{$index}. ");
   }
 
   fclose($file_handle);

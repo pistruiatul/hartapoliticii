@@ -1,14 +1,16 @@
 <table width=950 cellpadding=2>
   {section name=c loop=$candidates}
-    {if $smarty.section.c.index % 3 == 0}
-    <tr class="candidaterow">
+    {if $candidates[c].minoritati == 0}
+      <tr class="candidaterow">
+    {else}
+      <tr class="candidaterow minoritati_2012" name="minoritati_2012">
     {/if}
 
     <td valign="top" width="50" align="right">
       <img src="{$candidates[c].tiny_img_url}"
            {if !$compact}height="40"{/if}>
     </td>
-    <td width="330" valign="top">
+    <td width="530" valign="top">
       <div style="float:right; margin:13px 10px 0 0;">
         <a href="{$candidates[c].source}">
           <img src="/images/popout_icon_light.gif"></a>
@@ -24,16 +26,28 @@
       {/if}
       </div>
     </td>
-    <td width="100" valign="top" class="party_cell" align="center"
-        {if $smarty.section.c.index % 3 != 2}
-          style="border-right: 1px solid #DDD;"
-        {/if}>
+    <td width="100" valign="top" class="party_cell" align="center">
       <div style="margin:5px 10px 0 0;" class="medium gray">
       <img src="/images/parties/sigla_{$candidates[c].party_logo|lower}50x50.png"
            width="30" height="30" valign="middle"><br>
       <nobr>{$candidates[c].displayed_party_name}</nobr></div>
     </td>
+    <td valign="top" class="votes_cell" align="left">
+      <b>{$candidates[c].voturi}</b> voturi
+    </td>
 
   {/section}
+
+  {* only show this if there actually are minorities candidates around *}
+  {if $show_minorities_link}
+  <tr class="candidaterow">
+    <td colspan=5>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      <a href="javascript:hpol.showMinorities('minoritati_2012')">
+        <span id=min_link>+ minorități</span>
+      </a>
+    </td>
+  </tr>
+  {/if}
 </table>
 

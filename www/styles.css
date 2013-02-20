@@ -273,6 +273,9 @@ body {
 .minoritati {
   display: none;
 }
+.minoritati_2012 {
+  display: none;
+}
 .show {
 }
 .euro_party_info {
@@ -777,6 +780,9 @@ a.new_link:hover {
 }
 .party_cell {
   font-size: 13px;
+}
+.votes_cell {
+  font-size: 16px;
 }
 
 /* ----------------------- electoral college stuff -------------------*/

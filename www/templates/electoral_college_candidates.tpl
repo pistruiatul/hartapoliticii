@@ -16,6 +16,9 @@
       <div style="margin-top:10px;{if !$compact}font-size: 18px;{/if}">
       <a href="?name={$candidates[c].name|replace:' ':'+'}">
         {$candidates[c].display_name}</a>
+
+      <br><b>{$candidates[c].voturi}</b> voturi
+
       {if !$compact}
       <div class="history_snippet">
         {$candidates[c].history_snippet}

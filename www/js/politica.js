@@ -120,8 +120,8 @@ hpol.initFollowButtons = function() {
 
 /* ------------------------------------------------------ */
 /* Some random global function */
-hpol.showMinorities = function() {
-  var rows = document.getElementsByName('minoritati');
+hpol.showMinorities = function(opt_className) {
+  var rows = document.getElementsByName(opt_className || 'minoritati');
   for (var i = 0; i < rows.length; i++) {
     rows[i].className =
         rows[i].className.indexOf('minoritati') >= 0 ? '' : 'minoritati';

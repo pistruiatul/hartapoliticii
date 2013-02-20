@@ -118,7 +118,8 @@ function getResults2008ForCollege($college) {
 function getCollegeCandidates($college, $year) {
   $sql =
     "SELECT people.id, people.display_name, people.name, ".
-        "parties.name AS party, history.url as source " .
+        "parties.name AS party, history.url as source, parties.minoritati, " .
+        "results.voturi " .
     "FROM results_{$year} AS results ".
     "LEFT JOIN people ON people.id = results.idperson ".
     "LEFT JOIN parties ".
@@ -126,7 +127,8 @@ function getCollegeCandidates($college, $year) {
     "LEFT JOIN people_history AS history ".
         "ON people.id = history.idperson AND history.what = 'results/2012' ".
     "WHERE colegiu = '{$college}' " .
-    "ORDER BY people.display_name ASC";
+    "ORDER BY " .
+        "parties.minoritati ASC, results.voturi DESC, people.display_name ASC";
 
   $s = mysql_query($sql);
 

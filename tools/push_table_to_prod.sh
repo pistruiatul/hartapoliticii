@@ -15,7 +15,7 @@ read -s -p "Enter Password: " PASS
 
 # And push them online.
 mysql -C \
-  --host=mysql.s1045.sureserver.com --port=3307 \
+  --host=mysql.s702.sureserver.com --port=3307 \
   -u vivi -p$PASS \
   hartapoliticii_pistruiatul \
   < $TEMP/temp_table_export.sql
