@@ -1,7 +1,11 @@
 <table width=585 cellpadding=2>
   {section name=c loop=$candidates}
   {if $smarty.section.c.index % 2 == 0}
-    <tr class="candidaterow">
+    {if $candidates[c].minoritati == 0}
+      <tr class="candidaterow">
+    {else}
+      <tr class="candidaterow minoritati_2012" name="minoritati_2012">
+    {/if}
   {/if}
     <td valign="top" width=60 align="right">
       <img src="{$candidates[c].tiny_img_url}"
@@ -35,5 +39,18 @@
            width="30" height="30" valign="middle">
       </div></td>
   {/section}
+
+  {* only show this if there actually are minorities candidates around *}
+
+  <tr class="candidaterow">
+    <td colspan=5>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      <a href="javascript:hpol.showMinorities('minoritati_2012')">
+        <span id=min_link>+ minorități</span>
+      </a>
+    </td>
+  </tr>
+
+
 </table>
 
