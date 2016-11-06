@@ -126,6 +126,10 @@ switch ($cid) {
   case 21: include('pages/cdep_2012/cdep_2012_page.php'); break;
   case 22: include('pages/senat_2012/senat_2012_page.php'); break;
 
+  // Elections 2016
+  case 24: include('pages/cdep_2016/cdep_2016_page.php'); break;
+  case 25: include('pages/senat_2016/senat_2016_page.php'); break;
+
   case 'cauta_colegiu': include('pages/electoral_college/search.php'); break;
   case 'comunitate': include('pages/misc/community.php'); break;
   case 'sectii_votare': include('pages/misc/polling_stations.php'); break;

@@ -47,23 +47,23 @@
   <tr class="menu_bottom_row">
   <td>
     <div class=submenu>
-      <a href="{$site_path}?cid=1&room=camera_deputatilor" class="{if $cid==1}black_link{/if}">
-        2004-2008</a> |
+      <a href="{$site_path}?cid=24&room=camera_deputatilor" class="new_link{if $cid==21}_sel{/if}">
+        Alegeri 2016</a> |
       <a href="{$site_path}?cid=11&room=camera_deputatilor" class="{if $cid==11}black_link{/if}">
         2008-2012</a> |
-      <a href="{$site_path}?cid=21&room=camera_deputatilor" class="new_link{if $cid==21}_sel{/if}">
-        Alegeri 2012</a>
+      <a href="{$site_path}?cid=1&room=camera_deputatilor" class="{if $cid==1}black_link{/if}">
+        2004-2008</a>
     </div>
   </td>
 
   <td>
     <div class=submenu>
-      <a href="{$site_path}?cid=3&room=senat" class="{if $cid==3}black_link{/if}">
-        2004-2008</a> |
+      <a href="{$site_path}?cid=25&room=senat" class="new_link{if $cid==22}_sel{/if}">
+        Alegeri 2016</a> |
       <a href="{$site_path}?cid=12&room=senat" class="{if $cid==12}black_link{/if}">
         2008-2012</a> |
-      <a href="{$site_path}?cid=22&room=senat" class="new_link{if $cid==22}_sel{/if}">
-        Alegeri 2012</a>
+      <a href="{$site_path}?cid=3&room=senat" class="{if $cid==3}black_link{/if}">
+        2004-2008</a>
       </div>
   </td>
 
