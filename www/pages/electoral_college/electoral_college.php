@@ -34,14 +34,13 @@ if (!$t->is_cached("electoral_college.tpl", $college_name)) {
   $t->assign("id_winner_2008", getWinner2008ForCollege($college_name));
   $t->assign("show_minorities_link", strpos($college_name, "D") === 0);
 
-  // This is now at the bottom, begone
-  $t->assign("candidates_2012", getCollegeCandidates($college_name, "2012"));
+  $collegePeopleIds = getCollegePeopleIds($college_name, "2012");
 
-  // The most recent elections are here
-  $collegePeopleIds = getCollegePeopleIds($college_name, "2016");
   $t->assign("compact", false);
+  $t->assign("candidates_2012", getCollegeCandidates($college_name, "2012"));
   $t->assign("news", getMostRecentNewsArticles(
                          NULL, NULL, 5, '%', $collegePeopleIds));
+
   $t->assign("links", getMostRecentUgcLinks(5, $collegePeopleIds));
 
   if (endsWith(strtolower($college_name), "strainatate")) {

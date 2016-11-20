@@ -5,7 +5,7 @@
     <td width=970 valign="top">
 
       <div class="college_search">
-        <img src="/images/cautare_colegiu.png" style="float:right; padding-top: 30px">
+        <img src="/images/cautare_colegiu.png">
         <br>
         Caută colegiul din care faci parte după stradă, comună sau oraș.
 
@@ -26,10 +26,10 @@
 
       <table width=960>
         <td valign="top">
-        <b>Data alegerilor: 11 Decembrie 2016</b>.<br>
+        <b>Data alegerilor: 9 Decembrie</b>.<br>
 
         Site-ul BEC pentru aceste alegeri este aici:
-        <a href="http://parlamentare2016.bec.ro/">parlamentare2016.bec.ro</a>
+        <a href="http://www.becparlamentare2012.ro/">www.becparlamentare2012.ro</a>
         </td>
         <td valign="top">
           {literal}

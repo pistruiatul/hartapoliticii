@@ -344,6 +344,19 @@ class Person {
     return $r['colegiu'];
   }
 
+  public function get2016College() {
+    // We know that the person we are talking about is $person.
+    $sql = "SELECT colegiu FROM results_2016 WHERE idperson = {$this->id}";
+    $r = mysql_fetch_array(mysql_query($sql));
+    return $r['colegiu'];
+  }
+
+  public function get2016Party() {
+    // We know that the person we are talking about is $person.
+    $sql = "SELECT partid FROM results_2016 WHERE idperson = {$this->id}";
+    $r = mysql_fetch_array(mysql_query($sql));
+    return $r['partid'];
+  }
 
   public function get2012Party() {
     // We know that the person we are talking about is $person.
@@ -453,6 +466,7 @@ class Person {
       case "senat/2004":   $moduleTitle = "Senator 2004-2008"; break;
       case "results/2008": $moduleTitle = "Candidat parlamentare 2008"; break;
       case "results/2012": $moduleTitle = "Candidat 2012"; break;
+      case "results/2016": $moduleTitle = "Candidat 2016"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare 2009"; break;
       case "catavencu/2008":
         $moduleTitle =
@@ -490,6 +504,7 @@ class Person {
       case "senat/2004":   $moduleTitle = "Senat, 2004-2008"; break;
       case "results/2008": $moduleTitle = "Rezultate alegeri, Noiembrie 2008"; break;
       case "results/2012": $moduleTitle = "Candidat parlamentare 2012"; break;
+      case "results/2016": $moduleTitle = "Candidat alegeri 2016"; break;
       case "alegeri/2008": $moduleTitle = "Candidat Parlamentare 2008"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare, 7 Iunie 2009"; break;
       case "catavencu/2008":

@@ -35,49 +35,41 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
         </script>
         {/literal}
     {/if}
-
     <table width="970" style="margin-top:12px">
-
-      <!-- Running in 2016 -->
-
       <tr>
-        <td width="970" valign="top" colspan=2>
-          <div style="float:right">
-            <a href="/?cid=sectii_votare">Caută secția ta de votare după adresă</a>
-          </div>
-          <div class="big" style="margin-bottom:12px"><b>Candidați 2016</b> - alfabetic</div>
+      <td width="970" valign="top" colspan=2>
+        <div style="float:right">
+          <a href="/?cid=sectii_votare">Caută-ți secția de votare</a>
+        </div>
+        <div class="big" style="margin-bottom:12px"><b>Candidați 2012</b> - alfabetic</div>
 
-          <div class="module" style="xbackground-color: #F3F6FF">
-            {include file="electoral_college_candidates_wide.tpl"
-            candidates=$candidates_2016}
-          </div>
+        <div class="module" style="background-color: #F3F6FF">
+        {include file="electoral_college_candidates_wide.tpl"
+            candidates=$candidates_2012}
+        </div>
 
-          <!-- the buttons to add content, like, tweet, etc -->
+        <table width="940" style="margin-top: 8px;">
+          <td width="40">
+            <div class="add_link_button" onclick="ec.showAddLinkForm()">
+              Adaugă link <img src="/images/plus.png" align="absmiddle">
+            </div>
+          </td>
+          <td width="890" align="right">Recomandă pagina asta și altora:
 
-          <table width="940" style="margin-top: 8px;">
-            <td width="40">
-              <div class="add_link_button" onclick="ec.showAddLinkForm()">
-                Adaugă link <img src="/images/plus.png" align="absmiddle">
-              </div>
-            </td>
-            <td width="890" align="right">Recomandă pagina asta și altora:
+            <div class="fb-like" data-href="http://hartapoliticii.ro/?cid=23&colegiul={$college_name|lower|replace:' ':'+'}" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true" data-action="recommend"></div>
+            <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://hartapoliticii.ro/?cid=23&colegiul={$college_name|lower|replace:' ':'+'}" data-text="Eu votez la colegiul uninominal {$college_name}" data-via="hartapoliticii" data-hashtags="alegeri2012">Tweet</a>
+            {literal}
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            {/literal}
+          </td>
 
-              <div class="fb-like" data-href="http://hartapoliticii.ro/?cid=23&colegiul={$college_name|lower|replace:' ':'+'}" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true" data-action="recommend"></div>
-              <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://hartapoliticii.ro/?cid=23&colegiul={$college_name|lower|replace:' ':'+'}" data-text="Eu votez la colegiul uninominal {$college_name}" data-via="hartapoliticii" data-hashtags="alegeri2012">Tweet</a>
-              {literal}
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-              {/literal}
-            </td>
-
-          </table>
-        </td>
+        </table>
+      </td>
       </tr>
-
-      <!-- section for news -->
 
       <tr>
       <td colspan=2>
-        {include file="electoral_college_add_link_form.tpl"}
+      {include file="electoral_college_add_link_form.tpl"}
       </td>
       <tr>
       {if count($links)>0}
@@ -116,21 +108,6 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
         {/if}
         </div>
       </td>
-
-      <!-- The section with the results of running in 2012 -->
-      <tr>
-        <td width="970" valign="top" colspan=2>
-          <div style="float:right">
-            <a href="/?cid=sectii_votare">Caută-ți secția de votare</a>
-          </div>
-          <div class="big" style="margin-bottom:12px"><b>Rezultate Alegeri 2012 în acest colegiu</b></div>
-
-          <div class="module" style="background-color: #F3F6FF">
-            {include file="electoral_college_candidates_wide.tpl"
-            candidates=$candidates_2012}
-          </div>
-        </td>
-      </tr>
     </table>
 
 
@@ -146,8 +123,7 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
     <br><br>
 
     <span class="smalltitle">
-      <b>Ce include acest colegiu (străzi, adrese, etc)</b> -
-      <span class="medium gray">sursa: <a href="{$description_source}" target="_blank">site-ul BEC</a></span>
+      <b>Ce include acest colegiu</b>
     </span>
 
     <div class="ec_description">
