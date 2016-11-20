@@ -6,35 +6,14 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
 <table width=970 cellspacing=15>
   <td>
     <div style="float:right">
-      <a href="/?cid=cauta_colegiu">Caută alt colegiu uninominal</a>
+      <a href="/?cid=sectii_votare">Caută secția ta de votare după adresă</a>
     </div>
-    <div class="big"><b>Colegiul uninominal {$college_name}</b></div>
+
+    <div class="big">Alegeri în județul <b>{$college_name}</b> -
+    <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=S">Senat</a> /
+    <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=D">Camera Deputaților</a>
+    </div>
     <br>
-    {if $college_image}
-        <img src="{$college_image|lower|replace:' ':'_'}"
-        style=" border: 5px solid #eee;" width="960" height="150">
-        <br>
-    {else}
-        <div id="cartoDb" data-name="{$college_name}" data-county="{$pc_county_id}" data-number="{$pc_number}"></div>
-        {literal}
-        <script id="cartoCSS" type="text/html">
-          ###type##_2008 {
-            polygon-fill: #3E7BB6;
-            polygon-opacity: 0.1;
-            line-width: 0.5;
-            line-color: #FFF;
-            line-opacity: 1;
-            polygon-comp-op: src-over;
-            [jud_id = ##county## ] {
-              [col_nr = ##number##] {
-                polygon-opacity: 0.6; 
-                line-width: 2;
-              }
-            }
-          }
-        </script>
-        {/literal}
-    {/if}
 
     <table width="970" style="margin-top:12px">
 
@@ -42,15 +21,32 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
 
       <tr>
         <td width="970" valign="top" colspan=2>
-          <div style="float:right">
-            <a href="/?cid=sectii_votare">Caută secția ta de votare după adresă</a>
-          </div>
-          <div class="big" style="margin-bottom:12px"><b>Candidați 2016</b> - alfabetic</div>
 
-          <div class="module" style="xbackground-color: #F3F6FF">
-            {include file="electoral_college_candidates_wide.tpl"
-            candidates=$candidates_2016}
-          </div>
+          <div class="big" style="margin-bottom:12px">Candidați 2016</div>
+          <div class="medium" style="margin-bottom:12px"><b>Atenție</b>! <b>Listele sunt ordonate incorect</b> din cauză că
+            <a href="http://parlamentare2016.bec.ro/wp-content/uploads/2016/11/candidati.xlsx">XLS-ul oferit de BEC</a> nu
+          are ordinea corectă.  Ordinea corectă <a href="http://parlamentare2016.bec.ro/candidati/candidaturi-depuse-la-birourile-electorale-de-circumscriptie/">o găsiți aici</a>. Am preferat să le public chiar și așa pentru că pare util să vezi repede
+          trecutul unora din candidați.</div>
+
+          <table width="940" style="margin-top: 8px;">
+            <tr>
+            {section name=i loop=$parties}
+            {strip}
+              {if ($smarty.section.i.index) % 3 == 0}
+                </tr><tr>
+              {/if}
+              <td valign="top">
+                  <div class="module" style="xbackground-color: #F3F6FF">
+                    <b>{$parties[i]->longName}</b> - {$parties[i]->lists[$college_name]|@count} candidați
+
+                    {include file="county_college_people_list.tpl" people=$parties[i]->lists[$college_name]}
+                  </div>
+              </td>
+
+            {/strip}
+            {/section}
+
+          </table>
 
           <!-- the buttons to add content, like, tweet, etc -->
 
@@ -79,7 +75,7 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
       <td colspan=2>
         {include file="electoral_college_add_link_form.tpl"}
       </td>
-      <tr>
+      </tr>
       {if count($links)>0}
       <td width="485" valign="top">
         <div>
@@ -117,54 +113,6 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
         </div>
       </td>
 
-      <!-- The section with the results of running in 2012 -->
-      <tr>
-        <td width="970" valign="top" colspan=2>
-          <div style="float:right">
-            <a href="/?cid=sectii_votare">Caută-ți secția de votare</a>
-          </div>
-          <div class="big" style="margin-bottom:12px"><b>Rezultate Alegeri 2012 în acest colegiu</b></div>
-
-          <div class="module" style="background-color: #F3F6FF">
-            {include file="electoral_college_candidates_wide.tpl"
-            candidates=$candidates_2012}
-          </div>
-        </td>
-      </tr>
-    </table>
-
-
-    <br><br>
-    <span class="big">
-      <b>Rezultate alegeri 2008</b>
-    </span>
-    <br><br>
-    {include file="electoral_college_results.tpl"
-        candidates=$candidates_2008
-        id_winner=$id_winner_2008
-        show_minorities_link=$show_minorities_link}
-    <br><br>
-
-    <span class="smalltitle">
-      <b>Ce include acest colegiu (străzi, adrese, etc)</b> -
-      <span class="medium gray">sursa: <a href="{$description_source}" target="_blank">site-ul BEC</a></span>
-    </span>
-
-    <div class="ec_description">
-      {section loop=$descriptions name=d}
-        {if $pc_id==15}
-          <div>{$descriptions[d]}</div>
-        {else}
-          <div>
-            <a href="/?cid=search&q={$descriptions[d]}">{$descriptions[d]}</a></div>
-        {/if}
-      {/section}
-    </div>
-
-    <div class="medium gray">
-      Sursa:
-      <a href="{$description_source}" target="_blank">site-ul BEC</a>.
-    </div>
   </td>
 </table>
 <link rel="stylesheet" href="//libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.css" />

@@ -6,12 +6,12 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = '
 <table width=970 cellspacing=10>
   <tr>
     <td width=210 valign="top">
-      <a class="button big green" href="/?cid=cauta_colegiu">
+      <!--a class="button big green" href="/?cid=cauta_colegiu">
         <span style="width:160px">
           <img src="/images/icon_map.png" width="30" style="float:left">
           Caută colegiul<br>din care faci parte</span></a>
-      <br>
-      <a class="button big blue" href="/?cid=sectii_votare">
+      <br-->
+      <a class="button big green" href="/?cid=sectii_votare">
 
         <span style="width:160px">
           <img src="/images/icon_house.png" width="30" style="float:left">

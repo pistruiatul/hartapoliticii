@@ -201,8 +201,8 @@ body {
 .module {
   font-size: 1.0em;
   background: #FFF;
-  border: solid 3px #EEE;
-  padding: 1px;
+  border: solid 1px #EEE;
+  padding: 3px;
   margin-top: 2px;
 }
 .module .moduletitle {

@@ -424,6 +424,7 @@ class Person {
       "SELECT * FROM people_history
        WHERE idperson={$this->id}
        ORDER BY id DESC");
+
     while ($r = mysql_fetch_array($s)) {
       if ($r['what'] == 'alegeri/2008') continue;
 
