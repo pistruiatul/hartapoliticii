@@ -336,7 +336,6 @@ class Person {
     return $r['colegiu'];
   }
 
-
   public function get2012College() {
     // We know that the person we are talking about is $person.
     $sql = "SELECT colegiu FROM results_2012 WHERE idperson = {$this->id}";

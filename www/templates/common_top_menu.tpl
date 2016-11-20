@@ -56,6 +56,7 @@
     </div>
   </td>
 
+
   <td>
     <div class=submenu>
       <a href="{$site_path}?cid=25&room=senat" class="new_link{if $cid==25}_sel{/if}">
