@@ -22,9 +22,12 @@ if ($uid == 0) {
 
 // $college_name here is something like "D Arad" or "S Cluj" - meaning the chamber and the county
 // for which we're trying to display the lists.
-if (!$t->is_cached("county_college.tpl", $college_name)) {
+if (!$t->is_cached("county_college.tpl", "new" . $college_name)) {
   $t->assign("college_name", $college_name);
   $t->assign("county_name", $county_name);
+
+  $cam = explode(" ", $college_name)[0] == "S" ? "Senat" : "Camera Deputaților";
+  $t->assign("cam", $cam);
 
   $parties = getPartiesOnCountyList($college_name);
   $t->assign("parties", $parties);

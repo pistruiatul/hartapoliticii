@@ -9,12 +9,13 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
       <a href="/?cid=sectii_votare">Caută secția ta de votare după adresă</a>
     </div>
 
-    <div class="big">Alegeri în județul <b>{$college_name}</b> -
+    <div>Alegeri în județul {$county_name}:
     <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=S">Senat</a> /
     <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=D">Camera Deputaților</a>
     </div>
     <br>
 
+    
     <table width="970" style="margin-top:12px">
 
       <!-- Running in 2016 -->
@@ -22,7 +23,7 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
       <tr>
         <td width="970" valign="top" colspan=2>
 
-          <div class="big" style="margin-bottom:12px">Candidați 2016</div>
+          <div class="big" style="margin-bottom:12px">Candidați 2016 - <b>{$county_name}, {$cam}</b></div>
           <table width="940" style="margin-top: 8px;">
             <tr>
             {section name=i loop=$parties}
