@@ -60186,7 +60186,7 @@
   {
     "id": 3359,
     "nume": "BOGDAN",
-    "prenume": "GHEORGHE",
+    "prenume": "GHEORGHE (PUSR)",
     "jud_dom": 1,
     "juddom": "ALBA",
     "loc_dom": 1696,
@@ -65118,7 +65118,7 @@
   {
     "id": 3633,
     "nume": "TUDOR",
-    "prenume": "GHEORGHE",
+    "prenume": "GHEORGHE (PRM)",
     "jud_dom": 16,
     "juddom": "DOLJ",
     "loc_dom": 72463,
@@ -71184,7 +71184,7 @@
   {
     "id": 3970,
     "nume": "VASILE",
-    "prenume": "DANIEL",
+    "prenume": "DANIEL (PRP)",
     "jud_dom": 40,
     "juddom": "MUNICIPIUL BUCUREŞTI",
     "loc_dom": 179169,
@@ -72732,7 +72732,7 @@
   {
     "id": 4056,
     "nume": "TURC",
-    "prenume": "IOAN",
+    "prenume": "IOAN (PNL)",
     "jud_dom": 6,
     "juddom": "BISTRIŢA-NĂSĂUD",
     "loc_dom": 32394,
@@ -74262,7 +74262,7 @@
   {
     "id": 4141,
     "nume": "DRAGOMIR",
-    "prenume": "ION",
+    "prenume": "ION (PER)",
     "jud_dom": 10,
     "juddom": "BUZĂU",
     "loc_dom": 44818,
@@ -76026,7 +76026,7 @@
   {
     "id": 4239,
     "nume": "SIMION",
-    "prenume": "FLORIN",
+    "prenume": "FLORIN (PER)",
     "jud_dom": 15,
     "juddom": "DÂMBOVIŢA",
     "loc_dom": 65342,
@@ -86988,7 +86988,7 @@
   {
     "id": 4855,
     "nume": "POPA",
-    "prenume": "DANIELA",
+    "prenume": "DANIELA (PRU)",
     "jud_dom": 20,
     "juddom": "HUNEDOARA",
     "loc_dom": 86810,
@@ -89562,7 +89562,7 @@
   {
     "id": 4999,
     "nume": "RADU",
-    "prenume": "ION",
+    "prenume": "ION (PRM)",
     "jud_dom": 29,
     "juddom": "PRAHOVA",
     "loc_dom": 131461,
@@ -89850,7 +89850,7 @@
   {
     "id": 5015,
     "nume": "MOCANU",
-    "prenume": "ION",
+    "prenume": "ION (PRM)",
     "jud_dom": 29,
     "juddom": "PRAHOVA",
     "loc_dom": 136198,
@@ -90624,7 +90624,7 @@
   {
     "id": 5058,
     "nume": "MARIN",
-    "prenume": "ION",
+    "prenume": "ION (PUSR)",
     "jud_dom": 33,
     "juddom": "SUCEAVA",
     "loc_dom": 146263,
@@ -94728,7 +94728,7 @@
   {
     "id": 5287,
     "nume": "STANCIU",
-    "prenume": "MARIN",
+    "prenume": "MARIN (PMP)",
     "jud_dom": 40,
     "juddom": "MUNICIPIUL BUCUREŞTI",
     "loc_dom": 179150,
@@ -94980,7 +94980,7 @@
   {
     "id": 5301,
     "nume": "BARBU",
-    "prenume": "MARIA",
+    "prenume": "MARIA (PSR)",
     "jud_dom": 40,
     "juddom": "MUNICIPIUL BUCUREŞTI",
     "loc_dom": 179169,
@@ -104106,7 +104106,7 @@
   {
     "id": 5810,
     "nume": "STAN",
-    "prenume": "ION",
+    "prenume": "ION (PRU)",
     "jud_dom": 36,
     "juddom": "TULCEA",
     "loc_dom": 160680,
@@ -106446,7 +106446,7 @@
   {
     "id": 5942,
     "nume": "GHERGHINA",
-    "prenume": "IOAN",
+    "prenume": "IOAN (PMP)",
     "jud_dom": 40,
     "juddom": "MUNICIPIUL BUCUREŞTI",
     "loc_dom": 179169,
@@ -106806,7 +106806,7 @@
   {
     "id": 5962,
     "nume": "DUMITRU",
-    "prenume": "CONSTANTIN",
+    "prenume": "CONSTANTIN (PUSR)",
     "jud_dom": 40,
     "juddom": "MUNICIPIUL BUCUREŞTI",
     "loc_dom": 179169,
@@ -110352,7 +110352,7 @@
   {
     "id": 6160,
     "nume": "DUŢĂ",
-    "prenume": "MARIN",
+    "prenume": "MARIN (PSR)",
     "jud_dom": 52,
     "juddom": "GIURGIU",
     "loc_dom": 103407,
@@ -113430,7 +113430,7 @@
   {
     "id": 6333,
     "nume": "NIȚĂ",
-    "prenume": "DAN",
+    "prenume": "DAN (PNL)",
     "jud_dom": 22,
     "juddom": "IAŞI",
     "loc_dom": 97919,
@@ -114906,7 +114906,7 @@
   {
     "id": 6420,
     "nume": "POPA",
-    "prenume": "MARIANA",
+    "prenume": "MARIANA (PRM)",
     "jud_dom": 38,
     "juddom": "VÂLCEA",
     "loc_dom": 167473,
@@ -115698,7 +115698,7 @@
   {
     "id": 6465,
     "nume": "MARIN",
-    "prenume": "MARIAN",
+    "prenume": "MARIAN (ANR)",
     "jud_dom": 40,
     "juddom": "MUNICIPIUL BUCUREŞTI",
     "loc_dom": 179178,

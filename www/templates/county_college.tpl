@@ -23,11 +23,6 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
         <td width="970" valign="top" colspan=2>
 
           <div class="big" style="margin-bottom:12px">Candidați 2016</div>
-          <div class="medium" style="margin-bottom:12px"><b>Atenție</b>! <b>Listele sunt ordonate incorect</b> din cauză că
-            <a href="http://parlamentare2016.bec.ro/wp-content/uploads/2016/11/candidati.xlsx">XLS-ul oferit de BEC</a> nu
-          are ordinea corectă.  Ordinea corectă <a href="http://parlamentare2016.bec.ro/candidati/candidaturi-depuse-la-birourile-electorale-de-circumscriptie/">o găsiți aici</a>. Am preferat să le public chiar și așa pentru că pare util să vezi repede
-          trecutul unora din candidați.</div>
-
           <table width="940" style="margin-top: 8px;">
             <tr>
             {section name=i loop=$parties}

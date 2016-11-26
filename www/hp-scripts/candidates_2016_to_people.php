@@ -37,7 +37,7 @@ function getPartyId($p) {
   if ($p == 'PARTIDUL ROMILOR DEMOCRAȚI - PRD (PRD)') $p = "PRD";
   if ($p == 'PARTIDUL NOUA ROMÂNIE (PNR)') $p = "PNR";
   if ($p == 'PARTIDUL ”BLOCUL UNITĂȚII NAȚIONALE” (BUN)') $p = "BUN";
-  if ($p == 'UNIUNEA ARMENILOR DIN ROMÂNIA (URR)') $p = "URR";
+  if ($p == 'UNIUNEA ARMENILOR DIN ROMÂNIA (UAR)') $p = "UAR";
   if ($p == 'COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA ((CRLR))') $p = "CRLR";
   if ($p == 'ASOCIAȚIA PARTIDA ROMILOR “PRO-EUROPA” (Pro Europa)') $p = "PRP";
   if ($p == 'FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA (FCER)') $p = "FCER";

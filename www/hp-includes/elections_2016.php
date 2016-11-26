@@ -35,7 +35,7 @@ function getPartiesOnCountyList($county) {
 }
 
 function getPeopleIdsInCountyLists($county) {
-  $sql = "SELECT idperson FROM results_2016 WHERE colegiu = '{$county}'";
+  $sql = "SELECT idperson FROM results_2016 WHERE colegiu = '{$county}' ORDER BY idcandidat ASC";
   $s = mysql_query($sql);
 
   $candidates = array();
