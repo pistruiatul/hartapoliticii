@@ -84,11 +84,13 @@ $title = $person->displayName;
 $history = $person->getHistory();
 if (in_array("results/2012", $history)) {
   $college = $person->get2012College();
-  $title .= ", candidat {$college}";
+}
 
-  $party = $person->get2012Party();
+if (in_array("results/2016", $history)) {
+  $title .= ", candidat {$person->get2016College()} alegeri 2016";
+  $party = $person->get2016Party();
 
-  echo '<meta property="og:description" content="Candidat ' . $college . ', alegeri 2012" />';
+  echo '<meta property="og:description" content="Candidat ' . $person->get2016College() . ', alegeri 2012" />';
   echo "\n";
   echo '<meta property="ro_hartapoliticii:party" content="Membru ' . $party . '" />';
 }

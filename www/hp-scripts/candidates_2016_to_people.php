@@ -57,6 +57,7 @@ function getPartyId($p) {
   if ($p == 'PARTIDUL VRANCEA NOASTRĂ (PVN)') $p = "PVN";
   if ($p == 'UNIUNEA UCRAINENILOR DIN ROMÂNIA (UUR)') $p = "UUR";
   if ($p == 'PARTIDUL REPUBLICAN DIN ROMÂNIA (PRR)') $p = "PRR";
+  if ($p == 'UNIUNEA SALVAȚI ROMÂNIA (USR)') $p = "PUSR";
 
   $s = mysql_query("SELECT id FROM parties WHERE name='{$p}'");
   $r = mysql_fetch_array($s);
@@ -139,7 +140,7 @@ function importFile($file_name) {
 
     $college_name = ucwords(strtolower("{$cam} {$dencirc}"));
 
-    addCandidateToCollege($college_name, "{$candidate["prenume"]} {$candidate["nume"]}", $candidate["id"],
+    addCandidateToCollege($college_name, "{$candidate["prenume"]} {$candidate["nume"]}", $candidate["pozitie"],
         $candidate["denumireformatiune"], "http://parlamentare2016.bec.ro/wp-content/uploads/2016/11/candidati.xlsx");
 
     $startWith = $i;

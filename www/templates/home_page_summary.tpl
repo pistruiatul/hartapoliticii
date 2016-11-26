@@ -12,10 +12,14 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = '
           Caută colegiul<br>din care faci parte</span></a>
       <br-->
       <a class="button big green" href="/?cid=sectii_votare">
-
         <span style="width:160px">
           <img src="/images/icon_house.png" width="30" style="float:left">
-          Caută secția ta<br>de votare</span></a>
+          Secții de votare<br>în țară</span></a>
+
+      <a class="button big blue" href="http://votdiaspora.ro" target="_blank">
+      <span style="width:160px">
+          <img src="/images/icon_house.png" width="30" style="float:left">
+          Secții de votare<br>în diaspora</span></a>
       <br>
 
       {* ------------------------------------------------------------------*}
