@@ -15,9 +15,7 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
     </div>
     <br>
 
-    
     <table width="970" style="margin-top:12px">
-
       <!-- Running in 2016 -->
 
       <tr>

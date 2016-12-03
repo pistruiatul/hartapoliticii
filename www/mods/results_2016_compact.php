@@ -9,9 +9,8 @@ $t->assign("college_name", $words[1]);
 $t->assign("cam", $words[0]);
 
 $t->assign("party_name", $person->get2016Party());
-
-$t->assign("compact", true);
-$t->assign("candidates", getCollegeCandidates($college, "2016"));
+$t->assign("position", $person->get2016Position());
+$t->assign("details", $person->getAlegeri2016Details());
 
 $t->display("mod_results_2016.tpl", $college);
 

@@ -350,6 +350,13 @@ class Person {
     return $r['colegiu'];
   }
 
+  public function get2016Position() {
+    // We know that the person we are talking about is $person.
+    $sql = "SELECT idcandidat FROM results_2016 WHERE idperson = {$this->id}";
+    $r = mysql_fetch_array(mysql_query($sql));
+    return $r['idcandidat'];
+  }
+
   public function get2016Party() {
     // We know that the person we are talking about is $person.
     $sql = "SELECT partid FROM results_2016 WHERE idperson = {$this->id}";
@@ -466,6 +473,10 @@ class Person {
       case "results/2008": $moduleTitle = "Candidat parlamentare 2008"; break;
       case "results/2012": $moduleTitle = "Candidat 2012"; break;
       case "results/2016": $moduleTitle = "Candidat 2016"; break;
+      case "alegeri/2016": $moduleTitle =
+          "<img src=/images/icon_catavencu_2008.png style='margin:0 3px -2px 0'>" .
+          "Alegeri 2016";
+          break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare 2009"; break;
       case "catavencu/2008":
         $moduleTitle =
@@ -504,6 +515,7 @@ class Person {
       case "results/2008": $moduleTitle = "Rezultate alegeri, Noiembrie 2008"; break;
       case "results/2012": $moduleTitle = "Candidat parlamentare 2012"; break;
       case "results/2016": $moduleTitle = "Candidat alegeri 2016"; break;
+      case "alegeri/2016": $moduleTitle = "În baza de date alegeriparlamentare2016"; break;
       case "alegeri/2008": $moduleTitle = "Candidat Parlamentare 2008"; break;
       case "euro/2009":    $moduleTitle = "Alegeri europarlamentare, 7 Iunie 2009"; break;
       case "catavencu/2008":
@@ -852,6 +864,35 @@ class Person {
       $dval = $r['value'];
 
       array_push($details[$dkey], $dval);
+    }
+
+    return $details;
+  }
+
+  /**
+   * Returns a list of contact details (s.a. website and email) of this
+   * person imported from Agenda Parlamentarilor (http://agenda.grep.ro).
+   */
+  public function getAlegeri2016Details() {
+    $s = mysql_query("
+      SELECT attribute, value
+      FROM people_facts
+      WHERE idperson = {$this->id}
+      AND attribute LIKE 'alegeri/2016/%'");
+
+    $details = array();
+
+    while ($r = mysql_fetch_array($s)) {
+      $dkey = str_replace("alegeri/2016/", "", $r['attribute']);
+      $dval = $r['value'];
+
+      if ($dkey == "activitate_parlam") {
+        // [Vezi aici sinteza activității parlamentare]( // ) - Acest link duce la alt site
+        $dval = substr($dval, strlen("[Vezi aici sinteza activității parlamentare]("),
+            strlen($dval) - strlen("[Vezi aici sinteza activității parlamentare](") - strlen(") - Acest link duce la alt site"));
+      }
+
+      $details[$dkey] = $dval;
     }
 
     return $details;
