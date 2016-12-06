@@ -154,10 +154,9 @@ body {
 }
 
 .identity {
-  border: solid 3px #EEE;
-  margin-top: 2px;
-  padding: 20px;
-  background-color: #FAFAFA;
+  margin-left: 40px;
+  margin-top: -30px;
+  padding: 0;
   height: 100%;
 }
 

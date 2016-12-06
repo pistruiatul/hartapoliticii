@@ -236,7 +236,7 @@ if (!$t->is_cached('person_qualifiers.tpl', $person->id)) {
 $t->display('person_qualifiers.tpl', $person->id);
 
 $college_name = $person->getActiveParliamentElectoralCollege();
-if ($college_name) {
+if (false && $college_name) {
   $t = new Smarty();
   $t->assign('college_name', $college_name);
 
