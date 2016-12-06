@@ -23,7 +23,7 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
 
           <div class="big" style="margin-bottom:12px">Candidați 2016 - <b>{$county_name}, {$cam}</b> - {$locuri}
             <span style="float:right" class="small">
-              <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=S&sim=1&psd=43&pnl=27&usr=8&alde=6&pmp=5&udmr=5">Simulări procente alegeri</a>
+              <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam={$cam_param}&sim=1&psd=43&pnl=27&usr=8&alde=6&pmp=5&udmr=5">Simulări procente alegeri</a>
             </span>
           </div>
 

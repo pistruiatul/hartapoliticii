@@ -11,7 +11,7 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = '
           <img src="/images/icon_map.png" width="30" style="float:left">
           Caută colegiul<br>din care faci parte</span></a>
       <br-->
-      <a class="button big green" href="/?cid=sectii_votare">
+      <a class="button big green" href="https://www.registrulelectoral.ro/" target="_blank">
         <span style="width:160px">
           <img src="/images/icon_house.png" width="30" style="float:left">
           Secții de votare<br>în țară</span></a>
