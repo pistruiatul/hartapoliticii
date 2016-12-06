@@ -205,16 +205,15 @@ body {
 .module {
   font-size: 1.0em;
   background: #FFF;
-  border: solid 1px #EEE;
   padding: 3px;
   margin-top: 2px;
 }
 .module .moduletitle {
   font-size: 1.2em;
   font-weight: bold;
-  padding: 5px;
+  padding: 25px 0 3px 5px;
   color: #369;
-  background: #F8F8F8;
+  xbackground: #F8F8F8;
   border-bottom-style: solid;
   border-bottom-color: #9CF;
   border-bottom-width: 1px;
