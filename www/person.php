@@ -125,69 +125,7 @@ $t->display('person_top_bar.tpl');
 
 // ----------------------------------------------------------------
 // -- This person's left hand side identity, photo and links ------
-echo "<table width=970 cellpadding=0 cellspacing=0>".
-     "<td valign=top width=340>";
-echo "<div class=identity>";
-
-list($width, $height, $type, $attr) = getimagesize($img);
-
-$width = min(250, $width);
-$t = $width == 250 ? "width=$width" : "";
-
-echo "<div class=identity_img><img src=\"$img\" $t></div>";
-
-// ----------------------------------------------------------
-// -------------- The left hand side section ----------------
-
-$t = new Smarty();
-if ($uid == 0) $t->caching = 1;
-
-if (!$t->is_cached("person_sidebar_follow_button.tpl", $person->id)) {
-  $t->assign('following', $person->isFollowedByUserId($uid));
-  $t->assign('person_id', $person->id);
-  $t->assign('uid', $uid);
-  $t->assign('num_supporters', $person->getNumberOfSupporters());
-  $t->assign('supported_by_logged_in_user', $person->isSupportedBy($uid));
-  $t->assign('person_url', "http://hartapoliticii.ro/?name=" .
-                           $person->getNameForUrl());
-}
-$t->display("person_sidebar_follow_button.tpl", $person->id);
-
-$t = new Smarty();
-$t->caching = 1;
-if (!$t->is_cached('person_qualifiers.tpl', $person->id)) {
-  $t->assign('qualifiers', $person->getNewsQualifiers(10));
-}
-$t->display('person_qualifiers.tpl', $person->id);
-
-$college_name = $person->getActiveParliamentElectoralCollege();
-if ($college_name) {
-  $t = new Smarty();
-  $t->assign('college_name', $college_name);
-
-  $t->assign("pc_county_short", getCollegeCountyShort($college_name));
-  $t->assign("pc_county_id", getCollegeCountyId($college_name));
-  $t->assign("pc_number", getCollegeNumber($college_name));
-  $t->assign("pc_id", startsWith($college_name, "D") ? 15 : 14);
-
-  $t->display('person_sidebar_electoral_college.tpl');
-}
-
-
-// Display all contact details of the person
-include('mods/contact_details.php');
-
-// TODO: make the compact mods also something automatic.
-//include('mods/news_compact.php');
-
-include('mods/person_declarations_compact.php');
-
-$t = new Smarty();
-$t->assign('name', $person->displayName);
-$t->assign('idperson', $person->id);
-$t->display('person_sidebar_extra_links.tpl');
-
-echo "</div></td><td width=1></td>";
+echo "<table width=970 cellpadding=0 cellspacing=0>";
 
 // ----------------------------------------------------------
 // --------------- The main mods section --------------------
@@ -263,5 +201,68 @@ echo "</div>";
 ?>
 
 <?php
-echo "</td></table>";
+echo "</td><td valign=top width=340>";
+echo "<div class=identity>";
+
+list($width, $height, $type, $attr) = getimagesize($img);
+
+$width = min(250, $width);
+$t = $width == 250 ? "width=$width" : "";
+
+echo "<div class=identity_img><img src=\"$img\" $t></div>";
+
+// ----------------------------------------------------------
+// -------------- The left hand side section ----------------
+
+$t = new Smarty();
+if ($uid == 0) $t->caching = 1;
+
+if (!$t->is_cached("person_sidebar_follow_button.tpl", $person->id)) {
+  $t->assign('following', $person->isFollowedByUserId($uid));
+  $t->assign('person_id', $person->id);
+  $t->assign('uid', $uid);
+  $t->assign('num_supporters', $person->getNumberOfSupporters());
+  $t->assign('supported_by_logged_in_user', $person->isSupportedBy($uid));
+  $t->assign('person_url', "http://hartapoliticii.ro/?name=" .
+      $person->getNameForUrl());
+}
+$t->display("person_sidebar_follow_button.tpl", $person->id);
+
+$t = new Smarty();
+$t->caching = 1;
+if (!$t->is_cached('person_qualifiers.tpl', $person->id)) {
+  $t->assign('qualifiers', $person->getNewsQualifiers(10));
+}
+$t->display('person_qualifiers.tpl', $person->id);
+
+$college_name = $person->getActiveParliamentElectoralCollege();
+if ($college_name) {
+  $t = new Smarty();
+  $t->assign('college_name', $college_name);
+
+  $t->assign("pc_county_short", getCollegeCountyShort($college_name));
+  $t->assign("pc_county_id", getCollegeCountyId($college_name));
+  $t->assign("pc_number", getCollegeNumber($college_name));
+  $t->assign("pc_id", startsWith($college_name, "D") ? 15 : 14);
+
+  $t->display('person_sidebar_electoral_college.tpl');
+}
+
+
+// Display all contact details of the person
+include('mods/contact_details.php');
+
+// TODO: make the compact mods also something automatic.
+//include('mods/news_compact.php');
+
+include('mods/person_declarations_compact.php');
+
+$t = new Smarty();
+$t->assign('name', $person->displayName);
+$t->assign('idperson', $person->id);
+$t->display('person_sidebar_extra_links.tpl');
+
+echo "</div></td><td width=1></td>";
+
+echo "</table>";
 ?>
