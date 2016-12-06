@@ -35,6 +35,10 @@ body {
 .light_gray a {
   color: #CCC;
 }
+.really_light_gray,
+.really_light_gray a {
+  color: #EAEAEA;
+}
 .dark_gray {
   color: #555;
 }

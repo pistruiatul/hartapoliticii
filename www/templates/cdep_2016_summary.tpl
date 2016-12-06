@@ -46,8 +46,8 @@
         {/if}
           <td width="300" valign="top">
             {$county|ucwords}:
-            <a href="?cid=27&colegiul={$county|lower|replace:' ':'+'}&cam=S">Sen</a>,
-            <a href="?cid=27&colegiul={$county|lower|replace:' ':'+'}&cam=D">C. Dep</a>
+            <a href="?cid=27&colegiul={$county|lower|replace:' ':'+'}&cam=S">Sen</a> {$college.seats[0]},
+            <a href="?cid=27&colegiul={$county|lower|replace:' ':'+'}&cam=D">C. Dep</a> {$college.seats[1]}
           </td>
 
       {/foreach}

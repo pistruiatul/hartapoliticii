@@ -21,7 +21,31 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
       <tr>
         <td width="970" valign="top" colspan=2>
 
-          <div class="big" style="margin-bottom:12px">Candidați 2016 - <b>{$county_name}, {$cam}</b></div>
+          <div class="big" style="margin-bottom:12px">Candidați 2016 - <b>{$county_name}, {$cam}</b> - {$locuri}
+            <span style="float:right" class="small">
+              <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=S&sim=1&psd=43&pnl=27&usr=8&alde=6&pmp=5&udmr=5">Simulări procente alegeri</a>
+            </span>
+          </div>
+
+            {if $percentages}
+              <div style="padding:3px">
+                <form action="/" method="GET">
+                  <input type="hidden" name="cid" value="27">
+                  <input type="hidden" name="colegiul" value="{$county_name|lower|replace:' ':'+'}">
+                  <input type="hidden" name="cam" value="{$cam_param}">
+                  <input type="hidden" name="sim" value="1">
+                      {section name=p loop=$percentages}
+                          {strip}
+                              {$percentages[p].name}
+                              <input name="{$percentages[p].name}" value="{$percentages[p].p}" size="3">%,
+                          {/strip}
+                      {/section}
+
+                  <input type="submit" value="Simulează">
+                </form>
+              </div>
+            {/if}
+
           <table width="940" style="margin-top: 8px;">
             <tr>
             {section name=i loop=$parties}

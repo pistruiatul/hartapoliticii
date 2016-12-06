@@ -19,6 +19,9 @@ class Party {
    * I'm sorry future person that will have to deal with this by right now I just need
    * to hack this sorry. */
   public $lists;
+  // HACK HACK HACK - to sort parties in 2016 simulations;
+  // NOTE(vivi): This is the hackiest shitties changelist ever. :-)
+  public $sortIndex;
 
   /**
    * Constructs a Party object based on the id passed in as a parameter. The id
@@ -28,6 +31,7 @@ class Party {
    */
   public function Party($id) {
     $this->id = $id;
+    $this->sortIndex = 0;
     $this->lists = array();
 
     $s = mysql_query("SELECT name, long_name FROM parties WHERE id={$id}");
@@ -114,6 +118,7 @@ class Party {
 
       $person_object["displayed_party_name"] = $r["party"];
       $person_object["party_logo"] = $r["party"];
+      $person_object["makes_it"] = true;
 
       $candidates[] = $person_object;
     }

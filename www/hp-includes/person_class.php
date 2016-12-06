@@ -41,7 +41,6 @@ class Person {
    */
   public $allNames = array();
 
-
   /**
    * Sets the name of this person to the string given as a parameter.
    */
