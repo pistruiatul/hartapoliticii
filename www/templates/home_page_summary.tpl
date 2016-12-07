@@ -5,6 +5,12 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = '
 
 <table width=970 cellspacing=10>
   <tr>
+  <td colspan="2">
+    <h2>Alegeri 2016 - listele electorale pe județe</h2>
+    {include file="elections_2016_counties.tpl"}
+  </td>
+  </tr>
+  <tr>
     <td width=210 valign="top">
       <!--a class="button big green" href="/?cid=cauta_colegiu">
         <span style="width:160px">

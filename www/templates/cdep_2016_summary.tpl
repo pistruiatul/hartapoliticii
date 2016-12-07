@@ -4,15 +4,19 @@
   <tr>
     <td width=970 valign="top">
       <div class="college_search">
-        <img src="/images/cautare_colegiu.png" style="float:right; padding: 10px 0 30px 0;">
-        <br>
-        Pe 11 Decembrie 2016 se țin alegeri parlamentare - înapoi la voturi pe listă
+        <img src="/images/cautare_colegiu.png" style="float:right; margin-top:-10px;">
+        <h2>Alegeri 2016 - listele electorale pe județe</h2>
 
         <div class="small gray" style="line-height: 1.4em;margin: 10px 0 10px 0;">
-          Colegiile electorale s-au dus. <a href="/?cid=sectii_votare">Caută-ți secția de votare</a>.
+          Colegiile electorale s-au dus. <a href="https://www.registrulelectoral.ro/" target="_blank">Caută-ți secția de votare</a>.
         </div>
-
       </div>
+
+      <table width=970 cellspacing=15>
+        <tr>
+            {include file="elections_2016_counties.tpl"}
+        </tr>
+      </table>
 
       <table width=960>
         <td valign="top">
@@ -31,28 +35,6 @@
           {/literal}
         </td>
       </table>
-    </td>
-  </tr>
-</table>
-
-<table width=970 cellspacing=15>
-  <tr>
-    <td width=970 valign="top">
-
-      <table cellpadding=5 cellspacing=0>
-      {foreach from=$colleges item=college key=county name=counties}
-        {if $smarty.foreach.counties.index % 4 == 0}
-          <tr>
-        {/if}
-          <td width="300" valign="top">
-            {$county|ucwords}:
-            <a href="?cid=27&colegiul={$county|lower|replace:' ':'+'}&cam=S">Sen</a> {$college.seats[0]},
-            <a href="?cid=27&colegiul={$county|lower|replace:' ':'+'}&cam=D">C. Dep</a> {$college.seats[1]}
-          </td>
-
-      {/foreach}
-      <table>
-
     </td>
   </tr>
 </table>

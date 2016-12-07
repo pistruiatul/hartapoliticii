@@ -27,10 +27,10 @@ $t->assign("cam", $cam);
 $num_seats = $seats[$county_name][1];
 if ($cam == "Senat") {
   $num_seats = $seats[$county_name][0];
-  $t->assign("locuri", "{$seats[$county_name][0]} senatori");
+  $t->assign("locuri", "{$seats[$county_name][0]} mandate");
 } else {
   $num_seats = $seats[$county_name][1];
-  $t->assign("locuri", "{$seats[$county_name][1]} deputați");
+  $t->assign("locuri", "{$seats[$county_name][1]} mandate");
 }
 
 function cmp($a, $b) { return $a->sortIndex < $b->sortIndex; }

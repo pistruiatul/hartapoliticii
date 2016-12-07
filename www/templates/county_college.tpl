@@ -5,26 +5,20 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'electoral_college';clickHeatS
 
 <table width=970 cellspacing=15>
   <td>
-    <div style="float:right">
-      <a href="/?cid=sectii_votare">Caută secția ta de votare după adresă</a>
-    </div>
-
-    <div>Alegeri în județul {$county_name}:
-    <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=S">Senat</a> /
-    <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=D">Camera Deputaților</a>
-    </div>
-    <br>
-
     <table width="970" style="margin-top:12px">
       <!-- Running in 2016 -->
 
       <tr>
         <td width="970" valign="top" colspan=2>
 
-          <div class="big" style="margin-bottom:12px">Candidați 2016 - <b>{$county_name}, {$cam}</b> - {$locuri}
+          <div style="margin-bottom:12px; font-size: 1.4em;">Candidați 2016 - <b>{$county_name}, {$cam}</b> - {$locuri}
             <span style="float:right" class="small">
               <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam={$cam_param}&sim=1&psd=43&pnl=27&usr=8&alde=6&pmp=5&udmr=5">Simulări procente alegeri</a>
             </span>
+          </div>
+          <div class="small gray" style="xfloat:right">Vezi listele de la {$county_name} pentru
+            <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=S">Senat</a> /
+            <a href="?cid=27&colegiul={$county_name|lower|replace:' ':'+'}&cam=D">Camera Deputaților</a>
           </div>
 
             {if $percentages}
