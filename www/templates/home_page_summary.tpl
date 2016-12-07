@@ -9,6 +9,7 @@ clickHeatSite = 'hartapoliticii';clickHeatGroup = 'homepage';clickHeatServer = '
     <h2>Alegeri 2016 - listele electorale pe județe</h2>
     {include file="elections_2016_counties.tpl"}
   </td>
+
   </tr>
   <tr>
     <td width=210 valign="top">
