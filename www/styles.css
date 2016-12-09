@@ -57,6 +57,9 @@ body {
 .medium {
   font-size: 0.9em;
 }
+.medium a {
+  text-transform: capitalize;
+}
 .big {
   font-size: 1.2em;
 }
